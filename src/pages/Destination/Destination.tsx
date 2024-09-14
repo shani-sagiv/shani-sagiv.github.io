@@ -16,7 +16,7 @@ const Destination: React.FC<CountryProps> = ({}) => {
       content: (
         <p>
           This is the content for section 1
-          <div style={{ width: 50, backgroundColor: "red" }}>
+          <div style={{ width: "100%", backgroundColor: "red", fontSize: 40 }}>
             🐶 🐱 🐭 🐹 🐰 🦊 🐻 🐼 🐨 🐯 🦁 🐮 🐷 🐽 🐸 🐵 🐔 🐧 🐦 🐤 🐣 🐥 🦆
             🦅 🦉 🦇 🦋 🐌 🐛 🐜 🐝 🐞 🦗 🦂 🦀 🐢 🐍 🦎 🦖 🦕 🐙 🐡 🐠 🐟 🐬 🐳
             🐋 🦈 🐊 🐅 🐆 🦓 🦍 🦧 🦣 🦒 🦌 🐘 🦏 🦛 🐪 🐫 🦙 🦥 🦦 🦨 🦘 🦡 🐃
@@ -31,7 +31,9 @@ const Destination: React.FC<CountryProps> = ({}) => {
       content: (
         <p>
           This is the content for section 2
-          <div style={{ width: 50, backgroundColor: "orange" }}>
+          <div
+            style={{ width: "100%", backgroundColor: "orange", fontSize: 40 }}
+          >
             🌸 🌼 💐 🌹 🏵 🌻 🌺 🌷 🌱 🌿 🍀 🍃 🍂 🍁 🌾 🌵 🌴 🌳 🌲 🌷 🌹 🌻 🌺
             🌸 🏵 💮 🥀 💐 🍁 🌼 🌱 🌿 🍀 🍂 🌷 🌹 🌻 🌺 🏵 🌸 💐 🥀 🌼 🌱 🌵 🌾
             🌷 🍃 🍂 🍁 🌸 🌹 🌿 🍀 🌻 🏵 🌷 🌺 💮 🌴 🌲 🌳 🌵 🍃 🌼 🥀 🌾 🍁 🍂
@@ -46,7 +48,7 @@ const Destination: React.FC<CountryProps> = ({}) => {
       content: (
         <p>
           This is the content for section 3
-          <div style={{ width: 50, backgroundColor: "blue" }}>
+          <div style={{ width: "100%", backgroundColor: "blue", fontSize: 40 }}>
             🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 🌚 🌝 🌛 🌜 🌞 🌙 💫 ⭐ 🌟 ✨ 🌌 🌠 🚀 🛰 🛸
             🌍 🌎 🌏 🪐 ☄️ 🌑 🌕 🌖 🌗 🌘 🌒 🌓 🌔 🌙 🌟 🌠 ✨ 🌌 🚀 🛰 🌍 🌎 🪐
             ☄️ 🌑 🌕 🌝 🌟 🌠 ✨ 🌌 🌑 🛰 🚀 🛸 ☄️ 🪐 🌍 🌎 🌏 🌔 🌕 🌖 🌗 🌘 🌒
@@ -84,8 +86,6 @@ const Destination: React.FC<CountryProps> = ({}) => {
     <div className={"Destination"}>
       <Title title={"Destination"} />
       <Collapsibles items={items2} />
-
-      {/* Main container */}
       <StickyHeaderScroll items={items} />
     </div>
   );
