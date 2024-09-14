@@ -1,11 +1,7 @@
 import React from "react";
 import "./Country.scss";
-import Card from "../../components/Card/Card";
 import { useNavigate } from "react-router-dom";
-import Title from "../../components/Title/Title";
-import { Collapsible } from "components/Collapsible";
-import { Collapsibles } from "components/Collapsibles";
-// import {Destination} from "pages/Destination/index";
+import { Cards, Collapsibles, Title } from "components";
 
 interface CountryProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -69,28 +65,16 @@ const Country: React.FC<CountryProps> = ({}) => {
         "This is the collapsible content that will be shown when clicked!",
     },
   ];
-
+  const destinations = Array.from({ length: 10 }, (_, index) => ({
+    title: "יעד בדיקה " + index,
+    image: "https://www.yo-yoo.co.il/coolpics/images/uploads/67219d.jpg",
+    navigate: "/Destination",
+  }));
   return (
     <div className={"country"}>
       <Title title={"Country"} />
       <Collapsibles items={items2} />
-
-      <div
-        style={{
-          width: "100%",
-          height: "auto",
-          border: "2px solid red",
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          overflow: "auto",
-          justifyContent: "space-around",
-        }}
-      >
-        {Array.from({ length: 20 }, (_, index) => (
-          <Card onClick={() => navigate("/Destination")} />
-        ))}
-      </div>
+      <Cards items={destinations} />
     </div>
   );
 };

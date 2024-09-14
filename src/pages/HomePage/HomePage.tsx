@@ -2,11 +2,17 @@ import React from "react";
 import "./HomePage.scss";
 import { useNavigate } from "react-router-dom";
 import Card from "../../components/Card/Card";
+import { Cards } from "components/Cards";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const HomePage: React.FC<HomePageProps> = ({}) => {
   const navigate = useNavigate();
+  const destinations = Array.from({ length: 10 }, (_, index) => ({
+    title: "יעד בדיקה " + index,
+    image: "https://www.yo-yoo.co.il/coolpics/images/uploads/67219d.jpg",
+    navigate: "/Country",
+  }));
 
   return (
     <div className={"home-page"}>
@@ -18,22 +24,10 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
           border: "2px solid red",
         }}
       />
-      <div
-        style={{
-          width: "90%",
-          height: "auto",
-          border: "2px solid red",
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "nowrap",
-          overflow: "auto",
-          alignContent: "center",
-        }}
-      >
-        {Array.from({ length: 20 }, (_, index) => (
-          <Card onClick={() => navigate("/Country")} />
-        ))}
+      <div style={{ width: "100%", height: "200px", overflow: "auto" }}>
+        <Cards items={destinations} style={{ flexWrap: "nowrap" }} />
       </div>
+
       <img
         src={"https://m.media-amazon.com/images/I/71ZVA6QfbOL._AC_SL1000_.jpg"}
         style={{
