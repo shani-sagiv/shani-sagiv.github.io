@@ -1,11 +1,17 @@
-import React from 'react';
-import './App.scss';
-import {HomePage} from "pages";
+import React from "react";
+import "./App.scss";
+import { NavigationProvider } from "hooks/Navigation.hook";
+import { BrowserRouter } from "react-router-dom";
+import InnerRoutes from "./Routes";
 
 function App() {
   return (
     <div className="App">
-      <HomePage/>
+      <BrowserRouter>
+        <NavigationProvider>
+          <InnerRoutes />
+        </NavigationProvider>
+      </BrowserRouter>
     </div>
   );
 }
