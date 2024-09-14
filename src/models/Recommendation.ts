@@ -6,4 +6,6 @@ export interface Recommendation {
   description: string;
   images?: string[];
   price?: number | string;
+  coordinates?: string;
+  googleMapLink?: string;
 }
