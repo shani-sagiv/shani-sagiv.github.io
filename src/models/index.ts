@@ -1,4 +1,4 @@
 export * from "./Recommendation";
 export * from "./GenericModels";
-export * from "./Location";
+export * from "./Destination";
 export * from "./Country";

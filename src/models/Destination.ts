@@ -1,12 +1,14 @@
 import { Recommendation } from "models";
 import { DisplayName } from "models/GenericModels"; // Assuming Recommendation is defined in a separate file
 
-interface Location {
+export interface Destination {
   // Basic Info
   id: string;
   name: string;
   displayName: DisplayName;
   description: string; // Description of the location
+  dates: { from: Date; to: Date }[];
+  shells?: string[];
 
   // Recommendations
   hotels: Recommendation[]; // Array of hotel recommendations
