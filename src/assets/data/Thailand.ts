@@ -22,7 +22,8 @@ export const KOH_LANTA: Destination = {
     english: "Koh Lanta",
   },
   dates: [{ from: createDate("17/04/2024"), to: createDate("29/04/2024") }],
-  shells: [shell1],
+  // shells: [shell1],
+  shells: [],
   description:
     "קו לנטה הוא אי שקט ורגוע בדרום תאילנד, הידוע בחופים זהובים, מי טורקיז ושוניות אלמוגים מושלמות לצלילה ושנורקלינג. האי מציע אווירה נינוחה עם עיירות חוף קטנות, נופים ירוקים ומקומות מפלט למי שמחפש להתרחק מהמולת התיירות.",
   hotels: [
