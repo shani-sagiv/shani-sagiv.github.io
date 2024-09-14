@@ -1,0 +1,12 @@
+.collapsible{
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: right;
+  background: linear-gradient(transparent 60%, rgba(black, 0.3) 100%);;
+  .collapsible-content{
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+}

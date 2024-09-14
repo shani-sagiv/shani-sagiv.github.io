@@ -16,15 +16,27 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
 
   return (
     <div className={"home-page"}>
+      <div className={"drops-fade"}>
+        <img src={"https://i.ytimg.com/vi/Hl9imbx9QBY/maxresdefault.jpg"} />
+      </div>
+      {/*<img*/}
+      {/*  style={{*/}
+      {/*    // marginTop: "5vh",*/}
+      {/*    width: "100%",*/}
+      {/*    height: "40vh",*/}
+      {/*    // maskImage: "radial-gradient(circle at bottom, transparent 30%, black 100%)"*/}
+      {/*  }}*/}
+      {/*  src={"https://i.ytimg.com/vi/Hl9imbx9QBY/maxresdefault.jpg"}*/}
+      {/*/>*/}
+
       <div
         style={{
-          marginTop: "5vh",
-          width: "90%",
-          height: "40vh",
-          border: "2px solid red",
+          width: "100%",
+          height: "200px",
+          overflow: "auto",
+          marginTop: -60,
         }}
-      />
-      <div style={{ width: "100%", height: "200px", overflow: "auto" }}>
+      >
         <Cards items={destinations} style={{ flexWrap: "nowrap" }} />
       </div>
 

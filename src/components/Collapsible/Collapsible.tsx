@@ -14,15 +14,7 @@ const Collapsible: React.FC<CollapsibleProps> = ({ title, children }) => {
   };
 
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "auto",
-        padding: "10px",
-        boxSizing: "border-box",
-        textAlign: "right",
-      }}
-    >
+    <div className="collapsible">
       <div onClick={toggleCollapse} style={{ cursor: "pointer" }}>
         {title}
       </div>
