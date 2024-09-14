@@ -1,5 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import classnames from "classnames";
+import "./StickyHeaderScroll.scss";
 
 interface StickyHeaderScrollProps extends React.HTMLAttributes<HTMLDivElement> {
   items: { title: React.ReactNode; content: React.ReactNode }[];
@@ -7,10 +9,10 @@ interface StickyHeaderScrollProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
   const navigate = useNavigate();
-
-  // Create refs for each section
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [currentItemIndex, setCurrentItemIndex] = useState<number | null>(null);
 
+  // Scroll to the section when clicked
   const scrollToSection = (index: number) => {
     const section = sectionRefs.current[index];
     if (section) {
@@ -21,6 +23,37 @@ const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
     }
   };
 
+  // Observe visibility of sections to get the currently visible section
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = sectionRefs.current.indexOf(
+              entry.target as HTMLDivElement,
+            );
+            setCurrentItemIndex(index);
+          }
+        });
+      },
+      { threshold: 0.5 }, // Trigger when 50% of the section is visible
+    );
+
+    sectionRefs.current.forEach((section) => {
+      if (section) {
+        observer.observe(section);
+      }
+    });
+
+    return () => {
+      sectionRefs.current.forEach((section) => {
+        if (section) {
+          observer.unobserve(section);
+        }
+      });
+    };
+  }, []);
+
   return (
     <div
       style={{
@@ -29,31 +62,17 @@ const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
         display: "flex",
         flexDirection: "column",
         alignContent: "center",
-        overflow: "visible", // Ensure sticky works
+        overflow: "visible",
       }}
     >
-      {/* Orange sticky header */}
-      <div
-        style={{
-          width: "100%",
-          height: "100px",
-          position: "sticky",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-around",
-          alignItems: "center",
-          top: 0, // Sticky at the top when scrolling down
-          zIndex: 1000, // Ensure it's on top of other content
-        }}
-      >
+      {/* Sticky Header */}
+      <div className={"sticky-header"}>
         {items.map((item, index) => (
           <div
             key={index}
-            style={{
-              textAlign: "center",
-              cursor: "pointer",
-              borderBottom: "1px solid black",
-            }}
+            className={classnames("sticky-header-item", {
+              current: currentItemIndex === index,
+            })}
             onClick={() => scrollToSection(index)} // Click to scroll to the section
           >
             <>{item.title}</>
@@ -61,18 +80,15 @@ const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
         ))}
       </div>
 
-      {/* Scrollable content */}
+      {/* Scrollable Content */}
       {items.map((item, index) => (
         <div
           key={index}
           ref={(el) => (sectionRefs.current[index] = el)} // Assign ref to each section
-          style={{
-            width: "100%",
-            boxSizing: "border-box",
-          }}
+          style={{ width: "100%", boxSizing: "border-box" }}
         >
           <h1>{item.title}</h1>
-          <div>{item.content}</div> {/* Render the content dynamically */}
+          <div>{item.content}</div>
         </div>
       ))}
     </div>
