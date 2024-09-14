@@ -1,22 +1,49 @@
 import React from "react";
 import "./Title.scss";
+import classnames from "classnames";
 
 interface TitleProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
 }
 
 const Title: React.FC<TitleProps> = ({ title }) => {
+  const wordArtIds = [
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+    "ten",
+    "eleven",
+    "twelve",
+    "thirteen",
+    "fourteen",
+    "fifteen",
+    "sixteen",
+    "seventeen",
+    "eighteen",
+    "nineteen",
+    "twenty",
+    "twentyone",
+    "twentytwo",
+  ];
+
+  // Function to return a random ID from the array
+  const getRandomWordArtId = () => {
+    const randomIndex = Math.floor(Math.random() * wordArtIds.length);
+    return wordArtIds[randomIndex];
+  };
+
   return (
-    <div
-      style={{
-        width: "90%",
-        height: "auto",
-        textAlign: "right",
-        border: "2px solid red",
-      }}
-    >
-      <h1>{title}</h1>
-    </div>
+    <section className={`style-${getRandomWordArtId()}`}>
+      <div className="wordart">
+        <div className={classnames(`preview`)}>{title}</div>
+      </div>
+    </section>
   );
 };
 
