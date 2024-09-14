@@ -6,17 +6,46 @@ interface TitleProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Title: React.FC<TitleProps> = ({ title }) => {
+  const wordArtIds = [
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+    "ten",
+    "eleven",
+    "twelve",
+    "thirteen",
+    "fourteen",
+    "fifteen",
+    "sixteen",
+    "seventeen",
+    "eighteen",
+    "nineteen",
+    "twenty",
+    "twentyone",
+    "twentytwo",
+  ];
+
+  // Function to return a random ID from the array
+  const getRandomWordArtId = () => {
+    const randomIndex = Math.floor(Math.random() * wordArtIds.length);
+    return wordArtIds[randomIndex];
+  };
+
   return (
-    <div
-      style={{
-        width: "90%",
-        height: "auto",
-        textAlign: "right",
-        border: "2px solid red",
-      }}
+    <section
+      className={`style-${getRandomWordArtId()}`}
+      style={{ margin: "10px 30px" }}
     >
-      <h1>{title}</h1>
-    </div>
+      <div className="wordart">
+        <div className={`preview`}>{title}</div>
+      </div>
+    </section>
   );
 };
 
