@@ -1,6 +1,5 @@
 import React from "react";
 import "./Title.scss";
-import classnames from "classnames";
 
 interface TitleProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -39,9 +38,12 @@ const Title: React.FC<TitleProps> = ({ title }) => {
   };
 
   return (
-    <section className={`style-${getRandomWordArtId()}`}>
+    <section
+      className={`style-${getRandomWordArtId()}`}
+      style={{ margin: "10px 30px" }}
+    >
       <div className="wordart">
-        <div className={classnames(`preview`)}>{title}</div>
+        <div className={`preview`}>{title}</div>
       </div>
     </section>
   );

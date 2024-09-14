@@ -65,10 +65,9 @@ const Destination: React.FC<CountryProps> = ({}) => {
       {/* Container with collapsibles */}
       <div
         style={{
-          width: "95%",
+          width: "100%",
           height: "auto",
-          border: "2px solid green",
-          marginBottom: "20px",
+          boxShadow: "0px 0px 9px 4px black",
         }}
       >
         <Collapsible title="Click to Expand 1">
@@ -78,6 +77,13 @@ const Destination: React.FC<CountryProps> = ({}) => {
           This is the collapsible content that will be shown when clicked!
         </Collapsible>
         <Collapsible title="Click to Expand 3">
+          This is the collapsible content that will be shown when clicked!
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
           This is the collapsible content that will be shown when clicked!
         </Collapsible>
       </div>
