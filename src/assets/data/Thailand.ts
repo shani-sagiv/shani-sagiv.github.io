@@ -12,11 +12,13 @@ export const THAILAND: Country = {
   description:
     "תאילנד היא מדינה טרופית בדרום-מזרח אסיה, המפורסמת בחופים קסומים, מקדשים בודהיסטיים מרהיבים ותרבות עשירה. בנוסף, המדינה מציעה חוויות קולינריות מגוונות, חיי לילה תוססים ושווקים ססגוניים",
   gold_recommendation: [],
+  profileImg: KHO_LANTA.profile,
 };
 
 export const KOH_LANTA: Destination = {
   id: "KOH_LANTA",
   name: "KOH LANTA",
+  profileImg: KHO_LANTA.profile,
   displayName: {
     hebrew: "קו לנטה",
     english: "Koh Lanta",
@@ -55,6 +57,16 @@ export const KOH_LANTA: Destination = {
       googleMapLink: "https://maps.app.goo.gl/t66ajYqb2s9AKVnw5",
       images: KHO_LANTA.restaurantsMoonwalk,
     },
+
+    {
+      name: "M Thai Food",
+      type: "Restaurant",
+      description:
+        "ארוחת בוקר חמודה ב100 באט!! יש גם אחלה של צהריים/ערב. ממש דקה הליכה מהמלון",
+      coordinates: "7.5774966710527485, 99.03474611595301",
+      googleMapLink: "https://maps.app.goo.gl/9T8JspxesXBq9HnTA",
+      images: KHO_LANTA.restaurantsMoonwalk,
+    },
   ],
   attractions: [
     {
@@ -71,6 +83,15 @@ export const KOH_LANTA: Destination = {
       type: "Attraction",
       description: "יש שם גאות ושפל ממש חזקים אז אפשר לבוא לשם לראות המון מהים",
       images: KHO_LANTA.beachTravelImages,
+    },
+    {
+      name: "שוק לילה",
+      type: "Attraction",
+      description:
+        "בצפון האי יש שוק קטן וחמוד בלילה, יש דוכני אוכל נחמד וכיף להסתובב",
+      coordinates: "7.649099594951741, 99.03700163322618",
+      googleMapLink: "https://maps.app.goo.gl/FxiaFTCA2EckFqUV6",
+      images: KHO_LANTA.attractionsMarket,
     },
   ],
   nightlife: [
