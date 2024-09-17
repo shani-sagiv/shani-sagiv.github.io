@@ -1,0 +1,14 @@
+@import "styles/index";
+
+.breadcrumb-wrapper {
+  //   background-color: blue;
+  display: flex;
+  flex-direction: row;
+  color: $dark-teal;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 1vh;
+  text-decoration: none;
+  .breadcrumb-single {
+  }
+}

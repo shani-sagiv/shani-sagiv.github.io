@@ -1,7 +1,7 @@
 import React from "react";
 import "./HomePage.scss";
 import { useNavigate } from "react-router-dom";
-import { Cards } from "components/Cards";
+import { Cards, Map } from "components";
 import Marquee from "react-fast-marquee";
 import shaniInSunsetSrc from "assets/shani-in-sunset.jpeg";
 import { COUNTRIES } from "../../Routes";
@@ -34,6 +34,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
             top: 0,
             right: 0,
             width: "100%",
+            fontSize: "1.5rem",
           }}
         >
           <span style={{ padding: "0 10px" }}>👑 שגיב ושני המלכים </span>

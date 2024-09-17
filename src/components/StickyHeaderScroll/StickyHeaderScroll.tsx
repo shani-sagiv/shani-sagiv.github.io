@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import classnames from "classnames";
 import "./StickyHeaderScroll.scss";
 
@@ -12,14 +11,12 @@ interface StickyHeaderScrollProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
-  const navigate = useNavigate();
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [currentItemIndex, setCurrentItemIndex] = useState<number | null>(null);
+  const visibleSections = useRef<Set<number>>(new Set());
 
   // Scroll to the section when clicked
   const scrollToSection = (index: number) => {
-    console.log(sectionRefs);
-    console.log(index);
     const section = sectionRefs.current[index];
     if (section) {
       const yOffset = -70;
@@ -34,15 +31,26 @@ const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const index = sectionRefs.current.indexOf(
+            entry.target as HTMLDivElement
+          );
+
           if (entry.isIntersecting) {
-            const index = sectionRefs.current.indexOf(
-              entry.target as HTMLDivElement,
-            );
-            setCurrentItemIndex(index);
+            // Add the currently visible section index
+            visibleSections.current.add(index);
+          } else {
+            // Remove the section index when it goes off-screen
+            visibleSections.current.delete(index);
           }
+
+          // Find the lowest index of visible sections
+          const lowestVisibleIndex = Math.min(
+            ...Array.from(visibleSections.current)
+          );
+          setCurrentItemIndex(lowestVisibleIndex);
         });
       },
-      { threshold: 0.5 }, // Trigger when 50% of the section is visible
+      { threshold: 0 } // Trigger as soon as any part of the section is visible
     );
 
     sectionRefs.current.forEach((section) => {
