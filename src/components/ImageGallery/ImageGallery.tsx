@@ -7,7 +7,7 @@ import "./ImageGallery.scss";
 interface ImageGalleryProps extends React.HTMLAttributes<HTMLDivElement> {
   images: Array<{
     original: string;
-    thumbnail: string;
+    thumbnail?: string;
   }>;
 }
 

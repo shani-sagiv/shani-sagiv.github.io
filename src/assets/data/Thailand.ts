@@ -89,7 +89,7 @@ export const KOH_LANTA: Destination = {
         "ארוחת בוקר חמודה ב100 באט!! יש גם אחלה של צהריים/ערב. ממש דקה הליכה מהמלון",
       coordinates: "7.5774966710527485, 99.03474611595301",
       googleMapLink: "https://maps.app.goo.gl/9T8JspxesXBq9HnTA",
-      images: KHO_LANTA.restaurantsMoonwalk,
+      // images: KHO_LANTA.restaurantsMoonwalk,
     },
   ],
   attractions: [

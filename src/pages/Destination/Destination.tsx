@@ -6,9 +6,9 @@ import Title from "../../components/Title/Title";
 import StickyHeaderScroll from "components/StickyHeaderScroll/StickyHeaderScroll";
 import { Collapsibles } from "components";
 import { Recommendation } from "models/Recommendation";
-import Hotel from "../../components/Hotel/Hotel";
+import { Recommendation as RecommendationComponent } from "components";
 import { calculateDaysBetweenDates } from "../../helpers/dateHelpers";
-import ImageGallery from "react-image-gallery";
+import { ImageGallery } from "components";
 
 interface CountryProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
@@ -36,22 +36,30 @@ const Destination: React.FC<CountryProps> = ({
       {
         title: "🏨 מלונות 🏨",
         tabTitle: <h1>🏨</h1>,
-        content: hotels.map((r) => <Hotel hotel={r} />),
+        content: hotels.map((r) => (
+          <RecommendationComponent recommendation={r} />
+        )),
       },
       {
         title: "🍔 מסעדות 🍔",
         tabTitle: <h1>🍔</h1>,
-        content: foods.map((r) => <Hotel hotel={r} />),
+        content: foods.map((r) => (
+          <RecommendationComponent recommendation={r} />
+        )),
       },
       {
         title: "🎡 אטרקציות 🎡",
         tabTitle: <h1>🎡</h1>,
-        content: attractions.map((r) => <Hotel hotel={r} />),
+        content: attractions.map((r) => (
+          <RecommendationComponent recommendation={r} />
+        )),
       },
       {
         title: "🕺 חיי לילה 🕺",
         tabTitle: <h1>🕺</h1>,
-        content: nightlife.map((r) => <Hotel hotel={r} />),
+        content: nightlife.map((r) => (
+          <RecommendationComponent recommendation={r} />
+        )),
       },
     ];
   };
@@ -59,13 +67,7 @@ const Destination: React.FC<CountryProps> = ({
     return [
       {
         title: "shells",
-        content: (
-          <ImageGallery
-            showPlayButton={false}
-            showThumbnails={false}
-            items={shells.map((i) => ({ original: i, thumbnail: i }))}
-          />
-        ),
+        content: <ImageGallery images={shells.map((i) => ({ original: i }))} />,
       },
     ];
   };
