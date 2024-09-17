@@ -1,7 +1,7 @@
 import React from "react";
 import "./HomePage.scss";
 import { useNavigate } from "react-router-dom";
-import { Cards, Map } from "components";
+import { Cards } from "components";
 import Marquee from "react-fast-marquee";
 import shaniInSunsetSrc from "assets/shani-in-sunset.jpeg";
 import { COUNTRIES } from "../../Routes";

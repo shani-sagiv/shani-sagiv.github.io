@@ -6,6 +6,5 @@ export { Modal } from "./Modal";
 export { Title } from "./Title";
 export { Collapsible } from "./Collapsible";
 export { Collapsibles } from "./Collapsibles";
-export { Map } from "./Map";
 export { BreadcrumbNavigation } from "./BreadcrumbNavigation";
 export { ImageGallery } from "./ImageGallery";

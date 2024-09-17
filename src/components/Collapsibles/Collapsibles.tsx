@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import "./Collapsibles.scss";
 import { Collapsible } from "components/Collapsible";
 import { ImageGallery } from "components";
@@ -6,8 +6,9 @@ import { ImageGallery } from "components";
 interface CollapsibleProps extends React.HTMLAttributes<HTMLDivElement> {
   items: {
     title: any | React.ReactNode;
-    content: any | React.ReactNode;
+    content?: any | React.ReactNode;
     images?: string[];
+    style?: CSSProperties;
   }[];
 }
 
@@ -39,7 +40,7 @@ const Collapsibles: React.FC<CollapsibleProps> = ({ items }) => {
                 }))}
               />
             )}
-            {item.content}
+            {item.content ? item.content : null}
           </div>
         </Collapsible>
       ))}

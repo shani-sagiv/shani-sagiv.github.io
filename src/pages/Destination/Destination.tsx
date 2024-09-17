@@ -1,14 +1,15 @@
 import React from "react";
-import "./Destination.scss";
-import Card from "../../components/Card/Card";
 import { useNavigate } from "react-router-dom";
-import Title from "../../components/Title/Title";
 import StickyHeaderScroll from "components/StickyHeaderScroll/StickyHeaderScroll";
-import { Collapsibles } from "components";
-import { Recommendation } from "models/Recommendation";
-import { Recommendation as RecommendationComponent } from "components";
-import { calculateDaysBetweenDates } from "../../helpers/dateHelpers";
-import { ImageGallery } from "components";
+import { Recommendation } from "models";
+import { calculateDaysBetweenDates } from "helpers/dateHelpers";
+import {
+  Title,
+  ImageGallery,
+  Collapsibles,
+  Recommendation as RecommendationComponent,
+} from "components";
+import "./Destination.scss";
 
 interface CountryProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
@@ -67,7 +68,14 @@ const Destination: React.FC<CountryProps> = ({
     return [
       {
         title: "shells",
-        content: <ImageGallery images={shells.map((i) => ({ original: i }))} />,
+        content: (
+          <ImageGallery
+            style={{
+              width: "100%",
+            }}
+            images={shells.map((i) => ({ original: i }))}
+          />
+        ),
       },
     ];
   };
