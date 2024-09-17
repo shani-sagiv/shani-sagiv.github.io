@@ -2,8 +2,6 @@ import React from "react";
 import "./Country.scss";
 import { useNavigate } from "react-router-dom";
 import { Cards, Collapsibles, Title } from "components";
-import ImageGallery from "react-image-gallery";
-import "react-image-gallery/styles/css/image-gallery.css";
 import { Destination, Recommendation } from "models";
 import { COUNTRIES } from "../../Routes";
 import { getNameToDisplay } from "../../helpers/dateHelpers";
@@ -24,20 +22,22 @@ const Country: React.FC<CountryProps> = ({
   const navigate = useNavigate();
   const items2 = goldRecommendation.map((r) => ({
     title: r.name,
-    content: (
-      <>
-        {r.description}
-        {/*{!r.images ? null : (*/}
-        {/*  <span>*/}
-        {/*    <ImageGallery*/}
-        {/*      showPlayButton={false}*/}
-        {/*      showThumbnails={false}*/}
-        {/*      items={r.images.map((i) => ({ original: i, thumbnail: i }))}*/}
-        {/*    />*/}
-        {/*  </span>*/}
-        {/*)}*/}
-      </>
-    ),
+    content: r.description,
+    images: r.images,
+    // content: (
+    //   <>
+    //     {r.description}
+    //     {/*{!r.images ? null : (*/}
+    //     {/*  <span>*/}
+    //     {/*    <ImageGallery*/}
+    //     {/*      showPlayButton={false}*/}
+    //     {/*      showThumbnails={false}*/}
+    //     {/*      items={r.images.map((i) => ({ original: i, thumbnail: i }))}*/}
+    //     {/*    />*/}
+    //     {/*  </span>*/}
+    //     {/*)}*/}
+    //   </>
+    // ),
   }));
   const cards = destinations.map((dest) => ({
     title: getNameToDisplay(dest.displayName),

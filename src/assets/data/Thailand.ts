@@ -1,6 +1,7 @@
 import { createDate } from "helpers/dateHelpers";
 import { Country, Destination } from "models";
-import { KHO_LANTA } from "../img/Thailand/KohLanta/index";
+import simSrc from "assets/img/Thailand/sim.jpeg";
+import { KHO_LANTA } from "assets/img/Thailand/KohLanta";
 
 export const THAILAND: Country = {
   id: "THA",
@@ -13,11 +14,26 @@ export const THAILAND: Country = {
     "תאילנד היא מדינה טרופית בדרום-מזרח אסיה, המפורסמת בחופים קסומים, מקדשים בודהיסטיים מרהיבים ותרבות עשירה. בנוסף, המדינה מציעה חוויות קולינריות מגוונות, חיי לילה תוססים ושווקים ססגוניים",
   gold_recommendation: [
     {
+      name: "תחבורה",
+      type: "Info",
+      description:
+        "כל נסיעה כמעט אפשר לסגור דרך 12go(כולל מעבורות), הסליפרים השווים זה הvip, המספר זה כמות המיטות אז ככל שנמוך יותר המיטות יותר גדולות(20+-30~)" +
+        "\n" +
+        "יש שם את הגוגל מיקום של התחנה עלייה וירידה חשוב לבדוק לפני",
+    },
+    {
       name: "יתושים",
-      type: "Attraction",
+      type: "Info",
       description:
         "נגד יתושים: ספריי ורוד מה7/11 " + "\n" + "נגד עקיצות: קוף מחזיק אפרסק",
       images: KHO_LANTA.mosquitos,
+    },
+    {
+      name: "סים",
+      type: "Info",
+      description:
+        "יש ב7/11 סימים ממש בזול, יש להם לכמה מספרי ימים, כל אחד הוא כמות גיגה פר יום אז כדאי לבדוק כמה משתמשים כי לא תמיד צריך הרבה",
+      images: [simSrc],
     },
   ],
   profileImg: KHO_LANTA.profile,

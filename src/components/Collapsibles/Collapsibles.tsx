@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Collapsibles.scss";
 import { Collapsible } from "components/Collapsible";
+import { ImageGallery } from "components";
 
 interface CollapsibleProps extends React.HTMLAttributes<HTMLDivElement> {
   items: {
     title: any | React.ReactNode;
     content: any | React.ReactNode;
+    images?: string[];
   }[];
 }
 
@@ -13,7 +15,33 @@ const Collapsibles: React.FC<CollapsibleProps> = ({ items }) => {
   return (
     <div style={{ width: "100%" }}>
       {items.map((item, i) => (
-        <Collapsible title={item.title}>{item.content}</Collapsible>
+        <Collapsible title={item.title}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              whiteSpace: "pre-line",
+              alignItems: "right",
+              justifyContent: "flex-start",
+            }}
+          >
+            {!item.images ? null : (
+              <ImageGallery
+                style={{
+                  width: "30vw",
+                  maxWidth: 200,
+                  float: "right",
+                  marginLeft: 10,
+                }}
+                images={item.images.map((i) => ({
+                  original: i,
+                  thumbnail: i,
+                }))}
+              />
+            )}
+            {item.content}
+          </div>
+        </Collapsible>
       ))}
     </div>
   );
