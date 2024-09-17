@@ -24,20 +24,22 @@ const Country: React.FC<CountryProps> = ({
   const navigate = useNavigate();
   const items2 = goldRecommendation.map((r) => ({
     title: r.name,
-    content: (
-      <>
-        {r.description}
-        {/*{!r.images ? null : (*/}
-        {/*  <span>*/}
-        {/*    <ImageGallery*/}
-        {/*      showPlayButton={false}*/}
-        {/*      showThumbnails={false}*/}
-        {/*      items={r.images.map((i) => ({ original: i, thumbnail: i }))}*/}
-        {/*    />*/}
-        {/*  </span>*/}
-        {/*)}*/}
-      </>
-    ),
+    content: r.description,
+    images: r.images,
+    // content: (
+    //   <>
+    //     {r.description}
+    //     {/*{!r.images ? null : (*/}
+    //     {/*  <span>*/}
+    //     {/*    <ImageGallery*/}
+    //     {/*      showPlayButton={false}*/}
+    //     {/*      showThumbnails={false}*/}
+    //     {/*      items={r.images.map((i) => ({ original: i, thumbnail: i }))}*/}
+    //     {/*    />*/}
+    //     {/*  </span>*/}
+    //     {/*)}*/}
+    //   </>
+    // ),
   }));
   const cards = destinations.map((dest) => ({
     title: getNameToDisplay(dest.displayName),

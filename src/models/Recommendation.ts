@@ -2,7 +2,8 @@ export type RecommendationType =
   | "Hotel"
   | "Restaurant"
   | "Attraction"
-  | "NightLife";
+  | "NightLife"
+  | "Info";
 
 export interface Recommendation {
   name: string;
