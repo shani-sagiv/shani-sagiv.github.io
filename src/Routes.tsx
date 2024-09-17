@@ -6,10 +6,10 @@ import { THAILAND, KOH_LANTA } from "assets/data";
 import { Country } from "pages";
 import { Destination } from "pages/Destination"; // Import your country data
 
-const countries = {
-  THAILAND: [KOH_LANTA, ANOTHER_PLACE],
-  VIETNAM: [TEST, ANOTHER_TEST],
-};
+// const countries = {
+//   THAILAND: [KOH_LANTA, ANOTHER_PLACE],
+//   VIETNAM: [TEST, ANOTHER_TEST],
+// };
 
 function InnerRoutes() {
   const ThailandPath: RouteObject = {
