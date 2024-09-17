@@ -1,4 +1,6 @@
-.home-page{
+@import "styles/index";
+
+.home-page {
   height: 100%;
   width: 100%;
   display: flex;
@@ -11,9 +13,10 @@
   > * {
     flex-shrink: 0;
   }
-  background: linear-gradient(270deg, #8D6E63, #4CAF50, #81D4FA, #FFE0B2);
+  // background: linear-gradient(270deg, $peach, $coral, $green, $dark-teal);
+  background: linear-gradient(270deg, #f9e2df, #f7b097, #a6d3b4, #557d74);
   background-size: 800% 800%;
-  animation: GradientWave 16s ease infinite;
+  animation: GradientWave 20s ease infinite;
 }
 
 @keyframes GradientWave {
@@ -41,6 +44,6 @@
   object-fit: cover;
   //filter: blur(1px); /* Add a slight blur for a smooth transition */
   //mask-image: radial-gradient(circle at bottom, transparent 50%, white 80%);
-  mask-image: linear-gradient(white 10%,white 50%, transparent 100%);
+  mask-image: linear-gradient(white 10%, white 50%, transparent 100%);
   mask-size: 100% 100%;
 }

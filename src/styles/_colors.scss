@@ -13,61 +13,53 @@ $red: #ff4141;
 //todo: Remove
 
 // Base and Accent Colors
-$earth-deep-forest: #2E7D32;   // Rich forest green, ideal for footers and accents
+$earth-deep-forest: #2e7d32; // Rich forest green, ideal for footers and accents
 $earth-midnight-blue: #283593; // Deep blue, great for prominent CTAs and headers
-$earth-sunset-orange: #EF6C00; // Vibrant orange, perfect for highlights and buttons
-$earth-clay-red: #D84315;      // Warm red, suitable for warnings or attention elements
-$earth-sandstone: #FFF3E0;     // Light sandy color, excellent for backgrounds
-$earth-mountain-stone: #3E2723; // Almost black, great for text and contrast details
+$earth-sunset-orange: #ef6c00; // Vibrant orange, perfect for highlights and buttons
+$earth-clay-red: #d84315; // Warm red, suitable for warnings or attention elements
+$earth-sandstone: #fff3e0; // Light sandy color, excellent for backgrounds
+$earth-mountain-stone: #3e2723; // Almost black, great for text and contrast details
 
 // Secondary Accent Colors
-$earth-sky-blue: #4FC3F7;      // Soft blue for informational call-outs
-$earth-grass-green: #9CCC65;   // Light green for success messages and icons
-$earth-golden-sun: #FFCA28;    // Golden yellow for ratings or favorite icons
+$earth-sky-blue: #4fc3f7; // Soft blue for informational call-outs
+$earth-grass-green: #9ccc65; // Light green for success messages and icons
+$earth-golden-sun: #ffca28; // Golden yellow for ratings or favorite icons
 
 // Neutral Tones
-$earth-paper-white: #FAFAFA;   // Very light gray, almost white, for general background
-$earth-smoky-gray: #546E7A;    // Medium gray, versatile for secondary text and borders
-$earth-charcoal: #37474F;      // Dark gray, perfect for primary text and headings
+$earth-paper-white: #fafafa; // Very light gray, almost white, for general background
+$earth-smoky-gray: #546e7a; // Medium gray, versatile for secondary text and borders
+$earth-charcoal: #37474f; // Dark gray, perfect for primary text and headings
 
 // Utility Colors
-$earth-shadow: rgba(38, 50, 56, 0.2); // Soft shadow for UI depth
-$earth-highlight: rgba(255, 255, 255, 0.1); // Subtle highlight for hover states
+
+$light-peach: #f9e2df;
+$peach: #f4c6c3;
+$coral: #f28c66;
+$green: #4f8b5d;
+$dark-teal: #234845;
+// $darl: #2f4f4f;
+
+// Light Pink/Peach: #F4C6C3
+// Coral/Orange: #F28C66
+// Green: #4F8B5D
+// Dark Teal: #234845
+
+// #007ED0 - Deep Blue
+// #02A9E3 - Lighter Blue
+// #F7F7F7 - White
+// #D8C3AF - Beige/Tan
+// #FF0044 - Bright Red
 
 // Styling Examples
 body {
-  background-color: $earth-sandstone;
-  color: $earth-charcoal;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: $light-peach;
+  color: $dark-teal;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
-h1, h2, h3, title {
-  color: $earth-mountain-stone;
+h1,
+h2,
+h3,
+title {
+  color: $dark-teal;
 }
-
-.button-primary {
-  background-color: $earth-sunset-orange;
-  color: $earth-paper-white;
-  &:hover {
-    background-color: darken($earth-sunset-orange, 10%);
-  }
-}
-
-.nav-link {
-  color: $earth-smoky-gray;
-  &:hover {
-    color: $earth-sky-blue;
-  }
-}
-
-.footer {
-  background-color: $earth-deep-forest;
-  color: $earth-paper-white;
-}
-
-// Accessibility Considerations
-.text-highlight {
-  background-color: $earth-golden-sun;
-  color: $earth-deep-forest;
-}
-
