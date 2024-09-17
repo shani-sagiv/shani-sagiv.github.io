@@ -1,7 +1,7 @@
 import React from "react";
 import "./HomePage.scss";
 import { useNavigate } from "react-router-dom";
-import { Cards } from "components/Cards";
+import { Cards, Map } from "components";
 import Marquee from "react-fast-marquee";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
@@ -50,14 +50,24 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         />
       </div>
 
-      <img
+      <div
+        style={{
+          width: "70%",
+          // height: "60vh",
+          // border: "2px solid red",
+        }}
+      >
+        <Map />
+      </div>
+
+      {/* <img
         src={"https://m.media-amazon.com/images/I/71ZVA6QfbOL._AC_SL1000_.jpg"}
         style={{
           width: "90%",
           height: "60vh",
           border: "2px solid red",
         }}
-      />
+      /> */}
 
       {/*<MarqueeText onClick={console.log}>Hello</MarqueeText>*/}
       {/*<MarqueeText onClick={console.log}>שני לוזרית?</MarqueeText>*/}
