@@ -1,12 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.3eb3d80c.css",
-    "main.js": "/static/js/main.204877b1.js",
+    "main.css": "/static/css/main.11be6812.css",
+    "main.js": "/static/js/main.5c3f6045.js",
     "static/js/453.413f8c06.chunk.js": "/static/js/453.413f8c06.chunk.js",
     "static/media/attr2.jpg": "/static/media/attr2.650802246e71c395fa1f.jpg",
+    "static/media/123C94D2-8A9B-4045-B095-0105014F2E60_1_102_o.jpeg": "/static/media/123C94D2-8A9B-4045-B095-0105014F2E60_1_102_o.1958efe60457af39d632.jpeg",
+    "static/media/B11D2747-ABF9-495A-AF7C-6E4781009E18_1_102_o.jpeg": "/static/media/B11D2747-ABF9-495A-AF7C-6E4781009E18_1_102_o.728ff4b2716760a0c3ce.jpeg",
+    "static/media/img.png": "/static/media/img.a73dfe843c5df8ca83fc.png",
+    "static/media/93D51E6E-7F81-439A-A2AE-3DD98A22F74C_1_102_o.jpeg": "/static/media/93D51E6E-7F81-439A-A2AE-3DD98A22F74C_1_102_o.809d76491e702e9d7600.jpeg",
+    "static/media/4FAD881F-C0E4-49BE-BC16-FAAAF5C8FCB9_1_102_o.jpeg": "/static/media/4FAD881F-C0E4-49BE-BC16-FAAAF5C8FCB9_1_102_o.f8c9f1dbed44d1ba0879.jpeg",
     "static/media/attr1.jpg": "/static/media/attr1.6f2a47e8fbc35b7230ae.jpg",
+    "static/media/5BCCFD78-CCE2-461D-8E31-BBFA552412A7_1_102_o.jpeg": "/static/media/5BCCFD78-CCE2-461D-8E31-BBFA552412A7_1_102_o.3065f980d99c11cb3352.jpeg",
     "static/media/hotel2.jpg": "/static/media/hotel2.ff6115a964582f6fe885.jpg",
+    "static/media/58674A46-5BAE-49BE-AE16-842C8DFA4949_1_102_o.jpeg": "/static/media/58674A46-5BAE-49BE-AE16-842C8DFA4949_1_102_o.a594ea136c7aa6e306cb.jpeg",
     "static/media/shell2.jpg": "/static/media/shell2.a0472c586a4ced20e7c1.jpg",
+    "static/media/93D274D5-BF45-4F5F-AEAC-B5E4EFDBFD70_1_102_o.jpeg": "/static/media/93D274D5-BF45-4F5F-AEAC-B5E4EFDBFD70_1_102_o.6d461a7985eefc9bb6ed.jpeg",
+    "static/media/7CCB4AA2-79D0-4B14-9D46-48353458AD84_1_102_o.jpeg": "/static/media/7CCB4AA2-79D0-4B14-9D46-48353458AD84_1_102_o.665d8f72dd5b6bb25fe3.jpeg",
+    "static/media/attr3.jpg": "/static/media/attr3.3604a8809ace41261bf6.jpg",
     "static/media/rest3.jpg": "/static/media/rest3.4990d546409e152c5483.jpg",
     "static/media/night1.jpg": "/static/media/night1.77eaa3d3bbfdc7777fce.jpg",
     "static/media/shell1.jpg": "/static/media/shell1.ed6726a4357d9896078a.jpg",
@@ -14,17 +24,23 @@
     "static/media/rest2.jpg": "/static/media/rest2.e92edc1faadf20605e50.jpg",
     "static/media/shell5.jpg": "/static/media/shell5.fa523132fbf6220552c3.jpg",
     "static/media/hotel1.jpg": "/static/media/hotel1.39b45ebe982ec83069af.jpg",
+    "static/media/main.jpg": "/static/media/main.39b45ebe982ec83069af.jpg",
     "static/media/rest1.jpg": "/static/media/rest1.cf4436b5badbc0a0b8f3.jpg",
+    "static/media/night3.jpg": "/static/media/night3.58cf817bd854fc8d05ac.jpg",
     "static/media/rest4.jpg": "/static/media/rest4.4113f49bc14c5194af71.jpg",
+    "static/media/night2.jpg": "/static/media/night2.5c21dc1788f7ce6d997d.jpg",
+    "static/media/img_1.png": "/static/media/img_1.958b2fea87e964037d64.png",
     "static/media/shell4.jpg": "/static/media/shell4.65c18b63016ec1d110d9.jpg",
     "static/media/shell3.jpg": "/static/media/shell3.77d024a8865cbd7e1daa.jpg",
+    "static/media/sim.jpeg": "/static/media/sim.d426f528befaab83711c.jpeg",
+    "static/media/shani-in-sunset.jpeg": "/static/media/shani-in-sunset.306fe3263711363a2235.jpeg",
     "index.html": "/index.html",
-    "main.3eb3d80c.css.map": "/static/css/main.3eb3d80c.css.map",
-    "main.204877b1.js.map": "/static/js/main.204877b1.js.map",
+    "main.11be6812.css.map": "/static/css/main.11be6812.css.map",
+    "main.5c3f6045.js.map": "/static/js/main.5c3f6045.js.map",
     "453.413f8c06.chunk.js.map": "/static/js/453.413f8c06.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3eb3d80c.css",
-    "static/js/main.204877b1.js"
+    "static/css/main.11be6812.css",
+    "static/js/main.5c3f6045.js"
   ]
 }
