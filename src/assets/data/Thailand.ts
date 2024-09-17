@@ -73,8 +73,6 @@ export const KOH_LANTA: Destination = {
       type: "NightLife",
       description:
         "יש על החוף מלא ברים, מושלם לראות את השקיעה ולשבת בלילה. לפעמים גם יש מופעי אש, אפשר לשאול",
-      // coordinates: "7.495899016237173, 99.0867636",
-      // googleMapLink: "https://maps.app.goo.gl/1B1HYB4Soi51KvLU8",
       images: KHO_LANTA.nightLife,
     },
   ],
