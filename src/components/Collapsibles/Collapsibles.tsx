@@ -11,7 +11,7 @@ interface CollapsibleProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const Collapsibles: React.FC<CollapsibleProps> = ({ items }) => {
   return (
-    <div style={{ boxShadow: "0px 0px 9px 4px black", width: "100%" }}>
+    <div style={{ width: "100%" }}>
       {items.map((item, i) => (
         <Collapsible title={item.title}>{item.content}</Collapsible>
       ))}

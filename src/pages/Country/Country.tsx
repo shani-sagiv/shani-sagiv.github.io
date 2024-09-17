@@ -3,9 +3,15 @@ import "./Country.scss";
 import { useNavigate } from "react-router-dom";
 import { Cards, Collapsibles, Title } from "components";
 
-interface CountryProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface CountryProps extends React.HTMLAttributes<HTMLDivElement> {
+  name?: string;
+  description?: string;
+}
 
-const Country: React.FC<CountryProps> = ({}) => {
+const Country: React.FC<CountryProps> = ({
+  name = "Country test",
+  description,
+}) => {
   const navigate = useNavigate();
   const items2 = [
     {
@@ -68,11 +74,15 @@ const Country: React.FC<CountryProps> = ({}) => {
   const destinations = Array.from({ length: 10 }, (_, index) => ({
     title: "יעד בדיקה " + index,
     image: "https://www.yo-yoo.co.il/coolpics/images/uploads/67219d.jpg",
-    navigate: "/Destination",
+    navigate: "/koh lanta",
   }));
+
   return (
     <div className={"country"}>
-      <Title title={"Country"} />
+      <Title title={name} />
+      {description ? (
+        <div style={{ margin: "10px 50px" }}>{description}</div>
+      ) : null}
       <Collapsibles items={items2} />
       <Cards items={destinations} />
     </div>

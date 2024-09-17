@@ -1,8 +1,8 @@
 import React from "react";
 import "./HomePage.scss";
 import { useNavigate } from "react-router-dom";
-import Card from "../../components/Card/Card";
 import { Cards } from "components/Cards";
+import Marquee from "react-fast-marquee";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -11,12 +11,19 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
   const destinations = Array.from({ length: 10 }, (_, index) => ({
     title: "יעד בדיקה " + index,
     image: "https://www.yo-yoo.co.il/coolpics/images/uploads/67219d.jpg",
-    navigate: "/Country",
+    navigate: "/Thailand",
   }));
 
   return (
     <div className={"home-page"}>
       <div className={"drops-fade"}>
+        <Marquee
+          autoFill
+          style={{ position: "absolute", top: 0, right: 0, width: "100%" }}
+        >
+          <span style={{ padding: "0 10px" }}>👑 שגיב ושני המלכים </span>
+        </Marquee>
+        {/*<MarqueeText text={"שגיב ושני המלכים"} />*/}
         <img src={"https://i.ytimg.com/vi/Hl9imbx9QBY/maxresdefault.jpg"} />
       </div>
       {/*<img*/}
@@ -37,7 +44,10 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
           marginTop: -60,
         }}
       >
-        <Cards items={destinations} style={{ flexWrap: "nowrap" }} />
+        <Cards
+          items={destinations}
+          style={{ flexWrap: "nowrap", justifyContent: "flex-start" }}
+        />
       </div>
 
       <img
@@ -49,11 +59,11 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         }}
       />
 
-      {/*<Button onClick={console.log}>Hello</Button>*/}
-      {/*<Button onClick={console.log}>שני לוזרית?</Button>*/}
-      {/*<Button onClick={console.log} variant={"secondary"}>*/}
+      {/*<MarqueeText onClick={console.log}>Hello</MarqueeText>*/}
+      {/*<MarqueeText onClick={console.log}>שני לוזרית?</MarqueeText>*/}
+      {/*<MarqueeText onClick={console.log} variant={"secondary"}>*/}
       {/*  שני לוזרית...*/}
-      {/*</Button>*/}
+      {/*</MarqueeText>*/}
     </div>
   );
 };
