@@ -35,28 +35,28 @@ const Destination: React.FC<CountryProps> = ({
   const getActivities = () => {
     return [
       {
-        title: "🏨 מלונות 🏨",
+        title: "מלונות",
         tabTitle: <h1>🏨</h1>,
         content: hotels.map((r) => (
           <RecommendationComponent recommendation={r} />
         )),
       },
       {
-        title: "🍔 מסעדות 🍔",
+        title: "מסעדות",
         tabTitle: <h1>🍔</h1>,
         content: foods.map((r) => (
           <RecommendationComponent recommendation={r} />
         )),
       },
       {
-        title: "🎡 אטרקציות 🎡",
+        title: "אטרקציות",
         tabTitle: <h1>🎡</h1>,
         content: attractions.map((r) => (
           <RecommendationComponent recommendation={r} />
         )),
       },
       {
-        title: "🕺 חיי לילה 🕺",
+        title: "חיי לילה",
         tabTitle: <h1>🕺</h1>,
         content: nightlife.map((r) => (
           <RecommendationComponent recommendation={r} />

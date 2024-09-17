@@ -1,7 +1,6 @@
 import React, { CSSProperties } from "react";
+import { ImageGallery, Collapsible } from "components";
 import "./Collapsibles.scss";
-import { Collapsible } from "components/Collapsible";
-import { ImageGallery } from "components";
 
 interface CollapsibleProps extends React.HTMLAttributes<HTMLDivElement> {
   items: {

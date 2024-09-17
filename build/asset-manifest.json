@@ -1,14 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.159a511f.css",
-    "main.js": "/static/js/main.d446d76d.js",
+    "main.css": "/static/css/main.11be6812.css",
+    "main.js": "/static/js/main.5c3f6045.js",
     "static/js/453.413f8c06.chunk.js": "/static/js/453.413f8c06.chunk.js",
     "static/media/attr2.jpg": "/static/media/attr2.650802246e71c395fa1f.jpg",
     "static/media/123C94D2-8A9B-4045-B095-0105014F2E60_1_102_o.jpeg": "/static/media/123C94D2-8A9B-4045-B095-0105014F2E60_1_102_o.1958efe60457af39d632.jpeg",
     "static/media/B11D2747-ABF9-495A-AF7C-6E4781009E18_1_102_o.jpeg": "/static/media/B11D2747-ABF9-495A-AF7C-6E4781009E18_1_102_o.728ff4b2716760a0c3ce.jpeg",
+    "static/media/img.png": "/static/media/img.a73dfe843c5df8ca83fc.png",
     "static/media/93D51E6E-7F81-439A-A2AE-3DD98A22F74C_1_102_o.jpeg": "/static/media/93D51E6E-7F81-439A-A2AE-3DD98A22F74C_1_102_o.809d76491e702e9d7600.jpeg",
     "static/media/4FAD881F-C0E4-49BE-BC16-FAAAF5C8FCB9_1_102_o.jpeg": "/static/media/4FAD881F-C0E4-49BE-BC16-FAAAF5C8FCB9_1_102_o.f8c9f1dbed44d1ba0879.jpeg",
     "static/media/attr1.jpg": "/static/media/attr1.6f2a47e8fbc35b7230ae.jpg",
+    "static/media/5BCCFD78-CCE2-461D-8E31-BBFA552412A7_1_102_o.jpeg": "/static/media/5BCCFD78-CCE2-461D-8E31-BBFA552412A7_1_102_o.3065f980d99c11cb3352.jpeg",
     "static/media/hotel2.jpg": "/static/media/hotel2.ff6115a964582f6fe885.jpg",
     "static/media/58674A46-5BAE-49BE-AE16-842C8DFA4949_1_102_o.jpeg": "/static/media/58674A46-5BAE-49BE-AE16-842C8DFA4949_1_102_o.a594ea136c7aa6e306cb.jpeg",
     "static/media/shell2.jpg": "/static/media/shell2.a0472c586a4ced20e7c1.jpg",
@@ -27,15 +29,18 @@
     "static/media/night3.jpg": "/static/media/night3.58cf817bd854fc8d05ac.jpg",
     "static/media/rest4.jpg": "/static/media/rest4.4113f49bc14c5194af71.jpg",
     "static/media/night2.jpg": "/static/media/night2.5c21dc1788f7ce6d997d.jpg",
+    "static/media/img_1.png": "/static/media/img_1.958b2fea87e964037d64.png",
     "static/media/shell4.jpg": "/static/media/shell4.65c18b63016ec1d110d9.jpg",
     "static/media/shell3.jpg": "/static/media/shell3.77d024a8865cbd7e1daa.jpg",
+    "static/media/sim.jpeg": "/static/media/sim.d426f528befaab83711c.jpeg",
+    "static/media/shani-in-sunset.jpeg": "/static/media/shani-in-sunset.306fe3263711363a2235.jpeg",
     "index.html": "/index.html",
-    "main.159a511f.css.map": "/static/css/main.159a511f.css.map",
-    "main.d446d76d.js.map": "/static/js/main.d446d76d.js.map",
+    "main.11be6812.css.map": "/static/css/main.11be6812.css.map",
+    "main.5c3f6045.js.map": "/static/js/main.5c3f6045.js.map",
     "453.413f8c06.chunk.js.map": "/static/js/453.413f8c06.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.159a511f.css",
-    "static/js/main.d446d76d.js"
+    "static/css/main.11be6812.css",
+    "static/js/main.5c3f6045.js"
   ]
 }
