@@ -4,46 +4,50 @@ import { Link, useLocation } from "react-router-dom";
 import "./BreadcrumbNavigation.scss";
 
 interface BreadcrumbItem {
-  label: string; // The display label of the breadcrumb
-  path?: string; // The path for the breadcrumb (optional)
+  label: string;
+  path?: string;
 }
 
 interface BreadcrumbNavigationProps {
-  separator?: React.ReactNode; // Custom separator between items (optional)
+  translationMap: {
+    key: string;
+    name: string;
+  }[];
+  separator?: React.ReactNode;
 }
 
 const BreadcrumbNavigation: React.FC<BreadcrumbNavigationProps> = ({
-  separator = " >>  ", // Default separator is " / "
+  separator = " ⬅️  ",
+  translationMap,
 }) => {
   const location = useLocation();
-
-  // Split the current path and map it to breadcrumb items
   const pathnames = location.pathname.split("/").filter((x) => x);
-
   const breadcrumbs: BreadcrumbItem[] = pathnames.map((value, index) => {
     const pathTo = `/${pathnames.slice(0, index + 1).join("/")}`;
-
-    // Customize label logic here, e.g. capitalize or replace hyphens with spaces
     const label =
       value.charAt(0).toUpperCase() + value.slice(1).replace("-", " ");
+    const displayName =
+      translationMap.find((item) => item.key === label)?.name || "";
 
-    return { label, path: pathTo };
+    return { label: displayName, path: pathTo };
   });
 
-  // Add the "Home" breadcrumb to the beginning
-  breadcrumbs.unshift({ label: "Home", path: "/" });
-  console.log({ location });
+  breadcrumbs.unshift({ label: "בית", path: "/" });
+
+  if (breadcrumbs.length < 2) return <></>;
 
   return (
     <div className="breadcrumb-wrapper">
       {breadcrumbs.map((item, index) => {
         const isLastItem = index === breadcrumbs.length - 1;
         return (
-          <div key={index} className="breadcrumb-single">
+          <div key={index} className="breadcrumb-item">
             {item.path && !isLastItem ? (
-              <Link to={item.path}>{item.label}</Link>
+              <Link className="breadcrumb-text" to={item.path}>
+                {item.label}
+              </Link>
             ) : (
-              <span>{item.label}</span>
+              <span className="breadcrumb-text">{item.label}</span>
             )}
             {!isLastItem && <span>{separator}</span>}
           </div>
