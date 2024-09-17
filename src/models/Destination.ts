@@ -9,6 +9,7 @@ export interface Destination {
   description: string; // Description of the location
   dates: { from: Date; to: Date }[];
   shells?: string[];
+  transportation?: string;
 
   // Recommendations
   hotels: Recommendation[]; // Array of hotel recommendations
