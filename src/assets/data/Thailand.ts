@@ -15,7 +15,7 @@ export const THAILAND: Country = {
     "תאילנד היא מדינה טרופית בדרום-מזרח אסיה, המפורסמת בחופים קסומים, מקדשים בודהיסטיים מרהיבים ותרבות עשירה. בנוסף, המדינה מציעה חוויות קולינריות מגוונות, חיי לילה תוססים ושווקים ססגוניים",
   gold_recommendation: [
     {
-      name: "תחבורה",
+      name: "תחבורה 🚌",
       type: "Info",
       description:
         "כל נסיעה כמעט אפשר לסגור דרך 12go(כולל מעבורות), הסליפרים השווים זה הvip, המספר זה כמות המיטות אז ככל שנמוך יותר המיטות יותר גדולות(20+-30~)" +
@@ -23,14 +23,14 @@ export const THAILAND: Country = {
         "יש שם את הגוגל מיקום של התחנה עלייה וירידה חשוב לבדוק לפני",
     },
     {
-      name: "יתושים",
+      name: "יתושים 🦟",
       type: "Info",
       description:
         "נגד יתושים: ספריי ורוד מה7/11 " + "\n" + "נגד עקיצות: קוף מחזיק אפרסק",
       images: KHO_LANTA.mosquitos,
     },
     {
-      name: "סים",
+      name: "סים ☎️",
       type: "Info",
       description:
         "יש ב7/11 סימים ממש בזול, יש להם לכמה מספרי ימים, כל אחד הוא כמות גיגה פר יום אז כדאי לבדוק כמה משתמשים כי לא תמיד צריך הרבה",
