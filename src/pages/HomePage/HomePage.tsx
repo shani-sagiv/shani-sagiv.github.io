@@ -4,15 +4,22 @@ import { useNavigate } from "react-router-dom";
 import { Cards } from "components/Cards";
 import Marquee from "react-fast-marquee";
 import shaniInSunsetSrc from "assets/shani-in-sunset.jpeg";
+import { COUNTRIES } from "../../Routes";
+import { getNameToDisplay } from "../../helpers/dateHelpers";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const HomePage: React.FC<HomePageProps> = ({}) => {
   const navigate = useNavigate();
-  const destinations = Array.from({ length: 10 }, (_, index) => ({
-    title: "יעד בדיקה " + index,
-    image: "https://www.yo-yoo.co.il/coolpics/images/uploads/67219d.jpg",
-    navigate: "/Thailand",
+  // const destinations = Array.from({ length: 10 }, (_, index) => ({
+  //   title: "יעד בדיקה " + index,
+  //   image: "https://www.yo-yoo.co.il/coolpics/images/uploads/67219d.jpg",
+  //   navigate: "/Thailand",
+  // }));
+  const destinations = COUNTRIES.map(({ country }) => ({
+    title: getNameToDisplay(country.displayName),
+    image: country.profileImg,
+    navigate: country.id,
   }));
 
   return (
@@ -21,8 +28,13 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         <Marquee
           autoFill
           direction={"right"}
-          speed={200}
-          style={{ position: "absolute", top: 0, right: 0, width: "100%" }}
+          style={{
+            position: "absolute",
+            direction: "ltr",
+            top: 0,
+            right: 0,
+            width: "100%",
+          }}
         >
           <span style={{ padding: "0 10px" }}>👑 שגיב ושני המלכים </span>
         </Marquee>

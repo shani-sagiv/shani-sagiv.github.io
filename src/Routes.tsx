@@ -9,7 +9,7 @@ import {
 } from "models";
 import { Country, Destination } from "pages";
 
-export const countries: [
+export const COUNTRIES: [
   { country: CountryModel; destinations: DestinationModel[] },
 ] = [
   {
@@ -20,19 +20,21 @@ export const countries: [
 
 function InnerRoutes() {
   const getRoutes = (): RouteObject[] => {
-    return countries.flatMap(({ country, destinations }) => {
+    return COUNTRIES.flatMap(({ country, destinations }) => {
       return [
         {
-          path: country.name,
+          path: country.id,
           element: (
             <Country
               name={`${country.displayName.english} ${country.displayName.hebrew}`}
+              destinations={destinations}
               description={country.description}
+              goldRecommendation={country.gold_recommendation}
             />
           ),
         } as RouteObject,
         ...destinations.map((dest) => ({
-          path: dest.name,
+          path: `${country.id}/${dest.id}`,
           element: (
             <Destination
               name={`${dest.displayName.english} ${dest.displayName.hebrew}`}

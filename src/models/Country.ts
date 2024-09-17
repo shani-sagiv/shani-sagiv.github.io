@@ -6,5 +6,5 @@ export interface Country {
   displayName: DisplayName;
   description: string;
   gold_recommendation: Recommendation[];
-  profileImg?: string;
+  profileImg: string;
 }
