@@ -34,6 +34,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
             top: 0,
             right: 0,
             width: "100%",
+            fontSize: "25px",
           }}
         >
           <span style={{ padding: "0 10px" }}>👑 שגיב ושני המלכים </span>
