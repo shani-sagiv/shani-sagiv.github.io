@@ -3,51 +3,60 @@ import { NAV_BAR_OPTIONS } from "hooks/Navigation.hook";
 import { Route, RouteObject, Routes } from "react-router-dom";
 import { createRoutesFromOptions } from "helpers/navigationHelpers";
 import { THAILAND, KOH_LANTA } from "assets/data";
-import { Country } from "pages";
-import { Destination } from "pages/Destination"; // Import your country data
+import {
+  Country as CountryModel,
+  Destination as DestinationModel,
+} from "models";
+import { Country, Destination } from "pages";
 
-// const countries = {
-//   THAILAND: [KOH_LANTA, ANOTHER_PLACE],
-//   VIETNAM: [TEST, ANOTHER_TEST],
-// };
+export const countries: [
+  { country: CountryModel; destinations: DestinationModel[] },
+] = [
+  {
+    country: THAILAND,
+    destinations: [KOH_LANTA],
+  },
+];
 
 function InnerRoutes() {
-  const ThailandPath: RouteObject = {
-    path: THAILAND.name,
-    element: (
-      <Country
-        name={`${THAILAND.displayName.english}  ${THAILAND.displayName.hebrew}`}
-        description={THAILAND.description}
-      />
-    ),
+  const getRoutes = (): RouteObject[] => {
+    return countries.flatMap(({ country, destinations }) => {
+      return [
+        {
+          path: country.name,
+          element: (
+            <Country
+              name={`${country.displayName.english} ${country.displayName.hebrew}`}
+              description={country.description}
+            />
+          ),
+        } as RouteObject,
+        ...destinations.map((dest) => ({
+          path: dest.name,
+          element: (
+            <Destination
+              name={`${dest.displayName.english} ${dest.displayName.hebrew}`}
+              hotels={dest.hotels}
+              dates={dest.dates}
+              attractions={dest.attractions}
+              foods={dest.foods}
+              nightlife={dest.nightlife}
+              shells={dest.shells}
+            />
+          ),
+        })),
+      ];
+    });
   };
-  const KOH_LANTA_PATH: RouteObject = {
-    path: KOH_LANTA.name,
-    element: (
-      <Destination
-        name={`${KOH_LANTA.displayName.english}  ${KOH_LANTA.displayName.hebrew}`}
-        hotels={KOH_LANTA.hotels}
-        dates={KOH_LANTA.dates}
-        attractions={KOH_LANTA.attractions}
-        foods={KOH_LANTA.foods}
-        nightlife={KOH_LANTA.nightlife}
-        shells={KOH_LANTA.shells}
-      />
-    ),
-  };
-
-  const getRoutes = () => {};
 
   return (
     <>
       <Routes>
-        {[
-          ...createRoutesFromOptions(NAV_BAR_OPTIONS),
-          ThailandPath,
-          KOH_LANTA_PATH,
-        ].map((route, index) => (
-          <Route key={index} path={route.path} element={route.element} />
-        ))}
+        {[...createRoutesFromOptions(NAV_BAR_OPTIONS), ...getRoutes()].map(
+          (route, index) => (
+            <Route key={index} path={route.path} element={route.element} />
+          ),
+        )}
       </Routes>
     </>
   );

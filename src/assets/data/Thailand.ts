@@ -1,5 +1,5 @@
 import { createDate } from "helpers/dateHelpers";
-import { Country, Destination } from "../../models";
+import { Country, Destination } from "models";
 import { KHO_LANTA } from "../img/Thailand/KohLanta/index";
 
 export const THAILAND: Country = {
