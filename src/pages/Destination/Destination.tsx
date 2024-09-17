@@ -1,8 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import StickyHeaderScroll from "components/StickyHeaderScroll/StickyHeaderScroll";
-import { InfoRecommendation, Recommendation } from "models";
-import { calculateDaysBetweenDates } from "helpers/dateHelpers";
+import {
+  AttractionRecommendation,
+  HotelRecommendation,
+  InfoRecommendation,
+  NightLifeRecommendation,
+  RestaurantRecommendation,
+} from "models";
 import {
   Title,
   ImageGallery,
@@ -10,16 +15,16 @@ import {
   Recommendation as RecommendationComponent,
 } from "components";
 import "./Destination.scss";
+import { getStartAndEndDate } from "helpers/dateHelpers";
 
 interface CountryProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
-  hotels: Recommendation[];
-  foods: Recommendation[];
-  attractions: Recommendation[];
-  nightlife: Recommendation[];
+  hotels: HotelRecommendation[];
+  foods: RestaurantRecommendation[];
+  attractions: AttractionRecommendation[];
+  nightlife: NightLifeRecommendation[];
   shells?: string[];
   gold_recommendation?: InfoRecommendation[];
-  // dates: { from: Date; to: Date }[];
 }
 
 const Destination: React.FC<CountryProps> = ({
@@ -30,7 +35,6 @@ const Destination: React.FC<CountryProps> = ({
   shells = [],
   nightlife = [],
   gold_recommendation = [],
-  // dates = [],
 }) => {
   const navigate = useNavigate();
 
@@ -66,19 +70,24 @@ const Destination: React.FC<CountryProps> = ({
       },
     ];
   };
+
   const getInfo = () => {
     return [
-      {
-        title: "צדפים 🌊🌺🏖️🐚🎀☀️",
-        content: (
-          <ImageGallery
-            style={{
-              width: "100%",
-            }}
-            images={shells.map((i) => ({ original: i }))}
-          />
-        ),
-      },
+      ...(shells.length > 0
+        ? [
+            {
+              title: "צדפים 🌊🌺🏖️🐚🎀☀️",
+              content: (
+                <ImageGallery
+                  style={{
+                    width: "100%",
+                  }}
+                  images={shells.map((i) => ({ original: i }))}
+                />
+              ),
+            },
+          ]
+        : []),
       ...gold_recommendation.map((r) => ({
         title: r.name,
         content: (
@@ -96,11 +105,14 @@ const Destination: React.FC<CountryProps> = ({
       })),
     ];
   };
+  const { startDate, endDate } = getStartAndEndDate(hotels);
 
   return (
     <div className={"Destination"}>
       <Title title={name} />
       <div className="info">
+        <div>{startDate.toLocaleDateString("en-GB")}</div>-
+        <div>{endDate.toLocaleDateString("en-GB")}</div>
         {/*{dates.map((date) => (*/}
         {/*  <div*/}
         {/*    style={{*/}

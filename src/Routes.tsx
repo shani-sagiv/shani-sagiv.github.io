@@ -5,7 +5,7 @@ import {
   createRoutesFromOptions,
   CustomRouteObject,
 } from "helpers/navigationHelpers";
-import { THAILAND, KOH_LANTA } from "assets/data";
+import { THAILAND, KOH_LANTA, KOH_PHA_NGAN } from "assets/data";
 import {
   Country as CountryModel,
   Destination as DestinationModel,
@@ -18,7 +18,7 @@ export const COUNTRIES: [
 ] = [
   {
     country: THAILAND,
-    destinations: [KOH_LANTA],
+    destinations: [KOH_LANTA, KOH_PHA_NGAN],
   },
 ];
 
@@ -51,11 +51,11 @@ function InnerRoutes() {
             <Destination
               name={`${dest.displayName.english} ${dest.displayName.hebrew}`}
               hotels={dest.hotels}
-              dates={dest.dates}
               attractions={dest.attractions}
               foods={dest.foods}
               nightlife={dest.nightlife}
               shells={dest.shells}
+              gold_recommendation={dest.gold_recommendation}
             />
           ),
         })),
@@ -70,7 +70,7 @@ function InnerRoutes() {
         {[...createRoutesFromOptions(NAV_BAR_OPTIONS), ...getRoutes()].map(
           (route, index) => (
             <Route key={index} path={route.path} element={route.element} />
-          )
+          ),
         )}
       </Routes>
     </>
