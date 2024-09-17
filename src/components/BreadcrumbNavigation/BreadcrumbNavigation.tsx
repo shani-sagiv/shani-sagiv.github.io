@@ -49,7 +49,7 @@ const BreadcrumbNavigation: React.FC<BreadcrumbNavigationProps> = ({
             ) : (
               <span className="breadcrumb-text">{item.label}</span>
             )}
-            {!isLastItem && <span>{separator}</span>}
+            {!isLastItem && <span>{separator} </span>}
           </div>
         );
       })}
