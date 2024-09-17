@@ -1,6 +1,6 @@
 import { createDate } from "helpers/dateHelpers";
 import { Recommendation, Country, Destination } from "../../models";
-import { shell1 } from "../img/Thailand/KohLanta/index";
+import { KHO_LANTA } from "../img/Thailand/KohLanta/index";
 
 export const THAILAND: Country = {
   id: "THA",
@@ -22,7 +22,7 @@ export const KOH_LANTA: Destination = {
     english: "Koh Lanta",
   },
   dates: [{ from: createDate("17/04/2024"), to: createDate("29/04/2024") }],
-  shells: [shell1],
+  shells: KHO_LANTA.shells,
   description:
     "קו לנטה הוא אי שקט ורגוע בדרום תאילנד, הידוע בחופים זהובים, מי טורקיז ושוניות אלמוגים מושלמות לצלילה ושנורקלינג. האי מציע אווירה נינוחה עם עיירות חוף קטנות, נופים ירוקים ומקומות מפלט למי שמחפש להתרחק מהמולת התיירות.",
   hotels: [
@@ -34,9 +34,20 @@ export const KOH_LANTA: Destination = {
       price: "75 ש״ח ללילה",
       coordinates: "7.577414295436549, 99.0335781460971",
       googleMapLink: "https://maps.app.goo.gl/URVK9gTZAGHwMBpV8",
+      images: KHO_LANTA.hotelLantaRiviera,
     },
   ],
   foods: [],
-  attractions: [],
+  attractions: [
+    {
+      name: "Following Giants",
+      type: "Attraction",
+      description:
+        "חוות פילים ממש מוסרית, הפילים משוחררים בחופשיות, לא נוגעים בהם או מציקים להם. הסבירו לנו בכניסה על שיקום פילים ששימשו לבידור בני אדם.",
+      coordinates: "7.495899016237173, 99.0867636",
+      googleMapLink: "https://maps.app.goo.gl/1B1HYB4Soi51KvLU8",
+      images: KHO_LANTA.attractionsFollowingGiants,
+    },
+  ],
   nightlife: [],
 };
