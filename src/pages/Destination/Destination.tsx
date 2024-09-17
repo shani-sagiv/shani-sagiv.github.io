@@ -8,134 +8,67 @@ import { Collapsibles } from "components";
 import { Recommendation } from "models/Recommendation";
 import Hotel from "../../components/Hotel/Hotel";
 import { calculateDaysBetweenDates } from "../../helpers/dateHelpers";
+import ImageGallery from "react-image-gallery";
 
 interface CountryProps extends React.HTMLAttributes<HTMLDivElement> {
-  name?: string;
-  hotels?: Recommendation[];
-  dates?: { from: Date; to: Date }[];
+  name: string;
+  hotels: Recommendation[];
+  foods: Recommendation[];
+  attractions: Recommendation[];
+  nightlife: Recommendation[];
+  shells?: string[];
+  dates: { from: Date; to: Date }[];
 }
 
 const Destination: React.FC<CountryProps> = ({
   name = "Dest example",
   hotels = [],
+  foods = [],
+  attractions = [],
+  shells = [],
+  nightlife = [],
   dates = [],
 }) => {
   const navigate = useNavigate();
-  const items = [
-    {
-      title: <h1>🐶</h1>,
-      content: (
-        <p>
-          This is the content for section 1
-          <div style={{ width: "100%", backgroundColor: "red", fontSize: 40 }}>
-            🐶 🐱 🐭 🐹 🐰 🦊 🐻 🐼 🐨 🐯 🦁 🐮 🐷 🐽 🐸 🐵 🐔 🐧 🐦 🐤 🐣 🐥 🦆
-            🦅 🦉 🦇 🦋 🐌 🐛 🐜 🐝 🐞 🦗 🦂 🦀 🐢 🐍 🦎 🦖 🦕 🐙 🐡 🐠 🐟 🐬 🐳
-            🐋 🦈 🐊 🐅 🐆 🦓 🦍 🦧 🦣 🦒 🦌 🐘 🦏 🦛 🐪 🐫 🦙 🦥 🦦 🦨 🦘 🦡 🐃
-            🐂 🐄 🐎 🐖 🐏 🐑 🦙 🦌 🐐 🐕 🐩 🐈 🐓 🦃 🦚 🦜 🦢 🦩 🦤 🐇 🐁 🐀 🦔
-            🐿 🦝 🦨 🦦 🐾 🦡 🐉 🐲
-          </div>
-        </p>
-      ),
-    },
-    {
-      title: <h1>🌸</h1>,
-      content: (
-        <p>
-          This is the content for section 2
-          <div
-            style={{ width: "100%", backgroundColor: "orange", fontSize: 40 }}
-          >
-            🌸 🌼 💐 🌹 🏵 🌻 🌺 🌷 🌱 🌿 🍀 🍃 🍂 🍁 🌾 🌵 🌴 🌳 🌲 🌷 🌹 🌻 🌺
-            🌸 🏵 💮 🥀 💐 🍁 🌼 🌱 🌿 🍀 🍂 🌷 🌹 🌻 🌺 🏵 🌸 💐 🥀 🌼 🌱 🌵 🌾
-            🌷 🍃 🍂 🍁 🌸 🌹 🌿 🍀 🌻 🏵 🌷 🌺 💮 🌴 🌲 🌳 🌵 🍃 🌼 🥀 🌾 🍁 🍂
-            🌿 🌱 💐 🏵 🌸 🌻 🌺 🌷 🍀 🌹 🍂 🍁 🍃 🌱 🌾 🌿 🥀 💐 🌵 🌲 🌳 🌸 🌷
-            🌹 🌻 🌼 🏵 🌺 🌿 🌾 🍁
-          </div>
-        </p>
-      ),
-    },
-    {
-      title: <h1>🛸</h1>,
-      content: (
-        <p>
-          This is the content for section 3
-          <div style={{ width: "100%", backgroundColor: "blue", fontSize: 40 }}>
-            🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 🌚 🌝 🌛 🌜 🌞 🌙 💫 ⭐ 🌟 ✨ 🌌 🌠 🚀 🛰 🛸
-            🌍 🌎 🌏 🪐 ☄️ 🌑 🌕 🌖 🌗 🌘 🌒 🌓 🌔 🌙 🌟 🌠 ✨ 🌌 🚀 🛰 🌍 🌎 🪐
-            ☄️ 🌑 🌕 🌝 🌟 🌠 ✨ 🌌 🌑 🛰 🚀 🛸 ☄️ 🪐 🌍 🌎 🌏 🌔 🌕 🌖 🌗 🌘 🌒
-            🌑 🌛 🌜 🌞 🌙 🌠 ⭐ ✨ 💫 🌌 🚀 🛰 🛸 ☄️ 🌍 🌏 🪐 🌔 🌗 🌑 🌖 🌝 🌛
-            🌟 🌙 ✨ 💫 🌌 🌠 🛸 🚀
-          </div>
-        </p>
-      ),
-    },
-  ];
-  const items3 = [
-    {
-      title: <h1>🏨</h1>,
-      content: (
-        <div>
-          {hotels.map((hotel) => (
-            <>
-              <Hotel hotel={hotel} />
-              <Hotel hotel={hotel} />
-              <Hotel hotel={hotel} />
-            </>
-          ))}
-        </div>
-      ),
-    },
-    {
-      title: <h1>🍔</h1>,
-      content: (
-        <div>
-          {hotels.map((hotel) => (
-            <>
-              <Hotel hotel={hotel} />
-              <Hotel hotel={hotel} />
-              <Hotel hotel={hotel} />
-            </>
-          ))}
-        </div>
-      ),
-    },
-    {
-      title: <h1>🎡</h1>,
-      content: (
-        <div>
-          {hotels.map((hotel) => (
-            <>
-              <Hotel hotel={hotel} />
-              <Hotel hotel={hotel} />
-              <Hotel hotel={hotel} />
-            </>
-          ))}
-        </div>
-      ),
-    },
-  ];
-  const items2 = [
-    {
-      title: "Click to Expand 1",
-      content:
-        "This is the collapsible content that will be shown when clicked!",
-    },
-    {
-      title: "Click to Expand 2",
-      content:
-        "This is the collapsible content that will be shown when clicked!",
-    },
-    {
-      title: "Click to Expand 3",
-      content:
-        "This is the collapsible content that will be shown when clicked!",
-    },
-    {
-      title: "Click to Expand 4",
-      content:
-        "This is the collapsible content that will be shown when clicked!",
-    },
-  ];
+
+  const getActivities = () => {
+    return [
+      {
+        title: "🏨 מלונות 🏨",
+        tabTitle: <h1>🏨</h1>,
+        content: hotels.map((r) => <Hotel hotel={r} />),
+      },
+      {
+        title: "🍔 מסעדות 🍔",
+        tabTitle: <h1>🍔</h1>,
+        content: foods.map((r) => <Hotel hotel={r} />),
+      },
+      {
+        title: "🎡 אטרקציות 🎡",
+        tabTitle: <h1>🎡</h1>,
+        content: attractions.map((r) => <Hotel hotel={r} />),
+      },
+      {
+        title: "🕺 חיי לילה 🕺",
+        tabTitle: <h1>🕺</h1>,
+        content: nightlife.map((r) => <Hotel hotel={r} />),
+      },
+    ];
+  };
+  const getInfo = () => {
+    return [
+      {
+        title: "shells",
+        content: (
+          <ImageGallery
+            showPlayButton={false}
+            showThumbnails={false}
+            items={shells.map((i) => ({ original: i, thumbnail: i }))}
+          />
+        ),
+      },
+    ];
+  };
 
   return (
     <div className={"Destination"}>
@@ -146,18 +79,17 @@ const Destination: React.FC<CountryProps> = ({
             style={{
               display: "flex",
               flexDirection: "row",
-              direction: "rtl",
               gap: 5,
               // marginRight: 15,
             }}
           >
-            <span>{calculateDaysBetweenDates(date.from, date.to)}</span>
             <span>ימים</span>
+            <span>{calculateDaysBetweenDates(date.from, date.to)}</span>
           </div>
         ))}
       </div>
-      <Collapsibles items={items2} />
-      <StickyHeaderScroll items={items3} />
+      <Collapsibles items={getInfo()} />
+      <StickyHeaderScroll items={getActivities()} />
     </div>
   );
 };

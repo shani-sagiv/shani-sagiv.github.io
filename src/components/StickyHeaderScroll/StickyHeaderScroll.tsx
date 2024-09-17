@@ -4,7 +4,11 @@ import classnames from "classnames";
 import "./StickyHeaderScroll.scss";
 
 interface StickyHeaderScrollProps extends React.HTMLAttributes<HTMLDivElement> {
-  items: { title: React.ReactNode; content: React.ReactNode }[];
+  items: {
+    title: React.ReactNode;
+    tabTitle: React.ReactNode;
+    content: React.ReactNode;
+  }[];
 }
 
 const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
@@ -77,7 +81,7 @@ const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
             })}
             onClick={() => scrollToSection(index)} // Click to scroll to the section
           >
-            <>{item.title}</>
+            <span style={{ textAlign: "center" }}>{item.tabTitle}</span>
           </div>
         ))}
       </div>

@@ -6,6 +6,11 @@ import { THAILAND, KOH_LANTA } from "assets/data";
 import { Country } from "pages";
 import { Destination } from "pages/Destination"; // Import your country data
 
+const countries = {
+  THAILAND: [KOH_LANTA, ANOTHER_PLACE],
+  VIETNAM: [TEST, ANOTHER_TEST],
+};
+
 function InnerRoutes() {
   const ThailandPath: RouteObject = {
     path: THAILAND.name,
@@ -23,10 +28,15 @@ function InnerRoutes() {
         name={`${KOH_LANTA.displayName.english}  ${KOH_LANTA.displayName.hebrew}`}
         hotels={KOH_LANTA.hotels}
         dates={KOH_LANTA.dates}
-        // description={THAILAND.description}
+        attractions={KOH_LANTA.attractions}
+        foods={KOH_LANTA.foods}
+        nightlife={KOH_LANTA.nightlife}
+        shells={KOH_LANTA.shells}
       />
     ),
   };
+
+  const getRoutes = () => {};
 
   return (
     <>

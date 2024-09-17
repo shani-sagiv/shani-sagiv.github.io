@@ -9,8 +9,9 @@ const Title: React.FC<TitleProps> = ({ title }) => {
   return (
     <h1
       style={{
-        width: "100%",
+        // width: "100%",
         fontSize: 40,
+        // boxSizing: "border-box",
         fontWeight: "bold",
         margin: "30px 20px 10px 0",
       }}

@@ -44,12 +44,12 @@ export const NAV_BAR_OPTIONS: Tab[] = [
     title: "Country",
     component: () => <Country />,
   },
-  {
-    id: TABS_IDS.DESTINATION,
-    routes: [`/${TABS_IDS.DESTINATION.toLocaleLowerCase()}`],
-    title: "Destination",
-    component: () => <Destination />,
-  },
+  // {
+  //   id: TABS_IDS.DESTINATION,
+  //   routes: [`/${TABS_IDS.DESTINATION.toLocaleLowerCase()}`],
+  //   title: "Destination",
+  //   component: () => <Destination />,
+  // },
 ];
 
 const defaultNavigationContext: NavigationContextType = {

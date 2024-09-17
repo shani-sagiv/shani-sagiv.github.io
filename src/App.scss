@@ -1,8 +1,12 @@
 .App {
   height: 100vh;
   width: 100vw;
-  text-align: right;
   //overflow: auto;
   //todo(sagiv): Fix
   margin: 0;
+  text-align: right;
 }
+  *{
+    //text-align: right;
+    direction: rtl;
+  }

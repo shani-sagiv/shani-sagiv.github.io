@@ -1,7 +1,9 @@
 import React from "react";
 import "./Country.scss";
 import { useNavigate } from "react-router-dom";
-import { Cards, Collapsibles, ImageModal, Title } from "components";
+import { Cards, Collapsibles, Title } from "components";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css"; // Import CSS
 
 interface CountryProps extends React.HTMLAttributes<HTMLDivElement> {
   name?: string;
@@ -27,18 +29,55 @@ const Country: React.FC<CountryProps> = ({
           <p>
             This is the collapsible content that will be shown when clicked!
           </p>
-          <ImageModal
+          <div
             style={{
-              height: 100,
-              width: 100,
-              margin: 10,
-              float: "left", // Makes the image float to the left
-              marginRight: "10px", // Adds some space between the image and text
+              height: "100px",
+              width: "100px",
+              border: "1px solid black",
+              margin: "10px",
+              overflow: "hidden", // Prevent overflow
             }}
-            src={
-              "https://www.meital-labs.co.il/wp-content/uploads/2018/04/%D7%9E%D7%A7%D7%9C%D7%95%D7%9F-%D7%90%D7%95%D7%A1%D7%98%D7%A8%D7%9C%D7%99.jpg"
-            }
-          />
+          >
+            {/*<ImageGallery*/}
+            {/*  showPlayButton={false}*/}
+            {/*  showThumbnails={false}*/}
+            {/*  showNav={false}*/}
+            {/*  isRTL*/}
+            {/*  items={[*/}
+            {/*    {*/}
+            {/*      original:*/}
+            {/*        "https://www.meital-labs.co.il/wp-content/uploads/2018/04/%D7%9E%D7%A7%D7%9C%D7%95%D7%9F-%D7%90%D7%95%D7%A1%D7%98%D7%A8%D7%9C%D7%99.jpg",*/}
+            {/*      thumbnail:*/}
+            {/*        "https://www.meital-labs.co.il/wp-content/uploads/2018/04/%D7%9E%D7%A7%D7%9C%D7%95%D7%9F-%D7%90%D7%95%D7%A1%D7%98%D7%A8%D7%9C%D7%99.jpg",*/}
+            {/*    },*/}
+            {/*    {*/}
+            {/*      original:*/}
+            {/*        "https://www.meital-labs.co.il/wp-content/uploads/2018/04/%D7%9E%D7%A7%D7%9C%D7%95%D7%9F-%D7%90%D7%95%D7%A1%D7%98%D7%A8%D7%9C%D7%99.jpg",*/}
+            {/*      thumbnail:*/}
+            {/*        "https://www.meital-labs.co.il/wp-content/uploads/2018/04/%D7%9E%D7%A7%D7%9C%D7%95%D7%9F-%D7%90%D7%95%D7%A1%D7%98%D7%A8%D7%9C%D7%99.jpg",*/}
+            {/*    },*/}
+            {/*    {*/}
+            {/*      original:*/}
+            {/*        "https://www.meital-labs.co.il/wp-content/uploads/2018/04/%D7%9E%D7%A7%D7%9C%D7%95%D7%9F-%D7%90%D7%95%D7%A1%D7%98%D7%A8%D7%9C%D7%99.jpg",*/}
+            {/*      thumbnail:*/}
+            {/*        "https://www.meital-labs.co.il/wp-content/uploads/2018/04/%D7%9E%D7%A7%D7%9C%D7%95%D7%9F-%D7%90%D7%95%D7%A1%D7%98%D7%A8%D7%9C%D7%99.jpg",*/}
+            {/*    },*/}
+            {/*    // More images...*/}
+            {/*  ]}*/}
+            {/*/>*/}
+          </div>
+          {/*<ImageGallery*/}
+          {/*  style={{*/}
+          {/*    height: 100,*/}
+          {/*    width: 100,*/}
+          {/*    margin: 10,*/}
+          {/*    float: "left", // Makes the image float to the left*/}
+          {/*    marginRight: "10px", // Adds some space between the image and text*/}
+          {/*  }}*/}
+          {/*  src={*/}
+          {/*    "https://www.meital-labs.co.il/wp-content/uploads/2018/04/%D7%9E%D7%A7%D7%9C%D7%95%D7%9F-%D7%90%D7%95%D7%A1%D7%98%D7%A8%D7%9C%D7%99.jpg"*/}
+          {/*  }*/}
+          {/*/>*/}
           <p>
             This is the collapsible content that will be shown when clicked!
             This is the collapsible content that will be shown when clicked!

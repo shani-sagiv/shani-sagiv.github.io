@@ -1,5 +1,5 @@
 import { createDate } from "helpers/dateHelpers";
-import { Recommendation, Country, Destination } from "../../models";
+import { Country, Destination } from "../../models";
 import { KHO_LANTA } from "../img/Thailand/KohLanta/index";
 
 export const THAILAND: Country = {
@@ -65,6 +65,12 @@ export const KOH_LANTA: Destination = {
       coordinates: "7.495899016237173, 99.0867636",
       googleMapLink: "https://maps.app.goo.gl/1B1HYB4Soi51KvLU8",
       images: KHO_LANTA.attractionsFollowingGiants,
+    },
+    {
+      name: "גאות ושפל ממש גדולים",
+      type: "Attraction",
+      description: "יש שם גאות ושפל ממש חזקים אז אפשר לבוא לשם לראות המון מהים",
+      images: KHO_LANTA.beachTravelImages,
     },
   ],
   nightlife: [

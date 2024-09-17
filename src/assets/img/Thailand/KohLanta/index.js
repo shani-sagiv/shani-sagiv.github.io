@@ -17,10 +17,15 @@ import rest3 from "./rest3.jpg";
 import rest4 from "./rest4.jpg";
 
 import night1 from "./night1.jpg";
+import { importAll } from "../../../../helpers/imagesHelpers";
+export const beachTravelImages = importAll(
+  require.context("./beach-travel", false, /\.(png|jpe?g|svg)$/),
+);
 
 export const KHO_LANTA = {
   shells: [shell1, shell2, shell3, shell4, shell5],
   hotelLantaRiviera: [hotel1, hotel2, hotel3],
+  beachTravelImages: beachTravelImages,
   attractionsFollowingGiants: [attr1, attr2],
   restaurantsLantaRiviera: [rest1, rest2, rest3],
   restaurantsMoonwalk: [rest4],
