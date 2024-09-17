@@ -2,6 +2,8 @@ export { Button } from "./Button";
 export { Card } from "./Card";
 export { Cards } from "./Cards";
 export { Hotel } from "./Hotel";
+export { Modal } from "./Modal";
+export { ImageModal } from "./ImageModal";
 export { Title } from "./Title";
 export { Collapsible } from "./Collapsible";
 export { Collapsibles } from "./Collapsibles";

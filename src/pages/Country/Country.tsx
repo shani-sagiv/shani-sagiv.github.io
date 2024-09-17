@@ -1,7 +1,7 @@
 import React from "react";
 import "./Country.scss";
 import { useNavigate } from "react-router-dom";
-import { Cards, Collapsibles, Title } from "components";
+import { Cards, Collapsibles, ImageModal, Title } from "components";
 
 interface CountryProps extends React.HTMLAttributes<HTMLDivElement> {
   name?: string;
@@ -27,7 +27,7 @@ const Country: React.FC<CountryProps> = ({
           <p>
             This is the collapsible content that will be shown when clicked!
           </p>
-          <img
+          <ImageModal
             style={{
               height: 100,
               width: 100,
