@@ -1,10 +1,19 @@
 .collapsible{
   width: 100%;
   height: auto;
-  padding: 10px;
+  //padding: 10px;
   box-sizing: border-box;
   text-align: right;
-  background: linear-gradient(transparent 60%, rgba(black, 0.3) 100%);;
+  padding: 0 10px 10px 10px ;
+  //background: linear-gradient(transparent 60%, rgba(black, 0.3) 100%);;
+  //border: 1px solid #D8BFAA;
+  .title{
+    background-color: #D8BFAA;
+    padding: 10px 20px;
+  &.open{
+    //background-color: red;
+  }
+}
   .collapsible-content{
     margin-top: 10px;
     margin-right: 10px;

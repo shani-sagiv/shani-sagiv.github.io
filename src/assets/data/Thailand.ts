@@ -22,7 +22,8 @@ export const KOH_LANTA: Destination = {
     english: "Koh Lanta",
   },
   dates: [{ from: createDate("17/04/2024"), to: createDate("29/04/2024") }],
-  shells: [shell1],
+  // shells: [shell1],
+  shells: [],
   description:
     "קו לנטה הוא אי שקט ורגוע בדרום תאילנד, הידוע בחופים זהובים, מי טורקיז ושוניות אלמוגים מושלמות לצלילה ושנורקלינג. האי מציע אווירה נינוחה עם עיירות חוף קטנות, נופים ירוקים ומקומות מפלט למי שמחפש להתרחק מהמולת התיירות.",
   hotels: [
@@ -30,7 +31,7 @@ export const KOH_LANTA: Destination = {
       name: "Lanta Riviera Resort",
       type: "Hotel",
       description:
-        "מלון על החוף, חדרים גדולים ונקיים, בריכה כייפית! המקום ממש לא עמוב ויש המון ברים ומסעדות על החוף במרחק הליכה",
+        "מלון על החוף, חדרים גדולים ונקיים, בריכה כייפית! המקום ממש לא עמוס ויש המון ברים ומסעדות על החוף במרחק הליכה",
       price: "75 ש״ח ללילה",
       coordinates: "7.577414295436549, 99.0335781460971",
       googleMapLink: "https://maps.app.goo.gl/URVK9gTZAGHwMBpV8",

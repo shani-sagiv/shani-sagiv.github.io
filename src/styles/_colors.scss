@@ -11,3 +11,63 @@ $bay-of-many: #224687;
 $spindle: #b8c8d8;
 $red: #ff4141;
 //todo: Remove
+
+// Base and Accent Colors
+$earth-deep-forest: #2E7D32;   // Rich forest green, ideal for footers and accents
+$earth-midnight-blue: #283593; // Deep blue, great for prominent CTAs and headers
+$earth-sunset-orange: #EF6C00; // Vibrant orange, perfect for highlights and buttons
+$earth-clay-red: #D84315;      // Warm red, suitable for warnings or attention elements
+$earth-sandstone: #FFF3E0;     // Light sandy color, excellent for backgrounds
+$earth-mountain-stone: #3E2723; // Almost black, great for text and contrast details
+
+// Secondary Accent Colors
+$earth-sky-blue: #4FC3F7;      // Soft blue for informational call-outs
+$earth-grass-green: #9CCC65;   // Light green for success messages and icons
+$earth-golden-sun: #FFCA28;    // Golden yellow for ratings or favorite icons
+
+// Neutral Tones
+$earth-paper-white: #FAFAFA;   // Very light gray, almost white, for general background
+$earth-smoky-gray: #546E7A;    // Medium gray, versatile for secondary text and borders
+$earth-charcoal: #37474F;      // Dark gray, perfect for primary text and headings
+
+// Utility Colors
+$earth-shadow: rgba(38, 50, 56, 0.2); // Soft shadow for UI depth
+$earth-highlight: rgba(255, 255, 255, 0.1); // Subtle highlight for hover states
+
+// Styling Examples
+body {
+  background-color: $earth-sandstone;
+  color: $earth-charcoal;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+h1, h2, h3, title {
+  color: $earth-mountain-stone;
+}
+
+.button-primary {
+  background-color: $earth-sunset-orange;
+  color: $earth-paper-white;
+  &:hover {
+    background-color: darken($earth-sunset-orange, 10%);
+  }
+}
+
+.nav-link {
+  color: $earth-smoky-gray;
+  &:hover {
+    color: $earth-sky-blue;
+  }
+}
+
+.footer {
+  background-color: $earth-deep-forest;
+  color: $earth-paper-white;
+}
+
+// Accessibility Considerations
+.text-highlight {
+  background-color: $earth-golden-sun;
+  color: $earth-deep-forest;
+}
+
