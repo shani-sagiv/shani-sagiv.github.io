@@ -1,6 +1,8 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
+import { Modal } from "components";
+import "./ImageGallery.scss";
 
 interface ImageGalleryProps extends React.HTMLAttributes<HTMLDivElement> {
   images: Array<{
@@ -9,22 +11,28 @@ interface ImageGalleryProps extends React.HTMLAttributes<HTMLDivElement> {
   }>;
 }
 
-const MyImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
-  const galleryRef = useRef<any>(null);
-  galleryRef?.current?.toggleFullScreen();
-  console.log({ galleryRef });
+const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
+  const [isFullScreen, setIsFullScreen] = React.useState(false);
+  const defaultParams = {
+    items: images,
+    showPlayButton: false,
+    showThumbnails: false,
+    showFullscreenButton: false,
+  };
 
   return (
-    <div style={{ maxWidth: "500px", margin: "0 auto" }}>
-      <ImageGallery
-        ref={galleryRef}
-        stopPropagation={true}
-        items={images}
-        showPlayButton={false}
-        showThumbnails={false}
-        useBrowserFullscreen
-      />
-    </div>
+    <span style={{ position: "relative", flexShrink: 0, ...style }}>
+      <ImageGallery {...defaultParams} />
+      <div
+        className={"full-screen-button"}
+        onClick={() => setIsFullScreen(true)}
+      >
+        ⛶
+      </div>
+      <Modal closeModal={() => setIsFullScreen(false)} hidden={!isFullScreen}>
+        <ImageGallery {...defaultParams} />
+      </Modal>
+    </span>
   );
 };
 

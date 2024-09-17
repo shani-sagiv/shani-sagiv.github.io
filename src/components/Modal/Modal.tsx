@@ -4,9 +4,14 @@ import "./Modal.scss";
 interface ModalProps {
   closeModal: () => void;
   children: ReactNode;
+  hidden?: boolean;
 }
 
-const Modal: React.FC<ModalProps> = ({ children, closeModal }) => {
+const Modal: React.FC<ModalProps> = ({
+  children,
+  closeModal,
+  hidden = false,
+}) => {
   const handleOverlayClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
       closeModal();
@@ -21,6 +26,9 @@ const Modal: React.FC<ModalProps> = ({ children, closeModal }) => {
       document.body.style.overflow = "unset"; // Re-enable scrolling when modal closes
     };
   }, []);
+  if (hidden) {
+    return null;
+  }
 
   return (
     <div className={"modal-overlay"} onClick={handleOverlayClick}>

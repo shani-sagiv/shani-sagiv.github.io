@@ -2,8 +2,6 @@ import React from "react";
 import "./Country.scss";
 import { useNavigate } from "react-router-dom";
 import { Cards, Collapsibles, Title } from "components";
-import ImageGallery from "react-image-gallery";
-import "react-image-gallery/styles/css/image-gallery.css";
 import { Destination, Recommendation } from "models";
 import { COUNTRIES } from "../../Routes";
 import { getNameToDisplay } from "../../helpers/dateHelpers";

@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Collapsibles.scss";
 import { Collapsible } from "components/Collapsible";
-import ImageGallery from "react-image-gallery";
-import "react-image-gallery/styles/css/image-gallery.css";
-import MyImageGallery from "components/ImageGallery/ImageGallery";
+import { ImageGallery } from "components";
 
 interface CollapsibleProps extends React.HTMLAttributes<HTMLDivElement> {
   items: {
@@ -23,29 +21,23 @@ const Collapsibles: React.FC<CollapsibleProps> = ({ items }) => {
               display: "flex",
               flexDirection: "row",
               whiteSpace: "pre-line",
+              alignItems: "right",
+              justifyContent: "flex-start",
             }}
           >
             {!item.images ? null : (
-              <span
+              <ImageGallery
                 style={{
-                  width: "60vw",
+                  width: "30vw",
                   maxWidth: 200,
                   float: "right",
                   marginLeft: 10,
                 }}
-              >
-                <MyImageGallery
-                  images={item.images.map((i) => ({
-                    original: i,
-                    thumbnail: i,
-                  }))}
-                />
-                {/*<ImageGallery*/}
-                {/*  showPlayButton={false}*/}
-                {/*  showThumbnails={false}*/}
-                {/*  items={}*/}
-                {/*/>*/}
-              </span>
+                images={item.images.map((i) => ({
+                  original: i,
+                  thumbnail: i,
+                }))}
+              />
             )}
             {item.content}
           </div>

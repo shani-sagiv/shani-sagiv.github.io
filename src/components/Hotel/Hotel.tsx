@@ -2,8 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import "./Hotel.scss";
 import { Recommendation } from "models/Recommendation";
-import ImageGallery from "react-image-gallery";
-import "react-image-gallery/styles/css/image-gallery.css"; // Import CSS
+import { ImageGallery } from "components";
 
 interface HotelProps extends React.HTMLAttributes<HTMLDivElement> {
   hotel: Recommendation;
@@ -29,20 +28,15 @@ const Hotel: React.FC<HotelProps> = ({ hotel }) => {
               style={{
                 height: "150px",
                 width: "100px",
-                // border: "1px solid black",
                 float: "left",
                 margin: "0 10px",
-                // overflow: "hidden", // Prevent overflow
               }}
             >
               <ImageGallery
-                showPlayButton={false}
-                showThumbnails={false}
-                // renderItem={}
-                // showNav={false}
-                // useBrowserFullscreen
-                // isRTL
-                items={hotel.images.map((i) => ({ original: i, thumbnail: i }))}
+                images={hotel.images.map((i) => ({
+                  original: i,
+                  thumbnail: i,
+                }))}
               />
             </span>
           )}
