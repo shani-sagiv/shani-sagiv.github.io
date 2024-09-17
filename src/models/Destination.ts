@@ -1,4 +1,11 @@
-import { Recommendation } from "models";
+import {
+  AttractionRecommendation,
+  HotelRecommendation,
+  InfoRecommendation,
+  NightLifeRecommendation,
+  Recommendation,
+  RestaurantRecommendation,
+} from "models";
 import { DisplayName } from "models/GenericModels"; // Assuming Recommendation is defined in a separate file
 
 export interface Destination {
@@ -7,14 +14,14 @@ export interface Destination {
   name: string;
   displayName: DisplayName;
   description: string; // Description of the location
-  dates: { from: Date; to: Date }[];
   shells?: string[];
   transportation?: string;
   profileImg: string;
 
   // Recommendations
-  hotels: Recommendation[]; // Array of hotel recommendations
-  foods: Recommendation[]; // Array of food/restaurant recommendations
-  attractions: Recommendation[]; // Array of attraction recommendations
-  nightlife: Recommendation[]; // Array of nightlife recommendations
+  hotels: HotelRecommendation[]; // Array of hotel recommendations
+  foods: RestaurantRecommendation[]; // Array of food/restaurant recommendations
+  attractions: AttractionRecommendation[]; // Array of attraction recommendations
+  nightlife: NightLifeRecommendation[]; // Array of nightlife recommendations
+  gold_recommendation?: InfoRecommendation[];
 }

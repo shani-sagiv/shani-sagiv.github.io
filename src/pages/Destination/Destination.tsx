@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import StickyHeaderScroll from "components/StickyHeaderScroll/StickyHeaderScroll";
-import { Recommendation } from "models";
+import { InfoRecommendation, Recommendation } from "models";
 import { calculateDaysBetweenDates } from "helpers/dateHelpers";
 import {
   Title,
@@ -18,7 +18,8 @@ interface CountryProps extends React.HTMLAttributes<HTMLDivElement> {
   attractions: Recommendation[];
   nightlife: Recommendation[];
   shells?: string[];
-  dates: { from: Date; to: Date }[];
+  gold_recommendation?: InfoRecommendation[];
+  // dates: { from: Date; to: Date }[];
 }
 
 const Destination: React.FC<CountryProps> = ({
@@ -28,7 +29,8 @@ const Destination: React.FC<CountryProps> = ({
   attractions = [],
   shells = [],
   nightlife = [],
-  dates = [],
+  gold_recommendation = [],
+  // dates = [],
 }) => {
   const navigate = useNavigate();
 
@@ -77,6 +79,21 @@ const Destination: React.FC<CountryProps> = ({
           />
         ),
       },
+      ...gold_recommendation.map((r) => ({
+        title: r.name,
+        content: (
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            {r.description}
+            {r.links
+              ? r.links.map((l) => (
+                  <a href={l} target={"_blank"}>
+                    {l}
+                  </a>
+                ))
+              : null}
+          </div>
+        ),
+      })),
     ];
   };
 
@@ -84,19 +101,19 @@ const Destination: React.FC<CountryProps> = ({
     <div className={"Destination"}>
       <Title title={name} />
       <div className="info">
-        {dates.map((date) => (
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              gap: 5,
-              // marginRight: 15,
-            }}
-          >
-            <span>ימים</span>
-            <span>{calculateDaysBetweenDates(date.from, date.to)}</span>
-          </div>
-        ))}
+        {/*{dates.map((date) => (*/}
+        {/*  <div*/}
+        {/*    style={{*/}
+        {/*      display: "flex",*/}
+        {/*      flexDirection: "row",*/}
+        {/*      gap: 5,*/}
+        {/*      // marginRight: 15,*/}
+        {/*    }}*/}
+        {/*  >*/}
+        {/*    <span>ימים</span>*/}
+        {/*    <span>{calculateDaysBetweenDates(date.from, date.to)}</span>*/}
+        {/*  </div>*/}
+        {/*))}*/}
       </div>
       <Collapsibles items={getInfo()} />
       <StickyHeaderScroll items={getActivities()} />

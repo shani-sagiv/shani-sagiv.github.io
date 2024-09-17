@@ -22,7 +22,7 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
 
   return (
     <span style={{ position: "relative", flexShrink: 0, ...style }}>
-      <ImageGallery {...defaultParams} />
+      <ImageGallery {...defaultParams} disableKeyDown />
       <div
         className={"full-screen-button"}
         onClick={() => setIsFullScreen(true)}
