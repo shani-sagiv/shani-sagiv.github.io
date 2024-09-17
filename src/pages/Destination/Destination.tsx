@@ -67,7 +67,7 @@ const Destination: React.FC<CountryProps> = ({
   const getInfo = () => {
     return [
       {
-        title: "shells",
+        title: "צדפים 🌊🌺🏖️🐚🎀☀️",
         content: (
           <ImageGallery
             style={{

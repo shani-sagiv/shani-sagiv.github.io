@@ -41,6 +41,7 @@ const Collapsible: React.FC<CollapsibleProps> = ({ title, children }) => {
         className={classnames("title", { open: isOpen })}
       >
         <span>{title}</span>
+        <div>{isOpen ? "⤴" : "⤵"}</div>
       </div>
       {isOpen && (
         <div className="collapsible-content" style={{}}>
