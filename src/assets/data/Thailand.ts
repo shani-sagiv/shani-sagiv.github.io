@@ -1,5 +1,5 @@
 import { createDate } from "helpers/dateHelpers";
-import { Country, Destination } from "../../models";
+import { Country, Destination } from "models";
 import { KHO_LANTA } from "../img/Thailand/KohLanta/index";
 
 export const THAILAND: Country = {
@@ -11,7 +11,15 @@ export const THAILAND: Country = {
   },
   description:
     "תאילנד היא מדינה טרופית בדרום-מזרח אסיה, המפורסמת בחופים קסומים, מקדשים בודהיסטיים מרהיבים ותרבות עשירה. בנוסף, המדינה מציעה חוויות קולינריות מגוונות, חיי לילה תוססים ושווקים ססגוניים",
-  gold_recommendation: [],
+  gold_recommendation: [
+    {
+      name: "יתושים",
+      type: "Attraction",
+      description:
+        "נגד יתושים: ספריי ורוד מה7/11 " + "\n" + "נגד עקיצות: קוף מחזיק אפרסק",
+      images: KHO_LANTA.mosquitos,
+    },
+  ],
   profileImg: KHO_LANTA.profile,
 };
 

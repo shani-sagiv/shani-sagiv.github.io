@@ -25,7 +25,10 @@ import main from "./main.jpg";
 
 import { importAll } from "../../../../helpers/imagesHelpers";
 export const beachTravelImages = importAll(
-  require.context("./beach-travel", false, /\.(png|jpe?g|svg)$/)
+  require.context("./beach-travel", false, /\.(png|jpe?g|svg)$/),
+);
+export const mosquitosImages = importAll(
+  require.context("./mosquitos", false, /\.(png|jpe?g|svg)$/),
 );
 
 export const KHO_LANTA = {
@@ -33,6 +36,7 @@ export const KHO_LANTA = {
   shells: [shell1, shell2, shell3, shell4, shell5],
   hotelLantaRiviera: [hotel1, hotel2, hotel3],
   beachTravelImages: beachTravelImages,
+  mosquitos: mosquitosImages,
   attractionsFollowingGiants: [attr1, attr2],
   attractionsMarket: [attr3],
   restaurantsLantaRiviera: [rest1, rest2, rest3],
