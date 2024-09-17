@@ -74,7 +74,7 @@ const Country: React.FC<CountryProps> = ({
   const destinations = Array.from({ length: 10 }, (_, index) => ({
     title: "יעד בדיקה " + index,
     image: "https://www.yo-yoo.co.il/coolpics/images/uploads/67219d.jpg",
-    navigate: "/Destination",
+    navigate: "/koh lanta",
   }));
 
   return (

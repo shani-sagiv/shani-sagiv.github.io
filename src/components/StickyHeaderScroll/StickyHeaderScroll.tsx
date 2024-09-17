@@ -14,6 +14,8 @@ const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
 
   // Scroll to the section when clicked
   const scrollToSection = (index: number) => {
+    console.log(sectionRefs);
+    console.log(index);
     const section = sectionRefs.current[index];
     if (section) {
       const yOffset = -70;
@@ -84,10 +86,11 @@ const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
       {items.map((item, index) => (
         <div
           key={index}
+          id={"item-" + index}
           ref={(el) => (sectionRefs.current[index] = el)} // Assign ref to each section
           style={{ width: "100%", boxSizing: "border-box" }}
         >
-          <h1>{item.title}</h1>
+          <h1 style={{ textAlign: "center" }}>{item.title}</h1>
           <div>{item.content}</div>
         </div>
       ))}

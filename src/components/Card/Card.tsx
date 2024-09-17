@@ -14,16 +14,16 @@ const Card: React.FC<CardProps> = ({ onClick, title, image }) => {
       style={{
         height: "150px", // Increased height for better view
         width: "150px", // Increased width for better view
-        border: "1px solid blue",
+        // border: "1px solid blue",
         flexShrink: 0,
         margin: "20px 10px",
         position: "relative", // This is important to position the title over the image
-        backgroundColor: "yellow",
         cursor: "pointer", // Better UX for clickable element
         display: "flex", // Flexbox for centering
         justifyContent: "center", // Center title horizontally
         alignItems: "center", // Center title vertically
-        borderRadius: "10px",
+        borderRadius: "5px",
+        boxShadow: "0px 4px 9px 6px #00000061",
       }}
       onClick={onClick}
     >
@@ -47,8 +47,7 @@ const Card: React.FC<CardProps> = ({ onClick, title, image }) => {
         alt="card"
         style={{
           height: "100%",
-          borderRadius: "10px",
-
+          borderRadius: "5px",
           width: "100%",
           objectFit: "cover", // Makes sure the image covers the card area properly
           zIndex: 1, // Below the title
