@@ -37,7 +37,25 @@ export const KOH_LANTA: Destination = {
       images: KHO_LANTA.hotelLantaRiviera,
     },
   ],
-  foods: [],
+  foods: [
+    {
+      name: "Lanta Riviera Resort",
+      type: "Restaurant",
+      description: "המסעדה בבריכה של המלון הייתה אחלה ממש, אכלנו בה מלאאא  ",
+      coordinates: "7.577414295436549, 99.0335781460971",
+      googleMapLink: "https://maps.app.goo.gl/URVK9gTZAGHwMBpV8",
+      images: KHO_LANTA.restaurantsLantaRiviera,
+    },
+    {
+      name: "Moonwalk Restaurant & Bar",
+      type: "Restaurant",
+      description:
+        "מסעדה ממש חמודה על החוף, כמה דק הליכה מהחוף של המלון. המלצריות היו ממש נחמדות והאוכל מצויין",
+      coordinates: "7.573421274671827, 99.03362313707707",
+      googleMapLink: "https://maps.app.goo.gl/t66ajYqb2s9AKVnw5",
+      images: KHO_LANTA.restaurantsMoonwalk,
+    },
+  ],
   attractions: [
     {
       name: "Following Giants",
@@ -49,5 +67,15 @@ export const KOH_LANTA: Destination = {
       images: KHO_LANTA.attractionsFollowingGiants,
     },
   ],
-  nightlife: [],
+  nightlife: [
+    {
+      name: "Beach Bars",
+      type: "NightLife",
+      description:
+        "יש על החוף מלא ברים, מושלם לראות את השקיעה ולשבת בלילה. לפעמים גם יש מופעי אש, אפשר לשאול",
+      // coordinates: "7.495899016237173, 99.0867636",
+      // googleMapLink: "https://maps.app.goo.gl/1B1HYB4Soi51KvLU8",
+      images: KHO_LANTA.nightLife,
+    },
+  ],
 };
