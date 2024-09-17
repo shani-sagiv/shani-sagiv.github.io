@@ -1,4 +1,8 @@
-export type RecommendationType = "Hotel" | "Restaurant" | "Attraction";
+export type RecommendationType =
+  | "Hotel"
+  | "Restaurant"
+  | "Attraction"
+  | "NightLife";
 
 export interface Recommendation {
   name: string;
