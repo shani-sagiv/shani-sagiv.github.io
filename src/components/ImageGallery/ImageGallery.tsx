@@ -3,6 +3,7 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { Modal } from "components";
 import "./ImageGallery.scss";
+import classnames from "classnames";
 
 interface ImageGalleryProps extends React.HTMLAttributes<HTMLDivElement> {
   images: Array<{
@@ -12,17 +13,41 @@ interface ImageGalleryProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
+  const imagesWithThumbnail = images.map((i) => ({
+    original: i.original,
+    thumbnail: i.thumbnail || i.original,
+  }));
   const [isFullScreen, setIsFullScreen] = React.useState(false);
   const defaultParams = {
-    items: images,
+    items: imagesWithThumbnail,
     showPlayButton: false,
     showThumbnails: false,
     showFullscreenButton: false,
+    showIndex: true,
+    isRTL: true,
+  };
+  const defaultModalParams = {
+    ...defaultParams,
+    ...(images.length > 1
+      ? {
+          showThumbnails: true,
+          thumbnailPosition: "right" as "right" | "left" | "bottom" | "top",
+        }
+      : {}),
   };
 
   return (
-    <span style={{ position: "relative", flexShrink: 0, ...style }}>
-      <ImageGallery {...defaultParams} disableKeyDown />
+    <span
+      className={classnames("image-gallery-wrapper", {
+        fullscreen: isFullScreen,
+      })}
+      style={{ position: "relative", flexShrink: 0, ...style }}
+    >
+      <ImageGallery
+        {...defaultParams}
+        disableKeyDown
+        showNav={images.length > 1}
+      />
       <div
         className={"full-screen-button"}
         onClick={() => setIsFullScreen(true)}
@@ -30,7 +55,18 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
         ⛶
       </div>
       <Modal closeModal={() => setIsFullScreen(false)} hidden={!isFullScreen}>
-        <ImageGallery {...defaultParams} />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <ImageGallery
+            {...defaultModalParams}
+            onClick={() => setIsFullScreen(false)}
+          />
+        </div>
       </Modal>
     </span>
   );

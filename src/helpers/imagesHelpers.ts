@@ -8,5 +8,8 @@ declare namespace __WebpackModuleApi {
 export const importAll = (
   requireContext: __WebpackModuleApi.RequireContext,
 ): string[] => {
-  return requireContext.keys().map(requireContext);
+  const images = requireContext.keys().map(requireContext);
+
+  // Remove duplicate entries using Set
+  return Array.from(new Set(images));
 };

@@ -25,6 +25,26 @@ export const insectZooImages = importAll(
   require.context("./insect-zoo", false, /\.(png|jpe?g|svg)$/),
 );
 
+export const sirikitImages = importAll(
+  require.context("./sirikit-botanical", false, /\.(png|jpe?g|svg)$/),
+);
+export const woodCarveImages = importAll(
+  require.context("./wood-carve", false, /\.(png|jpe?g|svg)$/),
+);
+export const stickyWaterfallImages = importAll(
+  require.context("./sticky-waterfall", false, /\.(png|jpe?g|svg)$/),
+);
+export const shabushiImages = importAll(
+  require.context("./shabushi", false, /\.(png|jpe?g|svg)$/),
+);
+export const gingerFarmImages = importAll(
+  require.context("./ginger-farm", false, /\.(png|jpe?g|svg)$/),
+);
+
+export const arcadeImages = importAll(
+  require.context("./arcade", false, /\.(png|jpe?g|svg)$/),
+);
+
 export const CHINAG_MAI = {
   profile: main,
   watTemple: watTempleImages,
@@ -34,4 +54,10 @@ export const CHINAG_MAI = {
   doiPui: doiPuiImages,
   cobra: cobraImages,
   insectZoo: insectZooImages,
+  sirikit: sirikitImages,
+  woodCarve: woodCarveImages,
+  stickyWaterfall: stickyWaterfallImages,
+  shabushi: shabushiImages,
+  gingerFarm: gingerFarmImages,
+  arcade: arcadeImages,
 };

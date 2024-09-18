@@ -15,7 +15,7 @@ import {
   Recommendation as RecommendationComponent,
 } from "components";
 import "./Destination.scss";
-import { getStartAndEndDate } from "helpers/dateHelpers";
+import { getStartAndEndDate, parseDate } from "helpers/dateHelpers";
 
 interface CountryProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
@@ -43,29 +43,29 @@ const Destination: React.FC<CountryProps> = ({
       {
         title: "מלונות",
         tabTitle: <h1>🏨</h1>,
-        content: hotels.map((r) => (
-          <RecommendationComponent recommendation={r} />
+        content: hotels.map((r, i) => (
+          <RecommendationComponent recommendation={r} key={`hotel-${i}`} />
         )),
       },
       {
         title: "מסעדות",
         tabTitle: <h1>🍔</h1>,
-        content: foods.map((r) => (
-          <RecommendationComponent recommendation={r} />
+        content: foods.map((r, i) => (
+          <RecommendationComponent recommendation={r} key={`food-${i}`} />
         )),
       },
       {
         title: "אטרקציות",
         tabTitle: <h1>🎡</h1>,
-        content: attractions.map((r) => (
-          <RecommendationComponent recommendation={r} />
+        content: attractions.map((r, i) => (
+          <RecommendationComponent recommendation={r} key={`attraction-${i}`} />
         )),
       },
       {
         title: "חיי לילה",
         tabTitle: <h1>🕺</h1>,
-        content: nightlife.map((r) => (
-          <RecommendationComponent recommendation={r} />
+        content: nightlife.map((r, i) => (
+          <RecommendationComponent recommendation={r} key={`nightlife-${i}`} />
         )),
       },
     ];
@@ -111,8 +111,7 @@ const Destination: React.FC<CountryProps> = ({
     <div className={"Destination"}>
       <Title title={name} />
       <div className="info">
-        <div>{startDate.toLocaleDateString("en-GB")}</div>-
-        <div>{endDate.toLocaleDateString("en-GB")}</div>
+        {/*<div>{parseDate(startDate)}</div>-<div>{parseDate(endDate)}</div>*/}
         {/*{dates.map((date) => (*/}
         {/*  <div*/}
         {/*    style={{*/}

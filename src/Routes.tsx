@@ -21,6 +21,7 @@ export const COUNTRIES: [
     destinations: [KOH_LANTA, KOH_PHA_NGAN, CHINAG_MAI],
   },
 ];
+console.log({ CHINAG_MAI });
 
 const translationMap = COUNTRIES.flatMap((item) => [
   { key: item.country.id, name: item.country.displayName.hebrew },

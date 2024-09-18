@@ -1,7 +1,7 @@
 .full-screen-button{
   position: absolute;
-  bottom: 5%;
-  right: 5%;
+  bottom: 0;
+  right: 0;
   font-size: 40px;
   cursor: pointer;
   z-index: 5;
@@ -10,6 +10,18 @@
 
   &:hover{
     font-weight: bolder;
-
   }
+}
+.image-gallery-wrapper{
+  &:not(.fullscreen) {
+    .image-gallery-left-nav{
+      top: 32%;
+      left:-8%;
+    }
+    .image-gallery-right-nav {
+      top: 32%;
+      right:-8%;
+    }
+  }
+
 }

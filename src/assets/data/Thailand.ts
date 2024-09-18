@@ -248,7 +248,16 @@ export const CHINAG_MAI: Destination = {
       images: CHINAG_MAI_IMAGES.astra,
     },
   ],
-  foods: [],
+  foods: [
+    {
+      type: "Restaurant",
+      name: "Shabushi <3",
+      description: "הוטפוט עןם מסועים וסושי ומלא כיף מומלץ מאוד",
+      price: "400 באט לראש אכול כפי יכולתך",
+      googleMapLink: "https://maps.app.goo.gl/NorSJuHavaQ4c9Fi7",
+      images: CHINAG_MAI_IMAGES.shabushi,
+    },
+  ],
   attractions: [
     {
       name: "מקדש Wat Chiang Man",
@@ -292,6 +301,48 @@ export const CHINAG_MAI: Destination = {
       images: CHINAG_MAI_IMAGES.insectZoo,
     },
     {
+      name: "Queen Sirikit Botanic Garden",
+      type: "Attraction",
+      description: "גן בוטני עצום ומטורף",
+      price: "ביחד עם הקוברה והמוזיאון חרקים",
+      googleMapLink: "https://maps.app.goo.gl/VESrFySdsmfk9BVu7",
+      images: CHINAG_MAI_IMAGES.sirikit,
+    },
+    {
+      name: "חנות/מוזיאון של גילופים בעץ",
+      type: "Attraction",
+      description:
+        "מקום עם אין סוף גילופים, חלק לקחו כמה שני ולכמה אנשים מטורף לגמרי (היה אסור לצלם בפנים)",
+      price: "כניסה חינם, גילוף עלה איזה 100באט לראש",
+      googleMapLink: "https://maps.app.goo.gl/xJ5wqTTWCbb1RxKH9",
+      images: CHINAG_MAI_IMAGES.woodCarve,
+    },
+    {
+      name: "מפלים דביקים",
+      type: "Attraction",
+      description:
+        "מפלים שבגלל מינרל האבנים ממש מחוספסות אז אפשר לטפס על המפל ברגל, ממש מיוחד וכיף ולא כבד מדי",
+      price: "חינם",
+      googleMapLink: "https://maps.app.goo.gl/QZBh82aBmZ32BYw69",
+      images: CHINAG_MAI_IMAGES.stickyWaterfall,
+    },
+    {
+      name: "Ginger Farm",
+      type: "Attraction",
+      description: "מקום יפה אוכל טעים חיות חמודות",
+      price: "חינם",
+      googleMapLink: "https://maps.app.goo.gl/3U9vwE3jGe41X7fi7",
+      images: CHINAG_MAI_IMAGES.gingerFarm,
+    },
+    {
+      name: "ארקייד Echo-Ex10",
+      type: "Attraction",
+      description: "ארקייד ממש כיף בקניון מאיה",
+      price: "לא יקר לא זוכר",
+      googleMapLink: "https://maps.app.goo.gl/ojyDynVNrULzjvBb6",
+      images: CHINAG_MAI_IMAGES.arcade,
+    },
+    {
       name: "Sunday walking street",
       type: "Attraction",
       description: "שוק ענק כל יום ראשון",
@@ -300,5 +351,31 @@ export const CHINAG_MAI: Destination = {
     },
   ],
   nightlife: [],
-  gold_recommendation: [],
+  gold_recommendation: [
+    {
+      name: "מוניות",
+      type: "Info",
+      description:
+        "מוניות סופר נוחות, לא לקח להן יותר מ2 דק להגיע ומחירים זולים ממש דרך בולט",
+    },
+    {
+      name: "ברים",
+      type: "Info",
+      description:
+        "כל העיר העתיקה מלאה בברים, מומלץ להסתובב או לקחת מונית כל פעם למקום אחר" +
+        "\n" +
+        "גם האזור של One Nimman, ליד הקניון אחלה אזור ברים מסיבות שוק",
+    },
+    {
+      name: "קניון",
+      type: "Info",
+      description: "יש שם קניון ענק MAYA אחלה חנויות דוכנים אוכל",
+      links: ["https://maps.app.goo.gl/PTtWHMUuMR9531N77"],
+    },
+    {
+      name: "שווקים",
+      type: "Info",
+      description: "כמעט כל יום יש שם שוק במקום אחר, כדאי לבדוק כי הם מטורפים",
+    },
+  ],
 };
