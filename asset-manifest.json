@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.fecba524.css",
-    "main.js": "/static/js/main.da44dc05.js",
+    "main.css": "/static/css/main.28315a5d.css",
+    "main.js": "/static/js/main.5f135c8b.js",
     "static/js/453.d3be6aae.chunk.js": "/static/js/453.d3be6aae.chunk.js",
     "static/media/8EF33CFD-72B4-4B52-989E-5C8A6AD56715.jpeg": "/static/media/8EF33CFD-72B4-4B52-989E-5C8A6AD56715.938518fb86f4c459ce96.jpeg",
     "static/media/B194BD03-342E-4FFA-8E8B-3BE4AC9B62F7.jpeg": "/static/media/B194BD03-342E-4FFA-8E8B-3BE4AC9B62F7.7787f828e565b6134983.jpeg",
@@ -185,12 +185,12 @@
     "static/media/sim.jpeg": "/static/media/sim.d426f528befaab83711c.jpeg",
     "static/media/shani-in-sunset.jpeg": "/static/media/shani-in-sunset.306fe3263711363a2235.jpeg",
     "index.html": "/index.html",
-    "main.fecba524.css.map": "/static/css/main.fecba524.css.map",
-    "main.da44dc05.js.map": "/static/js/main.da44dc05.js.map",
+    "main.28315a5d.css.map": "/static/css/main.28315a5d.css.map",
+    "main.5f135c8b.js.map": "/static/js/main.5f135c8b.js.map",
     "453.d3be6aae.chunk.js.map": "/static/js/453.d3be6aae.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fecba524.css",
-    "static/js/main.da44dc05.js"
+    "static/css/main.28315a5d.css",
+    "static/js/main.5f135c8b.js"
   ]
 }
