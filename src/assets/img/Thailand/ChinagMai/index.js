@@ -45,7 +45,7 @@ export const arcadeImages = importAll(
   require.context("./arcade", false, /\.(png|jpe?g|svg)$/),
 );
 
-export const CHINAG_MAI = {
+export const CHINAG_MAI_IMAGES = {
   profile: main,
   watTemple: watTempleImages,
   sundayMarket: sundayMarketImages,

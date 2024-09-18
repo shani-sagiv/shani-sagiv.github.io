@@ -1,5 +1,5 @@
 import { Destination } from "models/Destination";
-import { KHO_PHA_NGAN } from "../img/Thailand";
+import { KHO_PHA_NGAN_IMAGES } from "../img/Thailand";
 
 // export const DESTINATION_NAME: Destination = {
 //   id: "DESTINATION_NAME",

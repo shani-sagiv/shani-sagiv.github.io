@@ -23,7 +23,7 @@ export const catCafeImages = importAll(
   require.context("./cat-cafe", false, /\.(png|jpe?g|svg)$/),
 );
 
-export const KHO_PHA_NGAN = {
+export const KHO_PHA_NGAN_IMAGES = {
   profile: sunset,
   islandLife: islandLifeImages,
   seaResortImages: seaResortImages,

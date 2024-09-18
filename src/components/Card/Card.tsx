@@ -39,7 +39,7 @@ const Card: React.FC<CardProps> = ({ onClick, displayName, image }) => {
       </h1>
 
       {/* Image as background */}
-      <img src={image} alt="card" className={"card-image"} />
+      <img src={image} alt="" className={"card-image"} />
     </div>
   );
 };

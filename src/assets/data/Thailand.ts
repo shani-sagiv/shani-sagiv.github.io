@@ -2,9 +2,9 @@ import { createDate } from "helpers/dateHelpers";
 import { Country, Destination } from "models";
 import simSrc from "assets/img/Thailand/sim.jpeg";
 import {
-  KHO_LANTA,
-  KHO_PHA_NGAN,
-  CHINAG_MAI as CHINAG_MAI_IMAGES,
+  KHO_LANTA_IMAGES,
+  KHO_PHA_NGAN_IMAGES,
+  CHINAG_MAI_IMAGES as CHINAG_MAI_IMAGES,
 } from "assets/img/Thailand";
 
 export const THAILAND: Country = {
@@ -30,7 +30,7 @@ export const THAILAND: Country = {
       type: "Info",
       description:
         "נגד יתושים: ספריי ורוד מה7/11 " + "\n" + "נגד עקיצות: קוף מחזיק אפרסק",
-      images: KHO_LANTA.mosquitos,
+      images: KHO_LANTA_IMAGES.mosquitos,
     },
     {
       name: "סים ☎️",
@@ -40,17 +40,17 @@ export const THAILAND: Country = {
       images: [simSrc],
     },
   ],
-  profileImg: KHO_LANTA.profile,
+  profileImg: KHO_LANTA_IMAGES.profile,
 };
 
 export const KOH_LANTA: Destination = {
   id: "KOH_LANTA",
-  profileImg: KHO_LANTA.profile,
+  profileImg: KHO_LANTA_IMAGES.profile,
   displayName: {
     hebrew: "קו לנטה",
     english: "Koh Lanta",
   },
-  shells: KHO_LANTA.shells,
+  shells: KHO_LANTA_IMAGES.shells,
   description:
     "קו לנטה הוא אי שקט ורגוע בדרום תאילנד, הידוע בחופים זהובים, מי טורקיז ושוניות אלמוגים מושלמות לצלילה ושנורקלינג. האי מציע אווירה נינוחה עם עיירות חוף קטנות, נופים ירוקים ומקומות מפלט למי שמחפש להתרחק מהמולת התיירות.",
   hotels: [
@@ -63,7 +63,7 @@ export const KOH_LANTA: Destination = {
       price: "75 ש״ח ללילה",
 
       googleMapLink: "https://maps.app.goo.gl/URVK9gTZAGHwMBpV8",
-      images: KHO_LANTA.hotelLantaRiviera,
+      images: KHO_LANTA_IMAGES.hotelLantaRiviera,
     },
   ],
   foods: [
@@ -72,7 +72,7 @@ export const KOH_LANTA: Destination = {
       type: "Restaurant",
       description: "המסעדה בבריכה של המלון הייתה אחלה ממש, אכלנו בה מלאאא  ",
       googleMapLink: "https://maps.app.goo.gl/URVK9gTZAGHwMBpV8",
-      images: KHO_LANTA.restaurantsLantaRiviera,
+      images: KHO_LANTA_IMAGES.restaurantsLantaRiviera,
     },
     {
       name: "Moonwalk Restaurant & Bar",
@@ -80,7 +80,7 @@ export const KOH_LANTA: Destination = {
       description:
         "מסעדה ממש חמודה על החוף, כמה דק הליכה מהחוף של המלון. המלצריות היו ממש נחמדות והאוכל מצויין",
       googleMapLink: "https://maps.app.goo.gl/t66ajYqb2s9AKVnw5",
-      images: KHO_LANTA.restaurantsMoonwalk,
+      images: KHO_LANTA_IMAGES.restaurantsMoonwalk,
     },
 
     {
@@ -99,13 +99,13 @@ export const KOH_LANTA: Destination = {
       description:
         "חוות פילים ממש מוסרית, הפילים משוחררים בחופשיות, לא נוגעים בהם או מציקים להם. הסבירו לנו בכניסה על שיקום פילים ששימשו לבידור בני אדם.",
       googleMapLink: "https://maps.app.goo.gl/1B1HYB4Soi51KvLU8",
-      images: KHO_LANTA.attractionsFollowingGiants,
+      images: KHO_LANTA_IMAGES.attractionsFollowingGiants,
     },
     {
       name: "גאות ושפל ממש גדולים",
       type: "Attraction",
       description: "יש שם גאות ושפל ממש חזקים אז אפשר לבוא לשם לראות המון מהים",
-      images: KHO_LANTA.beachTravelImages,
+      images: KHO_LANTA_IMAGES.beachTravelImages,
     },
     {
       name: "שוק לילה",
@@ -113,7 +113,7 @@ export const KOH_LANTA: Destination = {
       description:
         "בצפון האי יש שוק קטן וחמוד בלילה, יש דוכני אוכל נחמד וכיף להסתובב",
       googleMapLink: "https://maps.app.goo.gl/FxiaFTCA2EckFqUV6",
-      images: KHO_LANTA.attractionsMarket,
+      images: KHO_LANTA_IMAGES.attractionsMarket,
     },
   ],
   nightlife: [
@@ -122,14 +122,14 @@ export const KOH_LANTA: Destination = {
       type: "NightLife",
       description:
         "יש על החוף מלא ברים, מושלם לראות את השקיעה ולשבת בלילה. לפעמים גם יש מופעי אש, אפשר לשאול",
-      images: KHO_LANTA.nightLife,
+      images: KHO_LANTA_IMAGES.nightLife,
     },
   ],
 };
 
 export const KOH_PHA_NGAN: Destination = {
   id: "KOH_PHA_NGAN",
-  profileImg: KHO_PHA_NGAN.profile,
+  profileImg: KHO_PHA_NGAN_IMAGES.profile,
   displayName: {
     hebrew: "קו פנגן",
     english: "Koh Pha Ngan",
@@ -145,7 +145,7 @@ export const KOH_PHA_NGAN: Destination = {
         "דיי ממוצע המלון והאזור אחלה בריכה וקרוב לhalf moon שהיה ממוצע גם כן",
       price: "",
       googleMapLink: "https://maps.app.goo.gl/wFpmvsshdNTRJXPf7",
-      images: KHO_PHA_NGAN.islandLife,
+      images: KHO_PHA_NGAN_IMAGES.islandLife,
     },
     {
       name: "The Sea Resort",
@@ -154,7 +154,7 @@ export const KOH_PHA_NGAN: Destination = {
       description: "מצריך אופנוע אבל מקום ממש שווה",
       price: "",
       googleMapLink: "https://maps.app.goo.gl/yBoVNcQYotoZzSqy8",
-      images: KHO_PHA_NGAN.seaResortImages,
+      images: KHO_PHA_NGAN_IMAGES.seaResortImages,
     },
   ],
   foods: [
@@ -163,14 +163,14 @@ export const KOH_PHA_NGAN: Destination = {
       type: "Restaurant",
       description: "מסעדה ממש נחמדה ליד הsea resort, מקומית תאילדית זולה",
       googleMapLink: "https://maps.app.goo.gl/p6UneWTsZG4MehoYA",
-      images: KHO_PHA_NGAN.mamaRestaurant,
+      images: KHO_PHA_NGAN_IMAGES.mamaRestaurant,
     },
     {
       name: "Pantip Market שוק אוכל",
       type: "Restaurant",
       description: "אזור עם כמה דוכני אוכל  ושטויות וברים",
       googleMapLink: "https://maps.app.goo.gl/fzSnN2UaiK2rrfhV6",
-      images: KHO_PHA_NGAN.pantip,
+      images: KHO_PHA_NGAN_IMAGES.pantip,
     },
   ],
   attractions: [
@@ -180,7 +180,7 @@ export const KOH_PHA_NGAN: Destination = {
       description:
         "לשים לב אם מגיעים עם אופנוע לא להשאיר כלום בתא ולקחת את המפתחות הם חכמים",
       googleMapLink: "https://maps.app.goo.gl/DQBcudn59LarPh7w7",
-      images: KHO_PHA_NGAN.monkeys,
+      images: KHO_PHA_NGAN_IMAGES.monkeys,
     },
     {
       name: "Zen Beach",
@@ -188,7 +188,7 @@ export const KOH_PHA_NGAN: Destination = {
       description:
         "חוף חמוד עם אחלה נוף לשקיעה, הרבה אנשים שבאים לעשות יוגה ערסלים ואנערף, יש באחד הצדדים חוף נודיסטים",
       googleMapLink: "https://maps.app.goo.gl/JKr5o76eoi3Q6EdA8",
-      images: KHO_PHA_NGAN.zen,
+      images: KHO_PHA_NGAN_IMAGES.zen,
     },
     {
       name: "Bluerama",
@@ -198,14 +198,14 @@ export const KOH_PHA_NGAN: Destination = {
         "\n" +
         "משלמים בכניסה איזה 600 באט לראש אבל אפשר לקנות שם עם הכסף הזה",
       googleMapLink: "https://maps.app.goo.gl/ZDENA8MKoXWqXrAP7",
-      images: KHO_PHA_NGAN.bluerama,
+      images: KHO_PHA_NGAN_IMAGES.bluerama,
     },
     {
       name: "קפה חתולים",
       type: "Attraction",
       description: "בית קפה עם מלא חתולים, לא מאוד מעניין שני הייתה שם שעה",
       googleMapLink: "https://maps.app.goo.gl/8QGYfNaTWFEHJTeu6",
-      images: KHO_PHA_NGAN.catCafe,
+      images: KHO_PHA_NGAN_IMAGES.catCafe,
     },
   ],
   nightlife: [],

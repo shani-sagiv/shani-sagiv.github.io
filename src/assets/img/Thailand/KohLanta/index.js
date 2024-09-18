@@ -31,7 +31,7 @@ export const mosquitosImages = importAll(
   require.context("./mosquitos", false, /\.(png|jpe?g|svg)$/),
 );
 
-export const KHO_LANTA = {
+export const KHO_LANTA_IMAGES = {
   profile: main,
   shells: [shell1, shell2, shell3, shell4, shell5],
   hotelLantaRiviera: [hotel1, hotel2, hotel3],

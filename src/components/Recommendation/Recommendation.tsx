@@ -23,7 +23,7 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
         style={{
           marginRight: 10,
           marginTop: 10,
-          fontSize: 25,
+          fontSize: 22,
           fontWeight: "bold",
         }}
         href={recommendation.googleMapLink}

@@ -1,7 +1,7 @@
 import { createDate } from "helpers/dateHelpers";
 import { Country, Destination } from "models";
 
-import { HOI_AN as HOI_AN_IMAGES, profileImg } from "assets/img/Vietnam";
+import { VIETNAM_IMAGES, HOI_AN_IMAGES, profileImg } from "assets/img/Vietnam";
 
 export const VIETNAM: Country = {
   id: "VNM",
@@ -12,7 +12,15 @@ export const VIETNAM: Country = {
   },
   description:
     "מדינה מושלמתתתתתת, האנשים מדהימים!!!!, האוכל טעים, הכל זול ברמות. אם לא הייתה נגמרת לנו הויזה היינו נתקעים שם לנצח.",
-  gold_recommendation: [],
+  gold_recommendation: [
+    {
+      name: "מרק פו (pho)",
+      type: "Info",
+      description:
+        "מרק עם עוף טעים בטירוף, ככל שהמקום נראה יותר הומלסי ככה יותר טעים",
+      images: VIETNAM_IMAGES.phoSoup,
+    },
+  ],
   profileImg: profileImg,
 };
 
@@ -108,4 +116,5 @@ export const HOI_AN: Destination = {
       googleMapLink: "https://maps.app.goo.gl/WpNVuvWXNYGXdAaF9",
     },
   ],
+  shells: HOI_AN_IMAGES.shells,
 };

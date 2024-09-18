@@ -16,7 +16,11 @@ import {
   Recommendation as RecommendationComponent,
 } from "components";
 import "./Destination.scss";
-import { getStartAndEndDate, parseDate } from "helpers/dateHelpers";
+import {
+  calculateDaysBetweenDates,
+  getStartAndEndDate,
+  parseDate,
+} from "helpers/dateHelpers";
 
 interface DestinationProps extends React.HTMLAttributes<HTMLDivElement> {
   displayName: DisplayName;
@@ -107,7 +111,18 @@ const Destination: React.FC<DestinationProps> = ({
       })),
     ];
   };
-  const { startDate, endDate } = getStartAndEndDate(hotels);
+  const calculateDaysForHotel = (hotel: HotelRecommendation): number => {
+    return hotel.dates.reduce((totalDays, dateRange) => {
+      const { from, to } = dateRange;
+      const timeDiff = to.getTime() - from.getTime(); // Difference in milliseconds
+      const daysDiff = timeDiff / (1000 * 3600 * 24); // Convert milliseconds to days
+      return totalDays + daysDiff;
+    }, 0);
+  };
+  const totalDays = hotels.reduce(
+    (totalDays, hotel) => totalDays + calculateDaysForHotel(hotel),
+    0,
+  );
 
   return (
     <div className={"Destination"}>
@@ -116,17 +131,17 @@ const Destination: React.FC<DestinationProps> = ({
       <div className="info">
         {/*<div>{parseDate(startDate)}</div>-<div>{parseDate(endDate)}</div>*/}
         {/*{dates.map((date) => (*/}
-        {/*  <div*/}
-        {/*    style={{*/}
-        {/*      display: "flex",*/}
-        {/*      flexDirection: "row",*/}
-        {/*      gap: 5,*/}
-        {/*      // marginRight: 15,*/}
-        {/*    }}*/}
-        {/*  >*/}
-        {/*    <span>ימים</span>*/}
-        {/*    <span>{calculateDaysBetweenDates(date.from, date.to)}</span>*/}
-        {/*  </div>*/}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            gap: 5,
+            // marginRight: 15,
+          }}
+        >
+          <span>{totalDays}</span>
+          <span>ימים</span>
+        </div>
         {/*))}*/}
       </div>
       <Collapsibles items={getInfo()} />

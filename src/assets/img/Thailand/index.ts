@@ -1,3 +1,3 @@
-export { KHO_PHA_NGAN } from "./KohPhaNgan";
-export { KHO_LANTA } from "./KohLanta";
-export { CHINAG_MAI } from "./ChinagMai";
+export { KHO_PHA_NGAN_IMAGES } from "./KohPhaNgan";
+export { KHO_LANTA_IMAGES } from "./KohLanta";
+export { CHINAG_MAI_IMAGES } from "./ChinagMai";
