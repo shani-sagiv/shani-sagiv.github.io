@@ -11,14 +11,15 @@ $border-style: 2px solid #757575;
   justify-content: space-around;
   align-items: center;
   top: 0;
-  padding-top: 10px;
+  padding-top: 2px;
   z-index: 10;
   border-bottom: $border-style;
-  background: linear-gradient(
-    transparent 0%,
-    rgba(255, 255, 255, 0.6) 60%,
-    rgba(255, 255, 255, 0.9) 100%
-  );
+  background-color: $light-peach;
+  //background: linear-gradient(
+  //  transparent 0%,
+  //  rgba(255, 255, 255, 0.6) 60%,
+  //  rgba(255, 255, 255, 0.9) 100%
+  //);
 
   .sticky-header-item {
     text-align: center;
@@ -36,7 +37,13 @@ $border-style: 2px solid #757575;
       // border-bottom: 2.5px solid white;
       border-bottom: 2.5px solid $light-peach;
 
-      background-color: $light-peach;
+      background-color: transparent;
+      //background: linear-gradient(
+      //  transparent 0%,
+      //  rgba(255, 255, 255, 0.6) 60%,
+      //  rgba(255, 255, 255, 0.9) 100%
+      //);
+
     }
   }
 }

@@ -7,11 +7,12 @@
   color: $dark-teal;
   font-weight: 600;
   font-size: 1rem;
-  padding: 1vh;
+  padding: 0.5vh;
   text-decoration: none;
 
   .breadcrumb-item {
     display: flex;
+    align-items: center;
     .breadcrumb-text {
       margin: 0 3vw;
       // text-decoration: none;

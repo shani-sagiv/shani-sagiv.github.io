@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import StickyHeaderScroll from "components/StickyHeaderScroll/StickyHeaderScroll";
 import {
   AttractionRecommendation,
+  DisplayName,
   HotelRecommendation,
   InfoRecommendation,
   NightLifeRecommendation,
@@ -17,8 +18,8 @@ import {
 import "./Destination.scss";
 import { getStartAndEndDate, parseDate } from "helpers/dateHelpers";
 
-interface CountryProps extends React.HTMLAttributes<HTMLDivElement> {
-  name: string;
+interface DestinationProps extends React.HTMLAttributes<HTMLDivElement> {
+  displayName: DisplayName;
   hotels: HotelRecommendation[];
   foods: RestaurantRecommendation[];
   attractions: AttractionRecommendation[];
@@ -27,8 +28,8 @@ interface CountryProps extends React.HTMLAttributes<HTMLDivElement> {
   gold_recommendation?: InfoRecommendation[];
 }
 
-const Destination: React.FC<CountryProps> = ({
-  name = "Dest example",
+const Destination: React.FC<DestinationProps> = ({
+  displayName,
   hotels = [],
   foods = [],
   attractions = [],
@@ -39,7 +40,7 @@ const Destination: React.FC<CountryProps> = ({
   const navigate = useNavigate();
 
   const getActivities = () => {
-    return [
+    const activitySections = [
       {
         title: "מלונות",
         tabTitle: <h1>🏨</h1>,
@@ -69,6 +70,7 @@ const Destination: React.FC<CountryProps> = ({
         )),
       },
     ];
+    return activitySections.filter((section) => section.content.length > 0);
   };
 
   const getInfo = () => {
@@ -109,7 +111,8 @@ const Destination: React.FC<CountryProps> = ({
 
   return (
     <div className={"Destination"}>
-      <Title title={name} />
+      <Title title={displayName.hebrew} />
+      <Title title={displayName.english} style={{ fontSize: 25 }} />
       <div className="info">
         {/*<div>{parseDate(startDate)}</div>-<div>{parseDate(endDate)}</div>*/}
         {/*{dates.map((date) => (*/}

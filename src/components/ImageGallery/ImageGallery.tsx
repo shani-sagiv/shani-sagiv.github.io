@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import ImageGallery from "react-image-gallery";
+import ImageGallery, { ReactImageGalleryItem } from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { Modal } from "components";
 import "./ImageGallery.scss";
@@ -32,8 +32,30 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
       ? {
           showThumbnails: true,
           thumbnailPosition: "right" as "right" | "left" | "bottom" | "top",
+          renderThumbInner: (item: ReactImageGalleryItem) => (
+            <img
+              src={item.thumbnail}
+              alt=""
+              loading="lazy" // Lazy loading the thumbnail
+              style={{ width: "100%", height: "auto" }}
+            />
+          ),
         }
       : {}),
+    renderItem: (item: ReactImageGalleryItem) => (
+      <img
+        src={item.original}
+        alt=""
+        loading="lazy" // Lazy loading the main image
+        style={{
+          maxWidth: "100%",
+          // height: "auto",
+          objectFit: "contain",
+          width: "80vw",
+          height: "70vh",
+        }}
+      />
+    ),
   };
 
   return (

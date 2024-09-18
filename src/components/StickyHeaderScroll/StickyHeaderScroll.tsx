@@ -18,12 +18,7 @@ const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
   // Scroll to the section when clicked
   const scrollToSection = (index: number) => {
     const section = sectionRefs.current[index];
-    if (section) {
-      const yOffset = -70;
-      const y =
-        section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
+    section?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   // Observe visibility of sections to get the currently visible section
@@ -32,7 +27,7 @@ const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
       (entries) => {
         entries.forEach((entry) => {
           const index = sectionRefs.current.indexOf(
-            entry.target as HTMLDivElement
+            entry.target as HTMLDivElement,
           );
 
           if (entry.isIntersecting) {
@@ -45,12 +40,12 @@ const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
 
           // Find the lowest index of visible sections
           const lowestVisibleIndex = Math.min(
-            ...Array.from(visibleSections.current)
+            ...Array.from(visibleSections.current),
           );
           setCurrentItemIndex(lowestVisibleIndex);
         });
       },
-      { threshold: 0 } // Trigger as soon as any part of the section is visible
+      { threshold: 0 }, // Trigger as soon as any part of the section is visible
     );
 
     sectionRefs.current.forEach((section) => {

@@ -5,7 +5,7 @@ interface TitleProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
 }
 
-const Title: React.FC<TitleProps> = ({ title }) => {
+const Title: React.FC<TitleProps> = ({ title, style }) => {
   return (
     <h1
       style={{
@@ -13,7 +13,9 @@ const Title: React.FC<TitleProps> = ({ title }) => {
         fontSize: 40,
         // boxSizing: "border-box",
         fontWeight: "bold",
-        margin: "30px 20px 10px 0",
+        margin: "0 10px 0",
+        ...style,
+        // margin: "0",
       }}
     >
       {title}

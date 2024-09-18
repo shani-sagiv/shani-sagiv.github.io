@@ -41,6 +41,7 @@ const Country: React.FC<CountryProps> = ({
   }));
   const cards = destinations.map((dest) => ({
     title: getNameToDisplay(dest.displayName),
+    displayName: dest.displayName,
     image: dest.profileImg,
     navigate: dest.id,
   }));
@@ -48,7 +49,7 @@ const Country: React.FC<CountryProps> = ({
     <div className={"country"}>
       <Title title={name} />
       {description ? (
-        <div style={{ margin: "10px 50px" }}>{description}</div>
+        <div style={{ margin: "5px 10px 10px 10px" }}>{description}</div>
       ) : null}
       <Collapsibles items={items2} />
       <Cards items={cards} />

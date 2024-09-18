@@ -17,7 +17,8 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
   //   navigate: "/Thailand",
   // }));
   const destinations = COUNTRIES.map(({ country }) => ({
-    title: getNameToDisplay(country.displayName),
+    // title: getNameToDisplay(country.displayName),
+    displayName: country.displayName,
     image: country.profileImg,
     navigate: country.id,
   }));
@@ -52,19 +53,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
       {/*  src={"https://i.ytimg.com/vi/Hl9imbx9QBY/maxresdefault.jpg"}*/}
       {/*/>*/}
 
-      <div
-        style={{
-          width: "100%",
-          height: "200px",
-          overflow: "auto",
-          marginTop: -40,
-        }}
-      >
-        <Cards
-          items={destinations}
-          style={{ flexWrap: "nowrap", justifyContent: "flex-start" }}
-        />
-      </div>
+      <Cards items={destinations} style={{ marginTop: -40 }} />
 
       {/*<img*/}
       {/*  src={"https://m.media-amazon.com/images/I/71ZVA6QfbOL._AC_SL1000_.jpg"}*/}

@@ -1,58 +1,45 @@
 import React from "react";
 import "./Card.scss";
+import { DisplayName } from "models";
 
 // @ts-ignore
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   onClick: () => unknown;
-  title: string | React.ReactNode;
+  displayName: DisplayName;
   image: string;
 }
 
-const Card: React.FC<CardProps> = ({ onClick, title, image }) => {
+const Card: React.FC<CardProps> = ({ onClick, displayName, image }) => {
   return (
-    <div
-      style={{
-        height: "150px", // Increased height for better view
-        width: "150px", // Increased width for better view
-        // border: "1px solid blue",
-        flexShrink: 0,
-        margin: "20px 10px",
-        position: "relative", // This is important to position the title over the image
-        cursor: "pointer", // Better UX for clickable element
-        display: "flex", // Flexbox for centering
-        justifyContent: "center", // Center title horizontally
-        alignItems: "center", // Center title vertically
-        borderRadius: "5px",
-        boxShadow: "0px 4px 9px 6px #00000061",
-      }}
-      onClick={onClick}
-    >
+    <div className={"card"} onClick={onClick}>
       {/* Title in the center */}
       <h1
         style={{
           position: "absolute",
           color: "white", // Make the title readable
-          fontSize: "1.5rem",
+          fontSize: "2.2rem",
           textAlign: "center",
-
+          zIndex: 2, // Make sure the title is above the image
+          top: "16%",
+        }}
+      >
+        {displayName.hebrew}
+      </h1>
+      <h1
+        style={{
+          position: "absolute",
+          color: "white", // Make the title readable
+          fontSize: "1rem",
+          textAlign: "center",
+          top: "55%",
           zIndex: 2, // Make sure the title is above the image
         }}
       >
-        {title}
+        {displayName.english}
       </h1>
 
       {/* Image as background */}
-      <img
-        src={image}
-        alt="card"
-        style={{
-          height: "100%",
-          borderRadius: "5px",
-          width: "100%",
-          objectFit: "cover", // Makes sure the image covers the card area properly
-          zIndex: 1, // Below the title
-        }}
-      />
+      <img src={image} alt="card" className={"card-image"} />
     </div>
   );
 };

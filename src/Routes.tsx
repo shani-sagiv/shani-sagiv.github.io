@@ -63,7 +63,7 @@ function InnerRoutes() {
           path: `${country.id}/${dest.id}`,
           element: (
             <Destination
-              name={`${dest.displayName.english} ${dest.displayName.hebrew}`}
+              displayName={dest.displayName}
               hotels={dest.hotels}
               attractions={dest.attractions}
               foods={dest.foods}
@@ -84,7 +84,7 @@ function InnerRoutes() {
         {[...createRoutesFromOptions(NAV_BAR_OPTIONS), ...getRoutes()].map(
           (route, index) => (
             <Route key={index} path={route.path} element={route.element} />
-          )
+          ),
         )}
       </Routes>
     </>
