@@ -5,7 +5,14 @@ import {
   createRoutesFromOptions,
   CustomRouteObject,
 } from "helpers/navigationHelpers";
-import { THAILAND, KOH_LANTA, KOH_PHA_NGAN, CHINAG_MAI } from "assets/data";
+import {
+  THAILAND,
+  KOH_LANTA,
+  KOH_PHA_NGAN,
+  CHINAG_MAI,
+  VIETNAM,
+  HOI_AN,
+} from "assets/data";
 import {
   Country as CountryModel,
   Destination as DestinationModel,
@@ -13,12 +20,18 @@ import {
 import { Country, Destination } from "pages";
 import { BreadcrumbNavigation } from "./components";
 
-export const COUNTRIES: [
-  { country: CountryModel; destinations: DestinationModel[] },
-] = [
+export const COUNTRIES: {
+  country: CountryModel;
+  destinations: DestinationModel[];
+}[] = [
   {
     country: THAILAND,
     destinations: [KOH_LANTA, KOH_PHA_NGAN, CHINAG_MAI],
+  },
+
+  {
+    country: VIETNAM,
+    destinations: [HOI_AN],
   },
 ];
 
@@ -70,7 +83,7 @@ function InnerRoutes() {
         {[...createRoutesFromOptions(NAV_BAR_OPTIONS), ...getRoutes()].map(
           (route, index) => (
             <Route key={index} path={route.path} element={route.element} />
-          ),
+          )
         )}
       </Routes>
     </>
