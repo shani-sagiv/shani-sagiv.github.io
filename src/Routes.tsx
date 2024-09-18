@@ -5,7 +5,7 @@ import {
   createRoutesFromOptions,
   CustomRouteObject,
 } from "helpers/navigationHelpers";
-import { THAILAND, KOH_LANTA, KOH_PHA_NGAN } from "assets/data";
+import { THAILAND, KOH_LANTA, KOH_PHA_NGAN, CHINAG_MAI } from "assets/data";
 import {
   Country as CountryModel,
   Destination as DestinationModel,
@@ -18,7 +18,7 @@ export const COUNTRIES: [
 ] = [
   {
     country: THAILAND,
-    destinations: [KOH_LANTA, KOH_PHA_NGAN],
+    destinations: [KOH_LANTA, KOH_PHA_NGAN, CHINAG_MAI],
   },
 ];
 

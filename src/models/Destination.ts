@@ -3,7 +3,6 @@ import {
   HotelRecommendation,
   InfoRecommendation,
   NightLifeRecommendation,
-  Recommendation,
   RestaurantRecommendation,
 } from "models";
 import { DisplayName } from "models/GenericModels"; // Assuming Recommendation is defined in a separate file
@@ -11,7 +10,6 @@ import { DisplayName } from "models/GenericModels"; // Assuming Recommendation i
 export interface Destination {
   // Basic Info
   id: string;
-  name: string;
   displayName: DisplayName;
   description: string; // Description of the location
   shells?: string[];

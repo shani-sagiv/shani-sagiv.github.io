@@ -31,3 +31,10 @@ export interface InfoRecommendation extends Recommendation {
   type: "Info";
   links?: string[];
 }
+
+export type AllRecommendationTypes =
+  | HotelRecommendation
+  | RestaurantRecommendation
+  | AttractionRecommendation
+  | NightLifeRecommendation
+  | InfoRecommendation;

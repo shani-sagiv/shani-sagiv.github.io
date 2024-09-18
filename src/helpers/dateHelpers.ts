@@ -51,3 +51,18 @@ export const getStartAndEndDate = (
 
   return { startDate, endDate };
 };
+
+export function hasImages(images: string[] | undefined): boolean {
+  if (!images) {
+    return false;
+  }
+  return images.length > 0;
+}
+
+export function parseDate(date: Date): string | null {
+  return date.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "2-digit",
+  });
+}
