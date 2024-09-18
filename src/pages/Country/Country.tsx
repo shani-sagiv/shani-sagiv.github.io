@@ -2,21 +2,21 @@ import React from "react";
 import "./Country.scss";
 import { useNavigate } from "react-router-dom";
 import { Cards, Collapsibles, Title } from "components";
-import { Destination, Recommendation } from "models";
+import { Destination, DisplayName, Recommendation } from "models";
 import { COUNTRIES } from "../../Routes";
 import { getNameToDisplay } from "../../helpers/dateHelpers";
 
 interface CountryProps extends React.HTMLAttributes<HTMLDivElement> {
-  name?: string;
-  description?: string;
+  displayName: DisplayName;
+  description: string;
   destinations: Destination[];
   goldRecommendation: Recommendation[];
 }
 
 const Country: React.FC<CountryProps> = ({
-  name = "Country test",
   description,
   destinations,
+  displayName,
   goldRecommendation,
 }) => {
   const navigate = useNavigate();
@@ -47,7 +47,11 @@ const Country: React.FC<CountryProps> = ({
   }));
   return (
     <div className={"country"}>
-      <Title title={name} />
+      <Title title={displayName.hebrew} />
+      <Title
+        title={displayName.english}
+        style={{ fontSize: 25, marginTop: -10 }}
+      />
       {description ? (
         <div style={{ margin: "5px 10px 10px 10px" }}>{description}</div>
       ) : null}

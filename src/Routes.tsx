@@ -52,7 +52,7 @@ function InnerRoutes() {
           path: country.id,
           element: (
             <Country
-              name={`${country.displayName.english} ${country.displayName.hebrew}`}
+              displayName={country.displayName}
               destinations={destinations}
               description={country.description}
               goldRecommendation={country.gold_recommendation}

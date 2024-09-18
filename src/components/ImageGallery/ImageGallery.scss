@@ -28,5 +28,9 @@
 
 .image-gallery-thumbnails{
   display: flex;
-  align-items: center;
+  &:has(:nth-child(3)):nth-last-child(1),
+  &:has(:nth-child(2)):nth-last-child(1),
+  &:has(:nth-child(1)):nth-last-child(1) {
+    align-items: center;
+  }
 }

@@ -90,17 +90,19 @@ const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
       </div>
 
       {/* Scrollable Content */}
-      {items.map((item, index) => (
-        <div
-          key={index}
-          id={"item-" + index}
-          ref={(el) => (sectionRefs.current[index] = el)} // Assign ref to each section
-          style={{ width: "100%", boxSizing: "border-box" }}
-        >
-          <h1 style={{ textAlign: "center" }}>{item.title}</h1>
-          <div>{item.content}</div>
-        </div>
-      ))}
+      <span className={"sticky-header-content"}>
+        {items.map((item, index) => (
+          <div
+            key={index}
+            id={"item-" + index}
+            ref={(el) => (sectionRefs.current[index] = el)} // Assign ref to each section
+            style={{ width: "100%", boxSizing: "border-box" }}
+          >
+            <h1 style={{ textAlign: "center" }}>{item.title}</h1>
+            <div>{item.content}</div>
+          </div>
+        ))}
+      </span>
     </div>
   );
 };

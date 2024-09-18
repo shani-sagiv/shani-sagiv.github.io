@@ -129,14 +129,11 @@ const Destination: React.FC<DestinationProps> = ({
       <Title title={displayName.hebrew} />
       <Title title={displayName.english} style={{ fontSize: 25 }} />
       <div className="info">
-        {/*<div>{parseDate(startDate)}</div>-<div>{parseDate(endDate)}</div>*/}
-        {/*{dates.map((date) => (*/}
         <div
           style={{
             display: "flex",
             flexDirection: "row",
             gap: 5,
-            // marginRight: 15,
           }}
         >
           <span>{totalDays}</span>
