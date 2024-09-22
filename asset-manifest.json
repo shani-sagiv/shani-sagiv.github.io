@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.e8dc69aa.css",
+    "main.css": "/static/css/main.6bcdce8b.css",
     "main.js": "/static/js/main.305fb6ac.js",
     "static/js/453.d3be6aae.chunk.js": "/static/js/453.d3be6aae.chunk.js",
     "static/media/8EF33CFD-72B4-4B52-989E-5C8A6AD56715.jpeg": "/static/media/8EF33CFD-72B4-4B52-989E-5C8A6AD56715.938518fb86f4c459ce96.jpeg",
@@ -228,12 +228,12 @@
     "static/media/shani-in-sunset.jpeg": "/static/media/shani-in-sunset.306fe3263711363a2235.jpeg",
     "static/media/F5C3B9EC-5A01-4CD7-8439-DDDE21034DB9_1_102_o.jpeg": "/static/media/F5C3B9EC-5A01-4CD7-8439-DDDE21034DB9_1_102_o.b877cdf2b0239e2b658c.jpeg",
     "index.html": "/index.html",
-    "main.e8dc69aa.css.map": "/static/css/main.e8dc69aa.css.map",
+    "main.6bcdce8b.css.map": "/static/css/main.6bcdce8b.css.map",
     "main.305fb6ac.js.map": "/static/js/main.305fb6ac.js.map",
     "453.d3be6aae.chunk.js.map": "/static/js/453.d3be6aae.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e8dc69aa.css",
+    "static/css/main.6bcdce8b.css",
     "static/js/main.305fb6ac.js"
   ]
 }
