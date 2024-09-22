@@ -5,7 +5,7 @@
   max-height: 200px;
   max-width: 200px;
   flex-shrink: 0;
-  margin: 2.5vw;
+  margin: min(4vw, 100px);
   box-sizing: border-box;
   position: relative;
   cursor: pointer;

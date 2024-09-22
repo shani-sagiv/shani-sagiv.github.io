@@ -6,6 +6,7 @@ import Marquee from "react-fast-marquee";
 import shaniInSunsetSrc from "assets/shani-in-sunset.jpeg";
 import { COUNTRIES } from "../../Routes";
 import { getNameToDisplay } from "../../helpers/dateHelpers";
+import WavesComponent from "components/Waves/Waves";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -24,25 +25,30 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
   }));
 
   return (
-    <div className={"home-page"}>
-      <div className={"drops-fade"}>
-        <Marquee
-          autoFill
-          direction={"right"}
-          style={{
-            position: "absolute",
-            direction: "ltr",
-            top: 0,
-            right: 0,
-            width: "100%",
-            fontSize: "1.5rem",
-          }}
-        >
-          <span style={{ padding: "0 10px" }}>👑 שגיב ושני המלכים </span>
-        </Marquee>
-        {/*<MarqueeText text={"שגיב ושני המלכים"} />*/}
-        <img src={shaniInSunsetSrc} />
-      </div>
+    <div className={"home-page"} style={{ position: "relative" }}>
+      {/*<div className={"drops-fade"}>*/}
+      <Marquee
+        autoFill
+        direction={"right"}
+        style={{
+          position: "absolute",
+          direction: "ltr",
+          top: 0,
+          right: 0,
+          width: "100%",
+          fontSize: "1.5rem",
+        }}
+      >
+        <span style={{ padding: "0 10px" }}>👑 שגיב ושני המלכים </span>
+      </Marquee>
+      <img src={shaniInSunsetSrc} style={{ width: "100%", height: "50%" }} />
+      {/*</div>*/}
+      <WavesComponent>
+        <Cards
+          items={destinations}
+          // style={{ marginTop: -40 }}
+        />
+      </WavesComponent>
       {/*<img*/}
       {/*  style={{*/}
       {/*    // marginTop: "5vh",*/}
@@ -52,8 +58,6 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
       {/*  }}*/}
       {/*  src={"https://i.ytimg.com/vi/Hl9imbx9QBY/maxresdefault.jpg"}*/}
       {/*/>*/}
-
-      <Cards items={destinations} style={{ marginTop: -40 }} />
 
       {/*<img*/}
       {/*  src={"https://m.media-amazon.com/images/I/71ZVA6QfbOL._AC_SL1000_.jpg"}*/}

@@ -10,12 +10,14 @@ interface CountryProps extends React.HTMLAttributes<HTMLDivElement> {
   displayName: DisplayName;
   description: string;
   destinations: Destination[];
+  profileImg: string;
   goldRecommendation: Recommendation[];
 }
 
 const Country: React.FC<CountryProps> = ({
   description,
   destinations,
+  profileImg,
   displayName,
   goldRecommendation,
 }) => {
@@ -47,6 +49,15 @@ const Country: React.FC<CountryProps> = ({
   }));
   return (
     <div className={"country"}>
+      <img
+        src={profileImg}
+        style={{
+          height: "35vh",
+          width: "100%",
+          borderBottomRightRadius: "80px",
+        }}
+      />
+
       <Title title={displayName.hebrew} />
       <Title
         title={displayName.english}

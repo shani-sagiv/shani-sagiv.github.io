@@ -53,6 +53,7 @@ function InnerRoutes() {
           element: (
             <Country
               displayName={country.displayName}
+              profileImg={country.profileImg}
               destinations={destinations}
               description={country.description}
               goldRecommendation={country.gold_recommendation}
@@ -70,6 +71,7 @@ function InnerRoutes() {
               nightlife={dest.nightlife}
               shells={dest.shells}
               gold_recommendation={dest.gold_recommendation}
+              profileImg={dest.profileImg}
             />
           ),
         })),

@@ -29,6 +29,7 @@ interface DestinationProps extends React.HTMLAttributes<HTMLDivElement> {
   attractions: AttractionRecommendation[];
   nightlife: NightLifeRecommendation[];
   shells?: string[];
+  profileImg: string;
   gold_recommendation?: InfoRecommendation[];
 }
 
@@ -39,6 +40,7 @@ const Destination: React.FC<DestinationProps> = ({
   attractions = [],
   shells = [],
   nightlife = [],
+  profileImg,
   gold_recommendation = [],
 }) => {
   const navigate = useNavigate();
@@ -126,7 +128,7 @@ const Destination: React.FC<DestinationProps> = ({
 
   return (
     <div className={"Destination"}>
-      <Title title={displayName.hebrew} />
+      x <Title title={displayName.hebrew} />
       <Title title={displayName.english} style={{ fontSize: 25 }} />
       <div className="info">
         <div
