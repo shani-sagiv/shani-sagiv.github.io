@@ -128,7 +128,15 @@ const Destination: React.FC<DestinationProps> = ({
 
   return (
     <div className={"Destination"}>
-      x <Title title={displayName.hebrew} />
+      <img
+        src={profileImg}
+        style={{
+          height: "35vh",
+          width: "100%",
+          borderBottomRightRadius: "80px",
+        }}
+      />
+      <Title title={displayName.hebrew} />
       <Title title={displayName.english} style={{ fontSize: 25 }} />
       <div className="info">
         <div

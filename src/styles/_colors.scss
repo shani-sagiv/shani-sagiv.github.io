@@ -52,7 +52,7 @@ $dark-teal: #234845;
 
 // Styling Examples
 body {
-  background-color: $light-peach;
+  background: linear-gradient(360deg, hsla(175, 35%, 21%, 0.5) 0%, hsla(188, 100%, 25%, 0.5) 15%, hsla(16, 84%, 67%, 0.5) 50%, hsla(4, 69%, 86%, 0.5) 75%, hsla(7, 68%, 93%, 0.5) 90%);
   color: $dark-teal;
   font-family: "Helvetica Neue", Arial, sans-serif;
 }

@@ -26,7 +26,6 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
 
   return (
     <div className={"home-page"} style={{ position: "relative" }}>
-      {/*<div className={"drops-fade"}>*/}
       <Marquee
         autoFill
         direction={"right"}
@@ -39,7 +38,9 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
           fontSize: "1.5rem",
         }}
       >
-        <span style={{ padding: "0 10px" }}>👑 שגיב ושני המלכים </span>
+        <span className={"rainbow-text"} style={{ padding: "0 10px" }}>
+          👑 שגיב ושני המלכים{" "}
+        </span>
       </Marquee>
       <img src={shaniInSunsetSrc} style={{ width: "100%", height: "50%" }} />
       {/*</div>*/}

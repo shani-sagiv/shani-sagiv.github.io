@@ -34,9 +34,8 @@ export const COUNTRIES: {
     destinations: [HOI_AN],
   },
 ];
-console.log({ CHINAG_MAI });
 
-const translationMap = COUNTRIES.flatMap((item) => [
+export const translationMap = COUNTRIES.flatMap((item) => [
   { key: item.country.id, name: item.country.displayName.hebrew },
   ...item.destinations.map((destination) => ({
     key: destination.id,
@@ -81,7 +80,7 @@ function InnerRoutes() {
 
   return (
     <>
-      <BreadcrumbNavigation translationMap={translationMap} />
+      <BreadcrumbNavigation />
       <Routes>
         {[...createRoutesFromOptions(NAV_BAR_OPTIONS), ...getRoutes()].map(
           (route, index) => (

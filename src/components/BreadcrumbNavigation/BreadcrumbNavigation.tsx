@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-
 import "./BreadcrumbNavigation.scss";
+import { translationMap } from "Routes";
 
 interface BreadcrumbItem {
   label: string;
@@ -9,16 +9,11 @@ interface BreadcrumbItem {
 }
 
 interface BreadcrumbNavigationProps {
-  translationMap: {
-    key: string;
-    name: string;
-  }[];
   separator?: React.ReactNode;
 }
 
 const BreadcrumbNavigation: React.FC<BreadcrumbNavigationProps> = ({
   separator = " ⬅️  ",
-  translationMap,
 }) => {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);

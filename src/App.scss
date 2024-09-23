@@ -3,7 +3,8 @@
 
 
   width: 100vw;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   //todo(sagiv): Fix
   margin: 0;
   text-align: right;
