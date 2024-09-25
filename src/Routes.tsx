@@ -12,6 +12,10 @@ import {
   CHINAG_MAI,
   VIETNAM,
   HOI_AN,
+  PHONG_NHA,
+  HANOI,
+  CAT_BA,
+  HA_LONG,
 } from "assets/data";
 import {
   Country as CountryModel,
@@ -19,6 +23,7 @@ import {
 } from "models";
 import { Country, Destination } from "pages";
 import { BreadcrumbNavigation } from "./components";
+import { CAT_BA_IMAGES } from "./assets/img/Vietnam/CatBa";
 
 export const COUNTRIES: {
   country: CountryModel;
@@ -31,7 +36,7 @@ export const COUNTRIES: {
 
   {
     country: VIETNAM,
-    destinations: [HOI_AN],
+    destinations: [HOI_AN, PHONG_NHA, HANOI, CAT_BA, HA_LONG],
   },
 ];
 
@@ -69,8 +74,10 @@ function InnerRoutes() {
               foods={dest.foods}
               nightlife={dest.nightlife}
               shells={dest.shells}
+              images={dest.images}
               gold_recommendation={dest.gold_recommendation}
               profileImg={dest.profileImg}
+              description={dest.description}
             />
           ),
         })),

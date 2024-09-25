@@ -27,8 +27,10 @@ interface DestinationProps extends React.HTMLAttributes<HTMLDivElement> {
   hotels: HotelRecommendation[];
   foods: RestaurantRecommendation[];
   attractions: AttractionRecommendation[];
+  description: string;
   nightlife: NightLifeRecommendation[];
   shells?: string[];
+  images?: string[];
   profileImg: string;
   gold_recommendation?: InfoRecommendation[];
 }
@@ -37,8 +39,10 @@ const Destination: React.FC<DestinationProps> = ({
   displayName,
   hotels = [],
   foods = [],
+  description,
   attractions = [],
   shells = [],
+  images = [],
   nightlife = [],
   profileImg,
   gold_recommendation = [],
@@ -81,6 +85,21 @@ const Destination: React.FC<DestinationProps> = ({
 
   const getInfo = () => {
     return [
+      ...(images.length > 0
+        ? [
+            {
+              title: "סתם תמונות",
+              content: (
+                <ImageGallery
+                  style={{
+                    width: "90%",
+                  }}
+                  images={images.map((i) => ({ original: i }))}
+                />
+              ),
+            },
+          ]
+        : []),
       ...(shells.length > 0
         ? [
             {
@@ -88,7 +107,7 @@ const Destination: React.FC<DestinationProps> = ({
               content: (
                 <ImageGallery
                   style={{
-                    width: "100%",
+                    width: "90%",
                   }}
                   images={shells.map((i) => ({ original: i }))}
                 />
@@ -139,6 +158,8 @@ const Destination: React.FC<DestinationProps> = ({
       <Title title={displayName.hebrew} />
       <Title title={displayName.english} style={{ fontSize: 25 }} />
       <div className="info">
+        <div>{description}</div>
+
         <div
           style={{
             display: "flex",
@@ -146,8 +167,8 @@ const Destination: React.FC<DestinationProps> = ({
             gap: 5,
           }}
         >
-          <span>{totalDays}</span>
-          <span>ימים</span>
+          (<span>{totalDays}</span>
+          <span>ימים</span>)
         </div>
         {/*))}*/}
       </div>

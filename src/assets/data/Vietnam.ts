@@ -1,7 +1,15 @@
 import { createDate } from "helpers/dateHelpers";
 import { Country, Destination } from "models";
 
-import { VIETNAM_IMAGES, HOI_AN_IMAGES, profileImg } from "assets/img/Vietnam";
+import {
+  VIETNAM_IMAGES,
+  HOI_AN_IMAGES,
+  PHONG_NHA_IMAGES,
+  profileImg,
+  HANOI_IMAGES,
+  HA_LONG_IMAGES,
+} from "assets/img/Vietnam";
+import { CAT_BA_IMAGES } from "../img/Vietnam/CatBa";
 
 export const VIETNAM: Country = {
   id: "VNM",
@@ -117,4 +125,203 @@ export const HOI_AN: Destination = {
     },
   ],
   shells: HOI_AN_IMAGES.shells,
+};
+
+export const PHONG_NHA: Destination = {
+  id: "PHONG_NHA",
+  displayName: {
+    hebrew: "פונג נה",
+    english: "phong nha",
+  },
+  description:
+    "ממש אמצע הדרך מהויאן לצפון, שווה עצירה רק אם אין כח לנסיעה ארוכה ואם אוהבים מאוד מערות",
+  profileImg: PHONG_NHA_IMAGES.profileImg,
+  hotels: [
+    {
+      name: "green Homestay",
+      type: "Hotel",
+      dates: [{ from: createDate("07/07/2024"), to: createDate("10/07/2024") }],
+      description: "מלון חמוד מיקום סבבה",
+      googleMapLink: "https://maps.app.goo.gl/qP925KZHz5TuoKVP8",
+      images: PHONG_NHA_IMAGES.greenHomestay,
+    },
+    {
+      name: "Jade Phong Nha Hotel",
+      type: "Hotel",
+      dates: [{ from: createDate("10/07/2024"), to: createDate("13/07/2024") }],
+      description: "חדר מינימלי אבל מלון ממש חמוד אחלה בריכה אחלה נוף",
+      googleMapLink: "https://maps.app.goo.gl/KDRCDMS8rQ8gV3kg8",
+      images: PHONG_NHA_IMAGES.jadeHotel,
+    },
+  ],
+  foods: [],
+  attractions: [
+    {
+      type: "Attraction",
+      name: "Ồ Ồ Lake Silence",
+      googleMapLink: "https://maps.app.goo.gl/BXKZ287tSxPJNYz46",
+      description:
+        "בית קפה חמוד על האגם, מקום יפה עם נוף יפה, משום מה הזמנו מנה קטנה של אורז עם עוף והביאו לנו עוף שלם אבל אחלה מקום",
+      images: PHONG_NHA_IMAGES.lakeSilence,
+    },
+    {
+      type: "Attraction",
+      name: "Phong nha Rooftop Bar",
+      googleMapLink: "https://maps.app.goo.gl/t45qzidHUpf6WmdQ8",
+      description:
+        "בר רופטופ, מאוד חמוד נוף מאוד יפה כי זה המקום הכי גבוה שם בערך",
+      images: PHONG_NHA_IMAGES.rooftop,
+    },
+    {
+      type: "Attraction",
+      name: "Paradise Cave",
+      googleMapLink: "https://maps.app.goo.gl/4oWTF7TAm3DkvejS7",
+      description:
+        "מערת נטיפים חמודה, הליכה קצרה בגונגל בדרך המערה ממש קרה ויש שם מסלול הליכה הלוך חזור לא ארוך",
+      images: PHONG_NHA_IMAGES.paradiseCave,
+    },
+  ],
+  nightlife: [],
+  shells: [],
+};
+
+export const HANOI: Destination = {
+  id: "HANOI",
+  displayName: {
+    hebrew: "האנוי",
+    english: "hanoi",
+  },
+  description:
+    "העיר בירה של ויאטם, שווקים בתי קפה צפוף ורעש ולחצות כביש זה 50% הצלחה 50% מוות",
+  profileImg: HANOI_IMAGES.profileImg,
+  hotels: [
+    {
+      name: "Tung Trang Hotel",
+      type: "Hotel",
+      dates: [{ from: createDate("12/07/2024"), to: createDate("19/07/2024") }],
+      description: "מלון סביר מיקום טוב",
+      googleMapLink: "https://maps.app.goo.gl/rm32r6HW1cTYM6mU6",
+      images: [],
+    },
+  ],
+  foods: [],
+  attractions: [
+    {
+      type: "Attraction",
+      name: "Gifthaus חנות משחקים",
+      googleMapLink: "https://maps.app.goo.gl/SbaRRnY3yFjNFRRg6",
+      description: "חנות עם מליון משחקי קלפים וקופסא והכל אחלה מחירים",
+      images: HANOI_IMAGES.gifthouse,
+    },
+  ],
+  nightlife: [],
+  shells: [],
+};
+export const CAT_BA: Destination = {
+  id: "CAT_BA",
+  displayName: {
+    hebrew: "קאט בה",
+    english: "cat ba",
+  },
+  description: "אי חמוד נחמד במפרץ הא לונג, אין ככ הרבה מה לעשות בו",
+  profileImg: CAT_BA_IMAGES.profileImg,
+  hotels: [
+    {
+      name: "Sun Flower Hotel",
+      type: "Hotel",
+      dates: [{ from: createDate("19/07/2024"), to: createDate("02/08/2024") }],
+      description:
+        "סגרנו באמרלד היה נראה כמו שירותים של תחנה מרכזית ועברנו חיש מהר לsun flower hotel" +
+        "\n" +
+        "מלון טוב חדרים טובים אחלה מיקום",
+      images: CAT_BA_IMAGES.sunflower,
+    },
+  ],
+  images: CAT_BA_IMAGES.general,
+  foods: [],
+  attractions: [
+    {
+      type: "Attraction",
+      name: "Thung lũng Bướm - Butterfly Valley בית קפה",
+      googleMapLink: "https://maps.app.goo.gl/TzPePDTti6GLQt1E9",
+      description: "בית קפה נחמד עם נוף יפה ואזור נחמד להסתובב בו",
+      images: CAT_BA_IMAGES.butterflyValley,
+    },
+    {
+      type: "Attraction",
+      name: "Secret Garden",
+      googleMapLink: "https://maps.app.goo.gl/neab5BD1rHKZLhT97",
+      description: "הוסטל עם אחלה מתחם לאוכל קפה בירה בריכה מה שרוצים",
+      images: CAT_BA_IMAGES.SecretGarden,
+    },
+    {
+      type: "Attraction",
+      name: "Tung thu beach",
+      googleMapLink: "https://maps.app.goo.gl/xYN2LeLQoxG34Avx7",
+      description: "חוף מאוד נחמד עם כמה אזורים של ויאטנמים לשבת",
+      images: CAT_BA_IMAGES.Tungthu,
+    },
+    {
+      type: "Attraction",
+      name: "Eden Bar & Coffee",
+      googleMapLink: "https://maps.app.goo.gl/r5r3V8jUoK2534C87",
+      description: "בית קפה חמוד באמצע שום מקום",
+      images: CAT_BA_IMAGES.Eden,
+    },
+    {
+      type: "Attraction",
+      name: "Trung Tâm Y Tế Huyện Cát Hải",
+      description: "בית חולים ממש טוב",
+      googleMapLink: "https://maps.app.goo.gl/m4ZUzMm2LfhSNnqaA",
+      images: CAT_BA_IMAGES.hospital,
+    },
+  ],
+  nightlife: [],
+  shells: CAT_BA_IMAGES.shells,
+};
+export const HA_LONG: Destination = {
+  id: "HA_LONG",
+  displayName: {
+    hebrew: "הא לונג",
+    english: "ha long",
+  },
+  description:
+    "האזור חוף של הא לונג, חופים מהממים, נראה מאוד שווה אבל הכל ריק מבפנים שקרנים",
+  profileImg: HA_LONG_IMAGES.profileImg,
+  hotels: [
+    {
+      name: "The Marine Hotel",
+      googleMapLink: "https://maps.app.goo.gl/dQtSJ4Mqr7L9N3w39",
+      type: "Hotel",
+      dates: [{ from: createDate("02/08/2024"), to: createDate("08/08/2024") }],
+      description: "מלןו קצת דלוח",
+    },
+  ],
+  foods: [],
+  attractions: [
+    {
+      type: "Attraction",
+      name: "Chill Beach Bar",
+      description: "בר חוף ממש חמוד",
+      googleMapLink: "https://maps.app.goo.gl/F9rEa4qJxXuamdf1A",
+      images: HA_LONG_IMAGES.chillBar,
+    },
+    {
+      type: "Attraction",
+      name: "שיט במפרץ הא לונג",
+      description: "שיט של כמה שעיות במפרץ, כולל מערץ נטיפים וקייאקים",
+      // googleMapLink: "https://maps.app.goo.gl/F9rEa4qJxXuamdf1A",
+      images: HA_LONG_IMAGES.cruise,
+    },
+    {
+      type: "Attraction",
+      name: "Bãi tắm",
+      description: "אזור מאוד נחמד עם ברים ומסעדות על החוף",
+      // googleMapLink: "https://maps.app.goo.gl/F9rEa4qJxXuamdf1A",
+      images: HA_LONG_IMAGES.baitam,
+    },
+  ],
+  nightlife: [],
+  shells: [],
+  images: HA_LONG_IMAGES.general,
 };
