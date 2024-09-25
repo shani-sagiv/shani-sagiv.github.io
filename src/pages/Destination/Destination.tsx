@@ -27,8 +27,11 @@ interface DestinationProps extends React.HTMLAttributes<HTMLDivElement> {
   hotels: HotelRecommendation[];
   foods: RestaurantRecommendation[];
   attractions: AttractionRecommendation[];
+  description: string;
   nightlife: NightLifeRecommendation[];
   shells?: string[];
+  images?: string[];
+  profileImg: string;
   gold_recommendation?: InfoRecommendation[];
 }
 
@@ -36,9 +39,12 @@ const Destination: React.FC<DestinationProps> = ({
   displayName,
   hotels = [],
   foods = [],
+  description,
   attractions = [],
   shells = [],
+  images = [],
   nightlife = [],
+  profileImg,
   gold_recommendation = [],
 }) => {
   const navigate = useNavigate();
@@ -78,39 +84,52 @@ const Destination: React.FC<DestinationProps> = ({
   };
 
   const getInfo = () => {
-    return [
-      ...(shells.length > 0
-        ? [
-            {
-              title: "צדפים 🌊🌺🏖️🐚🎀☀️",
-              content: (
-                <ImageGallery
-                  style={{
-                    width: "100%",
-                  }}
-                  images={shells.map((i) => ({ original: i }))}
-                />
-              ),
-            },
-          ]
-        : []),
-      ...gold_recommendation.map((r) => ({
-        title: r.name,
-        content: (
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            {r.description}
-            {r.links
-              ? r.links.map((l) => (
-                  <a href={l} target={"_blank"}>
-                    {l}
-                  </a>
-                ))
-              : null}
-          </div>
-        ),
-      })),
-    ];
+    const createImageGallery = (items: string[], title: string) => ({
+      title,
+      content: (
+        <ImageGallery
+          style={{ width: "90%" }}
+          images={items.map((i) => ({ original: i }))}
+        />
+      ),
+    });
+
+    const createLinksContent = (links: string[]) =>
+      links.map((l, index) => (
+        <a key={index} href={l} target="_blank" rel="noopener noreferrer">
+          {l}
+        </a>
+      ));
+
+    const createGoldRecommendation = (r: {
+      name: string;
+      description: string;
+      links?: string[];
+    }) => ({
+      title: r.name,
+      content: (
+        <div className="recommendation-content">
+          {r.description}
+          {r.links && createLinksContent(r.links)}
+        </div>
+      ),
+    });
+
+    const sections = [];
+
+    if (images.length > 0) {
+      sections.push(createImageGallery(images, "סתם תמונות"));
+    }
+
+    if (shells.length > 0) {
+      sections.push(createImageGallery(shells, "צדפים 🌊🌺🏖️🐚🎀☀️"));
+    }
+
+    sections.push(...gold_recommendation.map(createGoldRecommendation));
+
+    return sections;
   };
+
   const calculateDaysForHotel = (hotel: HotelRecommendation): number => {
     return hotel.dates.reduce((totalDays, dateRange) => {
       const { from, to } = dateRange;
@@ -126,9 +145,19 @@ const Destination: React.FC<DestinationProps> = ({
 
   return (
     <div className={"Destination"}>
+      <img
+        src={profileImg}
+        style={{
+          height: "35vh",
+          width: "100%",
+          borderBottomRightRadius: "80px",
+        }}
+      />
       <Title title={displayName.hebrew} />
       <Title title={displayName.english} style={{ fontSize: 25 }} />
       <div className="info">
+        <div>{description}</div>
+
         <div
           style={{
             display: "flex",
@@ -136,8 +165,8 @@ const Destination: React.FC<DestinationProps> = ({
             gap: 5,
           }}
         >
-          <span>{totalDays}</span>
-          <span>ימים</span>
+          (<span>{totalDays}</span>
+          <span>ימים</span>)
         </div>
         {/*))}*/}
       </div>

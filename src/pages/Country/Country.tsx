@@ -3,19 +3,24 @@ import "./Country.scss";
 import { useNavigate } from "react-router-dom";
 import { Cards, Collapsibles, Title } from "components";
 import { Destination, DisplayName, Recommendation } from "models";
-import { COUNTRIES } from "../../Routes";
-import { getNameToDisplay } from "../../helpers/dateHelpers";
+import {
+  calculateTotalNightsAtAllDestinations,
+  getNameToDisplay,
+  parseDaysToHebrew,
+} from "../../helpers/dateHelpers";
 
 interface CountryProps extends React.HTMLAttributes<HTMLDivElement> {
   displayName: DisplayName;
   description: string;
   destinations: Destination[];
+  profileImg: string;
   goldRecommendation: Recommendation[];
 }
 
 const Country: React.FC<CountryProps> = ({
   description,
   destinations,
+  profileImg,
   displayName,
   goldRecommendation,
 }) => {
@@ -45,8 +50,19 @@ const Country: React.FC<CountryProps> = ({
     image: dest.profileImg,
     navigate: dest.id,
   }));
+  const totalNightsSlept = calculateTotalNightsAtAllDestinations(destinations);
+
   return (
     <div className={"country"}>
+      <img
+        src={profileImg}
+        style={{
+          height: "35vh",
+          width: "100%",
+          borderBottomRightRadius: "80px",
+        }}
+      />
+
       <Title title={displayName.hebrew} />
       <Title
         title={displayName.english}
@@ -55,6 +71,9 @@ const Country: React.FC<CountryProps> = ({
       {description ? (
         <div style={{ margin: "5px 10px 10px 10px" }}>{description}</div>
       ) : null}
+      <div style={{ marginRight: 10 }}>
+        ({parseDaysToHebrew(totalNightsSlept)})
+      </div>
       <Collapsibles items={items2} />
       <Cards items={cards} />
     </div>

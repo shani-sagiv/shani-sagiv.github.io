@@ -22,4 +22,5 @@ export interface Destination {
   attractions: AttractionRecommendation[]; // Array of attraction recommendations
   nightlife: NightLifeRecommendation[]; // Array of nightlife recommendations
   gold_recommendation?: InfoRecommendation[];
+  images?: string[];
 }

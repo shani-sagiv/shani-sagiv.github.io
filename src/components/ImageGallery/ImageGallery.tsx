@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ImageGallery, { ReactImageGalleryItem } from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { Modal } from "components";
@@ -43,18 +43,7 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
         }
       : {}),
     renderItem: (item: ReactImageGalleryItem) => (
-      <img
-        src={item.original}
-        alt=""
-        loading="lazy" // Lazy loading the main image
-        style={{
-          maxWidth: "100%",
-          // height: "auto",
-          objectFit: "contain",
-          width: "80vw",
-          height: "70vh",
-        }}
-      />
+      <LazyImage src={item.original} />
     ),
   };
 
@@ -91,6 +80,50 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
         </div>
       </Modal>
     </span>
+  );
+};
+
+const LazyImage: React.FC<{ src: string }> = ({ src }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const imgRef = useRef<HTMLImageElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect(); // Disconnect the observer once image is visible
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    return () => {
+      if (imgRef.current) {
+        observer.unobserve(imgRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <img
+      ref={imgRef}
+      src={isVisible ? src : undefined} // Only load the image when visible
+      alt=""
+      loading="lazy"
+      style={{
+        maxWidth: "100%",
+        objectFit: "contain",
+        width: "80vw",
+        height: "70vh",
+      }}
+    />
   );
 };
 

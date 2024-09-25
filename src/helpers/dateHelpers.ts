@@ -1,5 +1,6 @@
 import { DisplayName } from "models/GenericModels";
-import { HotelRecommendation } from "models/Recommendation";
+import { HotelRecommendation } from "models";
+import { Destination } from "models/Destination";
 
 export function createDate(dateString: string): Date {
   const [day, month, year] = dateString.split("/").map(Number);
@@ -17,6 +18,33 @@ export function calculateDaysBetweenDates(startDate: Date, endDate: Date) {
 export function getNameToDisplay(displayName: DisplayName) {
   return `${displayName.hebrew} ${displayName.english}`;
 }
+export const parseDaysToHebrew = (totalDays: number): string => {
+  const months = Math.floor(totalDays / 30); // Assuming 30 days in a month
+  const days = totalDays % 30; // Remaining days
+
+  let result = "";
+
+  // Handle months part in Hebrew
+  if (months > 0) {
+    result += `${months === 1 ? "חודש" : `${months} חודשים`}`;
+  }
+
+  // Handle days part in Hebrew
+  if (days > 0) {
+    if (months > 0) result += " ו-"; // Add conjunction "ו-" if there are months
+    result += `${days} ${days === 1 ? "יום" : "ימים"}`;
+  }
+
+  return result;
+};
+export const calculateTotalNightsAtAllDestinations = (
+  destinations: Destination[],
+): number => {
+  return destinations.reduce((totalNights, destination) => {
+    const destinationNights = calculateTotalTime(destination.hotels);
+    return totalNights + destinationNights;
+  }, 0);
+};
 
 export const calculateTotalTime = (hotels: HotelRecommendation[]): number => {
   return hotels.reduce((totalDays, hotel) => {
@@ -28,6 +56,7 @@ export const calculateTotalTime = (hotels: HotelRecommendation[]): number => {
     return totalDays + hotelDays;
   }, 0);
 };
+
 export const getStartAndEndDate = (
   hotels: HotelRecommendation[],
 ): { startDate: Date; endDate: Date } => {
