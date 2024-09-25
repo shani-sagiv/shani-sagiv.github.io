@@ -42,38 +42,13 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
           👑 שגיב ושני המלכים{" "}
         </span>
       </Marquee>
-      <img src={shaniInSunsetSrc} style={{ width: "100%", height: "50%" }} />
-      {/*</div>*/}
+      <img
+        src={shaniInSunsetSrc}
+        style={{ width: "100%", height: "50%", objectFit: "cover" }}
+      />
       <WavesComponent>
-        <Cards
-          items={destinations}
-          // style={{ marginTop: -40 }}
-        />
+        <Cards items={destinations} />
       </WavesComponent>
-      {/*<img*/}
-      {/*  style={{*/}
-      {/*    // marginTop: "5vh",*/}
-      {/*    width: "100%",*/}
-      {/*    height: "40vh",*/}
-      {/*    // maskImage: "radial-gradient(circle at bottom, transparent 30%, black 100%)"*/}
-      {/*  }}*/}
-      {/*  src={"https://i.ytimg.com/vi/Hl9imbx9QBY/maxresdefault.jpg"}*/}
-      {/*/>*/}
-
-      {/*<img*/}
-      {/*  src={"https://m.media-amazon.com/images/I/71ZVA6QfbOL._AC_SL1000_.jpg"}*/}
-      {/*  style={{*/}
-      {/*    width: "90%",*/}
-      {/*    height: "60vh",*/}
-      {/*    border: "2px solid red",*/}
-      {/*  }}*/}
-      {/*/>*/}
-
-      {/*<MarqueeText onClick={console.log}>Hello</MarqueeText>*/}
-      {/*<MarqueeText onClick={console.log}>שני לוזרית?</MarqueeText>*/}
-      {/*<MarqueeText onClick={console.log} variant={"secondary"}>*/}
-      {/*  שני לוזרית...*/}
-      {/*</MarqueeText>*/}
     </div>
   );
 };

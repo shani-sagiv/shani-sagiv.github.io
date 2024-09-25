@@ -151,6 +151,7 @@ const Destination: React.FC<DestinationProps> = ({
           height: "35vh",
           width: "100%",
           borderBottomRightRadius: "80px",
+          objectFit: "cover",
         }}
       />
       <Title title={displayName.hebrew} />

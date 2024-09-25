@@ -7,7 +7,7 @@ import {
   calculateTotalNightsAtAllDestinations,
   getNameToDisplay,
   parseDaysToHebrew,
-} from "../../helpers/dateHelpers";
+} from "helpers/dateHelpers";
 
 interface CountryProps extends React.HTMLAttributes<HTMLDivElement> {
   displayName: DisplayName;
@@ -29,20 +29,6 @@ const Country: React.FC<CountryProps> = ({
     title: r.name,
     content: r.description,
     images: r.images,
-    // content: (
-    //   <>
-    //     {r.description}
-    //     {/*{!r.images ? null : (*/}
-    //     {/*  <span>*/}
-    //     {/*    <ImageGallery*/}
-    //     {/*      showPlayButton={false}*/}
-    //     {/*      showThumbnails={false}*/}
-    //     {/*      items={r.images.map((i) => ({ original: i, thumbnail: i }))}*/}
-    //     {/*    />*/}
-    //     {/*  </span>*/}
-    //     {/*)}*/}
-    //   </>
-    // ),
   }));
   const cards = destinations.map((dest) => ({
     title: getNameToDisplay(dest.displayName),
@@ -60,6 +46,7 @@ const Country: React.FC<CountryProps> = ({
           height: "35vh",
           width: "100%",
           borderBottomRightRadius: "80px",
+          objectFit: "cover",
         }}
       />
 
