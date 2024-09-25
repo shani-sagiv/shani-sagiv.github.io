@@ -16,14 +16,16 @@ import {
   HANOI,
   CAT_BA,
   HA_LONG,
+  SAPA,
+  TA_VAN,
+  BANGKOK,
 } from "assets/data";
 import {
   Country as CountryModel,
   Destination as DestinationModel,
 } from "models";
 import { Country, Destination } from "pages";
-import { BreadcrumbNavigation } from "./components";
-import { CAT_BA_IMAGES } from "./assets/img/Vietnam/CatBa";
+import { BreadcrumbNavigation } from "components";
 
 export const COUNTRIES: {
   country: CountryModel;
@@ -31,12 +33,12 @@ export const COUNTRIES: {
 }[] = [
   {
     country: THAILAND,
-    destinations: [KOH_LANTA, KOH_PHA_NGAN, CHINAG_MAI],
+    destinations: [BANGKOK, KOH_LANTA, KOH_PHA_NGAN, CHINAG_MAI],
   },
 
   {
     country: VIETNAM,
-    destinations: [HOI_AN, PHONG_NHA, HANOI, CAT_BA, HA_LONG],
+    destinations: [HOI_AN, PHONG_NHA, HANOI, CAT_BA, HA_LONG, SAPA, TA_VAN],
   },
 ];
 

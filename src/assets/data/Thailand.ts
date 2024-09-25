@@ -4,7 +4,8 @@ import simSrc from "assets/img/Thailand/sim.jpeg";
 import {
   KHO_LANTA_IMAGES,
   KHO_PHA_NGAN_IMAGES,
-  CHINAG_MAI_IMAGES as CHINAG_MAI_IMAGES,
+  CHINAG_MAI_IMAGES,
+  BANGKOK_IMAGES,
 } from "assets/img/Thailand";
 
 export const THAILAND: Country = {
@@ -126,6 +127,30 @@ export const KOH_LANTA: Destination = {
       images: KHO_LANTA_IMAGES.nightLife,
     },
   ],
+};
+
+export const BANGKOK: Destination = {
+  id: "BANGKOK",
+  profileImg: BANGKOK_IMAGES.profile,
+  displayName: {
+    hebrew: "בנגקוק",
+    english: "bangkok",
+  },
+  images: BANGKOK_IMAGES.general,
+  description: "סתם היינו 3 ימים למעבר ולחג מים שלהם",
+  hotels: [
+    {
+      name: "New Siam II",
+      type: "Hotel",
+      dates: [{ from: createDate("13/04/2024"), to: createDate("17/04/2024") }],
+      description: "מלון חמוד אחלה אזור בריכה חמדודה",
+      googleMapLink: "https://maps.app.goo.gl/aPa7xCb6AwvWzWWq6",
+      images: BANGKOK_IMAGES.NewSiam,
+    },
+  ],
+  foods: [],
+  attractions: [],
+  nightlife: [],
 };
 
 export const KOH_PHA_NGAN: Destination = {
