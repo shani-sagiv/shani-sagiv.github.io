@@ -5,7 +5,7 @@ export const sunflower = importAll(
   require.context("./sunflower", false, /\.(png|jpe?g|svg)$/),
 );
 export const butterflyValley = importAll(
-  require.context("./butterflyValley", false, /\.(png|jpe?g|svg)$/),
+  require.context("./ButterflyValley", false, /\.(png|jpe?g|svg)$/),
 );
 export const SecretGarden = importAll(
   require.context("./SecretGarden", false, /\.(png|jpe?g|svg)$/),

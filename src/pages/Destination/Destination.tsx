@@ -84,54 +84,52 @@ const Destination: React.FC<DestinationProps> = ({
   };
 
   const getInfo = () => {
-    return [
-      ...(images.length > 0
-        ? [
-            {
-              title: "סתם תמונות",
-              content: (
-                <ImageGallery
-                  style={{
-                    width: "90%",
-                  }}
-                  images={images.map((i) => ({ original: i }))}
-                />
-              ),
-            },
-          ]
-        : []),
-      ...(shells.length > 0
-        ? [
-            {
-              title: "צדפים 🌊🌺🏖️🐚🎀☀️",
-              content: (
-                <ImageGallery
-                  style={{
-                    width: "90%",
-                  }}
-                  images={shells.map((i) => ({ original: i }))}
-                />
-              ),
-            },
-          ]
-        : []),
-      ...gold_recommendation.map((r) => ({
-        title: r.name,
-        content: (
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            {r.description}
-            {r.links
-              ? r.links.map((l) => (
-                  <a href={l} target={"_blank"}>
-                    {l}
-                  </a>
-                ))
-              : null}
-          </div>
-        ),
-      })),
-    ];
+    const createImageGallery = (items: string[], title: string) => ({
+      title,
+      content: (
+        <ImageGallery
+          style={{ width: "90%" }}
+          images={items.map((i) => ({ original: i }))}
+        />
+      ),
+    });
+
+    const createLinksContent = (links: string[]) =>
+      links.map((l, index) => (
+        <a key={index} href={l} target="_blank" rel="noopener noreferrer">
+          {l}
+        </a>
+      ));
+
+    const createGoldRecommendation = (r: {
+      name: string;
+      description: string;
+      links?: string[];
+    }) => ({
+      title: r.name,
+      content: (
+        <div className="recommendation-content">
+          {r.description}
+          {r.links && createLinksContent(r.links)}
+        </div>
+      ),
+    });
+
+    const sections = [];
+
+    if (images.length > 0) {
+      sections.push(createImageGallery(images, "סתם תמונות"));
+    }
+
+    if (shells.length > 0) {
+      sections.push(createImageGallery(shells, "צדפים 🌊🌺🏖️🐚🎀☀️"));
+    }
+
+    sections.push(...gold_recommendation.map(createGoldRecommendation));
+
+    return sections;
   };
+
   const calculateDaysForHotel = (hotel: HotelRecommendation): number => {
     return hotel.dates.reduce((totalDays, dateRange) => {
       const { from, to } = dateRange;
