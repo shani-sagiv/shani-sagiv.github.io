@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import StickyHeaderScroll from "components/StickyHeaderScroll/StickyHeaderScroll";
 import {
   AttractionRecommendation,
   DisplayName,
@@ -14,13 +13,9 @@ import {
   ImageGallery,
   Collapsibles,
   Recommendation as RecommendationComponent,
+  StickyHeaderScroll,
 } from "components";
 import "./Destination.scss";
-import {
-  calculateDaysBetweenDates,
-  getStartAndEndDate,
-  parseDate,
-} from "helpers/dateHelpers";
 
 interface DestinationProps extends React.HTMLAttributes<HTMLDivElement> {
   displayName: DisplayName;
@@ -169,7 +164,6 @@ const Destination: React.FC<DestinationProps> = ({
           (<span>{totalDays}</span>
           <span>ימים</span>)
         </div>
-        {/*))}*/}
       </div>
       <Collapsibles items={getInfo()} />
       <StickyHeaderScroll items={getActivities()} />

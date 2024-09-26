@@ -41,13 +41,18 @@ const Country: React.FC<CountryProps> = ({
   const totalNightsSlept = calculateTotalNightsAtAllDestinations(destinations);
 
   const sortLocationsByDate = (): {
+    hotelName: string;
     placeName: string;
     from: Date;
     to: Date;
   }[] => {
-    const locations: { placeName: string; from: Date; to: Date }[] = [];
+    const locations: {
+      placeName: string;
+      from: Date;
+      to: Date;
+      hotelName: string;
+    }[] = [];
 
-    // Loop through each destination and extract hotel information
     destinations.forEach((destination) => {
       destination.hotels.forEach((hotel) => {
         hotel.dates.forEach((dateRange) => {
@@ -55,18 +60,15 @@ const Country: React.FC<CountryProps> = ({
             placeName: destination.displayName.english,
             from: dateRange.from,
             to: dateRange.to,
+            hotelName: hotel.name,
           });
         });
       });
     });
 
-    // Sort locations by the "from" date
     locations.sort((a, b) => a.from.getTime() - b.from.getTime());
-
     return locations;
   };
-
-  // console.log(sortLocationsByDate());
 
   return (
     <div className={"country"}>
@@ -88,31 +90,38 @@ const Country: React.FC<CountryProps> = ({
       {description ? (
         <div style={{ margin: "5px 10px 10px 10px" }}>{description}</div>
       ) : null}
+      <div style={{ marginRight: 10 }}>
+        ({parseDaysToHebrew(totalNightsSlept)})
+      </div>
+      <Collapsibles items={items2} />
+      <Cards items={cards} />
       <div>
         {sortLocationsByDate().map((a) => {
           return (
             <>
               <div
                 className={"flex-row"}
-                style={{ gap: 15, height: 5, marginRight: 20 }}
+                style={{
+                  gap: 10,
+                  height: 15,
+                  marginTop: 8,
+                  marginRight: 20,
+                  fontSize: 10,
+                }}
               >
-                <b>{a.placeName}</b>
-                <div className={"flex-row"} style={{ gap: 10 }}>
-                  <div>{parseDate(a.from)}</div>
-                  <div>{parseDate(a.to)}</div>
-                  <div>({calculateDaysBetweenDates(a.from, a.to)})</div>
-                </div>
+                <b style={{ width: 75 }}>{a.placeName}</b>
+                <span className={"flex-row"} style={{ gap: 10 }}>
+                  <span>{parseDate(a.from)}</span>
+                  <span>{parseDate(a.to)}</span>
+                  <span>({calculateDaysBetweenDates(a.from, a.to)})</span>
+                  <span>({a.hotelName})</span>
+                </span>
               </div>
-              <br />
+              {/*<br />*/}
             </>
           );
         })}
       </div>
-      <div style={{ marginRight: 10 }}>
-        ({parseDaysToHebrew(totalNightsSlept)})
-      </div>
-      <Collapsibles items={items2} />
-      <Cards items={cards} />
     </div>
   );
 };

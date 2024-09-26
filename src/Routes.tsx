@@ -26,11 +26,16 @@ import {
 } from "models";
 import { Country, Destination } from "pages";
 import { BreadcrumbNavigation } from "components";
+import { CYPRUS, LARNACA, LIMASSOL, PAPHOS, VASA } from "./assets/data/Cyprus";
 
 export const COUNTRIES: {
   country: CountryModel;
   destinations: DestinationModel[];
 }[] = [
+  {
+    country: CYPRUS,
+    destinations: [LIMASSOL, VASA, PAPHOS, LARNACA],
+  },
   {
     country: THAILAND,
     destinations: [BANGKOK, KOH_LANTA, KOH_PHA_NGAN, CHINAG_MAI],

@@ -218,13 +218,22 @@ export const HANOI: Destination = {
   attractions: [
     {
       type: "Attraction",
-      name: "Gifthaus חנות משחקים",
+      name: "Gifthaus",
       googleMapLink: "https://maps.app.goo.gl/SbaRRnY3yFjNFRRg6",
       description: "חנות עם מליון משחקי קלפים וקופסא והכל אחלה מחירים",
       images: HANOI_IMAGES.gifthouse,
     },
   ],
-  nightlife: [],
+  nightlife: [
+    {
+      type: "NightLife",
+      name: "Unmute hanoi",
+      googleMapLink: "https://maps.app.goo.gl/vxXKWfVm8PZrEW8u5",
+      description:
+        "מועדון מעניין, אנשים מוזרים מערכת סאונג מטורפת אחלה של גג רגוע רק באסה שאין אמצע בין הרחבה הסגורה לגג הרגוע",
+      images: HANOI_IMAGES.unmute,
+    },
+  ],
   shells: [],
 };
 

@@ -29,30 +29,57 @@ const WavesComponent: React.FC<WavesProps> = ({ children }) => {
             xlinkHref="#gentle-wave"
             x="48"
             y="0"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(173, 216, 230,0.7)"
           />
           <use
             xlinkHref="#gentle-wave"
             x="48"
             y="3"
-            fill="rgba(255,255,255,0.5)"
+            fill="rgba(0, 105, 148,0.5)"
           />
           <use
             xlinkHref="#gentle-wave"
             x="48"
             y="5"
-            fill="rgba(255,255,255,0.3)"
+            fill="rgba(64, 224, 208,0.3)"
           />
-          <use xlinkHref="#gentle-wave" x="48" y="7" fill="#fff" />
+          <use
+            xlinkHref="#gentle-wave"
+            x="48"
+            y="7"
+            fill="rgba(64, 224, 208,0.2)"
+          />
+
+          <use
+            xlinkHref="#gentle-wave"
+            x="48"
+            y="8"
+            fill="rgb(245, 245, 245, 0.5)"
+          />
+          <use
+            xlinkHref="#gentle-wave"
+            x="48"
+            y="10"
+            fill="rgba(64, 224, 208,0.2)"
+          />
+          <use
+            xlinkHref="#gentle-wave"
+            x="48"
+            y="15"
+            fill="rgb(245, 245, 245, 0.4)"
+          />
+          <use
+            xlinkHref="#gentle-wave"
+            x="48"
+            y="15"
+            fill="rgb(245, 245, 245, 1)"
+          />
         </g>
       </svg>
       {/*</div>*/}
 
       {/* Content */}
-      <div className="content flex">
-        {children}
-        {/*  <p>By.Goodkatz | Free to use</p>*/}
-      </div>
+      <div className="content flex">{children}</div>
     </div>
   );
 };

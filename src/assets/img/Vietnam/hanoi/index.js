@@ -7,9 +7,17 @@ export const gifthouse = importAll(
 export const general = importAll(
   require.context("./general", false, /\.(png|jpe?g|svg)$/),
 );
+export const Historia = importAll(
+  require.context("./Historia", false, /\.(png|jpe?g|svg)$/),
+);
+export const unmute = importAll(
+  require.context("./unmute", false, /\.(png|jpe?g|svg)$/),
+);
 
 export const HANOI_IMAGES = {
   profileImg: profile,
-  gifthouse: gifthouse,
+  gifthouse,
+  unmute,
+  Historia,
   general,
 };
