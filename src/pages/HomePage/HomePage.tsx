@@ -1,13 +1,17 @@
-import React from "react";
-import { Cards, WavesComponent } from "components";
+import React, { useState } from "react";
+import { Button, Cards, WavesComponent } from "components";
 import Marquee from "react-fast-marquee";
 import shaniInSunsetSrc from "assets/shani-in-sunset.jpeg";
 import { COUNTRIES } from "Routes";
 import "./HomePage.scss";
+import SimpleMap from "components/SimpleMap/SimpleMap";
+import { sortLocationsByDate } from "../../helpers/locations.helpers";
+// import { sortLocationsByDate } from "../../helpers/locations.helpers";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const HomePage: React.FC<HomePageProps> = ({}) => {
+  const [mapOpen, setMapOpen] = useState(false);
   const destinations = COUNTRIES.map(({ country }) => ({
     displayName: country.displayName,
     image: country.profileImg,
@@ -35,7 +39,10 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         style={{ width: "100%", height: "50%", objectFit: "cover" }}
       />
       <WavesComponent>
-        <Cards items={destinations} />
+        {mapOpen ? <SimpleMap /> : <Cards items={destinations} />}
+        <Button onClick={() => setMapOpen(!mapOpen)}>
+          {mapOpen ? "NO MAP" : "MAP"}
+        </Button>
       </WavesComponent>
     </div>
   );

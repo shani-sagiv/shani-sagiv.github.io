@@ -26,6 +26,7 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
     showFullscreenButton: false,
     showIndex: true,
     isRTL: true,
+    lazyLoad: true,
   };
   const defaultModalParams = {
     ...defaultParams,
@@ -34,30 +35,30 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
           showThumbnails: true,
           thumbnailPosition: "right" as "right" | "left" | "bottom" | "top",
           renderThumbInner: (item: ReactImageGalleryItem) => (
-            <LazyLoad>
-              <img
-                src={item.thumbnail}
-                alt=""
-                loading="lazy" // Lazy loading the thumbnail
-                style={{ width: "100%", height: "auto" }}
-              />
-            </LazyLoad>
+            // <LazyLoad>
+            <img
+              src={item.thumbnail}
+              alt=""
+              loading="lazy" // Lazy loading the thumbnail
+              style={{ width: "100%", height: "auto" }}
+            />
+            // </LazyLoad>
           ),
         }
       : {}),
     renderItem: (item: ReactImageGalleryItem) => (
-      <LazyLoad>
-        <img
-          src={item.original}
-          loading="lazy"
-          style={{
-            maxWidth: "100%",
-            objectFit: "contain",
-            width: "80vw",
-            height: "70vh",
-          }}
-        />
-      </LazyLoad>
+      // <LazyLoad>
+      <img
+        src={item.original}
+        loading="lazy"
+        style={{
+          maxWidth: "100%",
+          objectFit: "contain",
+          width: "80vw",
+          height: "70vh",
+        }}
+      />
+      // </LazyLoad>
     ),
   };
 
