@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.bf83c859.css",
-    "main.js": "/static/js/main.ad6d82d7.js",
+    "main.css": "/static/css/main.20b7c028.css",
+    "main.js": "/static/js/main.37325597.js",
     "static/js/453.0396969e.chunk.js": "/static/js/453.0396969e.chunk.js",
     "static/media/46D11660-D06A-472A-B1BC-4DA645222F96.jpeg": "/static/media/46D11660-D06A-472A-B1BC-4DA645222F96.1ede70aa068cfa82fcdc.jpeg",
     "static/media/F72200B6-3F42-4905-9B79-C1CCF4D4C3B4.jpeg": "/static/media/F72200B6-3F42-4905-9B79-C1CCF4D4C3B4.b5b2dd00cce2b81c4fac.jpeg",
@@ -305,6 +305,7 @@
     "static/media/E6A94A05-70FB-4ED2-A474-828FD753031A_1_102_o.jpeg": "/static/media/E6A94A05-70FB-4ED2-A474-828FD753031A_1_102_o.ea877875668ff16ad6ea.jpeg",
     "static/media/ADB7A079-8DE6-48E6-8582-A0B8A7244E09_1_102_o.jpeg": "/static/media/ADB7A079-8DE6-48E6-8582-A0B8A7244E09_1_102_o.5224bf2d8f049161c20b.jpeg",
     "static/media/654B85CD-7E56-4006-A8AB-E62ED136B517_1_102_o.jpeg": "/static/media/654B85CD-7E56-4006-A8AB-E62ED136B517_1_102_o.f663b2e28add65097c66.jpeg",
+    "static/media/bkue-waves.jpeg": "/static/media/bkue-waves.f3bc0f729c5313e9203f.jpeg",
     "static/media/BAB7D7C0-A844-4886-B786-5DDD971F1E0F_1_102_o.jpeg": "/static/media/BAB7D7C0-A844-4886-B786-5DDD971F1E0F_1_102_o.9c2dbde29f1fabab582a.jpeg",
     "static/media/57EDC78E-E042-48B4-9D38-0987C25B34CA_1_102_o.jpeg": "/static/media/57EDC78E-E042-48B4-9D38-0987C25B34CA_1_102_o.01439ee673c6eaad5a28.jpeg",
     "static/media/712CFA7B-47FB-471D-BB19-5D94B6C76216_1_102_o.jpeg": "/static/media/712CFA7B-47FB-471D-BB19-5D94B6C76216_1_102_o.d1a81699eb9b8b0aa9d3.jpeg",
@@ -458,15 +459,14 @@
     "static/media/A166910C-95B3-49B7-A5AA-0368A6E27577_4_5005_c.jpeg": "/static/media/A166910C-95B3-49B7-A5AA-0368A6E27577_4_5005_c.5b428b0f1c88a97bb4d5.jpeg",
     "static/media/D7E7B0AE-3B25-49A5-A3F2-AF717B2C0AF6_4_5005_c.jpeg": "/static/media/D7E7B0AE-3B25-49A5-A3F2-AF717B2C0AF6_4_5005_c.9eeaa25d183f67b58434.jpeg",
     "static/media/2F231C50-FC04-4D28-8EEA-EB8DEAEC4E3E_4_5005_c.jpeg": "/static/media/2F231C50-FC04-4D28-8EEA-EB8DEAEC4E3E_4_5005_c.408996ac8319aa4b1f8a.jpeg",
-    "static/media/shani-in-sunset.jpeg": "/static/media/shani-in-sunset.306fe3263711363a2235.jpeg",
     "static/media/F5C3B9EC-5A01-4CD7-8439-DDDE21034DB9_1_102_o.jpeg": "/static/media/F5C3B9EC-5A01-4CD7-8439-DDDE21034DB9_1_102_o.b877cdf2b0239e2b658c.jpeg",
     "index.html": "/index.html",
-    "main.bf83c859.css.map": "/static/css/main.bf83c859.css.map",
-    "main.ad6d82d7.js.map": "/static/js/main.ad6d82d7.js.map",
+    "main.20b7c028.css.map": "/static/css/main.20b7c028.css.map",
+    "main.37325597.js.map": "/static/js/main.37325597.js.map",
     "453.0396969e.chunk.js.map": "/static/js/453.0396969e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bf83c859.css",
-    "static/js/main.ad6d82d7.js"
+    "static/css/main.20b7c028.css",
+    "static/js/main.37325597.js"
   ]
 }
