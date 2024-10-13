@@ -6,6 +6,7 @@ import {
   KHO_PHA_NGAN_IMAGES,
   CHINAG_MAI_IMAGES,
   BANGKOK_IMAGES,
+  KOH_CHANG_IMAGES,
 } from "assets/img/Thailand";
 
 export const THAILAND: Country = {
@@ -404,4 +405,26 @@ export const CHINAG_MAI: Destination = {
       description: "כמעט כל יום יש שם שוק במקום אחר, כדאי לבדוק כי הם מטורפים",
     },
   ],
+};
+
+export const KOH_CHANG: Destination = {
+  id: "KOH_CHANG",
+  profileImg: KOH_CHANG_IMAGES.profile,
+  displayName: {
+    hebrew: "קו צ'אנג",
+    english: "koh chang",
+  },
+  description: "",
+  hotels: [
+    // {
+    //   name: "Flora I Talay Resort",
+    //   type: "Hotel",
+    //   dates: [{ from: createDate("06/09/2024"), to: createDate("19/09/2024") }],
+    //   description: "מלון ממש ממש חמוד ושווה היה מאוד כיף",
+    //   images: KOH_CHANG_IMAGES.Flora,
+    // },
+  ],
+  foods: [],
+  attractions: [],
+  nightlife: [],
 };

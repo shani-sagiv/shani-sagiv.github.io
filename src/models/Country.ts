@@ -7,4 +7,5 @@ export interface Country {
   description: string;
   gold_recommendation: InfoRecommendation[];
   profileImg: string;
+  inProgress?: boolean;
 }

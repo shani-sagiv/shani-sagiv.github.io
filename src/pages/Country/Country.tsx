@@ -26,7 +26,6 @@ const Country: React.FC<CountryProps> = ({
   displayName,
   goldRecommendation,
 }) => {
-  const navigate = useNavigate();
   const items2 = goldRecommendation.map((r) => ({
     title: r.name,
     content: r.description,

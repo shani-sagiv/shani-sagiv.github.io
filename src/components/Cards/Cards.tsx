@@ -9,6 +9,7 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
     displayName: DisplayName;
     image: string;
     navigate: string;
+    inProgress?: boolean;
   }[];
 }
 
@@ -33,6 +34,7 @@ const Cards: React.FC<CardProps> = ({ items, style }) => {
           onClick={() => navigate(item.navigate)}
           displayName={item.displayName}
           image={item.image}
+          inProgress={item.inProgress}
         />
       ))}
     </div>

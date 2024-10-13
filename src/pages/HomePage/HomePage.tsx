@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Button, Cards, WavesComponent } from "components";
 import Marquee from "react-fast-marquee";
 import shaniInSunsetSrc from "assets/shani-in-sunset.jpeg";
+import bkueWavesSrc from "assets/bkue-waves.jpeg";
 import { COUNTRIES } from "Routes";
 import "./HomePage.scss";
 import SimpleMap from "components/SimpleMap/SimpleMap";
 import { sortLocationsByDate } from "../../helpers/locations.helpers";
-// import { sortLocationsByDate } from "../../helpers/locations.helpers";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -16,6 +16,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
     displayName: country.displayName,
     image: country.profileImg,
     navigate: country.id,
+    inProgress: country.inProgress,
   }));
 
   return (
@@ -35,7 +36,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         <span style={{ padding: "0 10px" }}>👑 שגיב ושני המלכים </span>
       </Marquee>
       <img
-        src={shaniInSunsetSrc}
+        src={bkueWavesSrc}
         style={{ width: "100%", height: "50%", objectFit: "cover" }}
       />
       <WavesComponent>
