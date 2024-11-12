@@ -6,6 +6,7 @@ import {
   KHO_PHA_NGAN_IMAGES,
   CHINAG_MAI_IMAGES,
   BANGKOK_IMAGES,
+  sushiImages,
 } from "assets/img/Thailand";
 
 export const THAILAND: Country = {
@@ -40,6 +41,13 @@ export const THAILAND: Country = {
       description:
         "יש ב7/11 סימים ממש בזול, יש להם לכמה מספרי ימים, כל אחד הוא כמות גיגה פר יום אז כדאי לבדוק כמה משתמשים כי לא תמיד צריך הרבה",
       images: [simSrc],
+    },
+    {
+      name: "סושי בשקל 🍣",
+      type: "Info",
+      description:
+        "בכללל שוק שהיינו בו יש דוכן של סושי ב10 באט. תקשיבו זה תמיד טעים ברמות ובחיים לא עשה לי בעיות בבטן (ואני רגישה). קיצר מוממלץ מאוד",
+      images: sushiImages,
     },
   ],
   profileImg: KHO_LANTA_IMAGES.profile,
@@ -134,7 +142,7 @@ export const BANGKOK: Destination = {
   profileImg: BANGKOK_IMAGES.profile,
   displayName: {
     hebrew: "בנגקוק",
-    english: "bangkok",
+    english: "Bangkok",
   },
   images: BANGKOK_IMAGES.general,
   description: "סתם היינו 3 ימים למעבר ולחג מים שלהם",
@@ -146,6 +154,14 @@ export const BANGKOK: Destination = {
       description: "מלון חמוד אחלה אזור בריכה חמדודה",
       googleMapLink: "https://maps.app.goo.gl/aPa7xCb6AwvWzWWq6",
       images: BANGKOK_IMAGES.NewSiam,
+    },
+    {
+      name: "Bangkok ​Sleep ​Nest​ Hostel",
+      type: "Hotel",
+      dates: [{ from: createDate("05/09/2024"), to: createDate("06/09/2024") }],
+      description:
+        "רצינו מלון שקרוב לשדה התעופה כי נחתנו בערב וכבר למחרת בבוקר יצאנו מבנגקוק. מלון ממש נוח עם חדר גדול ומרווח!",
+      googleMapLink: "https://maps.app.goo.gl/3Z2WW9aSzZpok8KU8",
     },
   ],
   foods: [],
@@ -201,6 +217,29 @@ export const KOH_PHA_NGAN: Destination = {
   ],
   attractions: [
     {
+      name: "Halfmoon festival",
+      type: "Attraction",
+      description:
+        "ממש פחדנו שלא יהיו כרטיסים כי החלטנו להגיע ממש ברגע האחרון, בפועל ממש לא בעיה לקנות יום לפני בקבלה במלון.. היה כיף",
+      googleMapLink: "https://maps.app.goo.gl/EUHfANZURF8T8S5B9",
+      images: KHO_PHA_NGAN_IMAGES.halfmoon,
+    },
+    {
+      name: "Saturday Walking Street Market",
+      type: "Attraction",
+      description: "שוק לילה ממש נחמד שפתוח בסופש. יש גם אוכל וגם קניות",
+      googleMapLink: "https://maps.app.goo.gl/swCqNZDrkTy6AJd46",
+      images: KHO_PHA_NGAN_IMAGES.walkingStreet,
+    },
+    {
+      name: "Chaloklum Sunday market",
+      type: "Attraction",
+      description: " שוק עם אוכל ממש נחמד! אזור יפה להסתובב ואפשר גם להכנס לים",
+      googleMapLink: "https://maps.app.goo.gl/yNymoUHjqMCMfmh16",
+      images: KHO_PHA_NGAN_IMAGES.chaloklumMarket,
+    },
+
+    {
       name: "מקום בדרך עם המון קופים",
       type: "Attraction",
       description:
@@ -229,12 +268,22 @@ export const KOH_PHA_NGAN: Destination = {
     {
       name: "קפה חתולים",
       type: "Attraction",
-      description: "בית קפה עם מלא חתולים, לא מאוד מעניין שני הייתה שם שעה",
+      description:
+        "בית קפה עם מלא חתולים, ממש התלבטנו אם להכנס כי חשבנו שאולי החתולים סובלים. בסוף היינו שם שעה והעובדים התייחסו לכל החתולים ממש יפה, האכילו ושיחקו איתם והחתולים באמת נראים שמחים והיה כיף מאווווווווווווווווד!!!!",
       googleMapLink: "https://maps.app.goo.gl/8QGYfNaTWFEHJTeu6",
       images: KHO_PHA_NGAN_IMAGES.catCafe,
     },
   ],
-  nightlife: [],
+  nightlife: [
+    {
+      name: "Haad Rin beach bars",
+      type: "NightLife",
+      description:
+        "יש על החוף כל ערב מלא ברים עם מופעי אש. באף אחד לא היה כתוב שיש האפי האוור אבל ברגע ששאלנו אז הם ענו שכן חחח קיצר תשאלו אם יש",
+      googleMapLink: "https://maps.app.goo.gl/wzWoLNs6X7HBrCuG7",
+      images: KHO_PHA_NGAN_IMAGES.HaadRinBeachBars,
+    },
+  ],
   gold_recommendation: [
     {
       name: "אירועים",
@@ -278,7 +327,8 @@ export const CHINAG_MAI: Destination = {
     {
       type: "Restaurant",
       name: "Shabushi <3",
-      description: "הוטפוט עןם מסועים וסושי ומלא כיף מומלץ מאוד",
+      description:
+        "הוטפוט עם מסועים וסושי ומלא כיף מומלץ מאוד! שימו לב שזה רשת אז אפשר למצוא אותם בעוד מלאאא מקומות (היינו בכמה כאלה וזה תמיד מושלם)",
       price: "400 באט לראש אכול כפי יכולתך",
       googleMapLink: "https://maps.app.goo.gl/NorSJuHavaQ4c9Fi7",
       images: CHINAG_MAI_IMAGES.shabushi,
@@ -298,7 +348,7 @@ export const CHINAG_MAI: Destination = {
       description:
         "מקדש מאוד יפה, דורש נסיעה אנחנו לקחנו נהג מהאלה שמחכים עם הטנדר שלהם לשם ולכפר Hmong Doi Pui Village ",
       googleMapLink: "https://maps.app.goo.gl/NXcxFVRpv6YKteZ87",
-      price: "800 באט ~",
+      price: "הכניסה חינם, נהג שהיה איתנו לכל היום עלה בערך 800 באט",
       images: CHINAG_MAI_IMAGES.doiSutep,
     },
     {
@@ -338,7 +388,7 @@ export const CHINAG_MAI: Destination = {
       name: "חנות/מוזיאון של גילופים בעץ",
       type: "Attraction",
       description:
-        "מקום עם אין סוף גילופים, חלק לקחו כמה שני ולכמה אנשים מטורף לגמרי (היה אסור לצלם בפנים)",
+        "מקום עם אין סוף גילופים, יש שם דברים שלקח להכין 10 שנים ו5 אנשים שעובדים עליו כל יום, מטורף לגמרי (היה אסור לצלם בפנים)",
       price: "כניסה חינם, גילוף עלה איזה 100באט לראש",
       googleMapLink: "https://maps.app.goo.gl/xJ5wqTTWCbb1RxKH9",
       images: CHINAG_MAI_IMAGES.woodCarve,
@@ -348,15 +398,16 @@ export const CHINAG_MAI: Destination = {
       type: "Attraction",
       description:
         "מפלים שבגלל מינרל האבנים ממש מחוספסות אז אפשר לטפס על המפל ברגל, ממש מיוחד וכיף ולא כבד מדי",
-      price: "חינם",
+      price:
+        "כניסה חינם, לקחנו נהג שיהיה איתנו כל היום עלה בערך 800 באט נראה לי",
       googleMapLink: "https://maps.app.goo.gl/QZBh82aBmZ32BYw69",
       images: CHINAG_MAI_IMAGES.stickyWaterfall,
     },
     {
       name: "Ginger Farm",
       type: "Attraction",
-      description: "מקום יפה אוכל טעים חיות חמודות",
-      price: "חינם",
+      description: "מקום יפה אוכל טעים מדברים שהם מגדלים שם!!! חיות חמודות",
+      price: "חינם ואפשר לקנות אוכל להאכיל את החיות באיזה 30 באט",
       googleMapLink: "https://maps.app.goo.gl/3U9vwE3jGe41X7fi7",
       images: CHINAG_MAI_IMAGES.gingerFarm,
     },
@@ -364,19 +415,29 @@ export const CHINAG_MAI: Destination = {
       name: "ארקייד Echo-Ex10",
       type: "Attraction",
       description: "ארקייד ממש כיף בקניון מאיה",
-      price: "לא יקר לא זוכר",
+      price: "שילמנו 300 באט ושיחקנו שנינו שעה",
       googleMapLink: "https://maps.app.goo.gl/ojyDynVNrULzjvBb6",
       images: CHINAG_MAI_IMAGES.arcade,
     },
     {
       name: "Sunday walking street",
       type: "Attraction",
-      description: "שוק ענק כל יום ראשון",
+      description:
+        "שוק ענק כל יום ראשון. מחירים זולים ברמות ויש המון המון דוכנים שונים. לדעתי כן שונה מבנגקוק אז אם אתם רואים משהו שאהבתם תקנו!!",
       googleMapLink: "https://maps.app.goo.gl/mf4va7Pw5An85NrRA",
       images: CHINAG_MAI_IMAGES.sundayMarket,
     },
   ],
-  nightlife: [],
+  nightlife: [
+    {
+      name: "Lanna Square",
+      type: "NightLife",
+      description:
+        "אזור עם מלא ברים ושוק אוכל, פתוח כמעט כל יום בערב עד מאוחר, מומלץ",
+      googleMapLink: "https://maps.app.goo.gl/zkTs4wN3E72t7YNeA",
+      images: CHINAG_MAI_IMAGES.lanna,
+    },
+  ],
   gold_recommendation: [
     {
       name: "מוניות",
@@ -401,7 +462,8 @@ export const CHINAG_MAI: Destination = {
     {
       name: "שווקים",
       type: "Info",
-      description: "כמעט כל יום יש שם שוק במקום אחר, כדאי לבדוק כי הם מטורפים",
+      description:
+        "!כמעט כל יום יש שם שוק במקום אחר, כדאי לבדוק כי הם מטורפים! וגם בכל שוק יש סוכן של סושי, יחידה ב10 באט. אני תמייייד אוכלת וזה ממש סבבה בבטן! לא לפחד מקלקולי קיבה זה באמת טרי וטעים",
     },
   ],
 };
