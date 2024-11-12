@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import ImageGallery, { ReactImageGalleryItem } from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { Modal } from "components";
@@ -7,16 +7,19 @@ import classnames from "classnames";
 import LazyLoad from "react-lazyload";
 
 interface ImageGalleryProps extends React.HTMLAttributes<HTMLDivElement> {
-  images: Array<{
-    original: string;
-    thumbnail?: string;
-  }>;
+  images:
+    | {
+        original: string;
+        thumbnail?: string;
+      }[]
+    | string[];
+  style?: CSSProperties;
 }
 
 const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
-  const imagesWithThumbnail = images.map((i) => ({
-    original: i.original,
-    thumbnail: i.thumbnail || i.original,
+  const imagesWithThumbnail = images.map((i: any) => ({
+    original: i?.original || i,
+    thumbnail: i?.thumbnail || i?.original || i,
   }));
   const [isFullScreen, setIsFullScreen] = React.useState(false);
   const defaultParams = {

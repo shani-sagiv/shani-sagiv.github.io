@@ -22,6 +22,13 @@ export const blueramaImages = importAll(
 export const catCafeImages = importAll(
   require.context("./cat-cafe", false, /\.(png|jpe?g|svg)$/),
 );
+export const shiralea = importAll(
+  require.context("./shiralea", false, /\.(png|jpe?g|svg)$/),
+);
+
+export const general = importAll(
+  require.context("./general", false, /\.(png|jpe?g|svg)$/),
+);
 
 export const KHO_PHA_NGAN_IMAGES = {
   profile: sunset,
@@ -33,4 +40,6 @@ export const KHO_PHA_NGAN_IMAGES = {
   zen: zenImages,
   bluerama: blueramaImages,
   catCafe: catCafeImages,
+  shiralea,
+  general,
 };

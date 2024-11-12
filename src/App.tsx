@@ -11,7 +11,7 @@ function App() {
     ReactGA.initialize("G-CP0L443BZQ");
 
     // Log the initial page load
-    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+    // ReactGA.send({ hitType: "pageview", page: window.location.pathname });
   }, []);
 
   return (

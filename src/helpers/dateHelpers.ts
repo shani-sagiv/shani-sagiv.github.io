@@ -15,7 +15,7 @@ export function calculateDaysBetweenDates(startDate: Date, endDate: Date) {
   return days;
 }
 
-export function getNameToDisplay(displayName: DisplayName) {
+export function getNameToDisplay(displayName: DisplayName): string {
   return `${displayName.hebrew} ${displayName.english}`;
 }
 export const parseDaysToHebrew = (totalDays: number): string => {

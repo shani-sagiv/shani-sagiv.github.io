@@ -129,6 +129,21 @@ export const PAPHOS: Destination = {
       price: "772 שח לכל הלילות",
       googleMapLink: "https://maps.app.goo.gl/TpfZTg9Bbk7SrTyr6",
     },
+    {
+      name: "Almyria Apartments - Apartment 5",
+      type: "Hotel",
+      dates: [{ from: createDate("20/03/2024"), to: createDate("22/03/2024") }],
+      description: "אחלה של דירה אולי המקלחת הייתה בעייתית",
+      googleMapLink:
+        "https://www.airbnb.com/rooms/899859288626235968?guests=1&adults=1&s=67&unique_share_id=333d45be-d338-48fa-9681-0319ea79b9e7",
+    },
+    {
+      name: "Dionysos Central Hotel",
+      type: "Hotel",
+      dates: [{ from: createDate("22/03/2024"), to: createDate("24/03/2024") }],
+      description: "אחלה של מלון",
+      googleMapLink: "https://maps.app.goo.gl/oqwV1SYFmiQqz5tZ8",
+    },
   ],
   foods: [],
   attractions: [

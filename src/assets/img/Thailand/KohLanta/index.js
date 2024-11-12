@@ -11,9 +11,7 @@ import { importAll } from "../../../../helpers/imagesHelpers";
 export const beachTravelImages = importAll(
   require.context("./beach-travel", false, /\.(png|jpe?g|svg)$/),
 );
-export const mosquitosImages = importAll(
-  require.context("./mosquitos", false, /\.(png|jpe?g|svg)$/),
-);
+
 export const shellsImages = importAll(
   require.context("./shells", false, /\.(png|jpe?g|svg)$/),
 );
@@ -33,7 +31,6 @@ export const KHO_LANTA_IMAGES = {
   shells: shellsImages,
   hotelLantaRiviera: LantaRivieraImages,
   beachTravelImages: beachTravelImages,
-  mosquitos: mosquitosImages,
   attractionsFollowingGiants: FollowingGiantsImages,
   attractionsMarket: [attr3],
   restaurantsLantaRiviera: RestaurantLantaRivieraImages,

@@ -20,12 +20,15 @@ import {
   TA_VAN,
   BANGKOK,
   KOH_CHANG,
+  PATTAYA,
+  KOH_SAMUI,
+  KOH_TAO,
 } from "assets/data";
 import {
   Country as CountryModel,
   Destination as DestinationModel,
 } from "models";
-import { Country, Destination } from "pages";
+import { Country, Destination, Random } from "pages";
 import { BreadcrumbNavigation } from "components";
 import { CYPRUS, LARNACA, LIMASSOL, PAPHOS, VASA } from "./assets/data/Cyprus";
 import { logUserAction } from "./helpers/logs.helpers";
@@ -38,7 +41,16 @@ export const COUNTRIES: {
 }[] = [
   {
     country: THAILAND,
-    destinations: [BANGKOK, KOH_LANTA, KOH_PHA_NGAN, CHINAG_MAI, KOH_CHANG],
+    destinations: [
+      BANGKOK,
+      KOH_LANTA,
+      KOH_PHA_NGAN,
+      CHINAG_MAI,
+      KOH_CHANG,
+      PATTAYA,
+      KOH_SAMUI,
+      KOH_TAO,
+    ],
   },
   {
     country: VIETNAM,
@@ -65,8 +77,11 @@ function InnerRoutes() {
   React.useEffect(() => {
     if (!getUserName()) navigate("/login");
 
+    const username = getUserName();
+    const currentPath = window.location.pathname;
+
     if (window.location.hostname !== "localhost") {
-      logUserAction();
+      logUserAction(username, currentPath); // Pass the username and path
     }
   }, [location.pathname, navigate]);
 
@@ -77,11 +92,12 @@ function InnerRoutes() {
           path: country.id,
           element: (
             <Country
-              displayName={country.displayName}
-              profileImg={country.profileImg}
+              // displayName={country.displayName}
+              // profileImg={country.profileImg}
               destinations={destinations}
-              description={country.description}
-              goldRecommendation={country.gold_recommendation}
+              // description={country.description}
+              country={country}
+              // goldRecommendation={country.gold_recommendation}
             />
           ),
         } as CustomRouteObject,
@@ -111,6 +127,7 @@ function InnerRoutes() {
       <BreadcrumbNavigation />
       <Routes>
         <Route path={"/login"} element={<NameForm />} />
+        <Route path={"/random"} element={<Random />} />
 
         {[...createRoutesFromOptions(NAV_BAR_OPTIONS), ...getRoutes()].map(
           (route, index) => (

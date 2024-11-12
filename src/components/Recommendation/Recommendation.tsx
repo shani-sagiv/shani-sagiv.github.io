@@ -2,6 +2,7 @@ import React from "react";
 import "./Recommendation.scss";
 import { AllRecommendationTypes } from "models";
 import { ImageGallery } from "components";
+import linkImgSrc from "assets/link.png";
 import {
   calculateDaysBetweenDates,
   hasImages,
@@ -25,15 +26,25 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
           marginTop: 10,
           fontSize: 22,
           fontWeight: "bold",
+          display: "flex",
+          alignItems: "center",
+          color: "#393939",
+          textDecoration: "none",
         }}
         href={recommendation.googleMapLink}
         target={"_blank"}
       >
+        <img src={linkImgSrc} style={{ height: "20px", marginLeft: 10 }} />
         {recommendation.name}
       </a>
 
       <div
-        style={{ display: "flex", flexDirection: "row", gap: 5, margin: 10 }}
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          gap: 5,
+          margin: "5px 10px 10px 10px",
+        }}
       >
         <span>
           {!hasImages(recommendation.images) ? null : (

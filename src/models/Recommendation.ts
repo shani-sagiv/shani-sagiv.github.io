@@ -30,6 +30,7 @@ export interface NightLifeRecommendation extends Recommendation {
 export interface InfoRecommendation extends Recommendation {
   type: "Info";
   links?: string[];
+  phones?: string[];
 }
 
 export type AllRecommendationTypes =
