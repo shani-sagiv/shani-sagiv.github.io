@@ -1,7 +1,8 @@
 @import "styles/index";
 
-$border-style: 2px solid #757575;
-$light-border-style: 2px solid rgba(117, 117, 117, 0.53);
+$border-style: 2px solid white;
+$light-border-style: 2px solid rgba(white, 0.5);
+$bgColors: #d3f0f8;
 
 .sticky-header {
   width: 100%;
@@ -44,11 +45,11 @@ $light-border-style: 2px solid rgba(117, 117, 117, 0.53);
       border-right: $border-style;
       border-left: $border-style;
       // border-bottom: 2.5px solid white;
-      border-bottom: 2.5px solid $light-peach;
+      border-bottom: 2.5px solid $bgColors;
       //margin: 0 -10px;
       z-index: 4;
 
-      background-color: $light-peach;
+      background-color: $bgColors;
       //background: linear-gradient(
       //  transparent 0%,
       //  rgba(255, 255, 255, 0.6) 60%,
@@ -56,12 +57,24 @@ $light-border-style: 2px solid rgba(117, 117, 117, 0.53);
       //);
 
     }
-    &:not(.current){
+    &:not(.current) {
       border: $light-border-style;
-      background-color: $light-peach;
-      filter: brightness(70%);
+      border-bottom: $border-style;
+      position: relative;
+      background-color: $bgColors;
 
-      //background-color: grey;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $bgColors;
+        filter: brightness(70%);
+        border-radius: inherit;
+        z-index: -1;
+      }
     }
 
   }

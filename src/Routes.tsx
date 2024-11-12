@@ -1,6 +1,6 @@
 import React from "react";
 import { NAV_BAR_OPTIONS } from "hooks/Navigation.hook";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import {
   createRoutesFromOptions,
   CustomRouteObject,
@@ -19,31 +19,46 @@ import {
   SAPA,
   TA_VAN,
   BANGKOK,
+  KOH_CHANG,
+  PATTAYA,
+  KOH_SAMUI,
+  KOH_TAO,
 } from "assets/data";
 import {
   Country as CountryModel,
   Destination as DestinationModel,
 } from "models";
-import { Country, Destination } from "pages";
+import { Country, Destination, Random } from "pages";
 import { BreadcrumbNavigation } from "components";
 import { CYPRUS, LARNACA, LIMASSOL, PAPHOS, VASA } from "./assets/data/Cyprus";
+import { logUserAction } from "./helpers/logs.helpers";
+import NameForm from "components/NameForm/NameForm";
+import { getUserName } from "./helpers/localStorage.helpers";
 
 export const COUNTRIES: {
   country: CountryModel;
   destinations: DestinationModel[];
 }[] = [
   {
-    country: CYPRUS,
-    destinations: [LIMASSOL, VASA, PAPHOS, LARNACA],
-  },
-  {
     country: THAILAND,
-    destinations: [BANGKOK, KOH_LANTA, KOH_PHA_NGAN, CHINAG_MAI],
+    destinations: [
+      BANGKOK,
+      KOH_LANTA,
+      KOH_PHA_NGAN,
+      CHINAG_MAI,
+      KOH_CHANG,
+      PATTAYA,
+      KOH_SAMUI,
+      KOH_TAO,
+    ],
   },
-
   {
     country: VIETNAM,
     destinations: [HOI_AN, PHONG_NHA, HANOI, CAT_BA, HA_LONG, SAPA, TA_VAN],
+  },
+  {
+    country: CYPRUS,
+    destinations: [LIMASSOL, VASA, PAPHOS, LARNACA],
   },
 ];
 
@@ -56,6 +71,20 @@ export const translationMap = COUNTRIES.flatMap((item) => [
 ]);
 
 function InnerRoutes() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  React.useEffect(() => {
+    if (!getUserName()) navigate("/login");
+
+    const username = getUserName();
+    const currentPath = window.location.pathname;
+
+    if (window.location.hostname !== "localhost") {
+      logUserAction(username, currentPath); // Pass the username and path
+    }
+  }, [location.pathname, navigate]);
+
   const getRoutes = (): CustomRouteObject[] => {
     return COUNTRIES.flatMap(({ country, destinations }) => {
       return [
@@ -63,11 +92,12 @@ function InnerRoutes() {
           path: country.id,
           element: (
             <Country
-              displayName={country.displayName}
-              profileImg={country.profileImg}
+              // displayName={country.displayName}
+              // profileImg={country.profileImg}
               destinations={destinations}
-              description={country.description}
-              goldRecommendation={country.gold_recommendation}
+              // description={country.description}
+              country={country}
+              // goldRecommendation={country.gold_recommendation}
             />
           ),
         } as CustomRouteObject,
@@ -96,6 +126,9 @@ function InnerRoutes() {
     <>
       <BreadcrumbNavigation />
       <Routes>
+        <Route path={"/login"} element={<NameForm />} />
+        <Route path={"/random"} element={<Random />} />
+
         {[...createRoutesFromOptions(NAV_BAR_OPTIONS), ...getRoutes()].map(
           (route, index) => (
             <Route key={index} path={route.path} element={route.element} />

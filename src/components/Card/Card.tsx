@@ -7,9 +7,15 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   onClick: () => unknown;
   displayName: DisplayName;
   image: string;
+  inProgress?: boolean;
 }
 
-const Card: React.FC<CardProps> = ({ onClick, displayName, image }) => {
+const Card: React.FC<CardProps> = ({
+  onClick,
+  displayName,
+  image,
+  inProgress,
+}) => {
   return (
     <div className={"card"} onClick={onClick}>
       {/* Title in the center */}
@@ -40,6 +46,7 @@ const Card: React.FC<CardProps> = ({ onClick, displayName, image }) => {
 
       {/* Image as background */}
       <img src={image} alt="" className={"card-image"} />
+      {inProgress && <div className={"in-build"}>עובדים על זה</div>}
     </div>
   );
 };

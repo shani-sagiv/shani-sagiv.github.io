@@ -42,8 +42,6 @@ const Destination: React.FC<DestinationProps> = ({
   profileImg,
   gold_recommendation = [],
 }) => {
-  const navigate = useNavigate();
-
   const getActivities = () => {
     const activitySections = [
       {
@@ -81,31 +79,60 @@ const Destination: React.FC<DestinationProps> = ({
   const getInfo = () => {
     const createImageGallery = (items: string[], title: string) => ({
       title,
-      content: (
-        <ImageGallery
-          style={{ width: "90%" }}
-          images={items.map((i) => ({ original: i }))}
-        />
-      ),
+      content: <ImageGallery style={{ width: "95%" }} images={items} />,
     });
-
+    const createWhatsAppLinksContent = (phoneNumbers: string[]) =>
+      phoneNumbers.map((number, index) => (
+        <a
+          key={index}
+          href={`https://wa.me/${number.replace(/[^0-9]/g, "")}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {number}
+        </a>
+      ));
     const createLinksContent = (links: string[]) =>
       links.map((l, index) => (
-        <a key={index} href={l} target="_blank" rel="noopener noreferrer">
+        <a
+          key={index}
+          href={l}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ marginRight: 10 }}
+        >
           {l}
         </a>
       ));
+    const createPhoneLinksContent = (phoneNumbers: string[]) =>
+      phoneNumbers.map((number, index) => (
+        <a
+          key={index}
+          href={`tel:${number}`}
+          rel="noopener noreferrer"
+          style={{ marginRight: 10 }}
+        >
+          {number}
+        </a>
+      ));
 
-    const createGoldRecommendation = (r: {
-      name: string;
-      description: string;
-      links?: string[];
-    }) => ({
+    const createGoldRecommendation = (r: InfoRecommendation) => ({
       title: r.name,
       content: (
         <div className="recommendation-content">
           {r.description}
-          {r.links && createLinksContent(r.links)}
+          <br />
+          {r.links && (
+            <>
+              {createLinksContent(r.links)} <br />
+            </>
+          )}
+          {r.phones && (
+            <>
+              {createWhatsAppLinksContent(r.phones)} <br />
+            </>
+          )}
+          {r.images && <ImageGallery images={r.images} />}
         </div>
       ),
     });
@@ -153,7 +180,6 @@ const Destination: React.FC<DestinationProps> = ({
       <Title title={displayName.english} style={{ fontSize: 25 }} />
       <div className="info">
         <div>{description}</div>
-
         <div
           style={{
             display: "flex",

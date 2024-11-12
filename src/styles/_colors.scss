@@ -36,23 +36,15 @@ $light-peach: #f9e2df;
 $peach: #f4c6c3;
 $coral: #f28c66;
 $green: #006f80;
+$light-green: #006f80;
 $dark-teal: #234845;
-// $darl: #2f4f4f;
-
-// Light Pink/Peach: #F4C6C3
-// Coral/Orange: #F28C66
-// Green: #4F8B5D
-// Dark Teal: #234845
-
-// #007ED0 - Deep Blue
-// #02A9E3 - Lighter Blue
-// #F7F7F7 - White
-// #D8C3AF - Beige/Tan
-// #FF0044 - Bright Red
-
-// Styling Examples
 body {
-  background: linear-gradient(360deg, hsla(175, 35%, 21%, 0.5) 0%, hsla(188, 100%, 25%, 0.5) 15%, hsla(16, 84%, 67%, 0.5) 50%, hsla(4, 69%, 86%, 0.5) 75%, hsla(7, 68%, 93%, 0.5) 90%);
+  //background: linear-gradient(360deg, hsla(175, 35%, 21%, 0.5) 0%, hsla(188, 100%, 25%, 0.5) 15%, hsla(16, 84%, 67%, 0.5) 50%, hsla(4, 69%, 86%, 0.5) 75%, hsla(7, 68%, 93%, 0.5) 90%);  background: url("https://images.unsplash.com/photo-1668853853439-923e013afff1?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdyYWRpZW50JTIwYmx1ZXxlbnwwfHwwfHx8MA%3D%3D");
+    background-size: 100% 100%;
+  //background: url("https://images.unsplash.com/photo-1668853853439-923e013afff1?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdyYWRpZW50JTIwYmx1ZXxlbnwwfHwwfHx8MA%3D%3D");
+  background: url("https://img.freepik.com/free-vector/blank-blue-halftone-background_53876-114592.jpg");
+  background-size: cover;
+
   color: $dark-teal;
   font-family: "Helvetica Neue", Arial, sans-serif;
 }

@@ -55,7 +55,7 @@ export const HOI_AN: Destination = {
     {
       name: "HUNG DO BEACH HOMESTAY",
       type: "Hotel",
-      dates: [{ from: createDate("13/06/2024"), to: createDate("06/07/2024") }],
+      dates: [{ from: createDate("13/06/2024"), to: createDate("07/07/2024") }],
       description:
         "הום סטיי של משפחה מהממת, החדרים גדולים ונקיים, המשפחה ממש חמודה ועוזרת במה שצריך. 2 דקות הליכה לחוף ויש בריכה קטנה וכייפית. נהננו ממש ובטוח נחזור!! מומלץ ברמות.",
       googleMapLink: "https://maps.app.goo.gl/GbMWVUekZcY3b9Cq9",
@@ -208,7 +208,7 @@ export const HANOI: Destination = {
     {
       name: "Little Hanoi Old Quarter Hostel",
       type: "Hotel",
-      dates: [{ from: createDate("28/08/2024"), to: createDate("04/09/2024") }],
+      dates: [{ from: createDate("28/08/2024"), to: createDate("05/09/2024") }],
       description: "מלון סביר מיקום טוב",
       googleMapLink: "https://maps.app.goo.gl/rm32r6HW1cTYM6mU6",
       images: [],

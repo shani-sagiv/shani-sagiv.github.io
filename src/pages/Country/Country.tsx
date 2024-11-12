@@ -2,7 +2,7 @@ import React from "react";
 import "./Country.scss";
 import { useNavigate } from "react-router-dom";
 import { Cards, Collapsibles, Title } from "components";
-import { Destination, DisplayName, Recommendation } from "models";
+import { Country as CountryModel, Destination } from "models";
 import {
   calculateDaysBetweenDates,
   calculateTotalNightsAtAllDestinations,
@@ -10,23 +10,22 @@ import {
   parseDate,
   parseDaysToHebrew,
 } from "helpers/dateHelpers";
+import { Location } from "../../helpers/locations.helpers";
+import LocationsWithDates from "components/locationsWithDates/LocationsWithDates";
+import destination from "pages/Destination/Destination";
 
 interface CountryProps extends React.HTMLAttributes<HTMLDivElement> {
-  displayName: DisplayName;
-  description: string;
   destinations: Destination[];
-  profileImg: string;
-  goldRecommendation: Recommendation[];
+  country: CountryModel;
 }
 
-const Country: React.FC<CountryProps> = ({
-  description,
-  destinations,
-  profileImg,
-  displayName,
-  goldRecommendation,
-}) => {
-  const navigate = useNavigate();
+const Country: React.FC<CountryProps> = ({ destinations, country }) => {
+  const {
+    gold_recommendation: goldRecommendation,
+    profileImg,
+    description,
+    displayName,
+  } = country;
   const items2 = goldRecommendation.map((r) => ({
     title: r.name,
     content: r.description,
@@ -40,18 +39,8 @@ const Country: React.FC<CountryProps> = ({
   }));
   const totalNightsSlept = calculateTotalNightsAtAllDestinations(destinations);
 
-  const sortLocationsByDate = (): {
-    hotelName: string;
-    placeName: string;
-    from: Date;
-    to: Date;
-  }[] => {
-    const locations: {
-      placeName: string;
-      from: Date;
-      to: Date;
-      hotelName: string;
-    }[] = [];
+  const sortLocationsByDate = (): Location[] => {
+    const locations: Location[] = [];
 
     destinations.forEach((destination) => {
       destination.hotels.forEach((hotel) => {
@@ -61,6 +50,8 @@ const Country: React.FC<CountryProps> = ({
             from: dateRange.from,
             to: dateRange.to,
             hotelName: hotel.name,
+            country: country,
+            id: destination.displayName.english,
           });
         });
       });
@@ -95,33 +86,7 @@ const Country: React.FC<CountryProps> = ({
       </div>
       <Collapsibles items={items2} />
       <Cards items={cards} />
-      <div>
-        {sortLocationsByDate().map((a) => {
-          return (
-            <>
-              <div
-                className={"flex-row"}
-                style={{
-                  gap: 10,
-                  height: 15,
-                  marginTop: 8,
-                  marginRight: 20,
-                  fontSize: 10,
-                }}
-              >
-                <b style={{ width: 75 }}>{a.placeName}</b>
-                <span className={"flex-row"} style={{ gap: 10 }}>
-                  <span>{parseDate(a.from)}</span>
-                  <span>{parseDate(a.to)}</span>
-                  <span>({calculateDaysBetweenDates(a.from, a.to)})</span>
-                  <span>({a.hotelName})</span>
-                </span>
-              </div>
-              {/*<br />*/}
-            </>
-          );
-        })}
-      </div>
+      <LocationsWithDates locations={sortLocationsByDate()} />
     </div>
   );
 };

@@ -54,26 +54,21 @@ const WavesComponent: React.FC<WavesProps> = ({ children }) => {
             xlinkHref="#gentle-wave"
             x="48"
             y="8"
-            fill="rgb(245, 245, 245, 0.5)"
+            fill="rgba(210, 237, 243, 0.4)"
           />
           <use
             xlinkHref="#gentle-wave"
             x="48"
             y="10"
-            fill="rgba(64, 224, 208,0.2)"
+            fill="rgba(210, 237, 243, 0.7)"
           />
           <use
             xlinkHref="#gentle-wave"
             x="48"
             y="15"
-            fill="rgb(245, 245, 245, 0.4)"
+            fill="rgba(195, 231, 239, 1)"
           />
-          <use
-            xlinkHref="#gentle-wave"
-            x="48"
-            y="15"
-            fill="rgb(245, 245, 245, 1)"
-          />
+          <use xlinkHref="#gentle-wave" x="48" y="15" fill="#d2edf3" />
         </g>
       </svg>
       {/*</div>*/}

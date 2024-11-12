@@ -35,6 +35,13 @@ export const chaloklumMarketImages = importAll(
 export const HaadRinBeachBarsImages = importAll(
   require.context("./haad-rin", false, /\.(png|jpe?g|svg)$/)
 );
+export const shiralea = importAll(
+  require.context("./shiralea", false, /\.(png|jpe?g|svg)$/)
+);
+
+export const general = importAll(
+  require.context("./general", false, /\.(png|jpe?g|svg)$/)
+);
 
 export const KHO_PHA_NGAN_IMAGES = {
   profile: sunset,
@@ -50,4 +57,6 @@ export const KHO_PHA_NGAN_IMAGES = {
   walkingStreet: walkingStreetImages,
   chaloklumMarket: chaloklumMarketImages,
   HaadRinBeachBars: HaadRinBeachBarsImages,
+  shiralea,
+  general,
 };
