@@ -21,7 +21,6 @@ import { useNavigate } from "react-router-dom";
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const HomePage: React.FC<HomePageProps> = ({}) => {
-  console.log({ COUNTRIES });
   const destinationsCards = COUNTRIES.map(({ country, destinations }) => ({
     displayName: country.displayName,
     image: country.profileImg,
