@@ -4,7 +4,6 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import { Modal } from "components";
 import "./ImageGallery.scss";
 import classnames from "classnames";
-import LazyLoad from "react-lazyload";
 
 interface ImageGalleryProps extends React.HTMLAttributes<HTMLDivElement> {
   images:

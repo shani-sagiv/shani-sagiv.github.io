@@ -21,11 +21,15 @@ import { useNavigate } from "react-router-dom";
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const HomePage: React.FC<HomePageProps> = ({}) => {
-  const destinations = COUNTRIES.map(({ country }) => ({
+  console.log({ COUNTRIES });
+  const destinationsCards = COUNTRIES.map(({ country, destinations }) => ({
     displayName: country.displayName,
     image: country.profileImg,
     navigate: country.id,
     inProgress: country.inProgress,
+    bottomData: parseDaysToHebrew(
+      calculateTotalNightsAtAllDestinations(destinations),
+    ),
   }));
   const navigate = useNavigate();
 
@@ -81,7 +85,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         <WordArtTitle title={parseDaysToHebrew(totalNights)} />
 
         {/*</h1>*/}
-        <Cards items={destinations} />
+        <Cards items={destinationsCards} />
       </WavesComponent>
       <LocationsWithDates locations={locationsByDate} />
       <Button onClick={() => navigate(`/random`)}>נחש את התמונה</Button>

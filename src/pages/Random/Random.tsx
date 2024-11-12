@@ -119,12 +119,17 @@ const Random: React.FC<HomePageProps> = ({}) => {
   }
   return (
     <div className={"random-image"}>
-      <span style={{ height: "60vh", width: "100%", marginBottom: 20 }}>
-        <ImageGallery
-          style={{ height: "60vh", width: "100%" }}
-          images={randomImageObject?.images || []}
-        />
-      </span>
+      {/*<span style={{ height: "60vh", width: "100%" }}>*/}
+      <img
+        src={randomImageObject?.images[0]}
+        style={{
+          maxHeight: "60vh",
+          width: "100%",
+          objectFit: "contain",
+          paddingBottom: 10,
+        }}
+      />
+      {/*</span>*/}
 
       <OptionsSelect
         title={"איפה?"}
@@ -146,7 +151,7 @@ const Random: React.FC<HomePageProps> = ({}) => {
           <h1>{randomImageObject ? randomImageObject?.countryName : null}</h1>
         </>
       )}
-      <Button onClick={() => setReveal(!reveal)}>תשובה</Button>
+      <Button onClick={() => setReveal(!reveal)}>ויתור</Button>
       <Button onClick={() => LoadAllOptionsData()}>רענון</Button>
       {renderResult()}
     </div>

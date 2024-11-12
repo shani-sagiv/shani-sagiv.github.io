@@ -8,6 +8,7 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   displayName: DisplayName;
   image: string;
   inProgress?: boolean;
+  bottomData?: string;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -15,6 +16,7 @@ const Card: React.FC<CardProps> = ({
   displayName,
   image,
   inProgress,
+  bottomData,
 }) => {
   return (
     <div className={"card"} onClick={onClick}>
@@ -43,7 +45,18 @@ const Card: React.FC<CardProps> = ({
       >
         {displayName.english}
       </h1>
-
+      <span
+        style={{
+          position: "absolute",
+          color: "white", // Make the title readable
+          // fontSize: "1rem",
+          textAlign: "center",
+          bottom: "0",
+          zIndex: 2, // Make sure the title is above the image
+        }}
+      >
+        {bottomData}
+      </span>
       {/* Image as background */}
       <img src={image} alt="" className={"card-image"} />
       {inProgress && <div className={"in-build"}>עובדים על זה</div>}

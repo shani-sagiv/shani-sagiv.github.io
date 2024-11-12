@@ -10,6 +10,7 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
     image: string;
     navigate: string;
     inProgress?: boolean;
+    bottomData?: string;
   }[];
 }
 
@@ -35,6 +36,7 @@ const Cards: React.FC<CardProps> = ({ items, style }) => {
           displayName={item.displayName}
           image={item.image}
           inProgress={item.inProgress}
+          bottomData={item.bottomData}
         />
       ))}
     </div>
