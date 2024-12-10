@@ -95,3 +95,13 @@ export function parseDate(date: Date): string | null {
     year: "2-digit",
   });
 }
+
+export function getRandomNumbers(maxNumber: number, count: number): number[] {
+  const numbers: Set<number> = new Set();
+
+  while (numbers.size < count) {
+    const randomNumber = Math.floor(Math.random() * maxNumber + 1);
+    numbers.add(randomNumber);
+  }
+  return Array.from(numbers);
+}

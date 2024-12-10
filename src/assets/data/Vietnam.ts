@@ -1,5 +1,5 @@
 import { createDate } from "helpers/dateHelpers";
-import { Country, Destination } from "models";
+import { AttractionRecommendation, Country, Destination } from "models";
 
 import {
   VIETNAM_IMAGES,
@@ -187,6 +187,23 @@ export const PHONG_NHA: Destination = {
   shells: [],
 };
 
+export const HANOI_HA_LONG_CRUISE: { [key: string]: AttractionRecommendation } =
+  {
+    HANOI: {
+      type: "Attraction",
+      name: "שיט במפרץ הא לונג עם אוטובוס הלוך חזור",
+      description:
+        "נסיעה עצירה באיזה חוות פינים אחכ נסיעה שיט של כמה שעיות במפרץ, כולל מערץ נטיפים וקייאקים ואיזה חגיגת שגיאה על הסירה דווקא חמוד פירות עניינים",
+      images: HANOI_IMAGES.cruise,
+    },
+    HA_LONG: {
+      type: "Attraction",
+      name: "שיט במפרץ הא לונג",
+      description: "שיט של כמה שעיות במפרץ, כולל מערץ נטיפים וקייאקים",
+      // googleMapLink: "https://maps.app.goo.gl/F9rEa4qJxXuamdf1A",
+      images: HA_LONG_IMAGES.cruise,
+    },
+  };
 export const HANOI: Destination = {
   id: "HANOI",
   displayName: {
@@ -213,15 +230,39 @@ export const HANOI: Destination = {
       googleMapLink: "https://maps.app.goo.gl/rm32r6HW1cTYM6mU6",
       images: [],
     },
+    {
+      name: "Hanoi Holiday Diamond Hotel",
+      type: "Hotel",
+      dates: [{ from: createDate("27/11/2024"), to: createDate("28/11/2024") }],
+      description: "מלון חמוד מיקום טוב",
+      googleMapLink: "https://maps.app.goo.gl/LgY2ntxsBekUzSFw8",
+      images: [],
+    },
+    {
+      name: "Solare De Monte Hotel & Spa",
+      type: "Hotel",
+      dates: [{ from: createDate("28/11/2024"), to: createDate("30/11/2024") }],
+      description: "מלון טוב מיקום טוב בחיים לא התייחסו אלי ככ יפה",
+      googleMapLink: "https://maps.app.goo.gl/v89CN3jwiVWcrqRh7",
+      images: HANOI_IMAGES.Solare,
+    },
   ],
   foods: [],
   attractions: [
+    HANOI_HA_LONG_CRUISE.HANOI,
     {
       type: "Attraction",
       name: "Gifthaus",
       googleMapLink: "https://maps.app.goo.gl/SbaRRnY3yFjNFRRg6",
       description: "חנות עם מליון משחקי קלפים וקופסא והכל אחלה מחירים",
       images: HANOI_IMAGES.gifthouse,
+    },
+    {
+      type: "Attraction",
+      name: "Hoa Lu Ancient Capital",
+      googleMapLink: "https://maps.app.goo.gl/2QAu5xwVDeDQapUp9",
+      description: "מקדש מאוד נחמד ",
+      images: HANOI_IMAGES.HoaLu,
     },
   ],
   nightlife: [
@@ -327,13 +368,7 @@ export const HA_LONG: Destination = {
       googleMapLink: "https://maps.app.goo.gl/F9rEa4qJxXuamdf1A",
       images: HA_LONG_IMAGES.chillBar,
     },
-    {
-      type: "Attraction",
-      name: "שיט במפרץ הא לונג",
-      description: "שיט של כמה שעיות במפרץ, כולל מערץ נטיפים וקייאקים",
-      // googleMapLink: "https://maps.app.goo.gl/F9rEa4qJxXuamdf1A",
-      images: HA_LONG_IMAGES.cruise,
-    },
+    HANOI_HA_LONG_CRUISE.HA_LONG,
     {
       type: "Attraction",
       name: "Bãi tắm",
@@ -457,3 +492,5 @@ export const TA_VAN: Destination = {
   shells: [],
   images: SAPA_IMAGES.general,
 };
+
+//todo: something with ha long bay cruise multiple display

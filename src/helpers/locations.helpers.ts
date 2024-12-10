@@ -1,16 +1,22 @@
 import { COUNTRIES } from "../Routes";
 import { calculateDaysBetweenDates } from "./dateHelpers";
-import { Country } from "models";
+import {
+  Country as CountryModel,
+  Country,
+  Destination,
+  DisplayName,
+  HotelRecommendation,
+} from "models";
 
 export interface Location {
-  placeName: string;
+  displayName: DisplayName;
   hotelName?: string;
-  // countryName?: string;
+  id: string;
+  country: Country;
+
   from: Date;
   to: Date;
   profileImg?: string;
-  id: string;
-  country: Country;
 }
 
 // Define `AggregatedLocation` as a single object with `totalNights` and `data` properties
@@ -22,41 +28,30 @@ type AggregatedLocation = {
 // `LocationsToInfo` is a mapping of unique place IDs to `AggregatedLocation` objects
 type LocationsToInfo = Record<string, AggregatedLocation>;
 
-export const sortLocationsByDate = (): Location[] => {
+export const sortAllDestinationsByDate = (): Location[] => {
   const locations: Location[] = [];
 
-  // Loop through all countries and their destinations
   COUNTRIES.forEach((countryObj) => {
-    const countryName = countryObj.country.displayName.english;
-
-    // Loop through all destinations in each country
-    countryObj.destinations.forEach((destination) => {
-      // Loop through all hotels in each destination
-      destination.hotels.forEach((hotel) => {
-        // Loop through each date range of the hotel
-        hotel.dates.forEach((dateRange) => {
-          locations.push({
-            placeName: destination.displayName.english,
-            // countryName: countryName,
-            from: dateRange.from,
-            to: dateRange.to,
-            hotelName: hotel.name,
-            profileImg: destination.profileImg,
-            id: destination.id,
-            country: countryObj.country,
-          });
-        });
-      });
-    });
+    locations.push(
+      ...getAllHotels(countryObj.country, countryObj.destinations),
+    );
   });
 
-  // Sort the locations by the 'from' date
   locations.sort((a, b) => a.from.getTime() - b.from.getTime());
   return locations;
 };
 
+export const sortDestinationsByDate = (
+  country: CountryModel,
+  destinations: Destination[],
+): Location[] => {
+  return getAllHotels(country, destinations).sort(
+    (a, b) => a.from.getTime() - b.from.getTime(),
+  );
+};
+
 export const getAggregateLocations = (): LocationsToInfo => {
-  const locations = sortLocationsByDate();
+  const locations = sortAllDestinationsByDate();
   return locations.reduce((acc: LocationsToInfo, location: Location) => {
     const nights = calculateDaysBetweenDates(location.from, location.to);
 
@@ -68,4 +63,28 @@ export const getAggregateLocations = (): LocationsToInfo => {
 
     return acc;
   }, {} as LocationsToInfo); // Ensuring accumulator is of type LocationsToInfo
+};
+
+const getAllHotels = (
+  country: CountryModel,
+  destinations: Destination[],
+): Location[] => {
+  let locations: Location[] = [];
+
+  destinations.forEach((destination: Destination) => {
+    destination.hotels.forEach((hotel: HotelRecommendation) => {
+      hotel.dates.forEach((dateRange) => {
+        locations.push({
+          displayName: destination.displayName,
+          from: dateRange.from,
+          to: dateRange.to,
+          hotelName: hotel.name,
+          country: country,
+          id: destination.id,
+          profileImg: destination.profileImg,
+        });
+      });
+    });
+  });
+  return locations;
 };

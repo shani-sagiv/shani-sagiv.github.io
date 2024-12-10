@@ -222,6 +222,15 @@ export const KOH_PHA_NGAN: Destination = {
       description:
         "קצת רחוק מהכל אבל מקום ממש חמוד אחלה אנשים אחלה מקומות ישיבה",
     },
+    {
+      name: "Pure Laguna Residence by Nice Sea Resort",
+      googleMapLink: "https://maps.app.goo.gl/xDQ4UQudrqxDVeCW8",
+      type: "Hotel",
+      images: KHO_PHA_NGAN_IMAGES.PureLaguna,
+      dates: [{ from: createDate("09/11/2024"), to: createDate("12/11/2024") }],
+      description:
+        "אחלה מלון באזור הזן ביץ חדרים שווים עם מטבח קצת ריח של גופה וביוב לפעמים",
+    },
   ],
   foods: [
     {
@@ -237,6 +246,13 @@ export const KOH_PHA_NGAN: Destination = {
       description: "אזור עם כמה דוכני אוכל  ושטויות וברים",
       googleMapLink: "https://maps.app.goo.gl/fzSnN2UaiK2rrfhV6",
       images: KHO_PHA_NGAN_IMAGES.pantip,
+    },
+    {
+      name: "Mama Market שוק אוכל",
+      type: "Restaurant",
+      description: "אזור עם כמה דוכני אוכל חמודים",
+      googleMapLink: "https://maps.app.goo.gl/15HQMgFhoVhC8ynXA",
+      images: KHO_PHA_NGAN_IMAGES.Mama,
     },
   ],
   attractions: [
@@ -568,7 +584,7 @@ export const KOH_SAMUI: Destination = {
   id: "KOH_SAMUI",
   profileImg: KOH_SAMUI_IMAGES.profile,
   displayName: {
-    hebrew: "קוסמוי",
+    hebrew: "קו סמוי",
     english: "Koh Samui",
   },
   images: KOH_SAMUI_IMAGES.general,
@@ -686,20 +702,48 @@ export const KOH_TAO: Destination = {
       googleMapLink: "https://maps.app.goo.gl/AoVWBfhQVJsfoiK26",
       type: "Hotel",
       images: KOH_TAO_IMAGES.Ochai,
-      dates: [{ from: createDate("06/10/2024"), to: createDate("15/10/2024") }],
-      description:
-        "אחלה מאמא יוחאי, קצת רחוק מהכל אז צריך אופנוע אבל אחלה של מקומות לשבת",
+      dates: [
+        { from: createDate("06/10/2024"), to: createDate("15/10/2024") },
+        { from: createDate("12/11/2024"), to: createDate("26/11/2024") },
+      ],
+      description: "אחלה מאמא יוחאי, בונגלו בסוף הרצועה חשמל",
     },
   ],
-  foods: [],
+  foods: [
+    {
+      type: "Restaurant",
+      name: "Sairee Hut Resort And Restaurant",
+      googleMapLink: "https://maps.app.goo.gl/5Pv5KRGiJuqZY1ed9",
+      description: "אחלה מקום על הים אוכל זול נחמד מאוד",
+      images: KOH_TAO_IMAGES.hutResort,
+    },
+  ],
   attractions: [
     {
       type: "Attraction",
       name: "Secret Bar",
+      googleMapLink: "https://maps.app.goo.gl/BsUgE2JKJBmyW3eQA",
       description:
         "בר חמוד אחלה של נוף פנורמי גדול מלא שמש דרך להגיע סיוט אם אני זוכר נכון",
       images: KOH_TAO_IMAGES.secret,
     },
+    {
+      type: "Attraction",
+      name: "Freedom Beach",
+      googleMapLink: "https://maps.app.goo.gl/vVyZPusg4qVydKU58",
+      description:
+        "חוף חמוד כניסה 50 שנורקלים מטורפים, יש שם עליה של קיר טיםוס רמה 9000 לנקודת תצפית",
+      images: KOH_TAO_IMAGES.FreedomBeach,
+    },
   ],
-  nightlife: [],
+  nightlife: [
+    {
+      type: "NightLife",
+      name: "Escobar",
+      googleMapLink: "https://maps.app.goo.gl/Aut1bXWx85H3cgjb9",
+      description:
+        "אחלה מסיבה כיפית אחלה רחבות שירותים ברים הכל נוח אפילו שיש עליות של השטן",
+      images: KOH_TAO_IMAGES.Escobar,
+    },
+  ],
 };

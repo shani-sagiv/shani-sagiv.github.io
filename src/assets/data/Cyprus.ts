@@ -21,7 +21,7 @@ export const CYPRUS: Country = {
   //   "תאילנד היא מדינה טרופית בדרום-מזרח אסיה, המפורסמת בחופים קסומים, מקדשים בודהיסטיים מרהיבים ותרבות עשירה. בנוסף, המדינה מציעה חוויות קולינריות מגוונות, חיי לילה תוססים ושווקים ססגוניים",
   gold_recommendation: [],
   profileImg: profile,
-  inProgress: true,
+  // inProgress: true,
 };
 
 export const LIMASSOL: Destination = {

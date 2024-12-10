@@ -56,8 +56,8 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
         style={{
           maxWidth: "100%",
           objectFit: "contain",
-          width: "80vw",
-          height: "70vh",
+          width: "100vw",
+          height: "100vh",
         }}
       />
       // </LazyLoad>
@@ -92,6 +92,7 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
         >
           <ImageGallery
             {...defaultModalParams}
+            showThumbnails={false}
             onClick={() => setIsFullScreen(false)}
           />
         </div>

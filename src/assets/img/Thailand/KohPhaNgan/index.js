@@ -2,45 +2,53 @@ import { importAll } from "../../../../helpers/imagesHelpers";
 import sunset from "./sunset.jpeg";
 import mamaRestaurant from "./mama.jpeg";
 export const islandLifeImages = importAll(
-  require.context("./island-life", false, /\.(png|jpe?g|svg)$/)
+  require.context("./island-life", false, /\.(png|jpe?g|svg)$/),
 );
 export const seaResortImages = importAll(
-  require.context("./sea-resort", false, /\.(png|jpe?g|svg)$/)
+  require.context("./sea-resort", false, /\.(png|jpe?g|svg)$/),
 );
 export const monkeysImages = importAll(
-  require.context("./monkeys", false, /\.(png|jpe?g|svg)$/)
+  require.context("./monkeys", false, /\.(png|jpe?g|svg)$/),
 );
 export const pantipImages = importAll(
-  require.context("./pantip", false, /\.(png|jpe?g|svg)$/)
+  require.context("./pantip", false, /\.(png|jpe?g|svg)$/),
 );
 export const zenImages = importAll(
-  require.context("./zen", false, /\.(png|jpe?g|svg)$/)
+  require.context("./zen", false, /\.(png|jpe?g|svg)$/),
 );
 export const blueramaImages = importAll(
-  require.context("./bluerama", false, /\.(png|jpe?g|svg)$/)
+  require.context("./bluerama", false, /\.(png|jpe?g|svg)$/),
 );
 export const catCafeImages = importAll(
-  require.context("./cat-cafe", false, /\.(png|jpe?g|svg)$/)
+  require.context("./cat-cafe", false, /\.(png|jpe?g|svg)$/),
 );
 export const halfmoonImages = importAll(
-  require.context("./halfmoon", false, /\.(png|jpe?g|svg)$/)
+  require.context("./halfmoon", false, /\.(png|jpe?g|svg)$/),
 );
 export const walkingStreetImages = importAll(
-  require.context("./walking-street", false, /\.(png|jpe?g|svg)$/)
+  require.context("./walking-street", false, /\.(png|jpe?g|svg)$/),
 );
 export const chaloklumMarketImages = importAll(
-  require.context("./chaloklum-market", false, /\.(png|jpe?g|svg)$/)
+  require.context("./chaloklum-market", false, /\.(png|jpe?g|svg)$/),
 );
 
 export const HaadRinBeachBarsImages = importAll(
-  require.context("./haad-rin", false, /\.(png|jpe?g|svg)$/)
+  require.context("./haad-rin", false, /\.(png|jpe?g|svg)$/),
 );
 export const shiralea = importAll(
-  require.context("./shiralea", false, /\.(png|jpe?g|svg)$/)
+  require.context("./shiralea", false, /\.(png|jpe?g|svg)$/),
 );
 
 export const general = importAll(
-  require.context("./general", false, /\.(png|jpe?g|svg)$/)
+  require.context("./general", false, /\.(png|jpe?g|svg)$/),
+);
+
+export const Mama = importAll(
+  require.context("./Mama", false, /\.(png|jpe?g|svg)$/),
+);
+
+export const PureLaguna = importAll(
+  require.context("./PureLaguna", false, /\.(png|jpe?g|svg)$/),
 );
 
 export const KHO_PHA_NGAN_IMAGES = {
@@ -59,4 +67,6 @@ export const KHO_PHA_NGAN_IMAGES = {
   HaadRinBeachBars: HaadRinBeachBarsImages,
   shiralea,
   general,
+  Mama,
+  PureLaguna,
 };

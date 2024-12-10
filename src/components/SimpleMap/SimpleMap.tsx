@@ -9,7 +9,7 @@ import {
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import {
-  sortLocationsByDate,
+  sortAllDestinationsByDate,
   Location,
   getAggregateLocations,
 } from "helpers/locations.helpers";
@@ -19,28 +19,28 @@ import { Button } from "components/Button";
 import { useNavigate } from "react-router-dom";
 
 const placeCoordinates: Record<string, [number, number]> = {
-  Limassol: [34.7071, 33.0226],
-  Vasa: [34.8692, 32.5044],
-  Paphos: [34.7767, 32.4245],
-  Larnaca: [34.9167, 33.629],
-  Bangkok: [13.7563, 100.5018],
-  "Koh Lanta": [7.6277, 99.0415],
-  "Koh Pha Ngan": [9.7297, 100.0375],
-  "Chinag Mai": [18.7883, 98.9853],
-  "Hoi An": [15.8801, 108.338],
-  "phong nha": [17.6158, 106.2823],
-  hanoi: [21.0285, 105.8542],
-  "cat ba": [20.7276, 107.0483],
-  "ha long": [20.9504, 107.0732],
-  sapa: [22.3402, 103.8448],
-  "ta van": [22.2769, 103.8839],
-  "Koh Tao": [10.0964, 99.8448],
-  "Koh Samui": [9.512, 100.0135],
-  Pattaya: [12.9236, 100.8825],
-  "koh chang": [12.0464, 102.3236],
+  LIMASSOL: [34.7071, 33.0226],
+  VASA: [34.8692, 32.5044],
+  PAPHOS: [34.7767, 32.4245],
+  LARNACA: [34.9167, 33.629],
+  BANGKOK: [13.7563, 100.5018],
+  KOH_LANTA: [7.6277, 99.0415],
+  KOH_PHA_NGAN: [9.7297, 100.0375],
+  CHINAG_MAI: [18.7883, 98.9853],
+  HOI_AN: [15.8801, 108.338],
+  PHONG_NHA: [17.6158, 106.2823],
+  HANOI: [21.0285, 105.8542],
+  CAT_BA: [20.7276, 107.0483],
+  HA_LONG: [20.9504, 107.0732],
+  SAPA: [22.3402, 103.8448],
+  TA_VAN: [22.2769, 103.8839],
+  KOH_TAO: [10.0964, 99.8448],
+  KOH_SAMUI: [9.512, 100.0135],
+  PATTAYA: [12.9236, 100.8825],
+  KOH_CHANG: [12.0464, 102.3236],
 };
 
-const locationData = sortLocationsByDate();
+const locationData = sortAllDestinationsByDate();
 
 const LocationsToInfo = getAggregateLocations();
 
@@ -113,13 +113,15 @@ const CustomMarker: React.FC<{ text: string; location: Location }> = ({
 );
 
 const SimpleMap: React.FC = () => {
-  const initialPosition: [number, number] = placeCoordinates["Bangkok"];
+  const initialPosition: [number, number] = placeCoordinates["BANGKOK"];
   const navigate = useNavigate();
 
   // Extract LatLng pairs for Polyline and create markers
   const polylinePositions = locationData
-    .map((location) => placeCoordinates[location.placeName])
+    .map((location) => placeCoordinates[location.id])
     .filter(Boolean); // Filter out any undefined coordinates
+
+  console.log({ polylinePositions });
 
   const createCustomDivIcon = (text: string, location: Location) => {
     return L.divIcon({
@@ -145,16 +147,16 @@ const SimpleMap: React.FC = () => {
 
       {/* Render markers and popups */}
       {locationData.map((location, index) => {
-        const position = placeCoordinates[location.placeName];
+        const position = placeCoordinates[location.id];
         if (!position) return null; // Skip if no coordinates found for the place
         return (
           <Marker
             key={index}
             position={position}
-            icon={createCustomDivIcon(location.placeName, location)} // Use placeName as marker text
+            icon={createCustomDivIcon(location.displayName.english, location)} // Use placeName as marker text
           >
             <Popup>
-              <strong>{location.placeName}</strong> (
+              <strong>{location.displayName.english}</strong> (
               {location.country.displayName.hebrew}){/*<br />*/}
               <Button
                 onClick={() =>
@@ -163,11 +165,6 @@ const SimpleMap: React.FC = () => {
               >
                 עבור
               </Button>
-              {/*Hotel: {location.hotelName}*/}
-              {/*<br />*/}
-              {/*From: {new Date(location.from).toLocaleDateString()}*/}
-              {/*<br />*/}
-              {/*To: {new Date(location.to).toLocaleDateString()}*/}
             </Popup>
           </Marker>
         );

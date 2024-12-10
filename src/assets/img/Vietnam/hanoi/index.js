@@ -13,6 +13,15 @@ export const Historia = importAll(
 export const unmute = importAll(
   require.context("./unmute", false, /\.(png|jpe?g|svg)$/),
 );
+export const Solare = importAll(
+  require.context("./Solare", false, /\.(png|jpe?g|svg)$/),
+);
+export const cruise = importAll(
+  require.context("./Cruise", false, /\.(png|jpe?g|svg)$/),
+);
+export const HoaLu = importAll(
+  require.context("./HoaLu", false, /\.(png|jpe?g|svg)$/),
+);
 
 export const HANOI_IMAGES = {
   profileImg: profile,
@@ -20,4 +29,7 @@ export const HANOI_IMAGES = {
   unmute,
   Historia,
   general,
+  Solare,
+  cruise,
+  HoaLu,
 };

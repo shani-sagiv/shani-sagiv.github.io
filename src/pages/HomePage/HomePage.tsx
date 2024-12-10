@@ -8,7 +8,7 @@ import "./HomePage.scss";
 import SimpleMap from "components/SimpleMap/SimpleMap";
 import {
   getAggregateLocations,
-  sortLocationsByDate,
+  sortAllDestinationsByDate,
 } from "../../helpers/locations.helpers";
 import LocationsWithDates from "components/locationsWithDates/LocationsWithDates";
 import {
@@ -17,6 +17,7 @@ import {
   parseDaysToHebrew,
 } from "../../helpers/dateHelpers";
 import { useNavigate } from "react-router-dom";
+import { HANOI_IMAGES } from "../../assets/img/Vietnam";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -30,9 +31,25 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
       calculateTotalNightsAtAllDestinations(destinations),
     ),
   }));
+
+  // let destinationsCards = [];
+  // COUNTRIES.forEach(({ country, destinations }) => {
+  //   destinations.forEach((d) => {
+  //     destinationsCards.push({
+  //       displayName: d.displayName,
+  //       image: d.profileImg,
+  //       navigate: `${country.id}/${d.id}`,
+  //       // inProgress: d.inProgress,
+  //       bottomData: parseDaysToHebrew(
+  //         calculateTotalNightsAtAllDestinations(destinations),
+  //       ),
+  //     });
+  //   });
+  // });
   const navigate = useNavigate();
 
-  const locationsByDate = sortLocationsByDate();
+  const locationsByDate = sortAllDestinationsByDate();
+  console.log({ locationsByDate });
   const totalNights = calculateTotalNights();
 
   function calculateTotalNights() {
@@ -40,7 +57,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
       return totalNights + calculateDaysBetweenDates(entry.from, entry.to);
     }, 0);
   }
-
+  console.log({ HANOI_IMAGES });
   return (
     <div className={"home-page"} style={{ position: "relative" }}>
       <Marquee
@@ -86,8 +103,8 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         {/*</h1>*/}
         <Cards items={destinationsCards} />
       </WavesComponent>
-      <LocationsWithDates locations={locationsByDate} />
       <Button onClick={() => navigate(`/random`)}>נחש את התמונה</Button>
+      <LocationsWithDates locations={locationsByDate} />
       <SimpleMap />
     </div>
   );

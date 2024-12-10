@@ -35,18 +35,15 @@ const Random: React.FC<HomePageProps> = ({}) => {
     [key: string]: string[];
   } | null>(null);
 
-  const handleChangeDest = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedDest(event.target.value);
-  };
-  const handleChangeAttr = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedAttr(event.target.value);
-  };
 
   React.useEffect(() => {
     LoadAllOptionsData();
   }, []);
 
   function LoadAllOptionsData() {
+    setSelectedAttr(null);
+    setSelectedDest(null);
+    setReveal(false);
     let optionsWithImagesTemp: imagesOptions[] = [];
     let destinationsOptionsTemp: string[] = [];
     let attractionsOptionsTemp: { [key: string]: string[] } = {};
@@ -123,7 +120,8 @@ const Random: React.FC<HomePageProps> = ({}) => {
       <img
         src={randomImageObject?.images[0]}
         style={{
-          maxHeight: "60vh",
+          // maxHeight: "60vh",
+          height: "60vh",
           width: "100%",
           objectFit: "contain",
           paddingBottom: 10,
@@ -131,29 +129,65 @@ const Random: React.FC<HomePageProps> = ({}) => {
       />
       {/*</span>*/}
 
-      <OptionsSelect
-        title={"איפה?"}
-        onChange={(v) => setSelectedDest(v)}
-        options={destinationsOptions || []}
-      />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          width: "60%",
+          alignItems: "center",
+        }}
+      >
+        <div style={{ width: "80%", marginLeft: 10 }}>
+          <OptionsSelect
+            title={"איפה?"}
+            onChange={(v) => setSelectedDest(v)}
+            options={destinationsOptions || []}
+          />
+        </div>
+        {selectedDest
+          ? randomImageObject?.countryName === selectedDest
+            ? "✓"
+            : "✗"
+          : null}
+      </div>
 
       {selectedDest && attractionsOptions && (
-        <OptionsSelect
-          title={"ואיפה בדיוק?"}
-          options={attractionsOptions[selectedDest]}
-          onChange={(v) => setSelectedAttr(v)}
-        />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            width: "60%",
+            alignItems: "center",
+            marginTop: 10,
+          }}
+        >
+          <div style={{ width: "80%", marginLeft: 10 }}>
+            <OptionsSelect
+              title={"ואיפה בדיוק?"}
+              options={attractionsOptions[selectedDest]}
+              onChange={(v) => setSelectedAttr(v)}
+            />
+          </div>
+          {selectedAttr
+            ? randomImageObject?.object.name === selectedAttr
+              ? "✓"
+              : "✗"
+            : null}
+        </div>
       )}
 
       {reveal && (
         <>
-          <h1>{randomImageObject?.object.name}</h1>
-          <h1>{randomImageObject ? randomImageObject?.countryName : null}</h1>
+          <span>{randomImageObject?.object.name}</span>
+          <span>
+            {randomImageObject ? randomImageObject?.countryName : null}
+          </span>
         </>
       )}
-      <Button onClick={() => setReveal(!reveal)}>ויתור</Button>
-      <Button onClick={() => LoadAllOptionsData()}>רענון</Button>
-      {renderResult()}
+      <div className={"flex-row flex-center"} style={{ marginTop: 20 }}>
+        <Button onClick={() => setReveal(!reveal)}>ויתור</Button>
+        <Button onClick={() => LoadAllOptionsData()}>רענון</Button>
+      </div>
     </div>
   );
 };
