@@ -14,35 +14,14 @@ export const importAll = (
   return Array.from(new Set(images));
 };
 
-export const importAll2 = (
-  context: any,
-  path: string,
-  // requireContext: __WebpackModuleApi.RequireContext,
-): string[] => {
-  const requireContext = importAll(context(path, false, /\.(png|jpe?g|svg)$/));
-  // @ts-ignore
-  const images = requireContext.keys().map(requireContext);
-
-  // Remove duplicate entries using Set
-  return Array.from(new Set(images));
-};
-
-export function importAllImages(
-  context: __WebpackModuleApi.RequireContext,
-): Record<string, any> {
-  const images: Record<string, any> = {};
-
-  context.keys().forEach((key) => {
-    const match = key.match(/\.\/(.*?)\/(.*?\.(png|jpe?g|svg))$/);
-    if (match) {
-      const folder = match[1];
-      const file = match[2];
-      if (!images[folder]) {
-        images[folder] = {};
-      }
-      images[folder][file] = context(key).default;
-    }
+export const importAll_NEW = (
+  requireContext: __WebpackModuleApi.RequireContext,
+): Record<string, string[]> => {
+  const images: Record<string, string[]> = {};
+  requireContext.keys().forEach((key) => {
+    const folderName = key.split("/")[1]; // Extract the folder name from the path
+    if (!images[folderName]) images[folderName] = [];
+    images[folderName].push(requireContext(key));
   });
-
   return images;
-}
+};

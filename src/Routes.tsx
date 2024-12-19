@@ -11,18 +11,14 @@ import {
   KOH_PHA_NGAN,
   CHINAG_MAI,
   VIETNAM,
-  HOI_AN,
-  PHONG_NHA,
-  HANOI,
-  CAT_BA,
-  HA_LONG,
-  SAPA,
-  TA_VAN,
+  VIETNAM_DESTINATION,
   BANGKOK,
   KOH_CHANG,
   PATTAYA,
   KOH_SAMUI,
   KOH_TAO,
+  HO_CHI_MINH,
+  NINH_BÌNH,
 } from "assets/data";
 import {
   Country as CountryModel,
@@ -54,7 +50,7 @@ export const COUNTRIES: {
   },
   {
     country: VIETNAM,
-    destinations: [HOI_AN, PHONG_NHA, HANOI, CAT_BA, HA_LONG, SAPA, TA_VAN],
+    destinations: VIETNAM_DESTINATION,
   },
   {
     country: CYPRUS,

@@ -17,10 +17,10 @@ export const Solare = importAll(
   require.context("./Solare", false, /\.(png|jpe?g|svg)$/),
 );
 export const cruise = importAll(
-  require.context("./Cruise", false, /\.(png|jpe?g|svg)$/),
+  require.context("./cruise", false, /\.(png|jpe?g|svg)$/),
 );
-export const HoaLu = importAll(
-  require.context("./HoaLu", false, /\.(png|jpe?g|svg)$/),
+export const NightMarket = importAll(
+  require.context("./NightMarket", false, /\.(png|jpe?g|svg)$/),
 );
 
 export const HANOI_IMAGES = {
@@ -31,5 +31,5 @@ export const HANOI_IMAGES = {
   general,
   Solare,
   cruise,
-  HoaLu,
+  NightMarket,
 };
