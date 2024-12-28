@@ -61,7 +61,17 @@ const LocationsWithDates: React.FC<locationsWithDatesProps> = ({
                 <span>{parseDate(l.from)}</span>
                 <span>{parseDate(l.to)}</span>
                 <span>({calculateDaysBetweenDates(l.from, l.to)})</span>
-                <span style={{ fontSize: 8 }}>{l.hotelName}</span>
+                <div
+                  style={{
+                    fontSize: 8,
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    maxWidth: "30vw",
+                  }}
+                >
+                  {l.hotelName}
+                </div>
               </span>
             </div>
           </>

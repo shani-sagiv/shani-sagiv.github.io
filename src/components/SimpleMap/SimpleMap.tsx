@@ -24,31 +24,32 @@ const placeCoordinates: Record<string, [number, number]> = {
   PAPHOS: [34.7767, 32.4245],
   LARNACA: [34.9167, 33.629],
   BANGKOK: [13.7563, 100.5018],
-  KOH_LANTA: [7.6277, 99.0415],
-  KOH_PHA_NGAN: [9.7297, 100.0375],
+  KOH_LANTA: [7.6145, 99.1415],
+  KOH_PHA_NGAN: [9.7319, 100.0135],
   CHINAG_MAI: [18.7883, 98.9853],
   HOI_AN: [15.8801, 108.338],
-  PHONG_NHA: [17.6158, 106.2823],
+  PHONG_NHA: [17.5567, 106.2424],
   HANOI: [21.0285, 105.8542],
-  CAT_BA: [20.7276, 107.0483],
-  HA_LONG: [20.9504, 107.0732],
-  SAPA: [22.3402, 103.8448],
-  TA_VAN: [22.2769, 103.8839],
-  KOH_TAO: [10.0964, 99.8448],
-  KOH_SAMUI: [9.512, 100.0135],
+  CAT_BA: [20.7275, 107.0485],
+  HA_LONG: [20.9068, 107.0833],
+  SAPA: [22.3375, 103.847],
+  TA_VAN: [22.3075, 103.8841],
+  KOH_CHANG: [12.0494, 102.3314],
   PATTAYA: [12.9236, 100.8825],
-  KOH_CHANG: [12.0464, 102.3236],
+  KOH_SAMUI: [9.512, 100.0135],
+  KOH_TAO: [10.1016, 99.8402],
+  HO_CHI_MINH: [10.8231, 106.6297],
+  MUI_NE: [10.9466, 108.2769],
+  NAH_TRANG: [12.2388, 109.1967],
+  SIEM_REAP: [13.3622, 103.8597],
 };
 
-const locationData = sortAllDestinationsByDate();
-
-const LocationsToInfo = getAggregateLocations();
-
 // Custom React component for the marker icon
-const CustomMarker: React.FC<{ text: string; location: Location }> = ({
-  text,
-  location,
-}) => (
+const CustomMarker: React.FC<{
+  text: string;
+  location: Location;
+  totalNights: number;
+}> = ({ text, location, totalNights }) => (
   <div
     style={{
       // backgroundColor: "#3498db",
@@ -107,12 +108,16 @@ const CustomMarker: React.FC<{ text: string; location: Location }> = ({
       `,
       }}
     >
-      {LocationsToInfo[location.id]?.totalNights}
+      {totalNights}
     </div>
   </div>
 );
 
 const SimpleMap: React.FC = () => {
+  const locationData = sortAllDestinationsByDate();
+
+  const LocationsToInfo = getAggregateLocations();
+
   const initialPosition: [number, number] = placeCoordinates["BANGKOK"];
   const navigate = useNavigate();
 
@@ -121,13 +126,15 @@ const SimpleMap: React.FC = () => {
     .map((location) => placeCoordinates[location.id])
     .filter(Boolean); // Filter out any undefined coordinates
 
-  console.log({ polylinePositions });
-
   const createCustomDivIcon = (text: string, location: Location) => {
     return L.divIcon({
       className: "custom-div-icon",
       html: ReactDOMServer.renderToString(
-        <CustomMarker text={text} location={location} />,
+        <CustomMarker
+          text={text}
+          location={location}
+          totalNights={LocationsToInfo[location.id]?.totalNights}
+        />,
       ),
       iconSize: [30, 30],
       iconAnchor: [15, 15],
@@ -160,7 +167,7 @@ const SimpleMap: React.FC = () => {
               {location.country.displayName.hebrew}){/*<br />*/}
               <Button
                 onClick={() =>
-                  navigate(`${location.country.id}/${location.id}`)
+                  navigate(`/${location.country.id}/${location.id}`)
                 }
               >
                 עבור

@@ -16,7 +16,8 @@ export interface Location {
 
   from: Date;
   to: Date;
-  profileImg?: string;
+  // profileImg?: string; //todo(sagiv) Check
+  profileImg: string;
 }
 
 // Define `AggregatedLocation` as a single object with `totalNights` and `data` properties
@@ -39,6 +40,34 @@ export const sortAllDestinationsByDate = (): Location[] => {
 
   locations.sort((a, b) => a.from.getTime() - b.from.getTime());
   return locations;
+};
+
+export const mergeLocationsByPlaceAndDate = (locationsByDate?: Location[]) => {
+  const mergedLocations: Location[] = [];
+  const locations = locationsByDate || sortAllDestinationsByDate();
+
+  // locations.sort((a, b) => new Date(a.from) - new Date(b.from)); // Sort by date
+
+  locations.forEach((location) => {
+    const lastMerged = mergedLocations[mergedLocations.length - 1];
+
+    if (lastMerged && lastMerged.id === location.id) {
+      // Extend the 'to' date of the last merged location
+      lastMerged.to = location.to;
+    } else {
+      // Add new location
+      mergedLocations.push({
+        id: location.id,
+        displayName: location.displayName,
+        country: location.country,
+        profileImg: location.profileImg,
+        from: location.from,
+        to: location.to,
+      });
+    }
+  });
+
+  return mergedLocations;
 };
 
 export const sortDestinationsByDate = (

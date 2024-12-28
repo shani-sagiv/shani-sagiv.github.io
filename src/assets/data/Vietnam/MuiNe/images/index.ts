@@ -12,6 +12,6 @@ const requireImages = require.context(
 const IMAGES: Record<string, string[] | any> = importAll_NEW(requireImages);
 
 // Explicit imports (if needed)
-IMAGES.profileImg = [profileImg];
+IMAGES.profileImg = profileImg;
 
 export default IMAGES;

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import "./Card.scss";
 import { DisplayName } from "models";
 
+// interface size = "small" | "medium" | "large"
 // @ts-ignore
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   onClick: () => unknown;
@@ -9,6 +10,8 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   image: string;
   inProgress?: boolean;
   bottomData?: string;
+  style?: CSSProperties;
+  size?: "small" | "medium";
 }
 
 const Card: React.FC<CardProps> = ({
@@ -17,15 +20,34 @@ const Card: React.FC<CardProps> = ({
   image,
   inProgress,
   bottomData,
+  style,
+  size = "medium",
 }) => {
+  const H1FontSize = size === "medium" ? "2.2rem" : "1.5rem";
+  const H2FontSize = size === "medium" ? "1rem" : "0.6rem";
+  const cardStyle =
+    size === "medium"
+      ? {
+          height: "42vw",
+          width: "42vw",
+        }
+      : {
+          height: "25vw",
+          width: "25vw",
+        };
+
   return (
-    <div className={"card"} onClick={onClick}>
+    <div
+      className={"card"}
+      onClick={onClick}
+      style={{ ...cardStyle, ...style }}
+    >
       {/* Title in the center */}
       <h1
         style={{
           position: "absolute",
           color: "white", // Make the title readable
-          fontSize: "2.2rem",
+          fontSize: H1FontSize,
           textAlign: "center",
           zIndex: 2, // Make sure the title is above the image
           top: "16%",
@@ -37,7 +59,7 @@ const Card: React.FC<CardProps> = ({
         style={{
           position: "absolute",
           color: "white", // Make the title readable
-          fontSize: "1rem",
+          fontSize: H2FontSize,
           textAlign: "center",
           top: "55%",
           zIndex: 2, // Make sure the title is above the image

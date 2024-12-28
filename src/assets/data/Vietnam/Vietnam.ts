@@ -15,6 +15,7 @@ import {
   NINH_BINH_IMAGES,
 } from "../../img/Vietnam";
 import { MUI_NE } from "./MuiNe";
+import { NAH_TRANG } from "./NahTrang";
 
 export const VIETNAM: Country = {
   id: "VNM",
@@ -24,7 +25,7 @@ export const VIETNAM: Country = {
     english: "Vietnam",
   },
   description:
-    "מדינה מושלמתתתתתת, האנשים מדהימים!!!!, האוכל טעים, הכל זול ברמות. אם לא הייתה נגמרת לנו הויזה היינו נתקעים שם לנצח.",
+    "מדינה מושלמתתתתתת, האנשים מדהימים!!!!, האוכל טעים, הכל זול ברמות. אם לא הייתה נגמרת לנו הויזה היינו נתקעים שם לנצח. וגם אין יתושים!!!",
   gold_recommendation: [
     {
       name: "מרק פו (pho)",
@@ -220,7 +221,7 @@ export const HANOI: Destination = {
     {
       name: "Tung Trang Hotel",
       type: "Hotel",
-      dates: [{ from: createDate("12/07/2024"), to: createDate("19/07/2024") }],
+      dates: [{ from: createDate("13/07/2024"), to: createDate("19/07/2024") }],
       description: "מלון סביר מיקום טוב",
       googleMapLink: "https://maps.app.goo.gl/rm32r6HW1cTYM6mU6",
       images: [],
@@ -244,7 +245,7 @@ export const HANOI: Destination = {
     {
       name: "Solare De Monte Hotel & Spa",
       type: "Hotel",
-      dates: [{ from: createDate("28/11/2024"), to: createDate("30/11/2024") }],
+      dates: [{ from: createDate("28/11/2024"), to: createDate("02/12/2024") }],
       description: "מלון טוב מיקום טוב בחיים לא התייחסו אלי ככ יפה",
       googleMapLink: "https://maps.app.goo.gl/v89CN3jwiVWcrqRh7",
       images: HANOI_IMAGES.Solare,
@@ -553,7 +554,7 @@ export const HO_CHI_MINH: Destination = {
       type: "Hotel",
       name: "Huazhu Hotel",
       description: "מלון מאוד נחמד קרוב לאזור המרכזי יקר מדי",
-      dates: [{ from: createDate("03/12/2024"), to: createDate("05/12/2024") }],
+      dates: [{ from: createDate("02/12/2024"), to: createDate("05/12/2024") }],
 
       googleMapLink: "https://maps.app.goo.gl/dajy1fdGZ9Pi9EZHA",
       images: HO_CHI_MINH_IMAGES.Huazhu,
@@ -577,6 +578,7 @@ export const VIETNAM_DESTINATION = [
   HO_CHI_MINH,
   NINH_BÌNH,
   MUI_NE,
+  NAH_TRANG,
 ];
 
 //todo: something with ha long bay cruise multiple display

@@ -88,11 +88,11 @@ export function hasImages(images: string[] | undefined): boolean {
   return images.length > 0;
 }
 
-export function parseDate(date: Date): string | null {
+export function parseDate(date: Date, hideYear = false): string | null {
   return date.toLocaleDateString("en-GB", {
     day: "2-digit",
     month: "2-digit",
-    year: "2-digit",
+    year: !hideYear ? "2-digit" : undefined,
   });
 }
 

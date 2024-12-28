@@ -4,6 +4,7 @@ import { Cards, Collapsibles, Title } from "components";
 import { Country as CountryModel, Destination } from "models";
 import {
   calculateTotalNightsAtAllDestinations,
+  calculateTotalTime,
   getNameToDisplay,
   parseDaysToHebrew,
 } from "helpers/dateHelpers";
@@ -30,9 +31,11 @@ const Country: React.FC<CountryProps> = ({ destinations, country }) => {
   const cards = destinations.map((dest) => ({
     title: getNameToDisplay(dest.displayName),
     displayName: dest.displayName,
+    bottomData: parseDaysToHebrew(calculateTotalTime(dest.hotels)),
     image: dest.profileImg,
     navigate: dest.id,
   }));
+  console.log({ cards });
   const totalNightsSlept = calculateTotalNightsAtAllDestinations(destinations);
 
   return (

@@ -626,6 +626,14 @@ export const KOH_SAMUI: Destination = {
         "מיקום פצצה ויחסית לזה שכל המלונות באזור עולים פי 3 ממש נדיר",
       price: "700 באט ללילה",
     },
+    {
+      name: "ZAYN Samui Hotel",
+      googleMapLink: "https://maps.app.goo.gl/uGxymu9v64w9RqKg8",
+      type: "Hotel",
+      // images: KOH_SAMUI_IMAGES.ptk,
+      dates: [{ from: createDate("26/11/2024"), to: createDate("27/11/2024") }],
+      description: "מיקום חמוד על השוק דייגים",
+    },
   ],
   foods: [
     {

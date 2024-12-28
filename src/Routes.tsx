@@ -30,6 +30,11 @@ import { CYPRUS, LARNACA, LIMASSOL, PAPHOS, VASA } from "./assets/data/Cyprus";
 import { logUserAction } from "./helpers/logs.helpers";
 import NameForm from "components/NameForm/NameForm";
 import { getUserName } from "./helpers/localStorage.helpers";
+import {
+  CAMBODIA,
+  CAMBODIA_DESTINATION,
+} from "./assets/data/Cambodia/Cambodia";
+import DataPage from "pages/DataPage/DataPage";
 
 export const COUNTRIES: {
   country: CountryModel;
@@ -47,6 +52,10 @@ export const COUNTRIES: {
       KOH_SAMUI,
       KOH_TAO,
     ],
+  },
+  {
+    country: CAMBODIA,
+    destinations: CAMBODIA_DESTINATION,
   },
   {
     country: VIETNAM,
@@ -124,6 +133,7 @@ function InnerRoutes() {
       <Routes>
         <Route path={"/login"} element={<NameForm />} />
         <Route path={"/random"} element={<Random />} />
+        <Route path={"/data"} element={<DataPage />} />
 
         {[...createRoutesFromOptions(NAV_BAR_OPTIONS), ...getRoutes()].map(
           (route, index) => (
