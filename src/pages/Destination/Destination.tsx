@@ -30,6 +30,18 @@ interface DestinationProps extends React.HTMLAttributes<HTMLDivElement> {
   gold_recommendation?: InfoRecommendation[];
 }
 
+export const createWhatsAppLinksContent = (phoneNumbers: string[]) =>
+  phoneNumbers.map((number, index) => (
+    <a
+      key={index}
+      href={`https://wa.me/${number.replace(/[^0-9]/g, "")}`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {number}
+    </a>
+  ));
+
 const Destination: React.FC<DestinationProps> = ({
   displayName,
   hotels = [],
@@ -81,17 +93,7 @@ const Destination: React.FC<DestinationProps> = ({
       title,
       content: <ImageGallery style={{ width: "95%" }} images={items} />,
     });
-    const createWhatsAppLinksContent = (phoneNumbers: string[]) =>
-      phoneNumbers.map((number, index) => (
-        <a
-          key={index}
-          href={`https://wa.me/${number.replace(/[^0-9]/g, "")}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {number}
-        </a>
-      ));
+
     const createLinksContent = (links: string[]) =>
       links.map((l, index) => (
         <a
@@ -162,7 +164,7 @@ const Destination: React.FC<DestinationProps> = ({
   };
   const totalDays = hotels.reduce(
     (totalDays, hotel) => totalDays + calculateDaysForHotel(hotel),
-    0,
+    0
   );
 
   return (

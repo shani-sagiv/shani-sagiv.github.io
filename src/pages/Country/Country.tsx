@@ -27,6 +27,7 @@ const Country: React.FC<CountryProps> = ({ destinations, country }) => {
     title: r.name,
     content: r.description,
     images: r.images,
+    phones: r?.phones,
   }));
   const cards = destinations.map((dest) => ({
     title: getNameToDisplay(dest.displayName),
@@ -35,7 +36,6 @@ const Country: React.FC<CountryProps> = ({ destinations, country }) => {
     image: dest.profileImg,
     navigate: dest.id,
   }));
-  console.log({ cards });
   const totalNightsSlept = calculateTotalNightsAtAllDestinations(destinations);
 
   return (

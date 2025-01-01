@@ -34,6 +34,20 @@ export const VIETNAM: Country = {
         "מרק עם עוף טעים בטירוף, ככל שהמקום נראה יותר הומלסי ככה יותר טעים",
       images: VIETNAM_IMAGES.phoSoup,
     },
+    {
+      name: "סליפרים",
+      type: "Info",
+      description:
+        "לכל הסליפרים קוראים VIP וluxury אז אל תתנו לזה לקנות אתכם, תסתכלו במספר שכתוד לי הסליפרים והוא אומר כמה מקומות יש באוטובוס. אנחנו תמיד הדעפנו לשלם קצת יותר ולסגור סליפר של 20-224 מקמות זה הכי נוח",
+      images: VIETNAM_IMAGES.sleeper,
+    },
+    {
+      name: "קלי הסוכנת",
+      type: "Info",
+      phones: ["+84 94 722 2598"],
+      description:
+        "סגרנו איתה הרבה דברים ובעיקר מעברים והיא בחיים לא איכזבה!!!! היא ממש זמינה ומתוקה ועוזרת. השווינו מחירים וכמעט תמיד היא הכי זולה ובאמת תמיד נהנינו ושמחנו לסגור איתה כי היה יותר מוצלח מסוכנים אחרים",
+    },
   ],
   profileImg: profileImg,
 };
@@ -251,14 +265,23 @@ export const HANOI: Destination = {
       images: HANOI_IMAGES.Solare,
     },
   ],
-  foods: [],
+  foods: [
+    {
+      type: "Restaurant",
+      name: "SushiLAB",
+      googleMapLink: "https://maps.app.goo.gl/Mwt4uvxxzZWnmPdX6",
+      description: "אחלה של סושי!",
+      images: HANOI_IMAGES.SushiLAB,
+    },
+  ],
   attractions: [
     HANOI_HA_LONG_CRUISE.HANOI,
     {
       type: "Attraction",
       name: "Gifthaus",
       googleMapLink: "https://maps.app.goo.gl/SbaRRnY3yFjNFRRg6",
-      description: "חנות עם מליון משחקי קלפים וקופסא והכל אחלה מחירים",
+      description:
+        "חנות עם מליון משחקי קלפים וקופסא והכל אחלה מחירים, יש שם גם חתול ממש ממש חמוד",
       images: HANOI_IMAGES.gifthouse,
     },
     {
@@ -267,6 +290,13 @@ export const HANOI: Destination = {
       googleMapLink: "https://maps.app.goo.gl/mtLwXuXLXExovP7X9",
       description: "שוק ממש חמוד לא הרבה אוכל אבל מלא דוכנים של הכל",
       images: HANOI_IMAGES.NightMarket,
+    },
+    {
+      type: "Attraction",
+      name: "טיול ברגל מסביב לאגם הואן קיים",
+      googleMapLink: "https://maps.app.goo.gl/koRjQqmkh1uCxPE16",
+      description: "סתם להסתובב ברגל אם המזג אוויר נעים",
+      images: HANOI_IMAGES.lake,
     },
   ],
   nightlife: [
@@ -387,6 +417,15 @@ export const CAT_BA: Destination = {
   ],
   nightlife: [],
   shells: CAT_BA_IMAGES.shells,
+  gold_recommendation: [
+    {
+      name: "רכבל",
+      type: "Info",
+      description:
+        "סגרנו להגיע לשם מהאנוי. הציעו לנו לעלות על הרכבל תמורת עוד כמה שקלים וזה היה ממש ממש יפה ושווה את זה!! מומלץ",
+      images: CAT_BA_IMAGES.cable,
+    },
+  ],
 };
 
 export const HA_LONG: Destination = {
