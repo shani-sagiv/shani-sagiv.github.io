@@ -5,7 +5,10 @@
       "models/*": ["models/*"],
       "pages/*": ["pages/*"],
       "components/*": ["components/*"],
-      "hooks/*": ["hooks/*"]
+      "hooks/*": ["hooks/*"],
+//      "paths": {
+        "*": ["*"]
+//      }
     },
     "allowSyntheticDefaultImports": true,
     "target": "es5",

@@ -1,0 +1,32 @@
+@import "styles/index";
+
+.collapsible {
+  width: 100%;
+  height: auto;
+  //padding: 10px;
+  box-sizing: border-box;
+  text-align: right;
+  padding: 0 10px 10px 10px;
+  //background: linear-gradient(transparent 60%, rgba(black, 0.3) 100%);;
+  //border: 1px solid #D8BFAA;
+  .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: $green;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    // box-shadow: "0px 4px 9px 6px #00000061";
+    border-radius: 5px;
+    &.open {
+      //background-color: red;
+    }
+  }
+
+  .collapsible-content {
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+}

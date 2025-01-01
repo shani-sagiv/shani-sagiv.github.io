@@ -38,18 +38,18 @@ export const NAV_BAR_OPTIONS: Tab[] = [
     title: "Courses",
     component: HomePage,
   },
-  {
-    id: TABS_IDS.COUNTRY,
-    routes: [`/${TABS_IDS.COUNTRY.toLocaleLowerCase()}`],
-    title: "Country",
-    component: () => <Country />,
-  },
-  {
-    id: TABS_IDS.DESTINATION,
-    routes: [`/${TABS_IDS.DESTINATION.toLocaleLowerCase()}`],
-    title: "Destination",
-    component: () => <Destination />,
-  },
+  // {
+  //   id: TABS_IDS.COUNTRY,
+  //   routes: [`/${TABS_IDS.COUNTRY.toLocaleLowerCase()}`],
+  //   title: "Country",
+  //   component: () => <Country />,
+  // },
+  // {
+  //   id: TABS_IDS.DESTINATION,
+  //   routes: [`/${TABS_IDS.DESTINATION.toLocaleLowerCase()}`],
+  //   title: "Destination",
+  //   component: () => <Destination />,
+  // },
 ];
 
 const defaultNavigationContext: NavigationContextType = {

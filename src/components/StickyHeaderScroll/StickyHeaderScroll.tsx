@@ -1,25 +1,67 @@
-import React, { useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useRef, useState, useEffect } from "react";
+import classnames from "classnames";
+import "./StickyHeaderScroll.scss";
 
 interface StickyHeaderScrollProps extends React.HTMLAttributes<HTMLDivElement> {
-  items: { title: React.ReactNode; content: React.ReactNode }[];
+  items: {
+    title: React.ReactNode;
+    tabTitle: React.ReactNode;
+    content: React.ReactNode;
+  }[];
 }
 
 const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
-  const navigate = useNavigate();
-
-  // Create refs for each section
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [currentItemIndex, setCurrentItemIndex] = useState<number | null>(null);
+  const visibleSections = useRef<Set<number>>(new Set());
 
+  // Scroll to the section when clicked
   const scrollToSection = (index: number) => {
     const section = sectionRefs.current[index];
-    if (section) {
-      const yOffset = -70;
-      const y =
-        section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
+    section?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  // Observe visibility of sections to get the currently visible section
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = sectionRefs.current.indexOf(
+            entry.target as HTMLDivElement,
+          );
+
+          if (entry.isIntersecting) {
+            // Add the currently visible section index
+            visibleSections.current.add(index);
+          } else {
+            // Remove the section index when it goes off-screen
+            visibleSections.current.delete(index);
+          }
+
+          // Find the lowest index of visible sections
+          const lowestVisibleIndex = Math.min(
+            ...Array.from(visibleSections.current),
+          );
+          setCurrentItemIndex(lowestVisibleIndex);
+        });
+      },
+      { threshold: 0 }, // Trigger as soon as any part of the section is visible
+    );
+
+    sectionRefs.current.forEach((section) => {
+      if (section) {
+        observer.observe(section);
+      }
+    });
+
+    return () => {
+      sectionRefs.current.forEach((section) => {
+        if (section) {
+          observer.unobserve(section);
+        }
+      });
+    };
+  }, []);
 
   return (
     <div
@@ -29,52 +71,38 @@ const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
         display: "flex",
         flexDirection: "column",
         alignContent: "center",
-        overflow: "visible", // Ensure sticky works
+        overflow: "visible",
       }}
     >
-      {/* Orange sticky header */}
-      <div
-        style={{
-          width: "100%",
-          height: "100px",
-          position: "sticky",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-around",
-          alignItems: "center",
-          top: 0, // Sticky at the top when scrolling down
-          zIndex: 1000, // Ensure it's on top of other content
-        }}
-      >
+      {/* Sticky Header */}
+      <div className={"sticky-header"}>
         {items.map((item, index) => (
           <div
             key={index}
-            style={{
-              textAlign: "center",
-              cursor: "pointer",
-              borderBottom: "1px solid black",
-            }}
+            className={classnames("sticky-header-item", {
+              current: currentItemIndex === index,
+            })}
             onClick={() => scrollToSection(index)} // Click to scroll to the section
           >
-            <>{item.title}</>
+            <span style={{ textAlign: "center" }}>{item.tabTitle}</span>
           </div>
         ))}
       </div>
 
-      {/* Scrollable content */}
-      {items.map((item, index) => (
-        <div
-          key={index}
-          ref={(el) => (sectionRefs.current[index] = el)} // Assign ref to each section
-          style={{
-            width: "100%",
-            boxSizing: "border-box",
-          }}
-        >
-          <h1>{item.title}</h1>
-          <div>{item.content}</div> {/* Render the content dynamically */}
-        </div>
-      ))}
+      {/* Scrollable Content */}
+      <span className={"sticky-header-content"}>
+        {items.map((item, index) => (
+          <div
+            key={index}
+            id={"item-" + index}
+            ref={(el) => (sectionRefs.current[index] = el)} // Assign ref to each section
+            style={{ width: "100%", boxSizing: "border-box" }}
+          >
+            <h1 style={{ textAlign: "center" }}>{item.title}</h1>
+            <div>{item.content}</div>
+          </div>
+        ))}
+      </span>
     </div>
   );
 };

@@ -1,0 +1,55 @@
+.card{
+  height: 42vw;
+  width: 42vw;
+
+  max-height: 200px;
+  max-width: 200px;
+  flex-shrink: 0;
+  margin: min(4vw, 100px);
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .card-image{
+
+    height: 100%;
+    //border-radius: 5px;
+    width: 100%;
+    object-fit: cover;
+    z-index: 1;
+
+
+    /* From https://css.glass */
+    //background: rgba(255, 255, 255, 1);
+    border-radius: 16px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(0.8px);
+    -webkit-backdrop-filter: blur(0.8px);
+    border: 1px solid rgba(255, 255, 255, 0.58);
+  }
+
+  .in-build{
+    position: absolute;
+    top: 38.5%;
+    right: 0;
+    height: 25%;
+    width: 100%;
+    background-color: rgba(white, 0.8);
+    border: 7px rgba(yellow, 0.8) double;
+    box-sizing: border-box;
+    border-radius: 16px;
+    z-index: 4;
+    transform: rotate(45deg) ;
+    color: rgba(#a52020, 0.8);
+    font-size: 1.3rem;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 7px;
+  }
+}

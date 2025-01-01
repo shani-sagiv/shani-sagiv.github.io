@@ -1,0 +1,87 @@
+@import "styles/index";
+
+$border-style: 2px solid white;
+$light-border-style: 2px solid rgba(white, 0.5);
+$bgColors: #d3f0f8;
+
+.sticky-header {
+  width: 100%;
+  height: 35px;
+  position: sticky;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+  top: 30px;
+  padding-top: 2px;
+  z-index: 10;
+  border-bottom: $border-style;
+  //background-color: rgba(255, 255, 255, 0.4); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+
+  //background-color: $light-peach;
+  //background: linear-gradient(
+  //  transparent 0%,
+  //  rgba(255, 255, 255, 0.6) 60%,
+  //  rgba(255, 255, 255, 0.9) 100%
+  //);
+
+  .sticky-header-item {
+    //text-align: right;
+    cursor: pointer;
+    padding: 0 25px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    user-select: none;
+    font-size: 14px;
+    margin: 0 4px;
+    border-radius: 4px 4px 0 0;
+    z-index: 3;
+
+    &.current {
+      border-top: $border-style;
+      border-right: $border-style;
+      border-left: $border-style;
+      // border-bottom: 2.5px solid white;
+      border-bottom: 2.5px solid $bgColors;
+      //margin: 0 -10px;
+      z-index: 4;
+
+      background-color: $bgColors;
+      //background: linear-gradient(
+      //  transparent 0%,
+      //  rgba(255, 255, 255, 0.6) 60%,
+      //  rgba(255, 255, 255, 0.9) 100%
+      //);
+
+    }
+    &:not(.current) {
+      border: $light-border-style;
+      border-bottom: $border-style;
+      position: relative;
+      background-color: $bgColors;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $bgColors;
+        filter: brightness(70%);
+        border-radius: inherit;
+        z-index: -1;
+      }
+    }
+
+  }
+}
+
+.sticky-header-content{
+  height: 100%;
+  width: 100%;
+
+}

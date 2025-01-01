@@ -1,0 +1,29 @@
+@import "styles/index";
+
+.breadcrumb-wrapper {
+  //   background-color: blue;
+  display: flex;
+  flex-direction: row;
+  color: $dark-teal;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5vh;
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+    .breadcrumb-text {
+      margin: 0 8px;
+      // text-decoration: none;
+      color: inherit; /* Or specify your own color */
+      cursor: pointer;
+    }
+  }
+}

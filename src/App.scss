@@ -1,4 +1,10 @@
-.App{
-  height: 100vh;
+.App {
+  height:100dvh;
   width: 100vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  //todo(sagiv): Fix
+  margin: 0;
+  text-align: right;
+  direction: rtl;
 }
