@@ -2,7 +2,7 @@ const fs = require("fs-extra");
 const path = require("path");
 const sharp = require("sharp");
 
-const assetsDir = path.join(__dirname, "../src", "assets/img/Thailand"); // עבודה בתיקיית src/assets
+const assetsDir = path.join(__dirname, "../src", "assets/img/Vietnam/hanoi"); // עבודה בתיקיית src/assets
 const supportedFormats = [".jpg", ".jpeg", ".png"]; // פורמטים נתמכים בלבד
 const suffix = "_compressed"; // הסיומת שמתווספת לקובץ שכבר כווץ
 const MIN_FILE_SIZE = 300 * 1024; // גודל מינימלי ב-Bytes (300KB)

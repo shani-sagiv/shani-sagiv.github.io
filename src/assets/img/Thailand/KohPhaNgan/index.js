@@ -1,6 +1,6 @@
 import { importAll } from "../../../../helpers/imagesHelpers";
-import sunset from "./sunset.jpeg";
-import mamaRestaurant from "./mama.jpeg";
+import sunset from "./sunset_compressed.jpeg";
+import mamaRestaurant from "./mama_compressed.jpeg";
 export const islandLifeImages = importAll(
   require.context("./island-life", false, /\.(png|jpe?g|svg)$/),
 );
