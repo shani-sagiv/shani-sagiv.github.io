@@ -1,0 +1,61 @@
+import { Destination } from "models/Destination";
+import { PHONG_NHA_IMAGES } from "../../img/Vietnam";
+import { createDate } from "../../../helpers/dateHelpers";
+
+export const PHONG_NHA: Destination = {
+  id: "PHONG_NHA",
+  displayName: {
+    hebrew: "פונג נה",
+    english: "phong nha",
+  },
+  description:
+    "ממש אמצע הדרך מהויאן לצפון, שווה עצירה רק אם אין כח לנסיעה ארוכה ואם אוהבים מאוד מערות",
+  profileImg: PHONG_NHA_IMAGES.profileImg,
+  hotels: [
+    {
+      name: "green Homestay",
+      type: "Hotel",
+      dates: [{ from: createDate("07/07/2024"), to: createDate("10/07/2024") }],
+      description: "מלון חמוד מיקום סבבה",
+      googleMapLink: "https://maps.app.goo.gl/qP925KZHz5TuoKVP8",
+      images: PHONG_NHA_IMAGES.greenHomestay,
+    },
+    {
+      name: "Jade Phong Nha Hotel",
+      type: "Hotel",
+      dates: [{ from: createDate("10/07/2024"), to: createDate("13/07/2024") }],
+      description: "חדר מינימלי אבל מלון ממש חמוד אחלה בריכה אחלה נוף",
+      googleMapLink: "https://maps.app.goo.gl/KDRCDMS8rQ8gV3kg8",
+      images: PHONG_NHA_IMAGES.jadeHotel,
+    },
+  ],
+  foods: [],
+  attractions: [
+    {
+      type: "Attraction",
+      name: "Ồ Ồ Lake Silence",
+      googleMapLink: "https://maps.app.goo.gl/BXKZ287tSxPJNYz46",
+      description:
+        "בית קפה חמוד על האגם, מקום יפה עם נוף יפה, משום מה הזמנו מנה קטנה של אורז עם עוף והביאו לנו עוף שלם אבל אחלה מקום",
+      images: PHONG_NHA_IMAGES.lakeSilence,
+    },
+    {
+      type: "Attraction",
+      name: "Phong nha Rooftop Bar",
+      googleMapLink: "https://maps.app.goo.gl/t45qzidHUpf6WmdQ8",
+      description:
+        "בר רופטופ, מאוד חמוד נוף מאוד יפה כי זה המקום הכי גבוה שם בערך",
+      images: PHONG_NHA_IMAGES.rooftop,
+    },
+    {
+      type: "Attraction",
+      name: "Paradise Cave",
+      googleMapLink: "https://maps.app.goo.gl/4oWTF7TAm3DkvejS7",
+      description:
+        "מערת נטיפים חמודה, הליכה קצרה בגונגל בדרך המערה ממש קרה ויש שם מסלול הליכה הלוך חזור לא ארוך",
+      images: PHONG_NHA_IMAGES.paradiseCave,
+    },
+  ],
+  nightlife: [],
+  shells: [],
+};

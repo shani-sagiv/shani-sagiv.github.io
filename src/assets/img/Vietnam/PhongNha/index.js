@@ -1,5 +1,5 @@
 import { importAll } from "helpers/imagesHelpers";
-import profile from "./Profile.jpeg";
+import profile from "./Profile_compressed.jpeg";
 
 export const greenHomestayImages = importAll(
   require.context("./greenHomestay", false, /\.(png|jpe?g|svg)$/),

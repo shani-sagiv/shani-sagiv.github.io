@@ -17,8 +17,6 @@ import {
   PATTAYA,
   KOH_SAMUI,
   KOH_TAO,
-  HO_CHI_MINH,
-  NINH_BÌNH,
 } from "assets/data";
 import {
   Country as CountryModel,

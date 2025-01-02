@@ -15,7 +15,7 @@ export const SIEM_REAP: Destination = {
     {
       name: "Golden Bayon Boutique Hotel",
       type: "Hotel",
-      dates: [{ from: createDate("24/12/2024"), to: createDate("02/01/2025") }],
+      dates: [{ from: createDate("24/12/2024"), to: createDate("06/01/2025") }],
       description: "מללון ממוצע נחמד בדיוק שיפצו ופתחו את הבחוץ אז נחמד",
       images: IMAGES.GoldenBayon,
     },
