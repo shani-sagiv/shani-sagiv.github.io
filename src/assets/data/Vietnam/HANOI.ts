@@ -46,14 +46,23 @@ export const HANOI: Destination = {
       images: HANOI_IMAGES.Solare,
     },
   ],
-  foods: [],
+  foods: [
+    {
+      type: "Restaurant",
+      name: "SushiLAB",
+      googleMapLink: "https://maps.app.goo.gl/Mwt4uvxxzZWnmPdX6",
+      description: "אחלה של סושי!",
+      images: HANOI_IMAGES.SushiLAB,
+    },
+  ],
   attractions: [
     HANOI_HA_LONG_CRUISE.HANOI,
     {
       type: "Attraction",
       name: "Gifthaus",
       googleMapLink: "https://maps.app.goo.gl/SbaRRnY3yFjNFRRg6",
-      description: "חנות עם מליון משחקי קלפים וקופסא והכל אחלה מחירים",
+      description:
+        "חנות עם מליון משחקי קלפים וקופסא והכל אחלה מחירים, יש שם גם חתול ממש ממש חמוד",
       images: HANOI_IMAGES.gifthouse,
     },
     {
@@ -62,6 +71,13 @@ export const HANOI: Destination = {
       googleMapLink: "https://maps.app.goo.gl/mtLwXuXLXExovP7X9",
       description: "שוק ממש חמוד לא הרבה אוכל אבל מלא דוכנים של הכל",
       images: HANOI_IMAGES.NightMarket,
+    },
+    {
+      type: "Attraction",
+      name: "טיול ברגל מסביב לאגם הואן קיים",
+      googleMapLink: "https://maps.app.goo.gl/koRjQqmkh1uCxPE16",
+      description: "סתם להסתובב ברגל אם המזג אוויר נעים",
+      images: HANOI_IMAGES.lake,
     },
   ],
   nightlife: [

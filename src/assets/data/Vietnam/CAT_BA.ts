@@ -63,4 +63,13 @@ export const CAT_BA: Destination = {
   ],
   nightlife: [],
   shells: CAT_BA_IMAGES.shells,
+  gold_recommendation: [
+    {
+      name: "רכבל",
+      type: "Info",
+      description:
+        "סגרנו להגיע לשם מהאנוי. הציעו לנו לעלות על הרכבל תמורת עוד כמה שקלים וזה היה ממש ממש יפה ושווה את זה!! מומלץ",
+      images: CAT_BA_IMAGES.cable,
+    },
+  ],
 };
