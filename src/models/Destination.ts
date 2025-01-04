@@ -1,4 +1,5 @@
 import {
+  AttractionGroupRecommendation,
   AttractionRecommendation,
   HotelRecommendation,
   InfoRecommendation,
@@ -20,6 +21,7 @@ export interface Destination {
   hotels: HotelRecommendation[]; // Array of hotel recommendations
   foods: RestaurantRecommendation[]; // Array of food/restaurant recommendations
   attractions: AttractionRecommendation[]; // Array of attraction recommendations
+  attractionsGroups?: AttractionGroupRecommendation[]; // Array of attraction recommendations
   nightlife: NightLifeRecommendation[]; // Array of nightlife recommendations
   gold_recommendation?: InfoRecommendation[];
   images?: string[];

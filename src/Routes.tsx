@@ -138,16 +138,7 @@ function InnerRoutes() {
       return [
         {
           path: country.id,
-          element: (
-            <Country
-              // displayName={country.displayName}
-              // profileImg={country.profileImg}
-              destinations={destinations}
-              // description={country.description}
-              country={country}
-              // goldRecommendation={country.gold_recommendation}
-            />
-          ),
+          element: <Country destinations={destinations} country={country} />,
         } as CustomRouteObject,
         ...destinations.map((dest) => {
           if (country.id !== countryId || dest.id !== destinationId) {
@@ -155,20 +146,7 @@ function InnerRoutes() {
           }
           return {
             path: `${country.id}/${dest.id}`,
-            element: (
-              <Destination
-                displayName={dest.displayName}
-                hotels={dest.hotels}
-                attractions={dest.attractions}
-                foods={dest.foods}
-                nightlife={dest.nightlife}
-                shells={dest.shells}
-                images={dest.images}
-                gold_recommendation={dest.gold_recommendation}
-                profileImg={dest.profileImg}
-                description={dest.description}
-              />
-            ),
+            element: <Destination dest={dest} />,
           };
         }),
       ];

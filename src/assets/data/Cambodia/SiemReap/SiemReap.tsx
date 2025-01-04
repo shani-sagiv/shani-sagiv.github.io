@@ -31,19 +31,28 @@ export const SIEM_REAP: Destination = {
       price:
         "עלה 18 דולר היום עם סים המדריך ו18 דולר כניסה לכל אחד לסירה פרטית",
     },
+  ],
+  attractionsGroups: [
     {
-      type: "Attraction",
-      name: "Wat Svay Romeat Pagoda",
-      description: "היה ממש כיף עם המדיך סים הנסיך",
-      googleMapLink: "https://maps.app.goo.gl/quEEaBH9WuFUMqnw5",
-      images: IMAGES.RomeatPagoda,
-    },
-    {
-      type: "Attraction",
-      name: "Angkor Botanical Garden",
-      description: "לא מאוד גן בוטני חמוד מתגעגע אל הקוף המסכן",
-      googleMapLink: "https://maps.app.goo.gl/k6SJajyQDN6qn7EE9",
-      images: IMAGES.Botanical,
+      type: "AttractionGroup",
+      name: "יום טיול עם סים הנסיך שבחר לאן נלך",
+      description: "",
+      attractions: [
+        {
+          type: "Attraction",
+          name: "Wat Svay Romeat Pagoda",
+          description: "היה ממש כיף עם המדיך סים הנסיך",
+          googleMapLink: "https://maps.app.goo.gl/quEEaBH9WuFUMqnw5",
+          images: IMAGES.RomeatPagoda,
+        },
+        {
+          type: "Attraction",
+          name: "Angkor Botanical Garden",
+          description: "לא מאוד גן בוטני חמוד מתגעגע אל הקוף המסכן",
+          googleMapLink: "https://maps.app.goo.gl/k6SJajyQDN6qn7EE9",
+          images: IMAGES.Botanical,
+        },
+      ],
     },
   ],
   nightlife: [],

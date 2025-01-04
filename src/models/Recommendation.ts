@@ -24,6 +24,12 @@ export interface RestaurantRecommendation extends Recommendation {
 export interface AttractionRecommendation extends Recommendation {
   type: "Attraction";
 }
+export interface AttractionGroupRecommendation {
+  type: "AttractionGroup";
+  name: string;
+  description: string;
+  attractions: AttractionRecommendation[];
+}
 export interface NightLifeRecommendation extends Recommendation {
   type: "NightLife";
 }
@@ -39,3 +45,4 @@ export type AllRecommendationTypes =
   | AttractionRecommendation
   | NightLifeRecommendation
   | InfoRecommendation;
+// | AttractionGroupRecommendation;
