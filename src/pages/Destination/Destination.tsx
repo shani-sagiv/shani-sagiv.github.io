@@ -23,7 +23,17 @@ import "./Destination.scss";
 interface DestinationProps extends React.HTMLAttributes<HTMLDivElement> {
   dest: DestinationModel;
 }
-
+export const createWhatsAppLinksContent = (phoneNumbers: string[]) =>
+  phoneNumbers.map((number, index) => (
+    <a
+      key={index}
+      href={`https://wa.me/${number.replace(/[^0-9]/g, "")}`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {number}
+    </a>
+  ));
 const Destination: React.FC<DestinationProps> = ({ dest }) => {
   const {
     displayName,
@@ -173,7 +183,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
   };
   const totalDays = hotels.reduce(
     (totalDays, hotel) => totalDays + calculateDaysForHotel(hotel),
-    0
+    0,
   );
 
   return (
