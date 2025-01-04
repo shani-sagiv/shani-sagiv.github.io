@@ -102,17 +102,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
       title,
       content: <ImageGallery style={{ width: "95%" }} images={items} />,
     });
-    const createWhatsAppLinksContent = (phoneNumbers: string[]) =>
-      phoneNumbers.map((number, index) => (
-        <a
-          key={index}
-          href={`https://wa.me/${number.replace(/[^0-9]/g, "")}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {number}
-        </a>
-      ));
+
     const createLinksContent = (links: string[]) =>
       links.map((l, index) => (
         <a
@@ -183,7 +173,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
   };
   const totalDays = hotels.reduce(
     (totalDays, hotel) => totalDays + calculateDaysForHotel(hotel),
-    0,
+    0
   );
 
   return (

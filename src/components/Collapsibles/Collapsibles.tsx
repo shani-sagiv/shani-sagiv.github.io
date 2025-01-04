@@ -1,6 +1,7 @@
 import React, { CSSProperties } from "react";
 import { ImageGallery, Collapsible } from "components";
 import "./Collapsibles.scss";
+import { createWhatsAppLinksContent } from "pages/Destination/Destination";
 
 interface CollapsibleProps extends React.HTMLAttributes<HTMLDivElement> {
   items: {
@@ -8,6 +9,7 @@ interface CollapsibleProps extends React.HTMLAttributes<HTMLDivElement> {
     content?: any | React.ReactNode;
     images?: string[];
     style?: CSSProperties;
+    phones?: string[];
   }[];
 }
 
@@ -40,6 +42,11 @@ const Collapsibles: React.FC<CollapsibleProps> = ({ items }) => {
               />
             )}
             {item.content ? item.content : null}
+            {item.phones && (
+              <>
+                {createWhatsAppLinksContent(item.phones)} <br />
+              </>
+            )}
           </div>
         </Collapsible>
       ))}

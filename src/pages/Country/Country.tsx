@@ -27,6 +27,7 @@ const Country: React.FC<CountryProps> = ({ destinations, country }) => {
     title: r.name,
     content: r.description,
     images: r.images,
+    phones: r?.phones,
   }));
   const cards = destinations.map((dest) => ({
     title: getNameToDisplay(dest.displayName),
