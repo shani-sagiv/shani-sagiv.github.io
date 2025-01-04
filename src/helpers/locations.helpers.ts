@@ -1,4 +1,4 @@
-import { COUNTRIES } from "../Routes";
+import { COUNTRIES_WITHOUT_IMAGES } from "../Routes";
 import { calculateDaysBetweenDates } from "./dateHelpers";
 import {
   Country as CountryModel,
@@ -32,7 +32,7 @@ type LocationsToInfo = Record<string, AggregatedLocation>;
 export const sortAllDestinationsByDate = (): Location[] => {
   const locations: Location[] = [];
 
-  COUNTRIES.forEach((countryObj) => {
+  COUNTRIES_WITHOUT_IMAGES.forEach((countryObj) => {
     locations.push(
       ...getAllHotels(countryObj.country, countryObj.destinations),
     );

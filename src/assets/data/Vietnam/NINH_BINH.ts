@@ -2,7 +2,7 @@ import { Destination } from "models/Destination";
 import { NINH_BINH_IMAGES } from "../../img/Vietnam";
 
 export const NINH_BINH: Destination = {
-  id: "NINH_BÌNH",
+  id: "NINH_BINH",
   displayName: {
     hebrew: "נין בין",
     english: "Ninh Bình",

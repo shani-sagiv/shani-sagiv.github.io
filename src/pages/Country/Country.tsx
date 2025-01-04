@@ -35,7 +35,6 @@ const Country: React.FC<CountryProps> = ({ destinations, country }) => {
     image: dest.profileImg,
     navigate: dest.id,
   }));
-  console.log({ cards });
   const totalNightsSlept = calculateTotalNightsAtAllDestinations(destinations);
 
   return (
