@@ -8,6 +8,7 @@ export const logUserAction = (
   // Set user properties for custom data
   ReactGA.set({
     user_id: username, // Use 'user_id' for tracking users
+    username: username, // Use 'user_id' for tracking users
     app_version: "1.0.0",
   });
 
@@ -21,5 +22,5 @@ export const logUserAction = (
   });
 
   // Log the page view
-  ReactGA.send({ hitType: "pageview", page: path });
+  // ReactGA.send({ hitType: "pageview", page: path });
 };

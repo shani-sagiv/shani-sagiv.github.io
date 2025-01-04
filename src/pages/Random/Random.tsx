@@ -35,7 +35,6 @@ const Random: React.FC<HomePageProps> = ({}) => {
     [key: string]: string[];
   } | null>(null);
 
-
   React.useEffect(() => {
     LoadAllOptionsData();
   }, []);
@@ -66,7 +65,6 @@ const Random: React.FC<HomePageProps> = ({}) => {
         if (!attractionsOptionsTemp[destName]) {
           attractionsOptionsTemp[destName] = [];
         }
-
         destination.hotels?.forEach((hotel: HotelRecommendation) =>
           handleAttraction(hotel, destName),
         );

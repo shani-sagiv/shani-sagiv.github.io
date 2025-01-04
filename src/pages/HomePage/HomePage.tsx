@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Cards, WavesComponent, WordArtTitle } from "components";
 import Marquee from "react-fast-marquee";
 import bkueWavesSrc from "assets/bkue-waves.jpeg";
-import { COUNTRIES } from "Routes";
+import { COUNTRIES_WITHOUT_IMAGES } from "Routes";
 import "./HomePage.scss";
 import {
   Location,
@@ -21,15 +21,17 @@ import Card from "../../components/Card/Card";
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const HomePage: React.FC<HomePageProps> = ({}) => {
-  const destinationsCards = COUNTRIES.map(({ country, destinations }) => ({
-    displayName: country.displayName,
-    image: country.profileImg,
-    navigate: country.id,
-    inProgress: country.inProgress,
-    bottomData: parseDaysToHebrew(
-      calculateTotalNightsAtAllDestinations(destinations),
-    ),
-  }));
+  const destinationsCards = COUNTRIES_WITHOUT_IMAGES.map(
+    ({ country, destinations }) => ({
+      displayName: country.displayName,
+      image: country.profileImg,
+      navigate: country.id,
+      inProgress: country.inProgress,
+      bottomData: parseDaysToHebrew(
+        calculateTotalNightsAtAllDestinations(destinations),
+      ),
+    }),
+  );
 
   const navigate = useNavigate();
 

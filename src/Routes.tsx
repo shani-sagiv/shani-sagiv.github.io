@@ -17,8 +17,6 @@ import {
   PATTAYA,
   KOH_SAMUI,
   KOH_TAO,
-  HO_CHI_MINH,
-  NINH_BÌNH,
 } from "assets/data";
 import {
   Country as CountryModel,
@@ -67,7 +65,51 @@ export const COUNTRIES: {
   },
 ];
 
-export const translationMap = COUNTRIES.flatMap((item) => [
+export const COUNTRIES_WITHOUT_IMAGES = COUNTRIES.map(
+  ({ country, destinations }) => ({
+    country,
+    destinations: destinations.map(removeImages),
+  }),
+);
+
+function removeImages(destination: DestinationModel): DestinationModel {
+  const {
+    images, // Remove top-level images
+    hotels,
+    foods,
+    attractions,
+    nightlife,
+    gold_recommendation,
+    ...rest
+  } = destination;
+
+  return {
+    ...rest,
+    images: undefined, // Remove top-level images array
+    hotels: hotels.map(({ images, ...hotel }) => ({
+      ...hotel,
+      images: undefined,
+    })),
+    foods: foods.map(({ images, ...food }) => ({
+      ...food,
+      images: undefined,
+    })),
+    attractions: attractions.map(({ images, ...attraction }) => ({
+      ...attraction,
+      images: undefined,
+    })),
+    nightlife: nightlife.map(({ images, ...nightlifeItem }) => ({
+      ...nightlifeItem,
+      images: undefined,
+    })),
+    gold_recommendation: gold_recommendation?.map(({ images, ...info }) => ({
+      ...info,
+      images: undefined,
+    })),
+  };
+}
+
+export const translationMap = COUNTRIES_WITHOUT_IMAGES.flatMap((item) => [
   { key: item.country.id, name: item.country.displayName.hebrew },
   ...item.destinations.map((destination) => ({
     key: destination.id,
@@ -92,37 +134,21 @@ function InnerRoutes() {
 
   const getRoutes = (): CustomRouteObject[] => {
     return COUNTRIES.flatMap(({ country, destinations }) => {
+      const [countryId, destinationId] = location.pathname.slice(1).split("/");
       return [
         {
           path: country.id,
-          element: (
-            <Country
-              // displayName={country.displayName}
-              // profileImg={country.profileImg}
-              destinations={destinations}
-              // description={country.description}
-              country={country}
-              // goldRecommendation={country.gold_recommendation}
-            />
-          ),
+          element: <Country destinations={destinations} country={country} />,
         } as CustomRouteObject,
-        ...destinations.map((dest) => ({
-          path: `${country.id}/${dest.id}`,
-          element: (
-            <Destination
-              displayName={dest.displayName}
-              hotels={dest.hotels}
-              attractions={dest.attractions}
-              foods={dest.foods}
-              nightlife={dest.nightlife}
-              shells={dest.shells}
-              images={dest.images}
-              gold_recommendation={dest.gold_recommendation}
-              profileImg={dest.profileImg}
-              description={dest.description}
-            />
-          ),
-        })),
+        ...destinations.map((dest) => {
+          if (country.id !== countryId || dest.id !== destinationId) {
+            dest = removeImages(dest);
+          }
+          return {
+            path: `${country.id}/${dest.id}`,
+            element: <Destination dest={dest} />,
+          };
+        }),
       ];
     });
   };

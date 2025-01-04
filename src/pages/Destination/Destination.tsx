@@ -1,12 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import {
+  AttractionGroupRecommendation,
   AttractionRecommendation,
   DisplayName,
   HotelRecommendation,
   InfoRecommendation,
   NightLifeRecommendation,
   RestaurantRecommendation,
+  Destination as DestinationModel,
+  AllRecommendationTypes,
 } from "models";
 import {
   Title,
@@ -18,74 +21,80 @@ import {
 import "./Destination.scss";
 
 interface DestinationProps extends React.HTMLAttributes<HTMLDivElement> {
-  displayName: DisplayName;
-  hotels: HotelRecommendation[];
-  foods: RestaurantRecommendation[];
-  attractions: AttractionRecommendation[];
-  description: string;
-  nightlife: NightLifeRecommendation[];
-  shells?: string[];
-  images?: string[];
-  profileImg: string;
-  gold_recommendation?: InfoRecommendation[];
+  dest: DestinationModel;
 }
 
-export const createWhatsAppLinksContent = (phoneNumbers: string[]) =>
-  phoneNumbers.map((number, index) => (
-    <a
-      key={index}
-      href={`https://wa.me/${number.replace(/[^0-9]/g, "")}`}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {number}
-    </a>
-  ));
+const Destination: React.FC<DestinationProps> = ({ dest }) => {
+  const {
+    displayName,
+    attractionsGroups = [],
+    hotels = [],
+    foods = [],
+    description,
+    attractions = [],
+    shells = [],
+    images = [],
+    nightlife = [],
+    profileImg,
+    gold_recommendation = [],
+  } = dest;
+  const generateContent = (
+    items: AllRecommendationTypes[],
+    keyPrefix: string,
+  ) =>
+    items.map((item, index) => (
+      <RecommendationComponent
+        recommendation={item}
+        key={`${keyPrefix}-${index}`}
+      />
+    ));
 
-const Destination: React.FC<DestinationProps> = ({
-  displayName,
-  hotels = [],
-  foods = [],
-  description,
-  attractions = [],
-  shells = [],
-  images = [],
-  nightlife = [],
-  profileImg,
-  gold_recommendation = [],
-}) => {
+  const generateAttractionGroupsContent = (
+    groups: AttractionGroupRecommendation[],
+  ) =>
+    groups.map((attrGroup, groupIndex) => (
+      <div
+        key={`group-${groupIndex}`}
+        style={{
+          border: "4px solid white",
+        }}
+      >
+        <h2>{attrGroup.name}</h2>
+        <span>{attrGroup.description}</span>
+        {generateContent(attrGroup.attractions, `attraction-${groupIndex}`)}
+      </div>
+    ));
+
   const getActivities = () => {
-    const activitySections = [
+    const sections = [
       {
         title: "מלונות",
         tabTitle: <h1>🏨</h1>,
-        content: hotels.map((r, i) => (
-          <RecommendationComponent recommendation={r} key={`hotel-${i}`} />
-        )),
+        content: generateContent(hotels, "hotel"),
+      },
+      {
+        title: "יוםטיול",
+        tabTitle: <h1>🎒</h1>,
+        content: generateAttractionGroupsContent(attractionsGroups),
       },
       {
         title: "מסעדות",
         tabTitle: <h1>🍔</h1>,
-        content: foods.map((r, i) => (
-          <RecommendationComponent recommendation={r} key={`food-${i}`} />
-        )),
+        content: generateContent(foods, "food"),
       },
       {
         title: "אטרקציות",
         tabTitle: <h1>🎡</h1>,
-        content: attractions.map((r, i) => (
-          <RecommendationComponent recommendation={r} key={`attraction-${i}`} />
-        )),
+        content: generateContent(attractions, "attraction"),
       },
       {
         title: "חיי לילה",
         tabTitle: <h1>🕺</h1>,
-        content: nightlife.map((r, i) => (
-          <RecommendationComponent recommendation={r} key={`nightlife-${i}`} />
-        )),
+        content: generateContent(nightlife, "nightlife"),
       },
     ];
-    return activitySections.filter((section) => section.content.length > 0);
+
+    return sections.filter((section) => section.content.length > 0);
   };
 
   const getInfo = () => {
