@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.36b2f556.css",
-    "main.js": "/static/js/main.36a1216f.js",
+    "main.js": "/static/js/main.013192d5.js",
     "static/js/453.0396969e.chunk.js": "/static/js/453.0396969e.chunk.js",
     "static/media/img_2.png": "/static/media/img_2.c4a30de8460e5303f5a3.png",
     "static/media/img_4.png": "/static/media/img_4.995857e0fe0b0cf49a06.png",
@@ -42,6 +42,7 @@
     "static/media/13105314-4901-4D60-99A7-9EB8B8BCA66D_compressed.jpeg": "/static/media/13105314-4901-4D60-99A7-9EB8B8BCA66D_compressed.ae82fe3578a55fc12b63.jpeg",
     "static/media/DED351E5-FB77-48A8-AD33-29613BAC561B_compressed.jpeg": "/static/media/DED351E5-FB77-48A8-AD33-29613BAC561B_compressed.6aeb7449381be6a2e217.jpeg",
     "static/media/F50FAD17-BDCB-4FD0-B5B8-83D39AD7B0F2_compressed.jpeg": "/static/media/F50FAD17-BDCB-4FD0-B5B8-83D39AD7B0F2_compressed.5c5aa8a2677b2afea98c.jpeg",
+    "static/media/IMG_6105.jpeg": "/static/media/IMG_6105.78198ea4d5f43595b309.jpeg",
     "static/media/img_9.png": "/static/media/img_9.4cb3a47b2f434f679c2a.png",
     "static/media/E60AD62C-3FDB-46E5-9CD0-CA2EC91A3FE5_compressed.jpeg": "/static/media/E60AD62C-3FDB-46E5-9CD0-CA2EC91A3FE5_compressed.06f6bf3ab5be9612a9a8.jpeg",
     "static/media/5A1DE458-AA07-4A62-AEE4-6E1D0654F2A0_compressed.jpeg": "/static/media/5A1DE458-AA07-4A62-AEE4-6E1D0654F2A0_compressed.57f33741c7c3b6044d00.jpeg",
@@ -301,7 +302,6 @@
     "static/media/F1C671E0-126A-43E0-8FC7-CBFCDBDB6CAE_1_102_o.jpeg": "/static/media/F1C671E0-126A-43E0-8FC7-CBFCDBDB6CAE_1_102_o.33799f1c79e76f6b99d6.jpeg",
     "static/media/588C4611-E293-4EDA-A9CF-645AC5A597CE_1_102_o_compressed.jpeg": "/static/media/588C4611-E293-4EDA-A9CF-645AC5A597CE_1_102_o_compressed.2ad26a996740221e43b0.jpeg",
     "static/media/1D4A8E63-5737-4B83-9ACD-C7159A3C53EA_1_102_o_compressed.jpeg": "/static/media/1D4A8E63-5737-4B83-9ACD-C7159A3C53EA_1_102_o_compressed.46e2c8aa57b810cf6531.jpeg",
-    "static/media/bkue-waves.jpeg": "/static/media/bkue-waves.f3bc0f729c5313e9203f.jpeg",
     "static/media/75C429C8-05A9-4F2C-8EB0-53627C2E2D2B_1_102_o_compressed.jpeg": "/static/media/75C429C8-05A9-4F2C-8EB0-53627C2E2D2B_1_102_o_compressed.185716b439b650c858b1.jpeg",
     "static/media/DAD9E8E8-C2AD-496C-953B-39DE31C2C6F4_compressed.jpeg": "/static/media/DAD9E8E8-C2AD-496C-953B-39DE31C2C6F4_compressed.02cbbc17268cf9a17845.jpeg",
     "static/media/58E0F173-1909-4C6D-B87C-E60200B6F13C_1_102_o_compressed.jpeg": "/static/media/58E0F173-1909-4C6D-B87C-E60200B6F13C_1_102_o_compressed.c12382cc26761faeb4fe.jpeg",
@@ -914,11 +914,11 @@
     "static/media/92398D88-8FF7-4EBE-9D59-E31B1A937CB0_4_5005_c.jpeg": "/static/media/92398D88-8FF7-4EBE-9D59-E31B1A937CB0_4_5005_c.dda8f94a65c9696b4aaf.jpeg",
     "index.html": "/index.html",
     "main.36b2f556.css.map": "/static/css/main.36b2f556.css.map",
-    "main.36a1216f.js.map": "/static/js/main.36a1216f.js.map",
+    "main.013192d5.js.map": "/static/js/main.013192d5.js.map",
     "453.0396969e.chunk.js.map": "/static/js/453.0396969e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.36b2f556.css",
-    "static/js/main.36a1216f.js"
+    "static/js/main.013192d5.js"
   ]
 }
