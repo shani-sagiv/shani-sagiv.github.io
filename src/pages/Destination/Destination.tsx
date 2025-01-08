@@ -10,6 +10,7 @@ import {
   RestaurantRecommendation,
   Destination as DestinationModel,
   AllRecommendationTypes,
+  Info,
 } from "models";
 import {
   Title,
@@ -47,6 +48,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     nightlife = [],
     profileImg,
     gold_recommendation = [],
+    moreInfo = [],
   } = dest;
   const generateContent = (
     items: AllRecommendationTypes[],
@@ -157,6 +159,47 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
         </div>
       ),
     });
+    const createMoreInfo = (moreInfos: Info[]) => ({
+      title: "סתם מידע",
+      content: (
+        <div
+          className="recommendation-content flex-row"
+          style={{
+            gap: 5,
+            flexWrap: "nowrap",
+            overflow: "auto",
+            width: "100%",
+          }}
+        >
+          {moreInfos.map((i) => (
+            <div
+              style={{
+                width: "30vw",
+                height: "auto",
+                flexShrink: 0,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <h2>{i.name}</h2>
+              <span style={{ marginBottom: 10 }}>
+                {i.images && (
+                  // <div style={{ width: "40vw" }}>
+                  <ImageGallery images={i.images} />
+                  // </div>
+                )}
+              </span>
+              <span style={{}}>{i.description}</span>
+            </div>
+          ))}
+          {/*{r.description}*/}
+          {/*<br />*/}
+
+          {/*{r.images && <ImageGallery images={r.images} />}*/}
+        </div>
+      ),
+    });
 
     const sections = [];
 
@@ -169,6 +212,11 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     }
 
     sections.push(...gold_recommendation.map(createGoldRecommendation));
+    if (moreInfo.length > 0) {
+      sections.push(createMoreInfo(moreInfo));
+    }
+
+    // sections.push(...moreInfo.map(createMoreInfo));
 
     return sections;
   };

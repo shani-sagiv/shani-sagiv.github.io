@@ -26,6 +26,7 @@ const Cards: React.FC<CardProps> = ({ items, style }) => {
         flexDirection: "row",
         overflow: "auto",
         flexWrap: "wrap",
+        // justifyContent: "flex-start",
         justifyContent: "flex-start",
         ...style,
       }}

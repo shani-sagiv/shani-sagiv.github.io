@@ -25,4 +25,11 @@ export interface Destination {
   nightlife: NightLifeRecommendation[]; // Array of nightlife recommendations
   gold_recommendation?: InfoRecommendation[];
   images?: string[];
+  moreInfo?: Info[];
+}
+
+export interface Info {
+  name: string;
+  description: string;
+  images?: string[];
 }

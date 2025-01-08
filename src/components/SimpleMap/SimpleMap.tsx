@@ -45,7 +45,7 @@ const placeCoordinates: Record<string, [number, number]> = {
 };
 
 // Custom React component for the marker icon
-const CustomMarker: React.FC<{
+export const CustomMarker: React.FC<{
   text: string;
   location: Location;
   totalNights: number;

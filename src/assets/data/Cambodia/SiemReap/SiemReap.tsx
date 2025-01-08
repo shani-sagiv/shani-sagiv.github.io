@@ -1,4 +1,4 @@
-import { Destination } from "models/Destination";
+import { Destination, Info } from "models/Destination";
 import IMAGES from "./images";
 import { createDate } from "helpers/dateHelpers";
 
@@ -9,7 +9,7 @@ export const SIEM_REAP: Destination = {
     english: "siem reap",
   },
   images: IMAGES.general,
-  description: "",
+  description: "אחלה של מקום חיי לילה ברים מקדשים מה צריך יותר",
   profileImg: IMAGES.profileImg,
   hotels: [
     {
@@ -30,6 +30,21 @@ export const SIEM_REAP: Destination = {
       images: IMAGES.FloatingVillage,
       price:
         "עלה 18 דולר היום עם סים המדריך ו18 דולר כניסה לכל אחד לסירה פרטית",
+    },
+    {
+      type: "Attraction",
+      name: "K2 skate Park Club",
+      description: "רמפות חשמל רק רולר",
+      googleMapLink: "https://maps.app.goo.gl/Y1xV1DEUojspaHEg8",
+      images: IMAGES.skatePark,
+      price: "3 דולר ליום כולל ציוד משהו כזה",
+    },
+    {
+      type: "Attraction",
+      name: "Royal Independence Gardens",
+      description: "מלא עטלפים fox bat",
+      googleMapLink: "https://maps.app.goo.gl/YFzeVTbktzwbdHr16",
+      images: IMAGES.RoyalIndependence,
     },
   ],
   attractionsGroups: [
@@ -152,6 +167,27 @@ export const SIEM_REAP: Destination = {
         },
       ],
     },
+    {
+      type: "AttractionGroup",
+      name: "יום מקדשים 3 עם סים הנסיך (5.1)",
+      description: "",
+      attractions: [
+        {
+          type: "Attraction",
+          name: "Angkor Wat",
+          description: "טיול זריחה",
+          googleMapLink: "https://maps.app.goo.gl/97r9sxYNemTgyMyL7",
+          images: IMAGES.AngkorWatSunrise,
+        },
+        {
+          type: "Attraction",
+          name: "Banteay Kdei",
+          description: "",
+          googleMapLink: "https://maps.app.goo.gl/PiHnytLcNdeHM3a1A",
+          images: IMAGES.BanteayKdei,
+        },
+      ],
+    },
   ],
   nightlife: [],
   gold_recommendation: [
@@ -165,6 +201,28 @@ export const SIEM_REAP: Destination = {
     },
   ],
   shells: [],
+  moreInfo: [
+    {
+      name: "Apsara",
+      description: "ריקוד מסורתי",
+      images: IMAGES.Apsara,
+    },
+    {
+      name: "Rahu",
+      description: "רשע אוכל את הירח",
+      images: IMAGES.Rahu,
+    },
+    {
+      name: "Garuda",
+      description: "ציפור שנלחם בנחשים (נאגות) ומסמל את הניצחון על כוחות האופל",
+      images: IMAGES.Garuda,
+    },
+    {
+      name: "Naga",
+      description: "נחשוש",
+      images: IMAGES.Naga,
+    },
+  ],
 };
 
 // {

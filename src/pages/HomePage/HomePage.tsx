@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Cards, WavesComponent, WordArtTitle } from "components";
 import Marquee from "react-fast-marquee";
-import bkueWavesSrc from "assets/bkue-waves.jpeg";
+import bkueWavesSrc from "assets/IMG_6105.jpeg";
 import { COUNTRIES_WITHOUT_IMAGES } from "Routes";
 import "./HomePage.scss";
 import {
@@ -17,6 +17,7 @@ import {
 } from "helpers/dateHelpers";
 import { useNavigate } from "react-router-dom";
 import Card from "../../components/Card/Card";
+import MapComponent from "../../test";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -125,7 +126,8 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         src={bkueWavesSrc}
         style={{
           width: "100%",
-          height: "max(30vh , 250px)",
+          marginTop: -60,
+          height: "max(35vh , 300px)",
           objectFit: "cover",
           objectPosition: "top",
         }}
