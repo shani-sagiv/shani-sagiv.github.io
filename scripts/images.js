@@ -2,16 +2,16 @@ const fs = require("fs-extra");
 const path = require("path");
 const sharp = require("sharp");
 
-const assetsDir = path.join(__dirname, "../src", "assets/img/Vietnam");
-const supportedFormats = [".jpg", ".jpeg", ".png"]; // פורמטים נתמכים בלבד
-const suffix = "_compressed"; // הסיומת שמתווספת לקובץ שכבר כווץ
-const MIN_FILE_SIZE = 300 * 1024; // גודל מינימלי ב-Bytes (300KB)
+const assetsDir = path.join(__dirname, "../src", "assets/img/Vietnam/");
+const supportedFormats = [".jpg", ".jpeg", ".png"]; // Supported formats only
+const suffix = "_compressed"; // Suffix for compressed files
+const MAX_FILE_SIZE = 1 * 1024 * 1024; // Maximum file size in bytes (1MB)
 
 /**
- * סורק את כל הקבצים בתיקיה ובתת-תיקיות
- * @param {string} dirPath - הנתיב לתיקיה
- * @param {Array} arrayOfFiles - מערך הקבצים שנמצאו
- * @returns {Array} - מערך קבצי התמונות
+ * Recursively scans all files in a folder and its subfolders.
+ * @param {string} dirPath - Path to the folder.
+ * @param {Array} arrayOfFiles - Array of found files.
+ * @returns {Array} - Array of image file paths.
  */
 const getAllFiles = (dirPath, arrayOfFiles = []) => {
   const files = fs.readdirSync(dirPath);
@@ -29,50 +29,77 @@ const getAllFiles = (dirPath, arrayOfFiles = []) => {
 };
 
 /**
- * מכווץ תמונה ושומר במקום
- * @param {string} filePath - הנתיב לקובץ התמונה
+ * Compresses an image and ensures its size is below the maximum limit.
+ * @param {string} filePath - Path to the image file.
  */
 const compressImage = async (filePath) => {
   const ext = path.extname(filePath).toLowerCase();
   const baseName = path.basename(filePath, ext);
   const dirName = path.dirname(filePath);
 
-  // אם הקובץ כבר דחוס או אם הוא בשם מסוים (כמו "profile"), דלג עליו
+  // Skip already compressed or excluded files
   if (
-    baseName.endsWith(suffix) ||
+    // baseName.includes(suffix) ||
     baseName.includes("profile") ||
-    baseName.includes("main")
+    baseName.includes("Profile") ||
+    baseName.includes("main") ||
+    baseName.includes("Main")
   ) {
     console.log(`Skipping: ${filePath} (already compressed or excluded)`);
     return;
   }
 
-  const stats = fs.statSync(filePath);
-  if (stats.size < MIN_FILE_SIZE) {
-    console.log(`Skipping: ${filePath} (file size < 300KB)`);
+  if (!supportedFormats.includes(ext)) {
+    console.log(`Skipping unsupported format: ${filePath}`);
     return;
   }
 
-  const compressedPath = path.join(dirName, `${baseName}${suffix}${ext}`);
+  let stats = fs.statSync(filePath);
+  if (stats.size <= MAX_FILE_SIZE) {
+    console.log(`Skipping: ${filePath} (file size <= 1MB)`);
+    return;
+  }
 
-  if (!supportedFormats.includes(ext)) return; // התעלם מפורמטים לא נתמכים
+  let quality = 80; // Initial quality level
+  let newSuffix = suffix;
+  let compressedPath;
+  compressedPath = path.join(dirName, `${baseName}${newSuffix}${ext}`);
 
-  try {
-    console.log(`Processing: ${filePath}`);
-    await sharp(filePath)
-      .withMetadata() // שמירה על מידע EXIF
-      .toFormat(ext.replace(".", ""), { quality: 80 }) // שמירה על אותו פורמט עם איכות מופחתת
-      .toFile(compressedPath);
+  while (stats.size > MAX_FILE_SIZE) {
+    console.log(`Compressing: ${filePath} with quality ${quality}`);
 
-    fs.unlinkSync(filePath); // מחיקת הקובץ המקורי
-    console.log(`✔️ Compressed and renamed: ${compressedPath}`);
-  } catch (err) {
-    console.error(`❌ Error processing: ${filePath}`, err);
+    try {
+      await sharp(filePath)
+        .withMetadata() // Preserve EXIF metadata
+        .toFormat(ext.replace(".", ""), { quality })
+        .toFile(compressedPath);
+
+      stats = fs.statSync(compressedPath);
+
+      if (stats.size <= MAX_FILE_SIZE) {
+        fs.unlinkSync(filePath); // Delete the original file
+        console.log(`✔️ Compressed and saved: ${compressedPath}`);
+        break;
+      } else {
+        // Remove the previous compressed file and try again with lower quality
+        fs.unlinkSync(compressedPath);
+        quality -= 10; // Reduce quality further
+        newSuffix += "_2"; // Update suffix for subsequent compression
+      }
+
+      if (quality < 10) {
+        console.warn(`❌ Could not compress ${filePath} below 1MB.`);
+        break;
+      }
+    } catch (err) {
+      console.error(`❌ Error compressing: ${filePath}`, err);
+      break;
+    }
   }
 };
 
 /**
- * תהליך האופטימיזציה של התמונות
+ * Main optimization process for images.
  */
 const optimizeImages = async () => {
   console.log(`Scanning folder: ${assetsDir}`);
@@ -89,5 +116,5 @@ const optimizeImages = async () => {
   console.log("🎉 Image optimization complete!");
 };
 
-// הרצה
+// Run the script
 optimizeImages();
