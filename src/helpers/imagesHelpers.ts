@@ -25,3 +25,29 @@ export const importAll_NEW = (
   });
   return images;
 };
+
+function getAllImages(
+  country: string,
+  destination: string,
+  name: string,
+): string[] {
+  try {
+    // יצירת נתיב בסיסי
+    const basePath = `./assets/data/${country}/${destination}/images/${name}`;
+
+    // שימוש ב-require.context לטעינת כל התמונות מהתיקייה
+    const requireImages = require.context(
+      basePath,
+      false, // לא לחפש בתתי-תיקיות
+      /\.(png|jpe?g|svg|webp)$/, // סינון קבצי תמונה
+    );
+
+    // מיפוי כל התמונות לנתיב המלא
+    return requireImages
+      .keys()
+      .map((fileName) => `${basePath}/${fileName.replace("./", "")}`);
+  } catch (error) {
+    console.error("Error loading images:", error);
+    return [];
+  }
+}

@@ -6,10 +6,10 @@ export const KOH_RONG: Destination = {
   id: "KOH_RONG",
   displayName: {
     hebrew: "קו רונג",
-    english: "koh_rong",
+    english: "koh rong",
   },
   images: IMAGES.general,
-  description: "",
+  description: "אי מאוד חמודי",
   profileImg: IMAGES.profileImg,
   hotels: [
     {
@@ -24,7 +24,7 @@ export const KOH_RONG: Destination = {
       name: "Sweet Jungle Bungalows & Restaurant",
       type: "Hotel",
       googleMapLink: "https://maps.app.goo.gl/RgHo1e9CuELyKbbR9",
-      dates: [{ from: createDate("10/01/2025"), to: createDate("15/01/2025") }],
+      dates: [{ from: createDate("10/01/2025"), to: createDate("27/01/2025") }],
       description: "חמוד מאוד",
       price: "140 שקל ללילה",
       images: IMAGES.SweetJungleBungalows,

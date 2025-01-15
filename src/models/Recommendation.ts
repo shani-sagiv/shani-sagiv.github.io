@@ -10,6 +10,7 @@ export interface Recommendation {
   type: RecommendationType;
   description: string;
   images?: string[];
+  imagesPath?: string;
   price?: number | string;
   googleMapLink?: string;
 }
