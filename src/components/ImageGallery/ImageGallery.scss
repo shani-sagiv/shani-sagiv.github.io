@@ -13,14 +13,16 @@
   }
 }
 .image-gallery-wrapper{
+  width: 100%;
+  height: 100%;
   &:not(.fullscreen) {
     .image-gallery-left-nav{
-      top: 32%;
-      left:-8%;
+      top: 30%;
+      left:-2%;
     }
     .image-gallery-right-nav {
-      top: 32%;
-      right:-8%;
+      top: 30%;
+      right:-2%;
     }
   }
 

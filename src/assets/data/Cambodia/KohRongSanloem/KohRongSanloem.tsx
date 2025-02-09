@@ -14,7 +14,6 @@ export const KOH_RONG_SANLOEM: Destination = {
   hotels: [
     {
       name: "Beach House Cambodia",
-      type: "Hotel",
       dates: [{ from: createDate("28/01/2025"), to: createDate("01/02/2025") }],
       description: "מקום דלוח אבל מים חמים ומזגן",
       googleMapLink: "https://maps.app.goo.gl/MBCpRs9k7oi2neGH8",
@@ -22,7 +21,6 @@ export const KOH_RONG_SANLOEM: Destination = {
     },
     {
       name: "Mpay Bay Guest House",
-      type: "Hotel",
       dates: [{ from: createDate("01/02/2025"), to: createDate("13/02/2025") }],
       description: "וואו וואו אמאלה ואבאלה",
       price: "40 דולר ללילה",
@@ -31,23 +29,21 @@ export const KOH_RONG_SANLOEM: Destination = {
     },
   ],
   foods: [],
-  attractions: [
+  attractions: [],
+  kids: [
     {
       name: "התעוררה",
-      type: "Attraction",
       description: "חמודה מאוד",
       images: IMAGES.kama,
     },
     {
       name: "ילד הסרטנים",
-      type: "Attraction",
       description: "מנגו פיש",
       images: IMAGES.crabBoy,
     },
     {
       name: "סע",
-      type: "Attraction",
-      description: "מנגו פיש",
+      description: "",
       images: IMAGES.sa,
     },
   ],

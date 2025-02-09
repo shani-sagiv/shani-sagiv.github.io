@@ -32,22 +32,22 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
   };
   const defaultModalParams = {
     ...defaultParams,
-    ...(images.length > 1
-      ? {
-          showThumbnails: true,
-          thumbnailPosition: "right" as "right" | "left" | "bottom" | "top",
-          renderThumbInner: (item: ReactImageGalleryItem) => (
-            // <LazyLoad>
-            <img
-              src={item.thumbnail}
-              alt=""
-              loading="lazy" // Lazy loading the thumbnail
-              style={{ width: "100%", height: "auto" }}
-            />
-            // </LazyLoad>
-          ),
-        }
-      : {}),
+    // ...(images.length > 1
+    //   ? {
+    //       showThumbnails: true,
+    //       thumbnailPosition: "right" as "right" | "left" | "bottom" | "top",
+    //       renderThumbInner: (item: ReactImageGalleryItem) => (
+    //         // <LazyLoad>
+    //         <img
+    //           src={item.thumbnail}
+    //           alt=""
+    //           loading="lazy" // Lazy loading the thumbnail
+    //           style={{ width: "100%", height: "auto" }}
+    //         />
+    //         // </LazyLoad>
+    //       ),
+    //     }
+    //   : {}),
     renderItem: (item: ReactImageGalleryItem) => (
       // <LazyLoad>
       <img
@@ -64,6 +64,28 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
     ),
   };
 
+  const isImageOverflowing = (img: any) => {
+    const parent = img.parentElement;
+    if (!parent) return false;
+
+    const imgRect = img.getBoundingClientRect();
+    const parentRect = parent.getBoundingClientRect();
+
+    return (
+      imgRect.width > parentRect.width || imgRect.height > parentRect.height
+    );
+  };
+  const checkImageOverflow = (img: HTMLImageElement) => {
+    if (!img || !img.parentElement) return false;
+
+    const imgRect = img.getBoundingClientRect();
+    const parentRect = img.parentElement.getBoundingClientRect();
+
+    return (
+      imgRect.width > parentRect.width || imgRect.height > parentRect.height
+    );
+  };
+
   return (
     <span
       className={classnames("image-gallery-wrapper", {
@@ -74,6 +96,23 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
       <ImageGallery
         {...defaultParams}
         disableKeyDown
+        renderItem={(item: ReactImageGalleryItem) => (
+          <img
+            src={item.original}
+            loading="lazy"
+            onLoad={(e) => {
+              // console.log("Image height:", e.currentTarget.clientHeight);
+              if (e.currentTarget.clientHeight > 300) {
+                e.currentTarget.style.marginTop = "-180px";
+              }
+            }}
+            style={{
+              objectFit: "contain",
+              width: "100%",
+              height: "100%",
+            }}
+          />
+        )}
         showNav={images.length > 1}
       />
       <div

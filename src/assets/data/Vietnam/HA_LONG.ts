@@ -16,7 +16,6 @@ export const HA_LONG: Destination = {
     {
       name: "The Marine Hotel",
       googleMapLink: "https://maps.app.goo.gl/dQtSJ4Mqr7L9N3w39",
-      type: "Hotel",
       dates: [{ from: createDate("02/08/2024"), to: createDate("08/08/2024") }],
       description: "מלןו קצת דלוח",
     },
@@ -24,7 +23,6 @@ export const HA_LONG: Destination = {
   foods: [],
   attractions: [
     {
-      type: "Attraction",
       name: "Chill Beach Bar",
       description: "בר חוף ממש חמוד",
       googleMapLink: "https://maps.app.goo.gl/F9rEa4qJxXuamdf1A",
@@ -32,7 +30,6 @@ export const HA_LONG: Destination = {
     },
     HANOI_HA_LONG_CRUISE.HA_LONG,
     {
-      type: "Attraction",
       name: "Bãi tắm",
       description: "אזור מאוד נחמד עם ברים ומסעדות על החוף",
       // googleMapLink: "https://maps.app.goo.gl/F9rEa4qJxXuamdf1A",

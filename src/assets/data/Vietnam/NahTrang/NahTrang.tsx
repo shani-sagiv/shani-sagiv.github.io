@@ -14,7 +14,6 @@ export const NAH_TRANG: Destination = {
   hotels: [
     {
       name: "Maris Hotel",
-      type: "Hotel",
       googleMapLink: "https://maps.app.goo.gl/2Aar11nizgVfbQnx8",
       dates: [{ from: createDate("11/12/2024"), to: createDate("24/12/2024") }],
       description: "וואו מלון מפנק כיף חיים אחלה מיקון",
@@ -24,7 +23,6 @@ export const NAH_TRANG: Destination = {
   ],
   foods: [
     {
-      type: "Restaurant",
       name: "Hanami japanese restaurant",
       description: "סושי טעים רצח",
       googleMapLink: "https://maps.app.goo.gl/TWQs8TGKfq4zeo6P8",
@@ -33,21 +31,18 @@ export const NAH_TRANG: Destination = {
   ],
   attractions: [
     {
-      type: "Attraction",
       name: "Museum of Oceanography",
       description: "מוזיאון ימי ממש כיף",
       googleMapLink: "https://maps.app.goo.gl/HGuCZEg2wPTtumtX7",
       images: IMAGES.Oceanography,
     },
     {
-      type: "Attraction",
       name: "Vinpearl Nha Trang",
       description: "עוד אחד של וין המטורף יש הכל דיסני",
       googleMapLink: "https://maps.app.goo.gl/rYZJUotkM8DVgokcA",
       images: IMAGES.Vinpearl,
     },
     {
-      type: "Attraction",
       name: "ארקייד",
       description: "וואו וואו איזה כיף 15 שקל 40 מטבעות",
       googleMapLink: "https://maps.app.goo.gl/j3GE7bY8zA4SyhLx9",

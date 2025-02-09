@@ -14,7 +14,6 @@ export const PHONG_NHA: Destination = {
   hotels: [
     {
       name: "green Homestay",
-      type: "Hotel",
       dates: [{ from: createDate("07/07/2024"), to: createDate("10/07/2024") }],
       description: "מלון חמוד מיקום סבבה",
       googleMapLink: "https://maps.app.goo.gl/qP925KZHz5TuoKVP8",
@@ -22,7 +21,6 @@ export const PHONG_NHA: Destination = {
     },
     {
       name: "Jade Phong Nha Hotel",
-      type: "Hotel",
       dates: [{ from: createDate("10/07/2024"), to: createDate("13/07/2024") }],
       description: "חדר מינימלי אבל מלון ממש חמוד אחלה בריכה אחלה נוף",
       googleMapLink: "https://maps.app.goo.gl/KDRCDMS8rQ8gV3kg8",
@@ -32,7 +30,6 @@ export const PHONG_NHA: Destination = {
   foods: [],
   attractions: [
     {
-      type: "Attraction",
       name: "Ồ Ồ Lake Silence",
       googleMapLink: "https://maps.app.goo.gl/BXKZ287tSxPJNYz46",
       description:
@@ -40,7 +37,6 @@ export const PHONG_NHA: Destination = {
       images: PHONG_NHA_IMAGES.lakeSilence,
     },
     {
-      type: "Attraction",
       name: "Phong nha Rooftop Bar",
       googleMapLink: "https://maps.app.goo.gl/t45qzidHUpf6WmdQ8",
       description:
@@ -48,7 +44,6 @@ export const PHONG_NHA: Destination = {
       images: PHONG_NHA_IMAGES.rooftop,
     },
     {
-      type: "Attraction",
       name: "Paradise Cave",
       googleMapLink: "https://maps.app.goo.gl/4oWTF7TAm3DkvejS7",
       description:

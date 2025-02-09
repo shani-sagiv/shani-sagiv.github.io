@@ -16,7 +16,6 @@ export const TA_VAN: Destination = {
       name: "Healing Homestay Sapa",
       googleMapLink: "https://maps.app.goo.gl/FK85hoQo7yxf2Vmw6",
       images: TA_VAN_IMAGES.Healing,
-      type: "Hotel",
       dates: [{ from: createDate("16/08/2024"), to: createDate("26/08/2024") }],
       description: "ריזורט סופר חמוד עם נוף מהמם ואנשים ממש חמודים",
     },
@@ -24,14 +23,12 @@ export const TA_VAN: Destination = {
   foods: [],
   attractions: [
     {
-      type: "Attraction",
       name: "Ly House Ta Van",
       description: "בית קפה מסעדה מאודח חמוד על הנהר",
       googleMapLink: "https://maps.app.goo.gl/58uVPKB3BghKi45NA",
       images: TA_VAN_IMAGES.LyHouse,
     },
     {
-      type: "Attraction",
       name: "Love Waterfall",
       description: " מסלול חמוד יפה ולא ארוך שמוביל למפל",
       googleMapLink: "https://maps.app.goo.gl/cacQvdGDcX3xBydV9",

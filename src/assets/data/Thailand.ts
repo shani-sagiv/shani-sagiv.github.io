@@ -28,7 +28,6 @@ export const THAILAND: Country = {
   gold_recommendation: [
     {
       name: "תחבורה 🚌",
-      type: "Info",
       description:
         "כל נסיעה כמעט אפשר לסגור דרך 12go(כולל מעבורות), הסליפרים השווים זה הvip, המספר זה כמות המיטות אז ככל שנמוך יותר המיטות יותר גדולות(20+-30~)" +
         "\n" +
@@ -36,7 +35,6 @@ export const THAILAND: Country = {
     },
     {
       name: "יתושים 🦟",
-      type: "Info",
       description:
         "נגד יתושים: ספריי ורוד מה7/11 " +
         "\n" +
@@ -45,14 +43,12 @@ export const THAILAND: Country = {
     },
     {
       name: "סים ☎️",
-      type: "Info",
       description:
         "יש ב7/11 סימים ממש בזול, יש להם לכמה מספרי ימים, כל אחד הוא כמות גיגה פר יום אז כדאי לבדוק כמה משתמשים כי לא תמיד צריך הרבה",
       images: [simSrc],
     },
     {
       name: "סושי בשקל 🍣",
-      type: "Info",
       description:
         "בכללל שוק שהיינו בו יש דוכן של סושי ב10 באט. תקשיבו זה תמיד טעים ברמות ובחיים לא עשה לי בעיות בבטן (ואני רגישה). קיצר מוממלץ מאוד",
       images: sushiImages,
@@ -74,7 +70,6 @@ export const KOH_LANTA: Destination = {
   hotels: [
     {
       name: "Lanta Riviera Resort",
-      type: "Hotel",
       dates: [{ from: createDate("17/04/2024"), to: createDate("30/04/2024") }],
       description:
         "מלון על החוף, חדרים גדולים ונקיים, בריכה כייפית! המקום ממש לא עמוס ויש המון ברים ומסעדות על החוף במרחק הליכה",
@@ -87,14 +82,12 @@ export const KOH_LANTA: Destination = {
   foods: [
     {
       name: "Lanta Riviera Resort",
-      type: "Restaurant",
       description: "המסעדה בבריכה של המלון הייתה אחלה ממש, אכלנו בה מלאאא  ",
       googleMapLink: "https://maps.app.goo.gl/URVK9gTZAGHwMBpV8",
       images: KHO_LANTA_IMAGES.restaurantsLantaRiviera,
     },
     {
       name: "Moonwalk Restaurant & Bar",
-      type: "Restaurant",
       description:
         "מסעדה ממש חמודה על החוף, כמה דק הליכה מהחוף של המלון. המלצריות היו ממש נחמדות והאוכל מצויין",
       googleMapLink: "https://maps.app.goo.gl/t66ajYqb2s9AKVnw5",
@@ -103,7 +96,6 @@ export const KOH_LANTA: Destination = {
 
     {
       name: "M Thai Food",
-      type: "Restaurant",
       description:
         "ארוחת בוקר חמודה ב100 באט!! יש גם אחלה של צהריים/ערב. ממש דקה הליכה מהמלון",
       googleMapLink: "https://maps.app.goo.gl/9T8JspxesXBq9HnTA",
@@ -113,7 +105,6 @@ export const KOH_LANTA: Destination = {
   attractions: [
     {
       name: "Following Giants",
-      type: "Attraction",
       description:
         "חוות פילים ממש מוסרית, הפילים משוחררים בחופשיות, לא נוגעים בהם או מציקים להם. הסבירו לנו בכניסה על שיקום פילים ששימשו לבידור בני אדם.",
       googleMapLink: "https://maps.app.goo.gl/1B1HYB4Soi51KvLU8",
@@ -121,13 +112,11 @@ export const KOH_LANTA: Destination = {
     },
     {
       name: "גאות ושפל ממש גדולים",
-      type: "Attraction",
       description: "יש שם גאות ושפל ממש חזקים אז אפשר לבוא לשם לראות המון מהים",
       images: KHO_LANTA_IMAGES.beachTravelImages,
     },
     {
       name: "שוק לילה",
-      type: "Attraction",
       description:
         "בצפון האי יש שוק קטן וחמוד בלילה, יש דוכני אוכל נחמד וכיף להסתובב",
       googleMapLink: "https://maps.app.goo.gl/FxiaFTCA2EckFqUV6",
@@ -137,7 +126,6 @@ export const KOH_LANTA: Destination = {
   nightlife: [
     {
       name: "Beach Bars",
-      type: "NightLife",
       description:
         "יש על החוף מלא ברים, מושלם לראות את השקיעה ולשבת בלילה. לפעמים גם יש מופעי אש, אפשר לשאול",
       images: KHO_LANTA_IMAGES.nightLife,
@@ -157,7 +145,6 @@ export const BANGKOK: Destination = {
   hotels: [
     {
       name: "New Siam II",
-      type: "Hotel",
       dates: [{ from: createDate("13/04/2024"), to: createDate("17/04/2024") }],
       description: "מלון חמוד אחלה אזור בריכה חמדודה",
       googleMapLink: "https://maps.app.goo.gl/aPa7xCb6AwvWzWWq6",
@@ -165,7 +152,6 @@ export const BANGKOK: Destination = {
     },
     {
       name: "Bangkok Sleep Nest Hostel",
-      type: "Hotel",
       dates: [{ from: createDate("05/09/2024"), to: createDate("06/09/2024") }],
       description: "אחלה מלון קרוב לשדה תעופה אין המון לעשות באזור",
       googleMapLink: "https://maps.app.goo.gl/y6wWgh5HteNwuXFK6",
@@ -189,7 +175,6 @@ export const KOH_PHA_NGAN: Destination = {
   hotels: [
     {
       name: "Island Life Bungalows",
-      type: "Hotel",
       dates: [{ from: createDate("30/04/2024"), to: createDate("07/05/2024") }],
       description:
         "דיי ממוצע המלון והאזור אחלה בריכה וקרוב לhalf moon שהיה ממוצע גם כן(כי זה היה באיזה ביץ קלאב ולא בגונגל ששם דווקא כיף)",
@@ -199,7 +184,6 @@ export const KOH_PHA_NGAN: Destination = {
     },
     {
       name: "The Sea Resort",
-      type: "Hotel",
       dates: [{ from: createDate("07/05/2024"), to: createDate("17/05/2024") }],
       description: "מצריך אופנוע אבל מקום ממש שווה",
       price: "",
@@ -209,14 +193,12 @@ export const KOH_PHA_NGAN: Destination = {
     {
       name: "Delight Resort",
       googleMapLink: "https://maps.app.goo.gl/My1VTPHeg2jXbgsi7",
-      type: "Hotel",
       dates: [{ from: createDate("29/09/2024"), to: createDate("02/10/2024") }],
       description: "פצצה של מיקום מלון חמוד מינימלי זול",
     },
     {
       name: "Shiralea Backpackers Resort",
       googleMapLink: "https://maps.app.goo.gl/rBqm8domgegkkyK97",
-      type: "Hotel",
       images: KHO_PHA_NGAN_IMAGES.shiralea,
       dates: [{ from: createDate("15/10/2024"), to: createDate("17/10/2024") }],
       description:
@@ -225,7 +207,6 @@ export const KOH_PHA_NGAN: Destination = {
     {
       name: "Pure Laguna Residence by Nice Sea Resort",
       googleMapLink: "https://maps.app.goo.gl/xDQ4UQudrqxDVeCW8",
-      type: "Hotel",
       images: KHO_PHA_NGAN_IMAGES.PureLaguna,
       dates: [{ from: createDate("09/11/2024"), to: createDate("12/11/2024") }],
       description:
@@ -235,21 +216,18 @@ export const KOH_PHA_NGAN: Destination = {
   foods: [
     {
       name: "Mama Homemade Restaurant",
-      type: "Restaurant",
       description: "מסעדה ממש נחמדה ליד הsea resort, מקומית תאילדית זולה",
       googleMapLink: "https://maps.app.goo.gl/p6UneWTsZG4MehoYA",
       images: KHO_PHA_NGAN_IMAGES.mamaRestaurant,
     },
     {
       name: "Pantip Market שוק אוכל",
-      type: "Restaurant",
       description: "אזור עם כמה דוכני אוכל  ושטויות וברים",
       googleMapLink: "https://maps.app.goo.gl/fzSnN2UaiK2rrfhV6",
       images: KHO_PHA_NGAN_IMAGES.pantip,
     },
     {
       name: "Mama Market שוק אוכל",
-      type: "Restaurant",
       description: "אזור עם כמה דוכני אוכל חמודים",
       googleMapLink: "https://maps.app.goo.gl/15HQMgFhoVhC8ynXA",
       images: KHO_PHA_NGAN_IMAGES.Mama,
@@ -258,7 +236,6 @@ export const KOH_PHA_NGAN: Destination = {
   attractions: [
     {
       name: "Halfmoon festival",
-      type: "Attraction",
       description:
         "ממש פחדנו שלא יהיו כרטיסים כי החלטנו להגיע ממש ברגע האחרון, בפועל ממש לא בעיה לקנות יום לפני בקבלה במלון.. היה כיף",
       googleMapLink: "https://maps.app.goo.gl/EUHfANZURF8T8S5B9",
@@ -266,14 +243,12 @@ export const KOH_PHA_NGAN: Destination = {
     },
     {
       name: "Saturday Walking Street Market",
-      type: "Attraction",
       description: "שוק לילה ממש נחמד שפתוח בסופש. יש גם אוכל וגם קניות",
       googleMapLink: "https://maps.app.goo.gl/swCqNZDrkTy6AJd46",
       images: KHO_PHA_NGAN_IMAGES.walkingStreet,
     },
     {
       name: "Chaloklum Sunday market",
-      type: "Attraction",
       description: " שוק עם אוכל ממש נחמד! אזור יפה להסתובב ואפשר גם להכנס לים",
       googleMapLink: "https://maps.app.goo.gl/yNymoUHjqMCMfmh16",
       images: KHO_PHA_NGAN_IMAGES.chaloklumMarket,
@@ -281,7 +256,6 @@ export const KOH_PHA_NGAN: Destination = {
 
     {
       name: "מקום בדרך עם המון קופים",
-      type: "Attraction",
       description:
         "לשים לב אם מגיעים עם אופנוע לא להשאיר כלום בתא ולקחת את המפתחות הם חכמים",
       googleMapLink: "https://maps.app.goo.gl/DQBcudn59LarPh7w7",
@@ -289,7 +263,6 @@ export const KOH_PHA_NGAN: Destination = {
     },
     {
       name: "Zen Beach",
-      type: "Attraction",
       description:
         "חוף חמוד עם אחלה נוף לשקיעה, הרבה אנשים שבאים לעשות יוגה ערסלים ואנערף, יש באחד הצדדים חוף נודיסטים",
       googleMapLink: "https://maps.app.goo.gl/JKr5o76eoi3Q6EdA8",
@@ -297,7 +270,6 @@ export const KOH_PHA_NGAN: Destination = {
     },
     {
       name: "Bluerama",
-      type: "Attraction",
       description:
         "בר על הר, נוף מהמם עלייה של אי אפשר להנות שם כי אתה עסוק בלחשוב איך תרד את זה" +
         "\n" +
@@ -307,7 +279,6 @@ export const KOH_PHA_NGAN: Destination = {
     },
     {
       name: "קפה חתולים",
-      type: "Attraction",
       description:
         "בית קפה עם מלא חתולים, ממש התלבטנו אם להכנס כי חשבנו שאולי החתולים סובלים. בסוף היינו שם שעה והעובדים התייחסו לכל החתולים ממש יפה, האכילו ושיחקו איתם והחתולים באמת נראים שמחים והיה כיף מאווווווווווווווווד!!!!",
       googleMapLink: "https://maps.app.goo.gl/8QGYfNaTWFEHJTeu6",
@@ -317,7 +288,6 @@ export const KOH_PHA_NGAN: Destination = {
   nightlife: [
     {
       name: "Haad Rin beach bars",
-      type: "NightLife",
       description:
         "יש על החוף כל ערב מלא ברים עם מופעי אש. באף אחד לא היה כתוב שיש האפי האוור אבל ברגע ששאלנו אז הם ענו שכן חחח קיצר תשאלו אם יש",
       googleMapLink: "https://maps.app.goo.gl/wzWoLNs6X7HBrCuG7",
@@ -327,7 +297,6 @@ export const KOH_PHA_NGAN: Destination = {
   gold_recommendation: [
     {
       name: "אירועים",
-      type: "Info",
       description: "יש מסיבות כל יום, פה ראינו שיש כמעט אם לא את כל המידע",
       links: ["https://phangan.events/"],
     },
@@ -346,7 +315,6 @@ export const CHINAG_MAI: Destination = {
   hotels: [
     {
       name: "Manee House",
-      type: "Hotel",
       dates: [{ from: createDate("17/05/2024"), to: createDate("22/05/2024") }],
       description: "מיקום טוב מלון סביר בלי מעלית",
       price: "",
@@ -355,7 +323,6 @@ export const CHINAG_MAI: Destination = {
     },
     {
       name: "Astra Condo",
-      type: "Hotel",
       dates: [{ from: createDate("22/05/2024"), to: createDate("11/06/2024") }],
       description: "קונדו עם מלא דירות שוות חדכ בריכה אחלה מיקום",
       price: "",
@@ -365,7 +332,6 @@ export const CHINAG_MAI: Destination = {
   ],
   foods: [
     {
-      type: "Restaurant",
       name: "Shabushi <3",
       description:
         "הוטפוט עם מסועים וסושי ומלא כיף מומלץ מאוד! שימו לב שזה רשת אז אפשר למצוא אותם בעוד מלאאא מקומות (היינו בכמה כאלה וזה תמיד מושלם)",
@@ -377,14 +343,12 @@ export const CHINAG_MAI: Destination = {
   attractions: [
     {
       name: "מקדש Wat Chiang Man",
-      type: "Attraction",
       description: "מקדש מאוד יפה",
       googleMapLink: "",
       images: CHINAG_MAI_IMAGES.watTemple,
     },
     {
       name: "Doi Suthep",
-      type: "Attraction",
       description:
         "מקדש מאוד יפה, דורש נסיעה אנחנו לקחנו נהג מהאלה שמחכים עם הטנדר שלהם לשם ולכפר Hmong Doi Pui Village ",
       googleMapLink: "https://maps.app.goo.gl/NXcxFVRpv6YKteZ87",
@@ -393,7 +357,6 @@ export const CHINAG_MAI: Destination = {
     },
     {
       name: "Hmong Doi Pui Village",
-      type: "Attraction",
       description:
         "כפר מאוד חמוד מסתובבים שם ברגל, יש שם מוזיאון חמוד של שבט ההמונג, שוק וגן בוטני מהמם",
       googleMapLink: "https://maps.app.goo.gl/KD1GMysjxa3e66Du8",
@@ -401,7 +364,6 @@ export const CHINAG_MAI: Destination = {
     },
     {
       name: "King Cobra",
-      type: "Attraction",
       description:
         "סגרנו יום טיול בקוברה, מוזיאון חרקים והגנים הבוטנים של המלכה סיקריט עם נהג טנדר מהרחוב, היה ממש כיף והמדריך דיבר מלא עברית",
       price: "800-1000 באט",
@@ -410,7 +372,6 @@ export const CHINAG_MAI: Destination = {
     },
     {
       name: "Siam Insect Zoo",
-      type: "Attraction",
       description: "מוזיאון חרקים וזוחלים חמוד",
       price: "ביחד עם הקוברה והגן הבוטני של המלכה",
       googleMapLink: "https://maps.app.goo.gl/7GEjcNViCwRyzZoD8",
@@ -418,7 +379,6 @@ export const CHINAG_MAI: Destination = {
     },
     {
       name: "Queen Sirikit Botanic Garden",
-      type: "Attraction",
       description: "גן בוטני עצום ומטורף",
       price: "ביחד עם הקוברה והמוזיאון חרקים",
       googleMapLink: "https://maps.app.goo.gl/VESrFySdsmfk9BVu7",
@@ -426,7 +386,6 @@ export const CHINAG_MAI: Destination = {
     },
     {
       name: "חנות/מוזיאון של גילופים בעץ",
-      type: "Attraction",
       description:
         "מקום עם אין סוף גילופים, יש שם דברים שלקח להכין 10 שנים ו5 אנשים שעובדים עליו כל יום, מטורף לגמרי (היה אסור לצלם בפנים)",
       price: "כניסה חינם, גילוף עלה איזה 100באט לראש",
@@ -435,7 +394,6 @@ export const CHINAG_MAI: Destination = {
     },
     {
       name: "מפלים דביקים",
-      type: "Attraction",
       description:
         "מפלים שבגלל מינרל האבנים ממש מחוספסות אז אפשר לטפס על המפל ברגל, ממש מיוחד וכיף ולא כבד מדי",
       price:
@@ -445,7 +403,6 @@ export const CHINAG_MAI: Destination = {
     },
     {
       name: "Ginger Farm",
-      type: "Attraction",
       description: "מקום יפה אוכל טעים מדברים שהם מגדלים שם!!! חיות חמודות",
       price: "חינם ואפשר לקנות אוכל להאכיל את החיות באיזה 30 באט",
       googleMapLink: "https://maps.app.goo.gl/3U9vwE3jGe41X7fi7",
@@ -453,7 +410,6 @@ export const CHINAG_MAI: Destination = {
     },
     {
       name: "ארקייד Echo-Ex10",
-      type: "Attraction",
       description: "ארקייד ממש כיף בקניון מאיה",
       price: "שילמנו 300 באט ושיחקנו שנינו שעה",
       googleMapLink: "https://maps.app.goo.gl/ojyDynVNrULzjvBb6",
@@ -461,7 +417,6 @@ export const CHINAG_MAI: Destination = {
     },
     {
       name: "Sunday walking street",
-      type: "Attraction",
       description:
         "שוק ענק כל יום ראשון. מחירים זולים ברמות ויש המון המון דוכנים שונים. לדעתי כן שונה מבנגקוק אז אם אתם רואים משהו שאהבתם תקנו!!",
       googleMapLink: "https://maps.app.goo.gl/mf4va7Pw5An85NrRA",
@@ -471,7 +426,6 @@ export const CHINAG_MAI: Destination = {
   nightlife: [
     {
       name: "Lanna Square",
-      type: "NightLife",
       description:
         "אזור עם מלא ברים ושוק אוכל, פתוח כמעט כל יום בערב עד מאוחר, מומלץ",
       googleMapLink: "https://maps.app.goo.gl/zkTs4wN3E72t7YNeA",
@@ -481,13 +435,11 @@ export const CHINAG_MAI: Destination = {
   gold_recommendation: [
     {
       name: "מוניות",
-      type: "Info",
       description:
         "מוניות סופר נוחות, לא לקח להן יותר מ2 דק להגיע ומחירים זולים ממש דרך בולט",
     },
     {
       name: "ברים",
-      type: "Info",
       description:
         "כל העיר העתיקה מלאה בברים, מומלץ להסתובב או לקחת מונית כל פעם למקום אחר" +
         "\n" +
@@ -495,13 +447,11 @@ export const CHINAG_MAI: Destination = {
     },
     {
       name: "קניון",
-      type: "Info",
       description: "יש שם קניון ענק MAYA אחלה חנויות דוכנים אוכל",
       links: ["https://maps.app.goo.gl/PTtWHMUuMR9531N77"],
     },
     {
       name: "שווקים",
-      type: "Info",
       description:
         "!כמעט כל יום יש שם שוק במקום אחר, כדאי לבדוק כי הם מטורפים! וגם בכל שוק יש סוכן של סושי, יחידה ב10 באט. אני תמייייד אוכלת וזה ממש סבבה בבטן! לא לפחד מקלקולי קיבה זה באמת טרי וטעים",
     },
@@ -521,7 +471,6 @@ export const KOH_CHANG: Destination = {
     {
       name: "Chang Buri",
       googleMapLink: "https://maps.app.goo.gl/H7ABRp8YLYxExFkd8",
-      type: "Hotel",
       dates: [{ from: createDate("06/09/2024"), to: createDate("12/09/2024") }],
       description:
         "מלון ממש שווה, אחלה בריכות באסה שאי אפשר להיכנס למים שם והחיי לילה הקרובים מוזרים",
@@ -530,7 +479,6 @@ export const KOH_CHANG: Destination = {
     {
       name: "Flora I Talay Resort",
       googleMapLink: "https://maps.app.goo.gl/GdHD6pPnrvg4MXwr7",
-      type: "Hotel",
       dates: [{ from: createDate("12/09/2024"), to: createDate("19/09/2024") }],
       description: "מלון ממש ממש חמוד ושווה היה מאוד כיף",
       images: KOH_CHANG_IMAGES.Flora,
@@ -554,7 +502,6 @@ export const PATTAYA: Destination = {
     {
       name: "The Bayview",
       googleMapLink: "https://maps.app.goo.gl/iqbrRfp7k3Qw3Vmy9",
-      type: "Hotel",
       images: PATTAYA_IMAGES.Bayview,
       dates: [{ from: createDate("19/09/2024"), to: createDate("22/09/2024") }],
       description: "מלון סבבה אחלה של מיקום אחלה של בריכה ואוכל",
@@ -562,7 +509,6 @@ export const PATTAYA: Destination = {
     {
       name: "The Base inn",
       googleMapLink: "https://maps.app.goo.gl/HhDXgbDy8uJ2jd3XA",
-      type: "Hotel",
       dates: [{ from: createDate("22/09/2024"), to: createDate("27/09/2024") }],
       description: "מלון חמוד אחלה של מיקום",
     },
@@ -570,7 +516,6 @@ export const PATTAYA: Destination = {
   foods: [],
   attractions: [
     {
-      type: "Attraction",
       name: "Nong Nooch Botanical Garden",
       description: "מקום ענק דינוזאורים פארק בוטני",
       googleMapLink: "https://maps.app.goo.gl/1khPab9MEfXiEnK99",
@@ -593,7 +538,6 @@ export const KOH_SAMUI: Destination = {
     {
       name: "Bhundhari Chaweng Beach Resort",
       googleMapLink: "https://maps.app.goo.gl/wzBtKCQj6VKYQukE9",
-      type: "Hotel",
       images: KOH_SAMUI_IMAGES.Bhundhari,
       dates: [{ from: createDate("27/09/2024"), to: createDate("29/09/2024") }],
       description: "מלון חמוד על הים קצת רחוק מהכל יותר מדי רעש של ישראלים",
@@ -601,7 +545,6 @@ export const KOH_SAMUI: Destination = {
     {
       name: "Surisa Seaview Pool Villa",
       googleMapLink: "https://maps.app.goo.gl/pDP2JWJvjpFq3x1J7",
-      type: "Hotel",
       images: KOH_SAMUI_IMAGES.Surisa,
       dates: [{ from: createDate("02/10/2024"), to: createDate("06/10/2024") }],
       description: "מלון סבבה אחלה של מיקום אחלה של בריכה ואוכל",
@@ -609,7 +552,6 @@ export const KOH_SAMUI: Destination = {
     {
       name: "Nautilus Apartments",
       googleMapLink: "https://maps.app.goo.gl/v8hbSuQGC5E8ffJy9",
-      type: "Hotel",
       images: KOH_SAMUI_IMAGES.Nautilus,
       dates: [{ from: createDate("17/10/2024"), to: createDate("03/11/2024") }],
       description:
@@ -619,7 +561,6 @@ export const KOH_SAMUI: Destination = {
     {
       name: "PTK Beach",
       googleMapLink: "https://maps.app.goo.gl/ZwTdShkmZL8SYrUh8",
-      type: "Hotel",
       images: KOH_SAMUI_IMAGES.ptk,
       dates: [{ from: createDate("03/11/2024"), to: createDate("09/11/2024") }],
       description:
@@ -629,7 +570,6 @@ export const KOH_SAMUI: Destination = {
     {
       name: "ZAYN Samui Hotel",
       googleMapLink: "https://maps.app.goo.gl/uGxymu9v64w9RqKg8",
-      type: "Hotel",
       // images: KOH_SAMUI_IMAGES.ptk,
       dates: [{ from: createDate("26/11/2024"), to: createDate("27/11/2024") }],
       description: "מיקום חמוד על השוק דייגים",
@@ -637,21 +577,18 @@ export const KOH_SAMUI: Destination = {
   ],
   foods: [
     {
-      type: "Restaurant",
       name: "Napa Food",
       googleMapLink: "https://maps.app.goo.gl/qasQwsYdyWDP87S56",
       description: "מקומי היה ממש טעים",
       images: KOH_SAMUI_IMAGES.napa,
     },
     {
-      type: "Restaurant",
       name: "Ever Green מסעדה על החוף",
       googleMapLink: "https://maps.app.goo.gl/df4Y433ngxiPuUB5A",
       description: "אחלה של ארוחת בוקר סט ובכללי אחלה מקום לשבת חמודים",
       images: KOH_SAMUI_IMAGES.EverGreen,
     },
     {
-      type: "Restaurant",
       name: "בורקס רמלה קוסמוי-מסעדה כשרה",
       googleMapLink: "https://maps.app.goo.gl/uQsLEkyA4mEboEPv6",
       description: "אחלה של אוכל ישרלאי טעים רצח",
@@ -660,7 +597,6 @@ export const KOH_SAMUI: Destination = {
   ],
   attractions: [
     {
-      type: "Attraction",
       name: "Grandfather and Grandmother Rocks (Hin Ta Hin Yai) סלע הבולבול פות ",
       description:
         "סלעים שאם ממש מנסים אפשר לראות בולבול ופות אפשר עוד יותר לנסות לוותר על זה",
@@ -672,14 +608,12 @@ export const KOH_SAMUI: Destination = {
   gold_recommendation: [
     {
       name: "כביסה",
-      type: "Info",
       description: "איזה טוב היא מריחה אינעל דינק",
       phones: ["+66 85 795 7771", "+66 95 661 6568"],
       links: ["https://g.co/kgs/Tvd53dR"],
     },
     {
       name: "אופנוע",
-      type: "Info",
       description: "190 באט ל125 באים אליך",
       phones: ["+66 87 276 5927"],
       images: KOH_SAMUI_IMAGES.motorcycle,
@@ -687,7 +621,6 @@ export const KOH_SAMUI: Destination = {
     },
     {
       name: "מושון",
-      type: "Info",
       description: "מושון האגוז",
       images: KOH_SAMUI_IMAGES.Mushon,
     },
@@ -708,7 +641,6 @@ export const KOH_TAO: Destination = {
     {
       name: "Mama Ochai",
       googleMapLink: "https://maps.app.goo.gl/AoVWBfhQVJsfoiK26",
-      type: "Hotel",
       images: KOH_TAO_IMAGES.Ochai,
       dates: [
         { from: createDate("06/10/2024"), to: createDate("15/10/2024") },
@@ -719,7 +651,6 @@ export const KOH_TAO: Destination = {
   ],
   foods: [
     {
-      type: "Restaurant",
       name: "Sairee Hut Resort And Restaurant",
       googleMapLink: "https://maps.app.goo.gl/5Pv5KRGiJuqZY1ed9",
       description: "אחלה מקום על הים אוכל זול נחמד מאוד",
@@ -728,7 +659,6 @@ export const KOH_TAO: Destination = {
   ],
   attractions: [
     {
-      type: "Attraction",
       name: "Secret Bar",
       googleMapLink: "https://maps.app.goo.gl/BsUgE2JKJBmyW3eQA",
       description:
@@ -736,7 +666,6 @@ export const KOH_TAO: Destination = {
       images: KOH_TAO_IMAGES.secret,
     },
     {
-      type: "Attraction",
       name: "Freedom Beach",
       googleMapLink: "https://maps.app.goo.gl/vVyZPusg4qVydKU58",
       description:
@@ -746,7 +675,6 @@ export const KOH_TAO: Destination = {
   ],
   nightlife: [
     {
-      type: "NightLife",
       name: "Escobar",
       googleMapLink: "https://maps.app.goo.gl/Aut1bXWx85H3cgjb9",
       description:

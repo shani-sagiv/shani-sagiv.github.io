@@ -12,7 +12,6 @@ export const HO_CHI_MINH: Destination = {
   profileImg: HO_CHI_MINH_IMAGES.profileImg,
   hotels: [
     {
-      type: "Hotel",
       name: "Huazhu Hotel",
       description: "מלון מאוד נחמד קרוב לאזור המרכזי יקר מדי",
       dates: [{ from: createDate("02/12/2024"), to: createDate("05/12/2024") }],

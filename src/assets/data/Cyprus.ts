@@ -37,7 +37,6 @@ export const LIMASSOL: Destination = {
   hotels: [
     {
       name: "Chrysta Villa",
-      type: "Hotel",
       dates: [{ from: createDate("06/03/2024"), to: createDate("11/03/2024") }],
       description: "וילה גדולה ומאובזרת בהכל",
       price: "4,785 שח לכל הלילות",
@@ -46,7 +45,6 @@ export const LIMASSOL: Destination = {
     },
     {
       name: "Stay cypress St1",
-      type: "Hotel",
       dates: [{ from: createDate("24/03/2024"), to: createDate("31/03/2024") }],
       description: "דירה חמודה אחלה של מיקון",
       price: "1,763 שח לכל הלילות",
@@ -58,13 +56,11 @@ export const LIMASSOL: Destination = {
   foods: [],
   attractions: [
     {
-      type: "Attraction",
       name: "Limassol Castle - Cyprus Medieval Museum",
       description: "מוזיאון מאוד כיף",
       images: LIMASSOL_IMAGES.Castle,
     },
     {
-      type: "Attraction",
       name: "Limassol Municipal Garden",
       description: "גן חיות",
       images: LIMASSOL_IMAGES.MunicipalGarden,
@@ -84,7 +80,6 @@ export const VASA: Destination = {
   hotels: [
     {
       name: "Andre Marie studios",
-      type: "Hotel",
       dates: [{ from: createDate("11/03/2024"), to: createDate("17/03/2024") }],
       description: "דירה ממש יפה וחמודה וגדולה",
       price: "1484 שח לכל הלילות",
@@ -95,14 +90,12 @@ export const VASA: Destination = {
   foods: [],
   attractions: [
     {
-      type: "Attraction",
       name: "Papaioannou winery",
       description: "יקב נחמד עם בעלים חמוד",
       googleMapLink: "https://maps.app.goo.gl/LWJ9BbJtyuuLzTP39",
       images: VASA_IMAGES.Papaioannou,
     },
     {
-      type: "Attraction",
       name: "Linos Winery",
       description: "יקב נחמד עם אחלה יין כחול",
       googleMapLink: "https://maps.app.goo.gl/NrqabDKvBoo1don58",
@@ -123,7 +116,6 @@ export const PAPHOS: Destination = {
   hotels: [
     {
       name: "Nereus Hotel",
-      type: "Hotel",
       dates: [{ from: createDate("17/03/2024"), to: createDate("20/03/2024") }],
       description: "מקום מסריח ברחנו משם",
       price: "772 שח לכל הלילות",
@@ -131,7 +123,6 @@ export const PAPHOS: Destination = {
     },
     {
       name: "Almyria Apartments - Apartment 5",
-      type: "Hotel",
       dates: [{ from: createDate("20/03/2024"), to: createDate("22/03/2024") }],
       description: "אחלה של דירה אולי המקלחת הייתה בעייתית",
       googleMapLink:
@@ -139,7 +130,6 @@ export const PAPHOS: Destination = {
     },
     {
       name: "Dionysos Central Hotel",
-      type: "Hotel",
       dates: [{ from: createDate("22/03/2024"), to: createDate("24/03/2024") }],
       description: "אחלה של מלון",
       googleMapLink: "https://maps.app.goo.gl/oqwV1SYFmiQqz5tZ8",
@@ -148,13 +138,11 @@ export const PAPHOS: Destination = {
   foods: [],
   attractions: [
     {
-      type: "Attraction",
       name: "Catacombs",
       description: "מערכות קבורה תת-קרקעיות",
       images: PAPHOS_IMAGES.Catacombs,
     },
     {
-      type: "Attraction",
       name: "Island Cove Adventure Mini Golf",
       description: "מיני גולף חמוד",
       images: PAPHOS_IMAGES.MiniGolf,
@@ -174,7 +162,6 @@ export const LARNACA: Destination = {
   hotels: [
     {
       name: "Studio apartment central",
-      type: "Hotel",
       dates: [{ from: createDate("31/03/2024"), to: createDate("01/04/2024") }],
       description: "אחלה דירה חדשה",
       price: "185",

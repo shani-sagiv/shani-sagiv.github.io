@@ -1,4 +1,4 @@
-import { DisplayName, InfoRecommendation, Recommendation } from "models";
+import { DisplayName, InfoRecommendation } from "models";
 
 export interface Country {
   id: string;

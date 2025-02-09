@@ -51,6 +51,10 @@ const Card: React.FC<CardProps> = ({
           textAlign: "center",
           zIndex: 2, // Make sure the title is above the image
           top: "16%",
+          whiteSpace: "nowrap",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          width: "100%",
         }}
       >
         {displayName.hebrew}

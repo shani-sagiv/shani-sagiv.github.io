@@ -15,7 +15,6 @@ export const SAPA: Destination = {
       name: "central sapa serenity",
       googleMapLink: "https://maps.app.goo.gl/pD3KWsF6NZZT88in7",
       images: SAPA_IMAGES.serenity,
-      type: "Hotel",
       dates: [{ from: createDate("08/08/2024"), to: createDate("16/08/2024") }],
       description: "מלון חמוד מיקום סבבה כמות מדרגות שעדיף לישון ברחוב",
     },
@@ -23,21 +22,18 @@ export const SAPA: Destination = {
       name: "Sapa Snow Hotel",
       googleMapLink: "https://maps.app.goo.gl/gArZfgGaTvVP4oby6",
       // images: SAPA_IMAGES.serenity,
-      type: "Hotel",
       dates: [{ from: createDate("26/08/2024"), to: createDate("28/08/2024") }],
       description: "מלון חמוד מיקום סבבה עדיף לישון יותר קרוב למרכז",
     },
   ],
   foods: [
     {
-      type: "Restaurant",
       description: "אחלה מסעדה ארוחות בוקר מערביות",
       name: "Anise Kitchen",
       googleMapLink: "https://maps.app.goo.gl/wYeBDcS8F81oRP3F8",
       images: SAPA_IMAGES.Anise,
     },
     {
-      type: "Restaurant",
       name: "Aloha Coffe & Fastfood",
       description: "אחלה מסעדה בית קפה אחלה נוף",
       googleMapLink: "https://maps.app.goo.gl/UgpFcTBJMjedp75W7",
@@ -46,21 +42,18 @@ export const SAPA: Destination = {
   ],
   attractions: [
     {
-      type: "Attraction",
       name: "Lá Đỏ 2 Homestay & Coffee",
       description: "בית קפה עם נוף מהמם לכל העמק למטה",
       googleMapLink: "https://maps.app.goo.gl/uFWah5LqCJvY1JhdA",
       images: SAPA_IMAGES.lado,
     },
     {
-      type: "Attraction",
       name: "Huân Đậu Đậu Coffee & Homestay",
       description: "בית קפה עם נוף מהמם לשדות אורז",
       googleMapLink: "https://maps.app.goo.gl/N8aQ2aU3LHZK24jV6",
       images: SAPA_IMAGES.huan,
     },
     {
-      type: "Attraction",
       name: "Fansipan",
       description: "הר מטורף עם מקדשים ושטויות",
       googleMapLink: "https://maps.app.goo.gl/hEEe8SxyGuZjkr756",

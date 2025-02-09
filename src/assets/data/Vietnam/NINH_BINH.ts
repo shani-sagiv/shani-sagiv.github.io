@@ -13,28 +13,24 @@ export const NINH_BINH: Destination = {
   foods: [],
   attractions: [
     {
-      type: "Attraction",
       name: "Hoa Lu Ancient Capital",
       googleMapLink: "https://maps.app.goo.gl/2QAu5xwVDeDQapUp9",
       description: "מקדש מאוד נחמד ",
       images: NINH_BINH_IMAGES.HoaLu,
     },
     {
-      type: "Attraction",
       name: "נהר Tràng An",
       googleMapLink: "https://maps.app.goo.gl/MSWKbg6itPispWpX9",
       description: "מפליגים בנהר עם איזה סירה קטנה מאוד נחמד ויפה",
       images: NINH_BINH_IMAGES.river,
     },
     {
-      type: "Attraction",
       name: "טיול אופניים התחיל איפשהו פה",
       googleMapLink: "https://maps.app.goo.gl/Czt8jWbmd621gqMq8",
       description: "סיבוב עם אופניים שם היה מאוד נחמד ונעים בנס",
       images: NINH_BINH_IMAGES.Cycle,
     },
     {
-      type: "Attraction",
       name: "Hang Múa",
       googleMapLink: "https://maps.app.goo.gl/PcU684Yiq5EHXNHY6",
       description: "נקודת תצפית נחמדה 500 מדרגות ואזור חמוד גם לסתם קפה למטה",

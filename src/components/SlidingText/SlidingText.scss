@@ -1,0 +1,21 @@
+.sliding-text-container {
+  width: 100%; /* Full width */
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+
+  .sliding-text {
+    display: inline-block;
+    animation: slideText 5s linear infinite alternate;
+    transform: translateX(100%); /* Start from the right */
+  }
+}
+
+@keyframes slideText {
+  0% {
+    transform: translateX(-100%); /* Start from the right */
+  }
+  100% {
+    transform: translateX(100%); /* Move fully to the left */
+  }
+}

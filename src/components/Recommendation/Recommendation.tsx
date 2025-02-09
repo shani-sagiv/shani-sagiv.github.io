@@ -14,14 +14,10 @@ interface RecommendationProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
-  const { from, to } =
-    recommendation.type === "Hotel" && recommendation.dates.length > 0
-      ? recommendation.dates[0]
-      : { from: undefined, to: undefined };
-  const hasNoData =
-    !recommendation.description && !recommendation.price && !from && !to;
-  return (
-    <>
+  let from: Date | undefined, to: Date | undefined;
+
+  const renderGoogleLink = () => {
+    return (
       <a
         style={{
           marginRight: 10,
@@ -46,13 +42,27 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
         />
         {recommendation.name}
       </a>
+    );
+  };
+
+  if ("dates" in recommendation && Array.isArray(recommendation.dates)) {
+    ({ from, to } = recommendation.dates[0] ?? {});
+  }
+  const hasNoData =
+    !recommendation.description && !recommendation.price && !from && !to;
+  return (
+    <div style={{ marginTop: "20px" }}>
+      {renderGoogleLink()}
 
       <div
         style={{
           display: "flex",
-          flexDirection: "row",
+          flexDirection: "column",
+          alignItems: "center",
+          width: "97vw",
+
           gap: 5,
-          margin: "5px 10px 10px 10px",
+          margin: "5px 1.5vw 10px 1.5vw",
         }}
       >
         <>
@@ -60,10 +70,9 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
             <ImageGallery
               style={{
                 float: "left",
-                margin: "0 10px",
                 overflow: "hidden",
-                height: !hasNoData ? 150 : 300,
-                width: !hasNoData ? 150 : "90vw",
+                height: 200,
+                width: "100%",
                 borderRadius: 8,
                 boxShadow: "0 0 15px 1px #6b6b6b",
               }}
@@ -73,7 +82,8 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
         </>
         <div
           className={"flex-column"}
-          style={{ display: !hasNoData ? "block" : "none" }}
+          style={{ width: "100%", textAlign: "right" }}
+          // style={{ display: !hasNoData ? "block" : "none" }}
         >
           {/*<div style={{fontSize: 20, fontWeight: "bold"}}>{hotel.name}</div>*/}
           <div style={{ marginRight: 10 }}>{recommendation.description}</div>
@@ -91,7 +101,7 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

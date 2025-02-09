@@ -14,7 +14,6 @@ export const HOI_AN: Destination = {
   hotels: [
     {
       name: "Aman Boutique Hotel",
-      type: "Hotel",
       dates: [{ from: createDate("11/06/2024"), to: createDate("13/06/2024") }],
       description:
         "מלון ממש ממוצע ובמיקום בסדר, לא ברור למה כל הישראלים כל כך עפים עליו. היה ישראליאדה מדי, לא ממליצים",
@@ -22,7 +21,6 @@ export const HOI_AN: Destination = {
     },
     {
       name: "HUNG DO BEACH HOMESTAY",
-      type: "Hotel",
       dates: [{ from: createDate("13/06/2024"), to: createDate("07/07/2024") }],
       description:
         "הום סטיי של משפחה מהממת, החדרים גדולים ונקיים, המשפחה ממש חמודה ועוזרת במה שצריך. 2 דקות הליכה לחוף ויש בריכה קטנה וכייפית. נהננו ממש ובטוח נחזור!! מומלץ ברמות.",
@@ -33,7 +31,6 @@ export const HOI_AN: Destination = {
   ],
   foods: [
     {
-      type: "Restaurant",
       name: "Tree Coconut Beach Restaurant",
       description:
         "מסעדה על החוף שישבנו בה כל יום!!! יש לו תמיד פירות טריים וקוקוסים מושלמים. אכלנו גם הרבה פעמים צהריים/ערב, ממליצים מאוד על דגים או פירות ים כי הכל טרי טרי והוא דג בעצמו חלק מהדברים. מומלץ ממש!",
@@ -43,14 +40,12 @@ export const HOI_AN: Destination = {
   ],
   attractions: [
     {
-      type: "Attraction",
       name: "העיר העתיקה בלילה",
       description:
         "העיר העתיקה בלילה מלא בחיים, מלא דוכני אוכל ודוכני קניות. פשוט להסתובב ברגל ולהנות. בכל הברים יש האפי האוור!!",
       images: HOI_AN_IMAGES.nightWalk,
     },
     {
-      type: "Attraction",
       name: "חוף ים",
       description:
         "אנחנו ממש אהבנו את החוף שליד איפה שישנו, הלכנו כ ל יום לחוף. האוכל שתייה והפירות במסעדות בחוף מאוד זולים ולרוב אפילו יותר זולים מהמחירים של המסעדות ברחוב הראשי!!! ממש ממליצים על המסעדה Tree Coconut Beach Restaurant שנמצאת על החוף. הכיסאות בחינם אם קונים שתייה/אוכל :)",
@@ -58,7 +53,6 @@ export const HOI_AN: Destination = {
       googleMapLink: "https://maps.app.goo.gl/ZUacsEc3nBWSCsJc7",
     },
     {
-      type: "Attraction",
       name: "Ba Na Hills",
       description:
         "כולם טועים וחושבים שמדובר רק בגשר ידיים. זה פארק ענקי ומפואר, נופים מטורפים ומלא לראות. אנחנו נהננו מאוד וממליצים לא לפספס! הפארק מאוד עמוס ויש המוני מבקרים כל יום. אני ממליצה לקחת סיור עם מדריך, זה לא מייקר משמעותית אבל המדריכים יודעים לאן לקחת אתכם כדי שלא תעמדו בתורים! אנחנו סגרנו סיור עם קבוצה ומדריך דרך המקום שישנו, אפשר לסגור דרך כל סוכנות טיולים.",
@@ -66,7 +60,6 @@ export const HOI_AN: Destination = {
       googleMapLink: "https://maps.app.goo.gl/pHtuh3VRcCf6xjXp6",
     },
     {
-      type: "Attraction",
       name: "Mỹ Sơn",
       description:
         "אתר שיש בו שרידים עתיקים של מקדשים. אנחנו סגרנו דרך המלון טיול למי-סון ושייט חזרה לעיר בסירה על הנהר. היה ממש יפה ומעניין!",
@@ -75,7 +68,6 @@ export const HOI_AN: Destination = {
     },
 
     {
-      type: "Attraction",
       name: "VinWonders",
       description:
         "פארק מטורף!! יש בו פארק מים +נלונהפארק + ספארי +עיא ויאטנמית. ממליצים להגיע בפתיחה ולהשאר עד המופעים שיש בסגירה!! נהננו ממש ממש",
@@ -86,7 +78,6 @@ export const HOI_AN: Destination = {
   ],
   nightlife: [
     {
-      type: "NightLife",
       name: "Double Cat Bar Hoi An",
       description:
         "בר ממש חמוד שיש בו מלא פנסיונרים בריטיים. באנו לשם ערב אחד והתחברנו איתם ומאז באנו שוב כל ערב כדילשבת עם החברים. הבעלים של המקום חמוד ממש והקוקטיילים מצויינים!",

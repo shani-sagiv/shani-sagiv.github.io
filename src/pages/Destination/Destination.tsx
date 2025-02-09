@@ -40,6 +40,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     displayName,
     attractionsGroups = [],
     hotels = [],
+    kids = [],
     foods = [],
     description,
     attractions = [],
@@ -100,6 +101,11 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
         content: generateContent(attractions, "attraction"),
       },
       {
+        title: "חמודים",
+        tabTitle: <h1>👶🏻</h1>,
+        content: generateContent(kids, "kids"),
+      },
+      {
         title: "חיי לילה",
         tabTitle: <h1>🕺</h1>,
         content: generateContent(nightlife, "nightlife"),
@@ -108,11 +114,26 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
 
     return sections.filter((section) => section.content.length > 0);
   };
+  const getImageGallery = (items: any) => {
+    return (
+      <ImageGallery
+        style={{
+          float: "left",
+          overflow: "hidden",
+          height: 250,
+          width: "100%",
+          borderRadius: 8,
+          boxShadow: "0 0 15px 1px #6b6b6b",
+        }}
+        images={items}
+      />
+    );
+  };
 
   const getInfo = () => {
     const createImageGallery = (items: string[], title: string) => ({
       title,
-      content: <ImageGallery style={{ width: "95%" }} images={items} />,
+      content: getImageGallery(items),
     });
 
     const createLinksContent = (links: string[]) =>
@@ -155,7 +176,9 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
               {createWhatsAppLinksContent(r.phones)} <br />
             </>
           )}
-          {r.images && <ImageGallery images={r.images} />}
+          {r.images && (
+            <div style={{ marginTop: 5 }}>{getImageGallery(r.images)}</div>
+          )}
         </div>
       ),
     });
@@ -184,11 +207,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
             >
               <h2>{i.name}</h2>
               <span style={{ marginBottom: 10 }}>
-                {i.images && (
-                  // <div style={{ width: "40vw" }}>
-                  <ImageGallery images={i.images} />
-                  // </div>
-                )}
+                {i.images && <ImageGallery images={i.images} />}
               </span>
               <span style={{}}>{i.description}</span>
             </div>

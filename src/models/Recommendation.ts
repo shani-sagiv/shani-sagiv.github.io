@@ -7,7 +7,7 @@ export type RecommendationType =
 
 export interface Recommendation {
   name: string;
-  type: RecommendationType;
+  // type: RecommendationType;
   description: string;
   images?: string[];
   imagesPath?: string;
@@ -17,25 +17,17 @@ export interface Recommendation {
 
 export interface HotelRecommendation extends Recommendation {
   dates: { from: Date; to: Date }[];
-  type: "Hotel";
 }
-export interface RestaurantRecommendation extends Recommendation {
-  type: "Restaurant";
-}
-export interface AttractionRecommendation extends Recommendation {
-  type: "Attraction";
-}
+export interface RestaurantRecommendation extends Recommendation {}
+export interface AttractionRecommendation extends Recommendation {}
+export interface KidsRecommendation extends Recommendation {}
 export interface AttractionGroupRecommendation {
-  type: "AttractionGroup";
   name: string;
   description: string;
   attractions: AttractionRecommendation[];
 }
-export interface NightLifeRecommendation extends Recommendation {
-  type: "NightLife";
-}
+export interface NightLifeRecommendation extends Recommendation {}
 export interface InfoRecommendation extends Recommendation {
-  type: "Info";
   links?: string[];
   phones?: string[];
 }
