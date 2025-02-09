@@ -3,6 +3,7 @@ import { AttractionRecommendation, Country, Destination } from "models/index";
 import profileImg from "./profile.jpeg";
 import { SIEM_REAP } from "./SiemReap";
 import { KOH_RONG } from "./KohRong";
+import { KOH_RONG_SANLOEM } from "./KohRongSanloem";
 
 export const CAMBODIA: Country = {
   id: "CAMBODIA",
@@ -16,4 +17,4 @@ export const CAMBODIA: Country = {
   profileImg: profileImg,
 };
 
-export const CAMBODIA_DESTINATION = [SIEM_REAP, KOH_RONG];
+export const CAMBODIA_DESTINATION = [SIEM_REAP, KOH_RONG, KOH_RONG_SANLOEM];

@@ -1,5 +1,5 @@
 import { importAll } from "helpers/imagesHelpers";
-import profile from "./profile.jpeg";
+import profile from "./profile_compressed.jpeg";
 
 export const general = importAll(
   require.context("./general", false, /\.(png|jpe?g|svg)$/),

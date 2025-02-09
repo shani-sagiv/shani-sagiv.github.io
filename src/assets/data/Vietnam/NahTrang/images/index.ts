@@ -1,4 +1,4 @@
-import profileImg from "./profile.jpeg";
+import profileImg from "./profile_compressed.jpeg";
 import { importAll_NEW } from "helpers/imagesHelpers";
 
 // Automatically import all images based on folder names

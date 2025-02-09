@@ -1,6 +1,6 @@
 import { createDate } from "helpers/dateHelpers";
 import { Country, Destination } from "models";
-import profile from "assets/img/Cyprus/profile.jpeg";
+import profile from "assets/img/Cyprus/profile_compressed.jpeg";
 import {
   LARNACA_IMAGES,
   LIMASSOL_IMAGES,

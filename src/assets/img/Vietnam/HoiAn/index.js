@@ -1,6 +1,6 @@
 // import main from "./main.jpeg";
 import { importAll } from "helpers/imagesHelpers";
-import profile from "./profile.png";
+import profile from "./profile_compressed.png";
 
 export const nightWalk = importAll(
   require.context("./night-walk", false, /\.(png|jpe?g|svg)$/),

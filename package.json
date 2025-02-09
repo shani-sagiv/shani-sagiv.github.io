@@ -66,6 +66,7 @@
     "plop": "^4.0.1",
     "prettier": "^3.3.3",
     "sass": "^1.78.0",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "workbox-webpack-plugin": "^7.3.0"
   }
 }

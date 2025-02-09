@@ -17,7 +17,6 @@ import {
 } from "helpers/dateHelpers";
 import { useNavigate } from "react-router-dom";
 import Card from "../../components/Card/Card";
-import MapComponent from "../../test";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
 

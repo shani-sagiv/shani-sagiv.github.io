@@ -18,6 +18,8 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
     recommendation.type === "Hotel" && recommendation.dates.length > 0
       ? recommendation.dates[0]
       : { from: undefined, to: undefined };
+  const hasNoData =
+    !recommendation.description && !recommendation.price && !from && !to;
   return (
     <>
       <a
@@ -34,7 +36,14 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
         href={recommendation.googleMapLink}
         target={"_blank"}
       >
-        <img src={linkImgSrc} style={{ height: "20px", marginLeft: 10 }} />
+        <img
+          src={linkImgSrc}
+          style={{
+            height: "20px",
+            marginLeft: 10,
+            display: recommendation.googleMapLink ? "flex" : "none",
+          }}
+        />
         {recommendation.name}
       </a>
 
@@ -46,21 +55,26 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
           margin: "5px 10px 10px 10px",
         }}
       >
-        <span>
+        <>
           {!hasImages(recommendation.images) ? null : (
             <ImageGallery
               style={{
                 float: "left",
                 margin: "0 10px",
-                height: 150,
                 overflow: "hidden",
-                width: 150,
+                height: !hasNoData ? 150 : 300,
+                width: !hasNoData ? 150 : "90vw",
+                borderRadius: 8,
+                boxShadow: "0 0 15px 1px #6b6b6b",
               }}
               images={recommendation.images!.map((i) => ({ original: i }))}
             />
           )}
-        </span>
-        <div className={"flex-column"}>
+        </>
+        <div
+          className={"flex-column"}
+          style={{ display: !hasNoData ? "block" : "none" }}
+        >
           {/*<div style={{fontSize: 20, fontWeight: "bold"}}>{hotel.name}</div>*/}
           <div style={{ marginRight: 10 }}>{recommendation.description}</div>
           <div style={{ marginRight: 10 }}>{recommendation.price}</div>

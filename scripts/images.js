@@ -2,7 +2,7 @@ const fs = require("fs-extra");
 const path = require("path");
 const sharp = require("sharp");
 
-const assetsDir = path.join(__dirname, "../src", "assets/data/Cambodia");
+const assetsDir = path.join(__dirname, "../src", "assets/data");
 const supportedFormats = [".jpg", ".jpeg", ".png"]; // Supported formats only
 const suffix = "_compressed"; // Suffix for compressed files
 const MAX_FILE_SIZE = 1 * 1024 * 1024; // Maximum file size in bytes (1MB)
@@ -38,16 +38,16 @@ const compressImage = async (filePath) => {
   const dirName = path.dirname(filePath);
 
   // Skip already compressed or excluded files
-  if (
-    // baseName.includes(suffix) ||
-    baseName.includes("profile") ||
-    baseName.includes("Profile") ||
-    baseName.includes("main") ||
-    baseName.includes("Main")
-  ) {
-    console.log(`Skipping: ${filePath} (already compressed or excluded)`);
-    return;
-  }
+  // if (
+  //   // baseName.includes(suffix) ||
+  //   baseName.includes("profile") ||
+  //   baseName.includes("Profile") ||
+  //   baseName.includes("main") ||
+  //   baseName.includes("Main")
+  // ) {
+  //   console.log(`Skipping: ${filePath} (already compressed or excluded)`);
+  //   return;
+  // }
 
   if (!supportedFormats.includes(ext)) {
     console.log(`Skipping unsupported format: ${filePath}`);
