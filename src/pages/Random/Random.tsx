@@ -37,7 +37,7 @@ const Random: React.FC<HomePageProps> = ({}) => {
 
   React.useEffect(() => {
     LoadAllOptionsData();
-  }, []);
+  }, [LoadAllOptionsData]);
 
   function LoadAllOptionsData() {
     setSelectedAttr(null);

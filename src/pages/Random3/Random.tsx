@@ -52,7 +52,7 @@ const Random: React.FC<HomePageProps> = ({}) => {
 
   React.useEffect(() => {
     LoadAllOptionsData();
-  }, []);
+  }, [LoadAllOptionsData]);
   const reset = () => {
     setDestinationAnswered(false);
     setFailedIndexes([]);
