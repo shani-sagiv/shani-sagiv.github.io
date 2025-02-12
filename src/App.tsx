@@ -5,6 +5,7 @@ import { BrowserRouter, HashRouter } from "react-router-dom";
 import InnerRoutes from "./Routes";
 import ReactGA from "react-ga4";
 import { Analytics } from "@vercel/analytics/react";
+
 function App() {
   React.useEffect(() => {
     // Initialize GA with your Measurement ID

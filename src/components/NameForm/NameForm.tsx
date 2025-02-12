@@ -29,7 +29,11 @@ const NameForm: React.FC<NameFormProps> = () => {
       );
     }
     return (
-      <div style={{ fontSize: "35px", fontWeight: "bold" }}>מה השם שלך?</div>
+      <div
+        style={{ fontSize: "35px", fontWeight: "bold", textAlign: "center" }}
+      >
+        תרשמו בבקשה את השם כדאי שנדע מי אתם ❤️
+      </div>
     );
   };
 

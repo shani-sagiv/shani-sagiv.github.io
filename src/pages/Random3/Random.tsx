@@ -1,26 +1,11 @@
 import React, { useState } from "react";
 import { COUNTRIES } from "../../Routes";
 import "./Random.scss";
-import {
-  AllRecommendationTypes,
-  AttractionGroupRecommendation,
-  AttractionRecommendation,
-  HotelRecommendation,
-  Info,
-  InfoRecommendation,
-  KidsRecommendation,
-  NightLifeRecommendation,
-  Recommendation,
-  RestaurantRecommendation,
-} from "models";
+
 import { getNameToDisplay, getRandomNumbers } from "helpers/dateHelpers";
 import classnames from "classnames";
 import { Button } from "components/Button";
-import {
-  getAggregateLocations,
-  sortAllDestinationsByDate,
-  sortDestinationsByDate,
-} from "../../helpers/locations.helpers";
+import SpinText from "../../spinText/SpinText";
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 type imagesOptions = {
@@ -31,8 +16,6 @@ type imagesOptions = {
 };
 
 const Random: React.FC<HomePageProps> = ({}) => {
-  console.log("HERE");
-  // console.log(sortAllDestinationsByDate());
   const optionsCount = 5;
   const [optionsWithImages, setOptionsWithImages] = useState<
     imagesOptions[] | null
@@ -55,6 +38,7 @@ const Random: React.FC<HomePageProps> = ({}) => {
   }, []);
   const reset = () => {
     setDestinationAnswered(false);
+    setOptionsWithImages(null);
     setFailedIndexes([]);
   };
 
@@ -78,7 +62,8 @@ const Random: React.FC<HomePageProps> = ({}) => {
     let dests: string[] = [];
     COUNTRIES.forEach((country) => {
       country.destinations?.forEach((destination: any) => {
-        const destName: string = getNameToDisplay(destination.displayName);
+        // const destName: string = getNameToDisplay(destination.displayName);
+        const destName: string = `${destination.displayName.hebrew}`;
         dests.push(destName);
         const options = [
           "hotels",
@@ -90,7 +75,7 @@ const Random: React.FC<HomePageProps> = ({}) => {
         ];
         options.forEach((key) => {
           destination[key]?.forEach((single: any) => {
-            handleAttraction(single.images, destName, key);
+            handleAttraction(single.images, destName, single?.name);
           });
         });
         handleAttraction(destination?.images, destName, "images");
@@ -180,17 +165,19 @@ const Random: React.FC<HomePageProps> = ({}) => {
           paddingBottom: 10,
         }}
       />
-      <div style={{ height: "30px", overflow: "hidden" }}>
-        {answerIndex && (
-          <>
-            {destinationAnswered && (
-              <div>
-                {answer.countryName} {answer.key}
-              </div>
-            )}
-          </>
-        )}
-      </div>
+      {/*<div style={{ height: "60px" }}>*/}
+      {answerIndex && (
+        <>
+          {destinationAnswered && (
+            <h2 style={{ margin: 0 }}>
+              {answer.countryName}
+              <br />
+              {answer.key}
+            </h2>
+          )}
+        </>
+      )}
+      {/*</div>*/}
       {!destinationAnswered ? (
         <div
           className={"flex-row"}
@@ -202,7 +189,7 @@ const Random: React.FC<HomePageProps> = ({}) => {
           {renderOptions()}
         </div>
       ) : (
-        <h1>היידה</h1>
+        <SpinText />
       )}
 
       <Button onClick={() => LoadAllOptionsData()}>רענון</Button>

@@ -9,13 +9,15 @@
   align-items: center;
 }
 .option {
-  background-color: rgba(50,200,50, 0.5);
+  background-color: rgba(white, 0.7);
+  font-size: 1.3em;
   margin: 10px 5px;
+  border-radius: 15px;
   padding: 8px;
   border: 1px solid black;
   flex: 0 0 calc(50% - 50px);
   text-align: center;
-  box-shadow: 2px 3px 6px 0px #0000009e;
+  box-shadow: none ;
   &.wrong {
     color: red;
     animation: linear 0.2s wrong-animation;
