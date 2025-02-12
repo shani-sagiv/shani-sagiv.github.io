@@ -22,7 +22,7 @@ import {
   Country as CountryModel,
   Destination as DestinationModel,
 } from "models";
-import { Country, Destination, Random } from "pages";
+import { Country, Destination, Random, RandomCountry } from "pages";
 import { BreadcrumbNavigation } from "components";
 import { CYPRUS, LARNACA, LIMASSOL, PAPHOS, VASA } from "./assets/data/Cyprus";
 import { logUserAction } from "./helpers/logs.helpers";
@@ -33,7 +33,6 @@ import {
   CAMBODIA_DESTINATION,
 } from "./assets/data/Cambodia/Cambodia";
 import DataPage from "pages/DataPage/DataPage";
-import Semental from "pages/Semental/Semental";
 
 export const COUNTRIES: {
   country: CountryModel;
@@ -160,6 +159,7 @@ function InnerRoutes() {
       <Routes>
         <Route path={"/login"} element={<NameForm />} />
         <Route path={"/random"} element={<Random />} />
+        <Route path={"/RandomCountry"} element={<RandomCountry />} />
         <Route path={"/data"} element={<DataPage />} />
         {/*<Route path={"/semental"} element={<Semental />} />*/}
 

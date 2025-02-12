@@ -140,7 +140,8 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         className={"flex-column flex-center"}
         style={{ gap: 20, width: "100%" }}
       >
-        <Button onClick={() => navigate(`/random`)}>נחש את התמונה</Button>
+        <Button onClick={() => navigate(`/random`)}>נחש את המידע</Button>
+        <Button onClick={() => navigate(`/RandomCountry`)}>נחש את המקום</Button>
         <Button onClick={() => navigate(`/data`)}>מידע</Button>
       </div>
     </div>
