@@ -16,7 +16,15 @@ type imagesOptions = {
 };
 
 const Random: React.FC<HomePageProps> = ({}) => {
-  const optionsCount = 5;
+  const optionsCount = 7;
+  const destinationsOptions = [
+    "hotels",
+    "foods",
+    "attractions",
+    "kids",
+    "nightlife",
+    "gold_recommendation",
+  ];
   const [optionsWithImages, setOptionsWithImages] = useState<
     imagesOptions[] | null
   >(null);
@@ -27,6 +35,7 @@ const Random: React.FC<HomePageProps> = ({}) => {
   const [failedIndexes, setFailedIndexes] = useState<number[]>([]);
   const [answerIndex, setAnswerIndex] = useState<null | number>(null);
   const [shuffledIndexes, setShuffledIndexes] = useState<null | number[]>(null);
+  const [dests, steDests] = useState<string[]>([]);
 
   const answer: imagesOptions | null =
     optionsWithImages && answerIndex ? optionsWithImages[answerIndex] : null;
@@ -38,7 +47,8 @@ const Random: React.FC<HomePageProps> = ({}) => {
   }, []);
   const reset = () => {
     setDestinationAnswered(false);
-    setOptionsWithImages(null);
+    setAnswerIndex(null);
+    // setOptionsWithImages(null);
     setFailedIndexes([]);
   };
 
@@ -59,21 +69,14 @@ const Random: React.FC<HomePageProps> = ({}) => {
         });
       }
     }
-    let dests: string[] = [];
+    let temp_dests: string[] = [];
     COUNTRIES.forEach((country) => {
       country.destinations?.forEach((destination: any) => {
         // const destName: string = getNameToDisplay(destination.displayName);
         const destName: string = `${destination.displayName.hebrew}`;
-        dests.push(destName);
-        const options = [
-          "hotels",
-          "foods",
-          "attractions",
-          "kids",
-          "nightlife",
-          "gold_recommendation",
-        ];
-        options.forEach((key) => {
+        temp_dests.push(destName);
+
+        destinationsOptions.forEach((key) => {
           destination[key]?.forEach((single: any) => {
             handleAttraction(single.images, destName, single?.name);
           });
@@ -100,16 +103,18 @@ const Random: React.FC<HomePageProps> = ({}) => {
     setShuffledIndexes(
       [...randomIndexes, randomPickId].sort(() => Math.random() - 0.5),
     );
-    dests = dests.filter(
+    steDests(temp_dests);
+
+    temp_dests = temp_dests.filter(
       (d) => d !== optionsWithImagesTemp[randomPickId].countryName,
     );
 
     const randomDestIndexes: number[] = getRandomNumbers(
-      dests.length - 1,
+      temp_dests.length - 1,
       optionsCount,
     );
     const shuffledDestinations = [
-      ...randomDestIndexes.map((i) => dests[i]),
+      ...randomDestIndexes.map((i) => temp_dests[i]),
       currentAnswer.countryName,
     ].sort(() => Math.random() - 0.5);
     setRandomDestinations(shuffledDestinations);
@@ -117,6 +122,37 @@ const Random: React.FC<HomePageProps> = ({}) => {
       Math.floor(Math.random() * currentAnswer.images.length),
     );
   }
+
+  const refresh = () => {
+    reset();
+    console.log({ optionsWithImages });
+    if (!optionsWithImages) {
+      return;
+    }
+    const randomIndexes: number[] = getRandomNumbers(
+      optionsWithImages.length - 1,
+      optionsCount + 1,
+    );
+    // @ts-ignore
+    const randomPickId: number = randomIndexes.pop();
+    const currentAnswer = optionsWithImages[randomPickId];
+    setAnswerIndex(randomPickId);
+    let temp_dests = dests.filter(
+      (d) => d !== optionsWithImages[randomPickId].countryName,
+    );
+    const randomDestIndexes: number[] = getRandomNumbers(
+      temp_dests.length - 1,
+      optionsCount,
+    );
+    const shuffledDestinations = [
+      ...randomDestIndexes.map((i) => temp_dests[i]),
+      currentAnswer.countryName,
+    ].sort(() => Math.random() - 0.5);
+    setRandomDestinations(shuffledDestinations);
+    setAnswerImageIndex(
+      Math.floor(Math.random() * currentAnswer.images.length),
+    );
+  };
 
   const renderOptions = () => {
     if (!optionsWithImages) {
@@ -192,7 +228,7 @@ const Random: React.FC<HomePageProps> = ({}) => {
         <SpinText />
       )}
 
-      <Button onClick={() => LoadAllOptionsData()}>רענון</Button>
+      <Button onClick={() => refresh()}>רענון</Button>
     </div>
   );
 };

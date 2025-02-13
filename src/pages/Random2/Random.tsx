@@ -66,7 +66,7 @@ const Random: React.FC<HomePageProps> = ({}) => {
 
     COUNTRIES.forEach((country) => {
       country.destinations?.forEach((destination: any) => {
-        const destName: string = getNameToDisplay(destination.displayName);
+        const destName: string = destination.displayName.hebrew;
         dests.push(destName);
         destination.hotels?.forEach((hotel: HotelRecommendation) =>
           handleAttraction(hotel, destName),
