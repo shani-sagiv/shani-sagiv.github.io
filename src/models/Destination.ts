@@ -28,6 +28,7 @@ export interface Destination {
   gold_recommendation?: InfoRecommendation[];
   images?: string[];
   moreInfo?: Info[];
+  additionalCode?: React.ReactNode;
 }
 
 export interface Info {

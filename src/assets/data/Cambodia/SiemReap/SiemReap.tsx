@@ -1,6 +1,8 @@
 import { Destination, Info } from "models/Destination";
 import IMAGES from "./images";
 import { createDate } from "helpers/dateHelpers";
+import React from "react";
+import SiemReapMap from "../../../../siemReapMap";
 
 export const SIEM_REAP: Destination = {
   id: "SIEM_REAP",
@@ -198,6 +200,13 @@ export const SIEM_REAP: Destination = {
       images: IMAGES.Naga,
     },
   ],
+  additionalCode: (
+    <div style={{ height: 500, width: "100vw" }}>
+      <h1 style={{ margin: 0 }}>מפה של המקדשים</h1>
+      <h3 style={{ margin: 0, marginBottom: 10 }}>איזה יפים הם על המפה</h3>
+      <SiemReapMap />
+    </div>
+  ),
 };
 
 // {

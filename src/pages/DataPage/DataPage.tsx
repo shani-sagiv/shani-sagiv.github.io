@@ -3,7 +3,7 @@ import "./DataPage.scss";
 import { sortAllDestinationsByDate } from "helpers/locations.helpers";
 import LocationsWithDates from "components/locationsWithDates/LocationsWithDates";
 import SimpleMap from "components/SimpleMap/SimpleMap";
-import MapComponent from "../../test";
+// import MapComponent from "../../siemReapMap";
 import { Button } from "components/Button";
 import { useNavigate } from "react-router-dom";
 
@@ -18,7 +18,7 @@ const DataPage: React.FC<DataProps> = ({}) => {
       <LocationsWithDates locations={locationsByDate} />
       {/*<Button onClick={() => navigate(`/semental`)}>סמנטעל</Button>*/}
 
-      <MapComponent />
+      {/*<MapComponent />*/}
       <SimpleMap />
     </div>
   );

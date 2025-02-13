@@ -1,0 +1,1 @@
+export { KAMPOT } from './Kampot';

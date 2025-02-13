@@ -21,7 +21,7 @@ export const KOH_RONG_SANLOEM: Destination = {
     },
     {
       name: "Mpay Bay Guest House",
-      dates: [{ from: createDate("01/02/2025"), to: createDate("13/02/2025") }],
+      dates: [{ from: createDate("01/02/2025"), to: createDate("11/02/2025") }],
       description: "וואו וואו אמאלה ואבאלה",
       price: "40 דולר ללילה",
       googleMapLink: "https://maps.app.goo.gl/z5yurKyDFZURRXGm6",
@@ -29,7 +29,14 @@ export const KOH_RONG_SANLOEM: Destination = {
     },
   ],
   foods: [],
-  attractions: [],
+  attractions: [
+    {
+      name: "View Point Bar and Restaurant",
+      description: "התנדנדנו כיף",
+      googleMapLink: "https://maps.app.goo.gl/5zZX8NAgfi3hbSuN7",
+      images: IMAGES.ViewPoint,
+    },
+  ],
   kids: [
     {
       name: "התעוררה",

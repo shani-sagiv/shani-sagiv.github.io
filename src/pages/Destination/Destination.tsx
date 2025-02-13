@@ -50,7 +50,9 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     profileImg,
     gold_recommendation = [],
     moreInfo = [],
+    additionalCode = null,
   } = dest;
+  console.log({ additionalCode });
   const generateContent = (
     items: AllRecommendationTypes[],
     keyPrefix: string,
@@ -281,6 +283,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
       </div>
       <Collapsibles items={getInfo()} />
       <StickyHeaderScroll items={getActivities()} />
+      {additionalCode}
     </div>
   );
 };

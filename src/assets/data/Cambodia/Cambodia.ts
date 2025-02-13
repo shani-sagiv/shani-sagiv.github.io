@@ -4,6 +4,7 @@ import profileImg from "./profile.jpeg";
 import { SIEM_REAP } from "./SiemReap";
 import { KOH_RONG } from "./KohRong";
 import { KOH_RONG_SANLOEM } from "./KohRongSanloem";
+import { KAMPOT } from "./Kampot";
 
 export const CAMBODIA: Country = {
   id: "CAMBODIA",
@@ -17,4 +18,9 @@ export const CAMBODIA: Country = {
   profileImg: profileImg,
 };
 
-export const CAMBODIA_DESTINATION = [SIEM_REAP, KOH_RONG, KOH_RONG_SANLOEM];
+export const CAMBODIA_DESTINATION = [
+  SIEM_REAP,
+  KOH_RONG,
+  KOH_RONG_SANLOEM,
+  KAMPOT,
+];

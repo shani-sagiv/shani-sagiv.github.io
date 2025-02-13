@@ -104,7 +104,7 @@ const createCustomDivIcon = (
   });
 };
 
-const MapComponent = () => {
+const SiemReapMap = () => {
   return (
     <MapContainer
       center={[13.4125, 103.8967]}
@@ -136,4 +136,4 @@ const MapComponent = () => {
   );
 };
 
-export default MapComponent;
+export default SiemReapMap;
