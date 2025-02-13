@@ -203,7 +203,8 @@ export const SIEM_REAP: Destination = {
   additionalCode: (
     <div style={{ height: 500, width: "100vw" }}>
       <h1 style={{ margin: 0 }}>מפה של המקדשים</h1>
-      <h3 style={{ margin: 0, marginBottom: 10 }}>איזה יפים הם על המפה</h3>
+
+      <h3 style={{ margin: 0, marginBottom: 10 }}> איזה יפים הם על המפה</h3>
       <SiemReapMap />
     </div>
   ),
