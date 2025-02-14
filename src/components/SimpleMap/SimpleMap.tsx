@@ -42,6 +42,9 @@ const placeCoordinates: Record<string, [number, number]> = {
   MUI_NE: [10.9466, 108.2769],
   NAH_TRANG: [12.2388, 109.1967],
   SIEM_REAP: [13.3622, 103.8597],
+  KOH_RONG: [10.7157, 103.2342],
+  KOH_RONG_SANLOEM: [10.5994, 103.2955],
+  KAMPOT: [10.6104, 104.181],
 };
 
 // Custom React component for the marker icon
@@ -121,6 +124,7 @@ const SimpleMap: React.FC = () => {
   const initialPosition: [number, number] = placeCoordinates["BANGKOK"];
   const navigate = useNavigate();
 
+  console.log(locationData.map(({ id }) => id));
   // Extract LatLng pairs for Polyline and create markers
   const polylinePositions = locationData
     .map((location) => placeCoordinates[location.id])
