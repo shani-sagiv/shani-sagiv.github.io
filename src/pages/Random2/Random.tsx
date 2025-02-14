@@ -125,6 +125,8 @@ const Random: React.FC<HomePageProps> = ({}) => {
         setDestinationAnswered(true);
       } else if (!nameAnswered) {
         setNameAnswered(true);
+        // todo: REMOVE
+        setDescriptionAnswered(true);
       } else if (!descriptionAnswered) {
         setDescriptionAnswered(true);
       }

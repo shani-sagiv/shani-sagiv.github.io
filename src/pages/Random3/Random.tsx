@@ -25,27 +25,30 @@ const Random: React.FC<HomePageProps> = ({}) => {
     "nightlife",
     "gold_recommendation",
   ];
+
   const [optionsWithImages, setOptionsWithImages] = useState<
     imagesOptions[] | null
   >(null);
-  const [answerImageIndex, setAnswerImageIndex] = useState<number>(0);
 
+  const [dests, steDests] = useState<string[]>([]);
   const [randomDestinations, setRandomDestinations] = useState<string[]>([]);
 
-  const [failedIndexes, setFailedIndexes] = useState<number[]>([]);
+  const [answerImageIndex, setAnswerImageIndex] = useState<number>(0);
   const [answerIndex, setAnswerIndex] = useState<null | number>(null);
-  const [shuffledIndexes, setShuffledIndexes] = useState<null | number[]>(null);
-  const [dests, steDests] = useState<string[]>([]);
-
   const answer: imagesOptions | null =
     optionsWithImages && answerIndex ? optionsWithImages[answerIndex] : null;
 
   const [destinationAnswered, setDestinationAnswered] = useState(false);
+  const [allAnswered, setAllAnswered] = useState<boolean>(false);
+
+  const [failedIndexes, setFailedIndexes] = useState<number[]>([]);
 
   React.useEffect(() => {
     LoadAllOptionsData();
   }, []);
+
   const reset = () => {
+    setAllAnswered(false);
     setDestinationAnswered(false);
     setAnswerIndex(null);
     // setOptionsWithImages(null);
@@ -100,9 +103,7 @@ const Random: React.FC<HomePageProps> = ({}) => {
     const currentAnswer = optionsWithImagesTemp[randomPickId];
     setOptionsWithImages(optionsWithImagesTemp);
     setAnswerIndex(randomPickId);
-    setShuffledIndexes(
-      [...randomIndexes, randomPickId].sort(() => Math.random() - 0.5),
-    );
+
     steDests(temp_dests);
 
     temp_dests = temp_dests.filter(
@@ -125,7 +126,6 @@ const Random: React.FC<HomePageProps> = ({}) => {
 
   const refresh = () => {
     reset();
-    console.log({ optionsWithImages });
     if (!optionsWithImages) {
       return;
     }
@@ -163,45 +163,45 @@ const Random: React.FC<HomePageProps> = ({}) => {
       if (!destinationAnswered) {
         setDestinationAnswered(true);
       }
+      setAllAnswered(true);
     };
 
     const onWrongOptionClick = (i: number) => {
       setFailedIndexes([...failedIndexes, i]);
     };
 
-    return randomDestinations.map((dest, i) => (
-      <div
-        className={classnames("option", { wrong: failedIndexes.includes(i) })}
-        onClick={() => {
-          // @ts-ignore
-          dest === optionsWithImages[answerIndex].countryName
-            ? onCorrectOptionClick()
-            : onWrongOptionClick(i);
-        }}
-      >
-        {dest}
-      </div>
-    ));
+    return (!destinationAnswered ? randomDestinations : randomDestinations).map(
+      (dest, i) => (
+        <div
+          className={classnames("option", { wrong: failedIndexes.includes(i) })}
+          onClick={() => {
+            // @ts-ignore
+            dest === optionsWithImages[answerIndex].countryName
+              ? onCorrectOptionClick()
+              : onWrongOptionClick(i);
+          }}
+        >
+          {dest}
+        </div>
+      ),
+    );
   };
 
   if (!optionsWithImages || !answer) {
     return null;
   }
-
   return (
     <div className={"random-image"}>
-      {/*<span style={{ height: "60vh", width: "100%" }}>*/}
       <img
         src={answer.images[answerImageIndex]}
         style={{
-          maxHeight: "60vh",
+          height: "60vh",
           // height: "60vh",
           width: "100%",
           objectFit: "cover",
           paddingBottom: 10,
         }}
       />
-      {/*<div style={{ height: "60px" }}>*/}
       {answerIndex && (
         <>
           {destinationAnswered && (
@@ -213,8 +213,7 @@ const Random: React.FC<HomePageProps> = ({}) => {
           )}
         </>
       )}
-      {/*</div>*/}
-      {!destinationAnswered ? (
+      {!allAnswered ? (
         <div
           className={"flex-row"}
           style={{

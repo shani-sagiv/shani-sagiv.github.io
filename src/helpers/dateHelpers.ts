@@ -97,7 +97,6 @@ export function parseDate(date: Date, hideYear = false): string | null {
 }
 
 export function getRandomNumbers(maxNumber: number, count: number): number[] {
-  console.log({ maxNumber, count });
   const numbers: Set<number> = new Set();
 
   while (numbers.size < count) {
