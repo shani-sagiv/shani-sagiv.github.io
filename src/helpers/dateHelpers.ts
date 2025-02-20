@@ -105,3 +105,16 @@ export function getRandomNumbers(maxNumber: number, count: number): number[] {
   }
   return Array.from(numbers);
 }
+
+export const mergeDates = (allDates: { from: Date; to: Date }[]) => {
+  const mergedDates: { from: Date; to: Date }[] = [];
+  allDates.forEach((date) => {
+    const last = mergedDates[mergedDates.length - 1];
+    if (last && calculateDaysBetweenDates(last.to, date.from) == 0) {
+      last.to = date.to; // מאחד טווחים רציפים
+    } else {
+      mergedDates.push({ ...date });
+    }
+  });
+  return mergedDates;
+};

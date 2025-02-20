@@ -20,7 +20,20 @@ export const KAMPOT: Destination = {
     },
   ],
   foods: [],
-  attractions: [],
+  attractions: [
+    {
+      name: "יום טיול אופנוע",
+      description: "לא לשכוח מעיל או סווטשירט",
+      // googleMapLink: "https://maps.app.goo.gl/YrHCwcNDQ4Y79yNc6",
+      images: IMAGES.mountain,
+    },
+    {
+      name: "מספרה AAA",
+      description: "17 דק 10 שקל",
+      googleMapLink: "https://maps.app.goo.gl/gXhPQ4guHyMxGEPV8",
+      images: IMAGES.haircut,
+    },
+  ],
   attractionsGroups: [
     {
       name: "יום טיול אופנוע",

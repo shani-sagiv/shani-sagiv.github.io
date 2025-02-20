@@ -1,6 +1,6 @@
 import React from "react";
 import "./Recommendation.scss";
-import { AllRecommendationTypes } from "models";
+import { AllRecommendationTypes, dates as datesType } from "models";
 import { ImageGallery } from "components";
 import linkImgSrc from "assets/link.png";
 import {
@@ -14,8 +14,6 @@ interface RecommendationProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
-  let from: Date | undefined, to: Date | undefined;
-
   const renderGoogleLink = () => {
     return (
       <a
@@ -45,11 +43,13 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
     );
   };
 
-  if ("dates" in recommendation && Array.isArray(recommendation.dates)) {
-    ({ from, to } = recommendation.dates[0] ?? {});
-  }
-  const hasNoData =
-    !recommendation.description && !recommendation.price && !from && !to;
+  // if ("dates" in recommendation && Array.isArray(recommendation.dates)) {
+  //   ({ from, to } = recommendation.dates[0] ?? {});
+  // }
+  // @ts-ignore
+  const dates: datesType[] = recommendation?.dates;
+  // const hasNoData =
+  //   !recommendation.description && !recommendation.price && !from && !to;
   return (
     <div style={{ marginTop: "20px" }}>
       {renderGoogleLink()}
@@ -88,17 +88,19 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
           {/*<div style={{fontSize: 20, fontWeight: "bold"}}>{hotel.name}</div>*/}
           <div style={{ marginRight: 10 }}>{recommendation.description}</div>
           <div style={{ marginRight: 10 }}>{recommendation.price}</div>
-          {!from || !to ? null : (
-            <div
-              style={{ marginRight: 10, marginTop: "auto" }}
-              className={"flex-row"}
-            >
-              <div>{parseDate(from)}</div>-<div>{parseDate(to)}</div>
-              <div style={{ margin: "0 5px" }}>
-                ({calculateDaysBetweenDates(from, to)})
-              </div>
-            </div>
-          )}
+          {dates
+            ? dates.map(({ from, to }) => (
+                <div
+                  style={{ marginRight: 10, marginTop: "auto" }}
+                  className={"flex-row"}
+                >
+                  <div>{parseDate(from)}</div>-<div>{parseDate(to)}</div>
+                  <div style={{ margin: "0 5px" }}>
+                    ({calculateDaysBetweenDates(from, to)})
+                  </div>
+                </div>
+              ))
+            : null}
         </div>
       </div>
     </div>

@@ -14,9 +14,12 @@ export interface Recommendation {
   price?: number | string;
   googleMapLink?: string;
 }
-
+export interface dates {
+  from: Date;
+  to: Date;
+}
 export interface HotelRecommendation extends Recommendation {
-  dates: { from: Date; to: Date }[];
+  dates: dates[];
 }
 export interface RestaurantRecommendation extends Recommendation {}
 export interface AttractionRecommendation extends Recommendation {}

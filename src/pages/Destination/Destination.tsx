@@ -20,6 +20,12 @@ import {
   StickyHeaderScroll,
 } from "components";
 import "./Destination.scss";
+import {
+  calculateDaysBetweenDates,
+  getStartAndEndDate,
+  mergeDates,
+  parseDate,
+} from "../../helpers/dateHelpers";
 
 interface DestinationProps extends React.HTMLAttributes<HTMLDivElement> {
   dest: DestinationModel;
@@ -254,6 +260,31 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     (totalDays, hotel) => totalDays + calculateDaysForHotel(hotel),
     0,
   );
+  const renderDatesInPlace = () => {
+    const allDates = hotels.flatMap((hotel) => hotel.dates);
+    const mergedDates = mergeDates(allDates);
+
+    return (
+      <div
+        style={{
+          width: "100%",
+          overflow: "auto",
+          textWrap: "nowrap",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        {mergedDates.map((date) => {
+          return (
+            <div>
+              {parseDate(date.from)} - {parseDate(date.to)} (
+              {calculateDaysBetweenDates(date.from, date.to)})
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
 
   return (
     <div className={"Destination"}>
@@ -280,6 +311,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
           (<span>{totalDays}</span>
           <span>ימים</span>)
         </div>
+        {renderDatesInPlace()}
       </div>
       <Collapsibles items={getInfo()} />
       <StickyHeaderScroll items={getActivities()} />
