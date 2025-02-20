@@ -5,7 +5,8 @@ import "./Random.scss";
 import { getNameToDisplay, getRandomNumbers } from "helpers/dateHelpers";
 import classnames from "classnames";
 import { Button } from "components/Button";
-import SpinText from "../../spinText/SpinText";
+import SpinText from "../../AnimationComponents/spinText/SpinText";
+import RainbowText from "../../AnimationComponents/RainbowText/RainbowText";
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 type imagesOptions = {
@@ -224,7 +225,9 @@ const Random: React.FC<HomePageProps> = ({}) => {
           {renderOptions()}
         </div>
       ) : (
-        <SpinText />
+        <RainbowText text={"היידה"} />
+
+        // <SpinText />
       )}
 
       <Button onClick={() => refresh()}>רענון</Button>

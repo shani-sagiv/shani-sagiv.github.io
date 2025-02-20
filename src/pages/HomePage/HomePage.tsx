@@ -17,6 +17,7 @@ import {
 } from "helpers/dateHelpers";
 import { useNavigate } from "react-router-dom";
 import Card from "../../components/Card/Card";
+import RainbowText from "../../AnimationComponents/RainbowText/RainbowText";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -77,6 +78,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
       .reverse();
     return (
       <>
+        {/*<RainbowText text={"אחרונים"} />*/}
         <WordArtTitle title={"אחרונים"} style={{ marginBottom: -10 }} />
         {/*<h1 style={{ marginBottom: -10 }}>אחרונים</h1>*/}
 
