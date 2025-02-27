@@ -193,7 +193,7 @@ const Random: React.FC<HomePageProps> = ({}) => {
           paddingBottom: 10,
         }}
       />
-      <div style={{ height: "80px", overflow: "hidden" }}>
+      <div style={{ height: "auto", overflow: "hidden" }}>
         {answerIndex && (
           <>
             {destinationAnswered && <div>{answer.countryName}</div>}
