@@ -186,7 +186,7 @@ const Random: React.FC<HomePageProps> = ({}) => {
       <img
         src={answer.images[answerImageIndex]}
         style={{
-          maxHeight: "60vh",
+          height: "55vh",
           // height: "60vh",
           width: "100%",
           objectFit: "cover",

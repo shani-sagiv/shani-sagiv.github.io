@@ -139,12 +139,12 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
       </WavesComponent>
       {renderLastPlaces()}
       <div
-        className={"flex-column flex-center"}
-        style={{ gap: 20, width: "100%" }}
+        className={"flex-row flex-center"}
+        style={{ gap: 5, width: "100vw", flexWrap: "wrap", marginBottom: 20 }}
       >
-        <Button onClick={() => navigate(`/RandomCountry`)}>נחש את המקום</Button>
+        <Button onClick={() => navigate(`/RandomCountry`)}>ניחוש מקום</Button>
         <Button onClick={() => navigate(`/data`)}>מידע</Button>
-        <Button onClick={() => navigate(`/random`)}>נחש את המידע</Button>
+        <Button onClick={() => navigate(`/random`)}>ניחוש מידע</Button>
       </div>
     </div>
   );
