@@ -193,16 +193,21 @@ const Random: React.FC<HomePageProps> = ({}) => {
   }
   return (
     <div className={"random-image"}>
-      <img
-        src={answer.images[answerImageIndex]}
-        style={{
-          height: "55vh",
-          // height: "60vh",
-          width: "100%",
-          objectFit: "cover",
-          paddingBottom: 10,
-        }}
-      />
+      <div className="blur-wrapper">
+        <div className="circle">
+          <img
+            src={answer.images[answerImageIndex]}
+            style={{
+              height: "55vh",
+              // height: "60vh",
+              width: "100%",
+              objectFit: "cover",
+              paddingBottom: 10,
+            }}
+          />
+        </div>
+      </div>
+
       {answerIndex && (
         <>
           {destinationAnswered && (
