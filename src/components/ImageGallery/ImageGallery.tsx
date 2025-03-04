@@ -99,11 +99,15 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
         renderItem={(item: ReactImageGalleryItem) => (
           <img
             src={item.original}
+            id={item.original}
             loading="lazy"
             onLoad={(e) => {
+              // console.log("item.original:", item.original);
               // console.log("Image height:", e.currentTarget.clientHeight);
+              //   c
               if (e.currentTarget.clientHeight > 300) {
-                e.currentTarget.style.marginTop = "-180px";
+                e.currentTarget.style.marginTop = "-40%";
+                // e.currentTarget.style.backgroundColor = "red";
               }
             }}
             style={{
