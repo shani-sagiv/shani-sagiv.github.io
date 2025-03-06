@@ -33,7 +33,7 @@ import {
   CAMBODIA_DESTINATION,
 } from "./assets/data/Cambodia/Cambodia";
 import DataPage from "pages/DataPage/DataPage";
-import Randomoneonone from "pages/Random1on1/Random";
+import Randomoneonone from "pages/Random1on1/Randomoneonone";
 
 export const COUNTRIES: {
   country: CountryModel;

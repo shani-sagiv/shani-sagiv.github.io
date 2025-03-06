@@ -7,7 +7,7 @@ import {
   DisplayName,
   HotelRecommendation,
 } from "models";
-import { imagesOptions } from "pages/Random1on1/Random";
+import { imagesOptions } from "pages/Random1on1/Randomoneonone";
 
 export interface Location {
   displayName: DisplayName;

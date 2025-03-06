@@ -18,7 +18,7 @@ export type imagesOptions = {
 };
 
 const Randomoneonone: React.FC<HomePageProps> = ({}) => {
-  const optionsCount = 5;
+  const optionsCount = 3;
   const [optionsWithImages, setOptionsWithImages] = useState<
     imagesOptions[] | null
   >(null);
@@ -141,7 +141,7 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
               ? onCorrectOptionClick(playerIndex)
               : onWrongOptionClick(i);
           }}
-          style={{ padding: "3px 4px" }}
+          // style={{ padding: "3px 4px" }}
         >
           {dest}
         </div>
@@ -164,6 +164,7 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
           style={{
             flexWrap: "wrap",
             justifyContent: "space-around",
+            marginTop: 8,
             ...style,
           }}
         >
