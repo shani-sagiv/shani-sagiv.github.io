@@ -187,13 +187,10 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
       <img
         src={answer?.images[answerImageIndex]}
         style={{
-          height: "20vh",
-          // height: "60vh",
+          height: "30vh",
           width: "300px",
-          // transform: "rotate(-180deg)",
-
           objectFit: "cover",
-          paddingBottom: 10,
+          // paddingBottom: 10,
           ...style,
         }}
       />
@@ -209,8 +206,7 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
       style={{
         justifyContent: "center",
         position: "relative",
-        height: "calc(100% - 25px)",
-        marginTop: 25,
+        height: "100%",
       }}
     >
       <Options style={{ transform: "rotate(-180deg)" }} playerIndex={1} />
@@ -219,7 +215,7 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
         style={{
           width: "100%",
           height: 2,
-          margin: "4px 0",
+          margin: "2px 0",
           backgroundColor: "black",
         }}
       />
