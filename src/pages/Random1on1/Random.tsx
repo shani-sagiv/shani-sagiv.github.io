@@ -201,16 +201,25 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
 
   const Image: React.FC<ImageProps> = ({ style = {} }) => {
     return (
-      <img
-        src={answer?.images[answerImageIndex]}
+      <div
         style={{
-          height: "26vh",
-          width: "300px",
-          objectFit: "cover",
-          // paddingBottom: 10,
-          ...style,
+          height: "24vh",
+          width: "100%",
+          overflow: "auto", // Enable scrolling
+          border: "1px solid gray", // Optional border
         }}
-      />
+      >
+        <img
+          src={answer?.images[answerImageIndex]}
+          style={{
+            // height: "80vh",
+            maxWidth: "150vw",
+            objectFit: "cover",
+            // paddingBottom: 10,
+            ...style,
+          }}
+        />
+      </div>
     );
   };
 
@@ -224,6 +233,7 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
         justifyContent: "center",
         position: "relative",
         height: "calc(100% - 25px)",
+        overflow: "hidden",
         marginTop: 25,
       }}
     >
