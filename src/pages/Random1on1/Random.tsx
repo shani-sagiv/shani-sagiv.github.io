@@ -141,6 +141,7 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
               ? onCorrectOptionClick(playerIndex)
               : onWrongOptionClick(i);
           }}
+          style={{ padding: "3px 4px" }}
         >
           {dest}
         </div>
@@ -155,7 +156,9 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
   const Options: React.FC<OptionsProps> = ({ style = {}, playerIndex }) => {
     return !destinationAnswered ? (
       <>
-        {playerIndex === 2 ? player2totalWins : null}
+        <h3 style={{ ...style, height: 0, margin: 0 }}>
+          {playerIndex === 2 ? player2totalWins : null}
+        </h3>
         <div
           className={"flex-row"}
           style={{
@@ -166,7 +169,9 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
         >
           {renderOptions(playerIndex)}
         </div>
-        {playerIndex === 1 ? player1totalWins : null}
+        <h3 style={{ ...style, height: 0, margin: 0 }}>
+          {playerIndex === 1 ? player1totalWins : null}
+        </h3>
       </>
     ) : successPlayerIndex === playerIndex ? (
       <RainbowText style={style} text={"היידה"} />
