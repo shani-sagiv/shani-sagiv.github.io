@@ -169,9 +169,9 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
         {playerIndex === 1 ? player1totalWins : null}
       </>
     ) : successPlayerIndex === playerIndex ? (
-      <RainbowText text={"היידה"} />
+      <RainbowText style={style} text={"היידה"} />
     ) : (
-      <RainbowText text={"מביך"} />
+      <RainbowText style={style} text={"מביך"} />
     );
   };
   interface ImageProps {
