@@ -119,8 +119,10 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
     const onWrongOptionClick = (i: number) => {
       if (playerIndex === 1) {
         setFailedIndexes1([...failedIndexes1, i]);
+        setPlayer1totalWins(player1totalWins - 1);
       } else if (playerIndex === 2) {
         setFailedIndexes2([...failedIndexes2, i]);
+        setPlayer2totalWins(player2totalWins - 1);
       }
     };
 
