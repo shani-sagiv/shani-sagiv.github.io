@@ -206,15 +206,19 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
   return (
     <div
       className={"random-image"}
-      style={{ justifyContent: "center", height: "100%" }}
+      style={{
+        justifyContent: "center",
+        height: "calc(100% - 25px)",
+        marginTop: 25,
+      }}
     >
       <Options style={{ transform: "rotate(-180deg)" }} playerIndex={1} />
       <Image style={{ transform: "rotate(-180deg)" }} />
       <div
         style={{
           width: "100%",
-          height: 5,
-          margin: "5px 0",
+          height: 2,
+          margin: "4px 0",
           backgroundColor: "black",
         }}
       />
