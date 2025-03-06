@@ -173,15 +173,32 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
           {playerIndex === 1 ? player1totalWins : null}
         </h3>
       </>
-    ) : successPlayerIndex === playerIndex ? (
-      <RainbowText style={style} text={"היידה"} />
     ) : (
-      <RainbowText style={style} text={"מביך"} />
+      <>
+        <span>
+          {answerIndex && answer && destinationAnswered && (
+            <span style={{ margin: 0 }}>
+              {answer.countryName}
+              <br />
+              {answer.key}
+            </span>
+          )}
+        </span>
+        <span>
+          {successPlayerIndex === playerIndex ? (
+            <RainbowText style={style} text={"היידה"} />
+          ) : (
+            <RainbowText style={style} text={"מביך"} />
+          )}
+        </span>
+      </>
     );
   };
+
   interface ImageProps {
     style?: React.CSSProperties;
   }
+
   const Image: React.FC<ImageProps> = ({ style = {} }) => {
     return (
       <img
