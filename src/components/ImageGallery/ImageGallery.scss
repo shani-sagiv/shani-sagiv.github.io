@@ -18,11 +18,11 @@
   position: relative;
   &:not(.fullscreen) {
     .image-gallery-left-nav{
-      top: 30%;
+      top: 100px;
       left:-2%;
     }
     .image-gallery-right-nav {
-      top: 30%;
+      top: 100px;
       right:-2%;
     }
   }

@@ -106,7 +106,7 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
               // console.log("Image height:", e.currentTarget.clientHeight);
               //   c
               if (e.currentTarget.clientHeight > 300) {
-                // e.currentTarget.style.marginTop = "-40%";
+                e.currentTarget.style.marginTop = "-40%";
                 // e.currentTarget.style.backgroundColor = "red";
               }
             }}
