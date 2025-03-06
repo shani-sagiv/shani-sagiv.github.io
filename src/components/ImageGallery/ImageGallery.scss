@@ -15,6 +15,7 @@
 .image-gallery-wrapper{
   width: 100%;
   height: 100%;
+  position: relative;
   &:not(.fullscreen) {
     .image-gallery-left-nav{
       top: 30%;

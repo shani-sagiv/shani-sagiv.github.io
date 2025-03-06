@@ -1,4 +1,4 @@
-import { COUNTRIES_WITHOUT_IMAGES } from "../Routes";
+import { COUNTRIES, COUNTRIES_WITHOUT_IMAGES } from "../Routes";
 import { calculateDaysBetweenDates } from "./dateHelpers";
 import {
   Country as CountryModel,
@@ -7,6 +7,7 @@ import {
   DisplayName,
   HotelRecommendation,
 } from "models";
+import { imagesOptions } from "pages/Random1on1/Random";
 
 export interface Location {
   displayName: DisplayName;
@@ -116,4 +117,52 @@ const getAllHotels = (
     });
   });
   return locations;
+};
+
+export const getAllLocationsImages = () => {
+  let destsOptions: string[] = [];
+  let optionsWithImagesTemp: imagesOptions[] = [];
+
+  function handleAttraction(
+    images: string[] | undefined,
+    destName: string,
+    key: string,
+  ) {
+    if (images?.length) {
+      optionsWithImagesTemp.push({
+        images: images,
+        key: key,
+        countryName: destName,
+      });
+    }
+  }
+  const destinationsOptions = [
+    "hotels",
+    "foods",
+    "attractions",
+    "kids",
+    "nightlife",
+    "gold_recommendation",
+  ];
+
+  COUNTRIES.forEach((country) => {
+    country.destinations?.forEach((destination: any) => {
+      // const destName: string = getNameToDisplay(destination.displayName);
+      const destName: string = `${destination.displayName.hebrew}`;
+      destsOptions.push(destName);
+
+      destinationsOptions.forEach((key) => {
+        destination[key]?.forEach((single: any) => {
+          handleAttraction(single.images, destName, single?.name);
+        });
+      });
+      handleAttraction(destination?.images, destName, "images");
+      handleAttraction(destination?.shells || [], destName, "Shells");
+      // todo: THIs
+      // attractionsGroups?: AttractionGroupRecommendation[]; // Array of attraction recommendations
+    });
+  });
+  // console.log({ destsOptions });
+  // console.log({ optionsWithImagesTemp });
+  return { destsOptions, optionsWithImages: optionsWithImagesTemp };
 };

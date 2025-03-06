@@ -33,6 +33,7 @@ import {
   CAMBODIA_DESTINATION,
 } from "./assets/data/Cambodia/Cambodia";
 import DataPage from "pages/DataPage/DataPage";
+import Randomoneonone from "pages/Random1on1/Random";
 
 export const COUNTRIES: {
   country: CountryModel;
@@ -160,6 +161,7 @@ function InnerRoutes() {
         <Route path={"/login"} element={<NameForm />} />
         <Route path={"/random"} element={<Random />} />
         <Route path={"/RandomCountry"} element={<RandomCountry />} />
+        <Route path={"/Randomoneonone"} element={<Randomoneonone />} />
         <Route path={"/data"} element={<DataPage />} />
         {/*<Route path={"/semental"} element={<Semental />} />*/}
 

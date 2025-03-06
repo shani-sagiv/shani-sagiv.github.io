@@ -143,6 +143,9 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         style={{ gap: 5, width: "100vw", flexWrap: "wrap", marginBottom: 20 }}
       >
         <Button onClick={() => navigate(`/RandomCountry`)}>ניחוש מקום</Button>
+        <Button onClick={() => navigate(`/Randomoneonone`)}>
+          1:1 ניחוש מקום
+        </Button>
         <Button onClick={() => navigate(`/data`)}>מידע</Button>
         <Button onClick={() => navigate(`/random`)}>ניחוש מידע</Button>
       </div>

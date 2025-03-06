@@ -1,0 +1,47 @@
+@import "styles/index";
+
+.random-image{
+  //height: 100%;
+  //width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.option {
+  background-color: rgba(white, 0.7);
+  font-size: 1.3em;
+  margin: 4px 5px;
+  border-radius: 15px;
+  padding: 8px;
+  border: 1px solid black;
+  flex: 0 0 calc(50% - 50px);
+  text-align: center;
+  box-shadow: none ;
+  &.wrong {
+    color: red;
+    animation: linear 0.2s wrong-animation;
+    animation-iteration-count: 3;
+  }
+}
+
+@keyframes wrong-animation {
+  0%{
+    transform: rotate(0deg);
+  }
+  30%{
+    transform: rotate(10deg);
+  }
+  50%{
+    transform: rotate(0deg);
+  }
+  80%{
+    transform: rotate(-8deg);
+  }
+  100%{
+    transform: rotate(0);
+  }
+  
+}
+
+

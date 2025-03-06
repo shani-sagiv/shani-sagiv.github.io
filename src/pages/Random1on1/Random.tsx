@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { COUNTRIES } from "../../Routes";
-import "./Random.scss";
+import "./Randomoneonone.scss";
 
 import { getNameToDisplay, getRandomNumbers } from "helpers/dateHelpers";
 import classnames from "classnames";
@@ -17,8 +17,8 @@ export type imagesOptions = {
   countryName: string;
 };
 
-const Random: React.FC<HomePageProps> = ({}) => {
-  const optionsCount = 7;
+const Randomoneonone: React.FC<HomePageProps> = ({}) => {
+  const optionsCount = 5;
   const [optionsWithImages, setOptionsWithImages] = useState<
     imagesOptions[] | null
   >(null);
@@ -33,7 +33,13 @@ const Random: React.FC<HomePageProps> = ({}) => {
 
   const [destinationAnswered, setDestinationAnswered] = useState(false);
 
-  const [failedIndexes, setFailedIndexes] = useState<number[]>([]);
+  const [failedIndexes1, setFailedIndexes1] = useState<number[]>([]);
+  const [failedIndexes2, setFailedIndexes2] = useState<number[]>([]);
+
+  const [successPlayerIndex, setSuccessPlayerIndex] = useState<number>(-1);
+
+  const [player1totalWins, setPlayer1totalWins] = useState<number>(0);
+  const [player2totalWins, setPlayer2totalWins] = useState<number>(0);
 
   React.useEffect(() => {
     const { destsOptions, optionsWithImages } = getAllLocationsImages();
@@ -48,7 +54,9 @@ const Random: React.FC<HomePageProps> = ({}) => {
   const reset = () => {
     setDestinationAnswered(false);
     setAnswerIndex(null);
-    setFailedIndexes([]);
+    setFailedIndexes1([]);
+    setFailedIndexes2([]);
+    setSuccessPlayerIndex(-1);
   };
 
   const randomize = (destsOptions_: string[], optionsWithImages_: any) => {
@@ -82,6 +90,11 @@ const Random: React.FC<HomePageProps> = ({}) => {
   };
 
   const refresh = () => {
+    if (successPlayerIndex === 1) {
+      setPlayer1totalWins(player1totalWins + 1);
+    } else if (successPlayerIndex === 2) {
+      setPlayer2totalWins(player2totalWins + 1);
+    }
     reset();
     if (!optionsWithImages) {
       return;
@@ -89,30 +102,41 @@ const Random: React.FC<HomePageProps> = ({}) => {
     randomize(dests, optionsWithImages);
   };
 
-  const renderOptions = () => {
+  const renderOptions = (playerIndex: number) => {
     if (!optionsWithImages) {
       return null;
     }
-    const onCorrectOptionClick = () => {
-      setFailedIndexes([]);
+    const onCorrectOptionClick = (playerIndex: number) => {
+      setFailedIndexes1([]);
+      setFailedIndexes2([]);
       // if (!destinationAnswered) {
       setDestinationAnswered(true);
+      setSuccessPlayerIndex(playerIndex);
       // }
       // setAllAnswered(true);
     };
 
     const onWrongOptionClick = (i: number) => {
-      setFailedIndexes([...failedIndexes, i]);
+      if (playerIndex === 1) {
+        setFailedIndexes1([...failedIndexes1, i]);
+      } else if (playerIndex === 2) {
+        setFailedIndexes2([...failedIndexes2, i]);
+      }
     };
 
     return (!destinationAnswered ? randomDestinations : randomDestinations).map(
       (dest, i) => (
         <div
-          className={classnames("option", { wrong: failedIndexes.includes(i) })}
+          className={classnames("option", {
+            wrong:
+              playerIndex === 1
+                ? failedIndexes1.includes(i)
+                : failedIndexes2.includes(i),
+          })}
           onClick={() => {
             // @ts-ignore
             dest === optionsWithImages[answerIndex].countryName
-              ? onCorrectOptionClick()
+              ? onCorrectOptionClick(playerIndex)
               : onWrongOptionClick(i);
           }}
         >
@@ -124,21 +148,28 @@ const Random: React.FC<HomePageProps> = ({}) => {
 
   interface OptionsProps {
     style?: React.CSSProperties;
+    playerIndex: number;
   }
-  const Options: React.FC<OptionsProps> = ({ style = {} }) => {
+  const Options: React.FC<OptionsProps> = ({ style = {}, playerIndex }) => {
     return !destinationAnswered ? (
-      <div
-        className={"flex-row"}
-        style={{
-          flexWrap: "wrap",
-          justifyContent: "space-around",
-          ...style,
-        }}
-      >
-        {renderOptions()}
-      </div>
-    ) : (
+      <>
+        {playerIndex === 2 ? player2totalWins : null}
+        <div
+          className={"flex-row"}
+          style={{
+            flexWrap: "wrap",
+            justifyContent: "space-around",
+            ...style,
+          }}
+        >
+          {renderOptions(playerIndex)}
+        </div>
+        {playerIndex === 1 ? player1totalWins : null}
+      </>
+    ) : successPlayerIndex === playerIndex ? (
       <RainbowText text={"היידה"} />
+    ) : (
+      <RainbowText text={"מביך"} />
     );
   };
   interface ImageProps {
@@ -149,9 +180,9 @@ const Random: React.FC<HomePageProps> = ({}) => {
       <img
         src={answer?.images[answerImageIndex]}
         style={{
-          // height: "20vh",
-          height: "60vh",
-          width: "100%",
+          height: "20vh",
+          // height: "60vh",
+          width: "300px",
           // transform: "rotate(-180deg)",
 
           objectFit: "cover",
@@ -166,13 +197,26 @@ const Random: React.FC<HomePageProps> = ({}) => {
     return null;
   }
   return (
-    <div className={"random-image"}>
+    <div
+      className={"random-image"}
+      style={{ justifyContent: "center", height: "100%" }}
+    >
+      <Options style={{ transform: "rotate(-180deg)" }} playerIndex={1} />
+      <Image style={{ transform: "rotate(-180deg)" }} />
+      <div
+        style={{
+          width: "100%",
+          height: 5,
+          margin: "5px 0",
+          backgroundColor: "black",
+        }}
+      />
       <Image />
 
-      <Options />
+      <Options playerIndex={2} />
 
       <Button onClick={() => refresh()}>רענון</Button>
     </div>
   );
 };
-export default Random;
+export default Randomoneonone;
