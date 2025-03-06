@@ -208,6 +208,7 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
       className={"random-image"}
       style={{
         justifyContent: "center",
+        position: "relative",
         height: "calc(100% - 25px)",
         marginTop: 25,
       }}
@@ -226,7 +227,16 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
 
       <Options playerIndex={2} />
 
-      <Button onClick={() => refresh()}>רענון</Button>
+      <Button
+        style={{
+          position: "absolute",
+          right: -20,
+          transform: "rotate(-90deg)",
+        }}
+        onClick={() => refresh()}
+      >
+        רענון
+      </Button>
     </div>
   );
 };

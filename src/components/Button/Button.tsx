@@ -11,6 +11,7 @@ interface ButtonProps extends React.HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
   iconClassname?: string;
   customClass?: string;
+  style?: React.CSSProperties;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -22,10 +23,12 @@ const Button: React.FC<ButtonProps> = ({
   iconClassname,
   bold,
   customClass = "button",
+  style,
 }) => {
   return (
     <div
       className={classnames(customClass, variant, { bold })}
+      style={style}
       onClick={onClick}
     >
       {startIcon && <img className="startIcon" src={startIcon} />}
