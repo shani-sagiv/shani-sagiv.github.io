@@ -36,6 +36,9 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
   const [failedIndexes1, setFailedIndexes1] = useState<number[]>([]);
   const [failedIndexes2, setFailedIndexes2] = useState<number[]>([]);
 
+  const [isPlayer1Freeze, setIsPlayer1Freeze] = useState<boolean>(false);
+  const [isPlayer2Freeze, setIsPlayer2Freeze] = useState<boolean>(false);
+
   const [successPlayerIndex, setSuccessPlayerIndex] = useState<number>(-1);
 
   const [player1totalWins, setPlayer1totalWins] = useState<number>(0);
@@ -106,6 +109,7 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
     if (!optionsWithImages) {
       return null;
     }
+
     const onCorrectOptionClick = (playerIndex: number) => {
       setFailedIndexes1([]);
       setFailedIndexes2([]);
@@ -120,9 +124,13 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
       if (playerIndex === 1) {
         setFailedIndexes1([...failedIndexes1, i]);
         setPlayer1totalWins(player1totalWins - 1);
+        setIsPlayer1Freeze(true);
+        setTimeout(() => setIsPlayer1Freeze(false), 1000); // Revert after 1 second
       } else if (playerIndex === 2) {
         setFailedIndexes2([...failedIndexes2, i]);
         setPlayer2totalWins(player2totalWins - 1);
+        setIsPlayer2Freeze(true);
+        setTimeout(() => setIsPlayer2Freeze(false), 1000); // Revert after 1 second
       }
     };
 
@@ -135,13 +143,15 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
                 ? failedIndexes1.includes(i)
                 : failedIndexes2.includes(i),
           })}
-          onClick={() => {
+          onPointerDown={(e) => {
+            e.preventDefault(); // Prevent unintended gestures
+            e.stopPropagation(); // Ensure independent button presses
+
             // @ts-ignore
             dest === optionsWithImages[answerIndex].countryName
               ? onCorrectOptionClick(playerIndex)
               : onWrongOptionClick(i);
           }}
-          // style={{ padding: "3px 4px" }}
         >
           {dest}
         </div>
@@ -226,7 +236,10 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
         position: "relative",
         height: "calc(100% - 25px)",
         marginTop: 25,
+        touchAction: "none",
       }}
+      onTouchMove={(e) => e.preventDefault()}
+      onWheel={(e) => e.preventDefault()}
     >
       <Options style={{ transform: "rotate(-180deg)" }} playerIndex={1} />
       <Image style={{ transform: "rotate(-180deg)" }} />

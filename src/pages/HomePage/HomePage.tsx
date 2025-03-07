@@ -78,7 +78,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
       .reverse();
     return (
       <>
-        {/*<RainbowText text={"אחרונים"} />*/}
+        {/*<Drawer text={"אחרונים"} />*/}
         <WordArtTitle title={"אחרונים"} style={{ marginBottom: -10 }} />
         {/*<h1 style={{ marginBottom: -10 }}>אחרונים</h1>*/}
 
