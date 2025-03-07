@@ -106,6 +106,9 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
   };
 
   const renderOptions = (playerIndex: number) => {
+    let disabled = false;
+    if (isPlayer1Freeze && playerIndex === 1) disabled = true;
+    if (isPlayer2Freeze && playerIndex === 2) disabled = true;
     if (!optionsWithImages) {
       return null;
     }
@@ -138,6 +141,7 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
       (dest, i) => (
         <div
           className={classnames("option", {
+            disabled,
             wrong:
               playerIndex === 1
                 ? failedIndexes1.includes(i)
@@ -146,7 +150,7 @@ const Randomoneonone: React.FC<HomePageProps> = ({}) => {
           onPointerDown={(e) => {
             e.preventDefault(); // Prevent unintended gestures
             e.stopPropagation(); // Ensure independent button presses
-
+            if (disabled) return;
             // @ts-ignore
             dest === optionsWithImages[answerIndex].countryName
               ? onCorrectOptionClick(playerIndex)

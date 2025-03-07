@@ -22,7 +22,10 @@
     color: red;
     animation: linear 0.2s wrong-animation;
     animation-iteration-count: 3;
-  }
+  }  &.disabled {
+    background-color: #9c9c9c;
+    color: #717171;
+    }
 }
 
 @keyframes wrong-animation {
