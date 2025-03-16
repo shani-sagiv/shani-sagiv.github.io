@@ -17,7 +17,7 @@ export const PHU_QUOC: Destination = {
       description: "וואו מלון שווה כיף",
       dates: [
         { from: createDate("15/02/2025"), to: createDate("28/02/2025") },
-        { from: createDate("03/03/2025"), to: createDate("10/03/2025") },
+        { from: createDate("03/03/2025"), to: createDate("11/03/2025") },
       ],
       googleMapLink: "https://maps.app.goo.gl/phzsuGyJsQRze1ir8",
       price: "112 ללילה כולל ארוחת בוקר",
@@ -89,6 +89,12 @@ export const PHU_QUOC: Destination = {
       description: "מלא ביץ קלאבים ממש כיפים אחלה ארוחות ערב דיגיים שקיעות",
       googleMapLink: "https://maps.app.goo.gl/99AcohUhHssYbE6R8",
       images: IMAGES.beachclubs,
+    },
+    {
+      name: "Sunset Beach Bar & Restaurant",
+      description: "אחלב ביץ קלאב אחלה מוזיקה ויש עוד נחמדים ליד",
+      googleMapLink: "https://maps.app.goo.gl/ZZogHenKcBTpHX3U8",
+      images: IMAGES.SunsetBeachBar,
     },
     {
       name: "שוק לילה",

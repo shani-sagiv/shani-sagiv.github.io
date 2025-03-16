@@ -3,7 +3,6 @@ import { AttractionRecommendation, Country, Destination } from "models/index";
 
 import {
   VIETNAM_IMAGES,
-  HOI_AN_IMAGES,
   PHONG_NHA_IMAGES,
   profileImg,
   HANOI_IMAGES,
@@ -22,10 +21,11 @@ import { SAPA } from "./SAPA";
 import { HA_LONG } from "./HA_LONG";
 import { CAT_BA } from "./CAT_BA";
 import { PHONG_NHA } from "./PHONG_NHA";
-import { HOI_AN } from "./HOI_AN";
+import { HOI_AN } from "./HoiAn";
 import { NINH_BINH } from "./NINH_BINH";
 import { HANOI } from "./HANOI";
 import { PHU_QUOC } from "./PhuQuoc";
+import { DA_NANG } from "./DaNang";
 
 export const VIETNAM: Country = {
   id: "VNM",
@@ -72,6 +72,7 @@ export const VIETNAM_DESTINATION = [
   MUI_NE,
   NAH_TRANG,
   PHU_QUOC,
+  DA_NANG,
 ];
 
 //todo: something with ha long bay cruise multiple display
