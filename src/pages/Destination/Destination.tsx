@@ -272,6 +272,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
           textWrap: "nowrap",
           display: "flex",
           flexDirection: "column",
+          marginTop: 5,
         }}
       >
         {mergedDates.map((date) => {
@@ -297,8 +298,8 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
           objectFit: "cover",
         }}
       />
-      <Title title={displayName.hebrew} />
-      <Title title={displayName.english} style={{ fontSize: 25 }} />
+      <Title title={displayName.hebrew} addTitle={displayName.english} />
+      {/*<Title title={displayName.english} style={{ fontSize: 25 }} />*/}
       <div className="info">
         <div>{description}</div>
         <div

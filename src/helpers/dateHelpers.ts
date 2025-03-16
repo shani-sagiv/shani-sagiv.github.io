@@ -19,24 +19,29 @@ export function getNameToDisplay(displayName: DisplayName): string {
   return `${displayName.hebrew} ${displayName.english}`;
 }
 export const parseDaysToHebrew = (totalDays: number): string => {
-  const months = Math.floor(totalDays / 30); // Assuming 30 days in a month
-  const days = totalDays % 30; // Remaining days
+  const years = Math.floor(totalDays / 360); // Assuming 360 days in a year (12 * 30)
+  const remainingDaysAfterYears = totalDays % 360;
 
-  let result = "";
+  const months = Math.floor(remainingDaysAfterYears / 30);
+  const days = remainingDaysAfterYears % 30;
 
-  // Handle months part in Hebrew
+  let parts: string[] = [];
+
+  if (years > 0) {
+    parts.push(years === 1 ? "שנה" : `${years} שנים`);
+  }
+
   if (months > 0) {
-    result += `${months === 1 ? "חודש" : `${months} חודשים`}`;
+    parts.push(months === 1 ? "חודש" : `${months} חודשים`);
   }
 
-  // Handle days part in Hebrew
   if (days > 0) {
-    if (months > 0) result += " ו-"; // Add conjunction "ו-" if there are months
-    result += `${days} ${days === 1 ? "יום" : "ימים"}`;
+    parts.push(`${days} ${days === 1 ? "יום" : "ימים"}`);
   }
 
-  return result;
+  return parts.join(" ו-");
 };
+
 export const calculateTotalNightsAtAllDestinations = (
   destinations: Destination[],
 ): number => {

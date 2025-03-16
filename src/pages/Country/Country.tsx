@@ -1,5 +1,6 @@
 import React from "react";
 import "./Country.scss";
+import "../Destination/Destination.scss";
 import { Cards, Collapsibles, Title } from "components";
 import { Country as CountryModel, Destination } from "models";
 import {
@@ -50,14 +51,8 @@ const Country: React.FC<CountryProps> = ({ destinations, country }) => {
         }}
       />
 
-      <Title title={displayName.hebrew} />
-      <Title
-        title={displayName.english}
-        style={{ fontSize: 25, marginTop: -10 }}
-      />
-      {description ? (
-        <div style={{ margin: "5px 10px 10px 10px" }}>{description}</div>
-      ) : null}
+      <Title title={displayName.hebrew} addTitle={displayName.english} />
+      {description ? <div className={"info"}>{description}</div> : null}
       <div style={{ marginRight: 10 }}>
         ({parseDaysToHebrew(totalNightsSlept)})
       </div>

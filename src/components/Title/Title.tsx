@@ -3,9 +3,10 @@ import "./Title.scss";
 
 interface TitleProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
+  addTitle?: string;
 }
 
-const Title: React.FC<TitleProps> = ({ title, style }) => {
+const Title: React.FC<TitleProps> = ({ title, addTitle, style }) => {
   return (
     <h1
       style={{
@@ -13,12 +14,28 @@ const Title: React.FC<TitleProps> = ({ title, style }) => {
         fontSize: 40,
         // boxSizing: "border-box",
         fontWeight: "bold",
-        margin: "0 10px 0",
+        margin: "0 10px 0 0",
         ...style,
         // margin: "0",
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "flex-end",
+        height: "auto",
       }}
     >
       {title}
+      {addTitle && (
+        <span
+          style={{
+            marginRight: 10,
+            marginBottom: 8,
+            fontSize: 20,
+            height: "auto",
+          }}
+        >
+          ({addTitle})
+        </span>
+      )}
     </h1>
   );
   const wordArtIds = [
