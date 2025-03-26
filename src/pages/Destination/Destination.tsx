@@ -22,6 +22,7 @@ import {
 import "./Destination.scss";
 import {
   calculateDaysBetweenDates,
+  formatDateRange,
   getStartAndEndDate,
   mergeDates,
   parseDate,
@@ -58,7 +59,6 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     moreInfo = [],
     additionalCode = null,
   } = dest;
-  console.log({ additionalCode });
   const generateContent = (
     items: AllRecommendationTypes[],
     keyPrefix: string,
@@ -122,6 +122,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
 
     return sections.filter((section) => section.content.length > 0);
   };
+
   const getImageGallery = (items: any) => {
     return (
       <ImageGallery
@@ -271,13 +272,15 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
           overflow: "auto",
           textWrap: "nowrap",
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "column-reverse",
           marginTop: 5,
         }}
       >
         {mergedDates.map((date) => {
           return (
+            // <div style={{ direction: "ltr" }}>
             <div>
+              {/*{formatDateRange(date.from, date.to)} (*/}
               {parseDate(date.from)} - {parseDate(date.to)} (
               {calculateDaysBetweenDates(date.from, date.to)})
             </div>
@@ -294,29 +297,34 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
         style={{
           height: "35vh",
           width: "100%",
-          borderBottomRightRadius: "80px",
+          // borderBottomRightRadius: "80px",
           objectFit: "cover",
+          position: "fixed",
+          pointerEvents: "none",
+          zIndex: 0,
         }}
       />
-      <Title title={displayName.hebrew} addTitle={displayName.english} />
-      {/*<Title title={displayName.english} style={{ fontSize: 25 }} />*/}
-      <div className="info">
-        <div>{description}</div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            gap: 5,
-          }}
-        >
-          (<span>{totalDays}</span>
-          <span>ימים</span>)
+      <span className={"inner-data"}>
+        <Title title={displayName.hebrew} addTitle={displayName.english} />
+        {/*<Title title={displayName.english} style={{ fontSize: 25 }} />*/}
+        <div className="info">
+          <div>{description}</div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              gap: 5,
+            }}
+          >
+            (<span>{totalDays}</span>
+            <span>ימים</span>)
+          </div>
+          {renderDatesInPlace()}
         </div>
-        {renderDatesInPlace()}
-      </div>
-      <Collapsibles items={getInfo()} />
-      <StickyHeaderScroll items={getActivities()} />
-      {additionalCode}
+        <Collapsibles items={getInfo()} />
+        <StickyHeaderScroll items={getActivities()} />
+        {additionalCode}
+      </span>
     </div>
   );
 };

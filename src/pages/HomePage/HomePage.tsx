@@ -5,6 +5,7 @@ import bkueWavesSrc from "assets/IMG_6105.jpeg";
 import { COUNTRIES_WITHOUT_IMAGES } from "Routes";
 import "./HomePage.scss";
 import {
+  getAggregateLocations,
   Location,
   mergeLocationsByPlaceAndDate,
   sortAllDestinationsByDate,
@@ -12,6 +13,7 @@ import {
 import {
   calculateDaysBetweenDates,
   calculateTotalNightsAtAllDestinations,
+  formatDateRange,
   parseDate,
   parseDaysToHebrew,
 } from "helpers/dateHelpers";
@@ -50,8 +52,13 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
           displayName={l.displayName}
           image={l.profileImg}
         />
-        <div className={"flex-row"} style={{ gap: 10, marginTop: -10 }}>
-          {parseDate(l.from, true)}-{parseDate(l.to, true)}
+        <div
+          className={"flex-row"}
+          style={{ gap: 10, marginTop: -10, direction: "ltr" }}
+        >
+          {formatDateRange(l.from, l.to)}
+          {/*<br />*/}
+          {/*{parseDate(l.from, true)}-{parseDate(l.to, true)}*/}
         </div>
       </div>
     );
@@ -85,12 +92,9 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         <div
           className={"flex-row flex-center"}
           style={{
-            // flexDirection: "row-reverse",
             marginBottom: 10,
             marginTop: 10,
             width: "100%",
-            // overflow: "auto",
-            // maxWidth: "100%",
             flexWrap: "wrap",
             justifyContent: "flex-start",
           }}
@@ -134,10 +138,10 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         }}
       />
       <WavesComponent>
+        {renderLastPlaces()}
         <WordArtTitle title={parseDaysToHebrew(totalNights)} />
         <Cards items={destinationsCards} />
       </WavesComponent>
-      {renderLastPlaces()}
       <div
         className={"flex-row flex-center"}
         style={{ gap: 5, width: "100vw", flexWrap: "wrap", marginBottom: 20 }}

@@ -25,6 +25,8 @@ const Card: React.FC<CardProps> = ({
 }) => {
   const H1FontSize = size === "medium" ? "2.2rem" : "1.5rem";
   const H2FontSize = size === "medium" ? "1rem" : "0.6rem";
+  // const H1FontSize = "2.2rem";
+  // const H2FontSize = "1rem";
   const cardStyle =
     size === "medium"
       ? {

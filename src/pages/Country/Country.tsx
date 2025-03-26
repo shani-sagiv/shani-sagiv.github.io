@@ -46,21 +46,25 @@ const Country: React.FC<CountryProps> = ({ destinations, country }) => {
         style={{
           height: "35vh",
           width: "100%",
-          borderBottomRightRadius: "80px",
+          // borderBottomRightRadius: "80px",
           objectFit: "cover",
+          position: "fixed",
+          pointerEvents: "none",
+          zIndex: 0,
         }}
       />
-
-      <Title title={displayName.hebrew} addTitle={displayName.english} />
-      {description ? <div className={"info"}>{description}</div> : null}
-      <div style={{ marginRight: 10 }}>
-        ({parseDaysToHebrew(totalNightsSlept)})
-      </div>
-      <Collapsibles items={items2} />
-      <Cards items={cards} />
-      <LocationsWithDates
-        locations={sortDestinationsByDate(country, destinations)}
-      />
+      <span className={"inner-data"}>
+        <Title title={displayName.hebrew} addTitle={displayName.english} />
+        {description ? <div className={"info"}>{description}</div> : null}
+        <div style={{ marginRight: 10 }}>
+          ({parseDaysToHebrew(totalNightsSlept)})
+        </div>
+        <Collapsibles items={items2} />
+        <Cards items={cards} />
+        <LocationsWithDates
+          locations={sortDestinationsByDate(country, destinations)}
+        />
+      </span>
     </div>
   );
 };

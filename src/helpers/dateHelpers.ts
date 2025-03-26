@@ -100,6 +100,43 @@ export function parseDate(date: Date, hideYear = false): string | null {
     year: !hideYear ? "2-digit" : undefined,
   });
 }
+export function formatDateRange(from: Date, to: Date): string {
+  // TODO: FIX LTR!!
+  // ודא שהתאריכים בסדר עולה
+  if (from > to) {
+    [from, to] = [to, from];
+  }
+
+  const fromDay = from.getDate();
+  const toDay = to.getDate();
+  const fromMonth = from.getMonth() + 1;
+  const toMonth = to.getMonth() + 1;
+
+  if (fromMonth !== toMonth) {
+    return `${fromDay}.${fromMonth} → ${toDay}.${toMonth}`;
+  }
+
+  if (fromDay === toDay) {
+    return `${fromDay}.${fromMonth}`;
+  }
+
+  return `${fromDay}–${toDay}.${fromMonth}`;
+}
+
+const hebrewMonths = [
+  "ינואר",
+  "פברואר",
+  "מרץ",
+  "אפריל",
+  "מאי",
+  "יוני",
+  "יולי",
+  "אוגוסט",
+  "ספטמבר",
+  "אוקטובר",
+  "נובמבר",
+  "דצמבר",
+];
 
 export function getRandomNumbers(maxNumber: number, count: number): number[] {
   const numbers: Set<number> = new Set();
