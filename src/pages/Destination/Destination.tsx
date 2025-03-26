@@ -23,6 +23,7 @@ import "./Destination.scss";
 import {
   calculateDaysBetweenDates,
   formatDateRange,
+  formatHebrewDate,
   getStartAndEndDate,
   mergeDates,
   parseDate,
@@ -272,7 +273,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
           overflow: "auto",
           textWrap: "nowrap",
           display: "flex",
-          flexDirection: "column-reverse",
+          flexDirection: "column",
           marginTop: 5,
         }}
       >
@@ -281,7 +282,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
             // <div style={{ direction: "ltr" }}>
             <div>
               {/*{formatDateRange(date.from, date.to)} (*/}
-              {parseDate(date.from)} - {parseDate(date.to)} (
+              {formatHebrewDate(date.from)} - {formatHebrewDate(date.to)} (
               {calculateDaysBetweenDates(date.from, date.to)})
             </div>
           );

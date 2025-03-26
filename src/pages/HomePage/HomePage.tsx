@@ -15,6 +15,7 @@ import {
   calculateTotalNightsAtAllDestinations,
   formatDateRange,
   parseDate,
+  parseDateDOT,
   parseDaysToHebrew,
 } from "helpers/dateHelpers";
 import { useNavigate } from "react-router-dom";
@@ -53,12 +54,12 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
           image={l.profileImg}
         />
         <div
-          className={"flex-row"}
+          className={`flex-row ${new Date(l.to) > new Date() ? "blinking" : ""}`}
           style={{ gap: 10, marginTop: -10, direction: "ltr" }}
         >
-          {formatDateRange(l.from, l.to)}
+          {/*{formatDateRange(l.from, l.to)}*/}
           {/*<br />*/}
-          {/*{parseDate(l.from, true)}-{parseDate(l.to, true)}*/}
+          {parseDateDOT(l.from, true)} - {parseDateDOT(l.to, true)}
         </div>
       </div>
     );

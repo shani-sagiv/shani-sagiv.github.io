@@ -100,6 +100,25 @@ export function parseDate(date: Date, hideYear = false): string | null {
     year: !hideYear ? "2-digit" : undefined,
   });
 }
+
+export function parseDateDOT(date: Date, hideYear = false): string {
+  const day = date.getDate().toString().padStart(2, "0");
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const year = date.getFullYear().toString().slice(2);
+
+  return hideYear ? `${day}.${month}` : `${day}.${month}.${year}`;
+}
+
+export function formatHebrewDate(dateRaw: Date | string): string {
+  const date = new Date(dateRaw);
+
+  return date.toLocaleDateString("he-IL", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
 export function formatDateRange(from: Date, to: Date): string {
   // TODO: FIX LTR!!
   // ודא שהתאריכים בסדר עולה

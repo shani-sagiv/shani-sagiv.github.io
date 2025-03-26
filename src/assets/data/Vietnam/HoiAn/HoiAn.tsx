@@ -31,7 +31,7 @@ export const HOI_AN: Destination = {
     },
     {
       name: "Windbell Villa Hoi An",
-      dates: [{ from: createDate("15/03/2025"), to: createDate("27/03/2025") }],
+      dates: [{ from: createDate("15/03/2025"), to: createDate("31/03/2025") }],
       description: "הום סטיי ממש ממש חמוד אבל רחוק מהכל",
       googleMapLink: "https://maps.app.goo.gl/NLH7APssNG9RWPq2A",
       images: IMAGES.Windbell,

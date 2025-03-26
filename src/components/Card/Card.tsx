@@ -57,6 +57,12 @@ const Card: React.FC<CardProps> = ({
           overflow: "hidden",
           textOverflow: "ellipsis",
           width: "100%",
+          textShadow: `
+                -1px -1px 0 black,
+                 1px -1px 0 black,
+                -1px  1px 0 black,
+                 1px  1px 0 black
+              `,
         }}
       >
         {displayName.hebrew}
@@ -68,6 +74,12 @@ const Card: React.FC<CardProps> = ({
           fontSize: H2FontSize,
           textAlign: "center",
           top: "55%",
+          textShadow: `
+                -1px -1px 0 black,
+                 1px -1px 0 black,
+                -1px  1px 0 black,
+                 1px  1px 0 black
+              `,
           zIndex: 2, // Make sure the title is above the image
         }}
       >
@@ -81,6 +93,12 @@ const Card: React.FC<CardProps> = ({
           textAlign: "center",
           bottom: "0",
           zIndex: 2, // Make sure the title is above the image
+          textShadow: `
+                -1px -1px 0 black,
+                 1px -1px 0 black,
+                -1px  1px 0 black,
+                 1px  1px 0 black
+              `,
         }}
       >
         {bottomData}
