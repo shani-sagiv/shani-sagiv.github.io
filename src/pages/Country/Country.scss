@@ -1,9 +1,9 @@
-.country{
+.country {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   //gap: 10px;
-
+}
   .inner-data{
     z-index: 2;
     margin-top: calc(35vh - 15px);
@@ -14,4 +14,3 @@
   background-size: cover;
   }
 
-}

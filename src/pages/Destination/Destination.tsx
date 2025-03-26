@@ -28,6 +28,7 @@ import {
   mergeDates,
   parseDate,
 } from "../../helpers/dateHelpers";
+import Marquee from "react-fast-marquee";
 
 interface DestinationProps extends React.HTMLAttributes<HTMLDivElement> {
   dest: DestinationModel;
@@ -290,6 +291,29 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
       </div>
     );
   };
+  const renderMarquees = () => {
+    const marquees = [];
+    for (let vh = 50, i = 0; vh <= 90; vh += 5, i++) {
+      marquees.push(
+        <Marquee
+          key={vh}
+          autoFill
+          direction={i % 2 === 0 ? "right" : "left"}
+          style={{
+            position: "absolute",
+            top: `${vh}vh`,
+            left: 0,
+            width: "100%",
+            fontSize: "1.5rem",
+            direction: "ltr",
+          }}
+        >
+          <span style={{ padding: "0 10px" }}>👑 שגיב ושני המלכים </span>
+        </Marquee>,
+      );
+    }
+    return marquees;
+  };
 
   return (
     <div className={"Destination"}>
@@ -305,6 +329,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
           zIndex: 0,
         }}
       />
+      {renderMarquees()}
       <span className={"inner-data"}>
         <Title title={displayName.hebrew} addTitle={displayName.english} />
         {/*<Title title={displayName.english} style={{ fontSize: 25 }} />*/}
