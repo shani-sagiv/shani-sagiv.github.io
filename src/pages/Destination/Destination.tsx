@@ -274,7 +274,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
           overflow: "auto",
           textWrap: "nowrap",
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "column-reverse",
           marginTop: 5,
         }}
       >

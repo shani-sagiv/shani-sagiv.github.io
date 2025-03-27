@@ -30,13 +30,16 @@ const Country: React.FC<CountryProps> = ({ destinations, country }) => {
     images: r.images,
     phones: r?.phones,
   }));
-  const cards = destinations.map((dest) => ({
+  let cards = destinations.map((dest) => ({
     title: getNameToDisplay(dest.displayName),
     displayName: dest.displayName,
     bottomData: parseDaysToHebrew(calculateTotalTime(dest.hotels)),
+    totalNights: calculateTotalTime(dest.hotels),
     image: dest.profileImg,
     navigate: dest.id,
   }));
+  cards = cards.sort((a, b) => b.totalNights - a.totalNights);
+  console.log({ cards });
   const totalNightsSlept = calculateTotalNightsAtAllDestinations(destinations);
 
   return (
