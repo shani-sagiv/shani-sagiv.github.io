@@ -39,7 +39,6 @@ const Country: React.FC<CountryProps> = ({ destinations, country }) => {
     navigate: dest.id,
   }));
   cards = cards.sort((a, b) => b.totalNights - a.totalNights);
-  console.log({ cards });
   const totalNightsSlept = calculateTotalNightsAtAllDestinations(destinations);
 
   return (

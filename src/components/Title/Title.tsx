@@ -14,7 +14,7 @@ const Title: React.FC<TitleProps> = ({ title, addTitle, style }) => {
         fontSize: 40,
         // boxSizing: "border-box",
         fontWeight: "bold",
-        margin: "0 10px 0 0",
+        margin: "0 20px 8px 0",
         ...style,
         // margin: "0",
         display: "flex",

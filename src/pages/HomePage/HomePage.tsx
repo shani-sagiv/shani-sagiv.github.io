@@ -20,7 +20,6 @@ import {
 } from "helpers/dateHelpers";
 import { useNavigate } from "react-router-dom";
 import Card from "../../components/Card/Card";
-import RainbowText from "../../AnimationComponents/RainbowText/RainbowText";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
 

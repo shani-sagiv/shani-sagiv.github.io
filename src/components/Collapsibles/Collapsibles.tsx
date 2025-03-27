@@ -42,12 +42,12 @@ const Collapsibles: React.FC<CollapsibleProps> = ({ items }) => {
               />
             )}
             {item.content ? item.content : null}
-            {item.phones && (
-              <>
-                {createWhatsAppLinksContent(item.phones)} <br />
-              </>
-            )}
           </div>
+          {item.phones && (
+            <>
+              {createWhatsAppLinksContent(item.phones)} <br />
+            </>
+          )}
         </Collapsible>
       ))}
     </div>

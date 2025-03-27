@@ -28,7 +28,6 @@ const DataPage: React.FC<DataProps> = ({}) => {
   const top3 = Object.entries(getAggregateLocations())
     .sort(([, a], [, b]) => b.totalNights - a.totalNights)
     .slice(0, 6); // Get the first 3
-  console.log({ top3 });
   const cards = top3.map((single) => {
     const dest = single[1].data[0];
     return {

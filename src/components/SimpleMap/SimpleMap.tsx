@@ -124,7 +124,7 @@ const SimpleMap: React.FC = () => {
   const initialPosition: [number, number] = placeCoordinates["BANGKOK"];
   const navigate = useNavigate();
 
-  console.log(locationData.map(({ id }) => id));
+  // console.log(locationData.map(({ id }) => id));
   // Extract LatLng pairs for Polyline and create markers
   const polylinePositions = locationData
     .map((location) => placeCoordinates[location.id])
