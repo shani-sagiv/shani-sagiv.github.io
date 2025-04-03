@@ -156,6 +156,12 @@ export const BANGKOK: Destination = {
       description: "אחלה מלון קרוב לשדה תעופה אין המון לעשות באזור",
       googleMapLink: "https://maps.app.goo.gl/y6wWgh5HteNwuXFK6",
     },
+    {
+      name: "Baan Kraivit Asok, K HOME ASOK",
+      dates: [{ from: createDate("04/04/2025"), to: createDate("10/04/2025") }],
+      description: "",
+      googleMapLink: "https://maps.app.goo.gl/cP4w1CtoNUG9GYzV6",
+    },
   ],
   foods: [],
   attractions: [],

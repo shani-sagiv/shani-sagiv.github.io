@@ -27,6 +27,7 @@ import {
   getStartAndEndDate,
   mergeDates,
   parseDate,
+  parseDaysToHebrew,
 } from "../../helpers/dateHelpers";
 import Marquee from "react-fast-marquee";
 
@@ -89,11 +90,17 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     ));
 
   const getActivities = () => {
+    const sortedHotels = hotels.sort(
+      (a, b) =>
+        new Date(b.dates?.[0]?.from ?? 0).getTime() -
+        new Date(a.dates?.[0]?.from ?? 0).getTime(),
+    );
+
     const sections = [
       {
         title: "מלונות",
         tabTitle: <h1>🏨</h1>,
-        content: generateContent(hotels, "hotel"),
+        content: generateContent(sortedHotels, "hotel"),
       },
       {
         title: "יוםטיול",
@@ -339,11 +346,10 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
             style={{
               display: "flex",
               flexDirection: "row",
-              gap: 5,
             }}
           >
-            (<span>{totalDays}</span>
-            <span>ימים</span>)
+            (<span>{parseDaysToHebrew(totalDays)}</span>)
+            {/*<span style={{ marginRight: 5 }}>סהכ</span>)*/}
           </div>
           {renderDatesInPlace()}
         </div>

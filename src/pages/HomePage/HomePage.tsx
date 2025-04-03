@@ -43,6 +43,8 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
   const locationsByPlaceAndDate = mergeLocationsByPlaceAndDate(locationsByDate);
 
   const renderSingleLastPlace = (l: Location, i: number) => {
+    const now = new Date();
+    const isActive = new Date(l.to) > now && new Date(l.from) < now;
     const path = `/${l.country.id}/${l.id}`;
     return (
       <div className={"flex-column flex-center"} id={`single-place-${i}`}>
@@ -53,7 +55,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
           image={l.profileImg}
         />
         <div
-          className={`flex-row ${new Date(l.to) > new Date() ? "blinking" : ""}`}
+          className={`flex-row ${isActive ? "blinking" : ""}`}
           style={{ gap: 10, marginTop: -10, direction: "ltr" }}
         >
           {/*{formatDateRange(l.from, l.to)}*/}

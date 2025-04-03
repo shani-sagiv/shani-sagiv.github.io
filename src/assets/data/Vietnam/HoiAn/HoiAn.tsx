@@ -31,8 +31,9 @@ export const HOI_AN: Destination = {
     },
     {
       name: "Windbell Villa Hoi An",
-      dates: [{ from: createDate("15/03/2025"), to: createDate("31/03/2025") }],
-      description: "הום סטיי ממש ממש חמוד אבל רחוק מהכל",
+      dates: [{ from: createDate("15/03/2025"), to: createDate("04/04/2025") }],
+      description:
+        "הום סטיי ממש ממש חמוד קצת רחוק מהכל אבל משפחה ממש חמודה עם מיאו",
       googleMapLink: "https://maps.app.goo.gl/NLH7APssNG9RWPq2A",
       images: IMAGES.Windbell,
       // price: "75 ש״ח ללילה ",
@@ -54,6 +55,14 @@ export const HOI_AN: Destination = {
     },
   ],
   attractions: [
+    {
+      name: "VinWonders",
+      description:
+        "פארק מטורף!! יש בו פארק מים +נלונהפארק + ספארי +עיא ויאטנמית. ממליצים להגיע בפתיחה ולהשאר עד המופעים שיש בסגירה!! נהננו ממש ממש",
+      images: IMAGES.vinwonders,
+      price: "בערך 90 ש״ח לכרטיס שכלל גם ארוחת צהריים",
+      googleMapLink: "https://maps.app.goo.gl/9RAMpPAhs5NX2XGD8",
+    },
     {
       name: "העיר העתיקה בלילה",
       description:
@@ -104,14 +113,29 @@ export const HOI_AN: Destination = {
       description: "היה נחמד שני יותר אהבה",
       images: IMAGES.ziv,
     },
-
     {
-      name: "VinWonders",
+      name: "כפר כדרים",
+      googleMapLink: "https://maps.app.goo.gl/2oYzBSnfebmNemAa8",
       description:
-        "פארק מטורף!! יש בו פארק מים +נלונהפארק + ספארי +עיא ויאטנמית. ממליצים להגיע בפתיחה ולהשאר עד המופעים שיש בסגירה!! נהננו ממש ממש",
-      images: IMAGES.vinwonders,
-      price: "בערך 90 ש״ח לכרטיס שכלל גם ארוחת צהריים",
-      googleMapLink: "https://maps.app.goo.gl/9RAMpPAhs5NX2XGD8",
+        "לא גדול אבל מאוד חמוד אםשר לעשות אובניים ב7 שקלים עשינו פעמיים",
+      images: IMAGES.Pottery,
+    },
+    {
+      name: "סגנאות ציור מטורפות של נופר האלופה",
+      googleMapLink: "https://maps.app.goo.gl/Q5ocnNfeARhmsh9G7",
+      description: "צריך את נופר בשביל זה",
+      images: IMAGES.painting,
+    },
+    {
+      name: "Dolphin Kitchen & Bar",
+      googleMapLink: "https://maps.app.goo.gl/4B8rRNxyY6R6wZvE8",
+      description: "אחלה מקום נחמד באן בנג",
+      images: IMAGES.Dolphin,
+    },
+    {
+      name: "סדנאת סכינים",
+      description: "איזה ישראלי ארגן",
+      images: IMAGES.Knife,
     },
   ],
   nightlife: [
