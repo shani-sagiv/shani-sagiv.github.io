@@ -165,6 +165,7 @@ export const BANGKOK: Destination = {
     {
       name: "Holiday Inn Bangkok Silom by IHG",
       dates: [{ from: createDate("08/04/2025"), to: createDate("10/04/2025") }],
+      images: BANGKOK_IMAGES.HolidayInn,
       description: "אחלה של פינוק תודה רבה לסבא דוד של שני",
       googleMapLink: "https://maps.app.goo.gl/Dk7B9KWzEhDiCcgc8",
     },

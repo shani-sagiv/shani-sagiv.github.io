@@ -17,6 +17,10 @@ export const Platinum = importAll(
   require.context("./Platinum", false, /\.(png|jpe?g|svg)$/),
 );
 
+export const HolidayInn = importAll(
+  require.context("./HolidayInn", false, /\.(png|jpe?g|svg)$/),
+);
+
 export const BANGKOK_IMAGES = {
   profile,
   NewSiam,
@@ -24,4 +28,5 @@ export const BANGKOK_IMAGES = {
   chatuchak,
   Terminal,
   Platinum,
+  HolidayInn,
 };
