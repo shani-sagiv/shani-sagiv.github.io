@@ -2,6 +2,7 @@ import React from "react";
 import "./DataPage.scss";
 import {
   getAggregateLocations,
+  getTopPlaces,
   sortAllDestinationsByDate,
 } from "helpers/locations.helpers";
 import LocationsWithDates from "components/locationsWithDates/LocationsWithDates";
@@ -9,14 +10,8 @@ import SimpleMap from "components/SimpleMap/SimpleMap";
 // import MapComponent from "../../siemReapMap";
 import { Button } from "components/Button";
 import { useNavigate } from "react-router-dom";
-import {
-  calculateTotalTime,
-  getNameToDisplay,
-  parseDaysToHebrew,
-} from "../../helpers/dateHelpers";
-import { Cards } from "components/Cards";
+import { getNameToDisplay, parseDaysToHebrew } from "../../helpers/dateHelpers";
 import Card from "../../components/Card/Card";
-import { Title } from "components/Title";
 import { WordArtTitle } from "components/WordArtTitle";
 
 interface DataProps extends React.HTMLAttributes<HTMLDivElement> {}
@@ -25,10 +20,7 @@ const DataPage: React.FC<DataProps> = ({}) => {
   const navigate = useNavigate();
   const locationsByDate = sortAllDestinationsByDate();
 
-  const top3 = Object.entries(getAggregateLocations())
-    .sort(([, a], [, b]) => b.totalNights - a.totalNights)
-    .slice(0, 6); // Get the first 3
-  const cards = top3.map((single) => {
+  const cards = getTopPlaces(6).map((single) => {
     const dest = single[1].data[0];
     return {
       title: getNameToDisplay(dest.displayName),

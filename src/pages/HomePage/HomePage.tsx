@@ -6,6 +6,7 @@ import { COUNTRIES_WITHOUT_IMAGES } from "Routes";
 import "./HomePage.scss";
 import {
   getAggregateLocations,
+  getTopPlaces,
   Location,
   mergeLocationsByPlaceAndDate,
   sortAllDestinationsByDate,
@@ -14,12 +15,15 @@ import {
   calculateDaysBetweenDates,
   calculateTotalNightsAtAllDestinations,
   formatDateRange,
+  getNameToDisplay,
   parseDate,
   parseDateDOT,
   parseDaysToHebrew,
 } from "helpers/dateHelpers";
 import { useNavigate } from "react-router-dom";
 import Card from "../../components/Card/Card";
+import LastPlaces from "components/infoBoxes/LastPlaces";
+import TopPlaces from "components/infoBoxes/TopPlaces";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -40,72 +44,6 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
 
   const locationsByDate = sortAllDestinationsByDate();
   const totalNights = calculateTotalNights();
-  const locationsByPlaceAndDate = mergeLocationsByPlaceAndDate(locationsByDate);
-
-  const renderSingleLastPlace = (l: Location, i: number) => {
-    const now = new Date();
-    const isActive = new Date(l.to) > now && new Date(l.from) < now;
-    const path = `/${l.country.id}/${l.id}`;
-    return (
-      <div className={"flex-column flex-center"} id={`single-place-${i}`}>
-        <Card
-          size="small"
-          onClick={() => navigate(path)}
-          displayName={l.displayName}
-          image={l.profileImg}
-        />
-        <div
-          className={`flex-row ${isActive ? "blinking" : ""}`}
-          style={{ gap: 10, marginTop: -10, direction: "ltr" }}
-        >
-          {/*{formatDateRange(l.from, l.to)}*/}
-          {/*<br />*/}
-          {parseDateDOT(l.from, true)} - {parseDateDOT(l.to, true)}
-        </div>
-      </div>
-    );
-
-    // return (
-    //   <div
-    //     onClick={() => navigate(path)}
-    //     className={"flex-column flex-center"}
-    //     style={{ width: 200, height: 200, border: "1px solid red" }}
-    //   >
-    //     <span>{l.displayName.hebrew}</span>
-    //     {l.profileImg && (
-    //       <img style={{ height: 150, width: 150 }} src={l.profileImg[0]} />
-    //     )}
-    //     <span>
-    //       <span>{parseDate(l.from)}</span>-<span>{parseDate(l.to)}</span>
-    //     </span>
-    //   </div>
-    // );
-  };
-  const renderLastPlaces = () => {
-    const lasts = locationsByPlaceAndDate
-      .slice(locationsByPlaceAndDate.length - 3, locationsByPlaceAndDate.length)
-      .reverse();
-    return (
-      <>
-        {/*<Drawer text={"אחרונים"} />*/}
-        <WordArtTitle title={"אחרונים"} style={{ marginBottom: -10 }} />
-        {/*<h1 style={{ marginBottom: -10 }}>אחרונים</h1>*/}
-
-        <div
-          className={"flex-row flex-center"}
-          style={{
-            marginBottom: 10,
-            marginTop: 10,
-            width: "100%",
-            flexWrap: "wrap",
-            justifyContent: "flex-start",
-          }}
-        >
-          {lasts.map(renderSingleLastPlace)}
-        </div>
-      </>
-    );
-  };
 
   function calculateTotalNights() {
     return locationsByDate.reduce((totalNights, entry) => {
@@ -140,9 +78,12 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         }}
       />
       <WavesComponent>
-        {renderLastPlaces()}
         <WordArtTitle title={parseDaysToHebrew(totalNights)} />
         <Cards items={destinationsCards} />
+
+        <TopPlaces />
+
+        <LastPlaces />
       </WavesComponent>
       <div
         className={"flex-row flex-center"}

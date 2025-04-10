@@ -95,6 +95,11 @@ export const getAggregateLocations = (): LocationsToInfo => {
   }, {} as LocationsToInfo); // Ensuring accumulator is of type LocationsToInfo
 };
 
+export const getTopPlaces = (count: number = 6) =>
+  Object.entries(getAggregateLocations())
+    .sort(([, a], [, b]) => b.totalNights - a.totalNights)
+    .slice(0, count);
+
 const getAllHotels = (
   country: CountryModel,
   destinations: Destination[],

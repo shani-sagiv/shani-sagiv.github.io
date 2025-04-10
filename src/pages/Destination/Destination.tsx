@@ -273,6 +273,11 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
   const renderDatesInPlace = () => {
     const allDates = hotels.flatMap((hotel) => hotel.dates);
     const mergedDates = mergeDates(allDates);
+    const sortedMergedDates = mergeDates(allDates).sort(
+      (a, b) => new Date(b.to ?? 0).getTime() - new Date(a.to ?? 0).getTime(),
+    );
+
+    console.log({ sortedMergedDates });
 
     return (
       <div
@@ -281,11 +286,11 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
           overflow: "auto",
           textWrap: "nowrap",
           display: "flex",
-          flexDirection: "column-reverse",
+          flexDirection: "column",
           marginTop: 5,
         }}
       >
-        {mergedDates.map((date) => {
+        {sortedMergedDates.map((date) => {
           return (
             // <div style={{ direction: "ltr" }}>
             <div>
@@ -336,7 +341,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
           zIndex: 0,
         }}
       />
-      {renderMarquees()}
+      {/*{renderMarquees()}*/}
       <span className={"inner-data"}>
         <Title title={displayName.hebrew} addTitle={displayName.english} />
         {/*<Title title={displayName.english} style={{ fontSize: 25 }} />*/}

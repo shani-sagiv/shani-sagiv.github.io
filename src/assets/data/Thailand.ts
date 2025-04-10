@@ -141,7 +141,7 @@ export const BANGKOK: Destination = {
     english: "Bangkok",
   },
   images: BANGKOK_IMAGES.general,
-  description: "סתם היינו 3 ימים למעבר ולחג מים שלהם",
+  description: "אחלה של בנגקוק מאוד כיפית",
   hotels: [
     {
       name: "New Siam II",
@@ -158,13 +158,38 @@ export const BANGKOK: Destination = {
     },
     {
       name: "Baan Kraivit Asok, K HOME ASOK",
-      dates: [{ from: createDate("04/04/2025"), to: createDate("10/04/2025") }],
-      description: "",
+      dates: [{ from: createDate("04/04/2025"), to: createDate("08/04/2025") }],
+      description: "מאוד מאוד חמוד אחלה של מיקום סבבה",
       googleMapLink: "https://maps.app.goo.gl/cP4w1CtoNUG9GYzV6",
+    },
+    {
+      name: "Holiday Inn Bangkok Silom by IHG",
+      dates: [{ from: createDate("08/04/2025"), to: createDate("10/04/2025") }],
+      description: "אחלה של פינוק תודה רבה לסבא דוד של שני",
+      googleMapLink: "https://maps.app.goo.gl/Dk7B9KWzEhDiCcgc8",
     },
   ],
   foods: [],
-  attractions: [],
+  attractions: [
+    {
+      name: "Chatuchak Weekend Market",
+      description: "שוק ענק ענק ענק",
+      googleMapLink: "https://maps.app.goo.gl/i5RLkigxRiQiYMPS6",
+      images: BANGKOK_IMAGES.chatuchak,
+    },
+    {
+      name: "Terminal 21 Asok",
+      description: "קניון חמוד",
+      googleMapLink: "https://maps.app.goo.gl/vTr9PudCH4eZ1HKV7",
+      images: BANGKOK_IMAGES.Terminal,
+    },
+    {
+      name: "Platinum mall",
+      description: "קניון חמוד חצי שוק",
+      googleMapLink: "https://maps.app.goo.gl/UMJco4TqpbumdBps6",
+      images: BANGKOK_IMAGES.Platinum,
+    },
+  ],
   nightlife: [],
 };
 
