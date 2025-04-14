@@ -45,10 +45,12 @@ export const parseDaysToHebrew = (totalDays: number): string => {
 export const calculateTotalNightsAtAllDestinations = (
   destinations: Destination[],
 ): number => {
-  return destinations.reduce((totalNights, destination) => {
+  const total = destinations.reduce((totalNights, destination) => {
     const destinationNights = calculateTotalTime(destination.hotels);
     return totalNights + destinationNights;
   }, 0);
+
+  return Number(total.toFixed());
 };
 
 export const calculateTotalTime = (hotels: HotelRecommendation[]): number => {
