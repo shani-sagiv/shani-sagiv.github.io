@@ -54,7 +54,7 @@ export const calculateTotalNightsAtAllDestinations = (
 };
 
 export const calculateTotalTime = (hotels: HotelRecommendation[]): number => {
-  return hotels.reduce((totalDays, hotel) => {
+  const total = hotels.reduce((totalDays, hotel) => {
     const hotelDays = hotel.dates.reduce((days, dateRange) => {
       const from = dateRange.from.getTime();
       const to = dateRange.to.getTime();
@@ -62,6 +62,7 @@ export const calculateTotalTime = (hotels: HotelRecommendation[]): number => {
     }, 0);
     return totalDays + hotelDays;
   }, 0);
+  return Number(total.toFixed());
 };
 
 export const getStartAndEndDate = (

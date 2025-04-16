@@ -266,18 +266,19 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
       return totalDays + daysDiff;
     }, 0);
   };
-  const totalDays = hotels.reduce(
-    (totalDays, hotel) => totalDays + calculateDaysForHotel(hotel),
-    0,
+  const totalDays = Math.round(
+    hotels.reduce(
+      (totalDays, hotel) => totalDays + calculateDaysForHotel(hotel),
+      0,
+    ),
   );
+  console.log({ totalDays });
   const renderDatesInPlace = () => {
     const allDates = hotels.flatMap((hotel) => hotel.dates);
     const mergedDates = mergeDates(allDates);
     const sortedMergedDates = mergeDates(allDates).sort(
       (a, b) => new Date(b.to ?? 0).getTime() - new Date(a.to ?? 0).getTime(),
     );
-
-    console.log({ sortedMergedDates });
 
     return (
       <div
