@@ -1,2 +1,2 @@
-export * from "./Thailand";
+export * from "./Thailand/Thailand";
 export * from "./Vietnam/Vietnam";

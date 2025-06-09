@@ -2,10 +2,8 @@ import { createDate } from "helpers/dateHelpers";
 import { Country, Destination } from "models";
 import simSrc from "assets/img/Thailand/sim.jpeg";
 import {
-  KHO_LANTA_IMAGES,
   KHO_PHA_NGAN_IMAGES,
   CHINAG_MAI_IMAGES,
-  BANGKOK_IMAGES,
   sushiImages,
   KOH_CHANG_IMAGES,
   PATTAYA_IMAGES,
@@ -13,7 +11,12 @@ import {
   KOH_TAO_IMAGES,
   THAILAND_IMAGES,
 } from "assets/img/Thailand";
-import { Mushon } from "../img/Thailand/KohSamui";
+import { Mushon } from "../../img/Thailand/KohSamui";
+
+import { BANGKOK } from "./Bangkok";
+import { KOH_LANTA } from "./KohLanta";
+import profileImg from "./main.jpg";
+
 
 export const THAILAND: Country = {
   id: "THA",
@@ -23,8 +26,6 @@ export const THAILAND: Country = {
     english: "Thailand",
   },
   description: "המדינה הכי קלה, אחלה של חופים אוכל טוב חיי לילה כל מה שצריך",
-  // description:
-  //   "תאילנד היא מדינה טרופית בדרום-מזרח אסיה, המפורסמת בחופים קסומים, מקדשים בודהיסטיים מרהיבים ותרבות עשירה. בנוסף, המדינה מציעה חוויות קולינריות מגוונות, חיי לילה תוססים ושווקים ססגוניים",
   gold_recommendation: [
     {
       name: "תחבורה 🚌",
@@ -54,145 +55,12 @@ export const THAILAND: Country = {
       images: sushiImages,
     },
   ],
-  profileImg: KHO_LANTA_IMAGES.profile,
+  profileImg: profileImg,
 };
 
-export const KOH_LANTA: Destination = {
-  id: "KOH_LANTA",
-  profileImg: KHO_LANTA_IMAGES.profile,
-  displayName: {
-    hebrew: "קו לנטה",
-    english: "Koh Lanta",
-  },
-  shells: KHO_LANTA_IMAGES.shells,
-  description:
-    "קו לנטה הוא אי שקט ורגוע בדרום תאילנד, הידוע בחופים זהובים, מי טורקיז ושוניות אלמוגים מושלמות לצלילה ושנורקלינג. האי מציע אווירה נינוחה עם עיירות חוף קטנות, נופים ירוקים ומקומות מפלט למי שמחפש להתרחק מהמולת התיירות.",
-  hotels: [
-    {
-      name: "Lanta Riviera Resort",
-      dates: [{ from: createDate("17/04/2024"), to: createDate("30/04/2024") }],
-      description:
-        "מלון על החוף, חדרים גדולים ונקיים, בריכה כייפית! המקום ממש לא עמוס ויש המון ברים ומסעדות על החוף במרחק הליכה",
-      price: "75 ש״ח ללילה",
 
-      googleMapLink: "https://maps.app.goo.gl/URVK9gTZAGHwMBpV8",
-      images: KHO_LANTA_IMAGES.hotelLantaRiviera,
-    },
-  ],
-  foods: [
-    {
-      name: "Lanta Riviera Resort",
-      description: "המסעדה בבריכה של המלון הייתה אחלה ממש, אכלנו בה מלאאא  ",
-      googleMapLink: "https://maps.app.goo.gl/URVK9gTZAGHwMBpV8",
-      images: KHO_LANTA_IMAGES.restaurantsLantaRiviera,
-    },
-    {
-      name: "Moonwalk Restaurant & Bar",
-      description:
-        "מסעדה ממש חמודה על החוף, כמה דק הליכה מהחוף של המלון. המלצריות היו ממש נחמדות והאוכל מצויין",
-      googleMapLink: "https://maps.app.goo.gl/t66ajYqb2s9AKVnw5",
-      images: KHO_LANTA_IMAGES.restaurantsMoonwalk,
-    },
 
-    {
-      name: "M Thai Food",
-      description:
-        "ארוחת בוקר חמודה ב100 באט!! יש גם אחלה של צהריים/ערב. ממש דקה הליכה מהמלון",
-      googleMapLink: "https://maps.app.goo.gl/9T8JspxesXBq9HnTA",
-      // images: KHO_LANTA.restaurantsMoonwalk,
-    },
-  ],
-  attractions: [
-    {
-      name: "Following Giants",
-      description:
-        "חוות פילים ממש מוסרית, הפילים משוחררים בחופשיות, לא נוגעים בהם או מציקים להם. הסבירו לנו בכניסה על שיקום פילים ששימשו לבידור בני אדם.",
-      googleMapLink: "https://maps.app.goo.gl/1B1HYB4Soi51KvLU8",
-      images: KHO_LANTA_IMAGES.attractionsFollowingGiants,
-    },
-    {
-      name: "גאות ושפל ממש גדולים",
-      description: "יש שם גאות ושפל ממש חזקים אז אפשר לבוא לשם לראות המון מהים",
-      images: KHO_LANTA_IMAGES.beachTravelImages,
-    },
-    {
-      name: "שוק לילה",
-      description:
-        "בצפון האי יש שוק קטן וחמוד בלילה, יש דוכני אוכל נחמד וכיף להסתובב",
-      googleMapLink: "https://maps.app.goo.gl/FxiaFTCA2EckFqUV6",
-      images: KHO_LANTA_IMAGES.attractionsMarket,
-    },
-  ],
-  nightlife: [
-    {
-      name: "Beach Bars",
-      description:
-        "יש על החוף מלא ברים, מושלם לראות את השקיעה ולשבת בלילה. לפעמים גם יש מופעי אש, אפשר לשאול",
-      images: KHO_LANTA_IMAGES.nightLife,
-    },
-  ],
-};
 
-export const BANGKOK: Destination = {
-  id: "BANGKOK",
-  profileImg: BANGKOK_IMAGES.profile,
-  displayName: {
-    hebrew: "בנגקוק",
-    english: "Bangkok",
-  },
-  images: BANGKOK_IMAGES.general,
-  description: "אחלה של בנגקוק מאוד כיפית",
-  hotels: [
-    {
-      name: "New Siam II",
-      dates: [{ from: createDate("13/04/2024"), to: createDate("17/04/2024") }],
-      description: "מלון חמוד אחלה אזור בריכה חמדודה",
-      googleMapLink: "https://maps.app.goo.gl/aPa7xCb6AwvWzWWq6",
-      images: BANGKOK_IMAGES.NewSiam,
-    },
-    {
-      name: "Bangkok Sleep Nest Hostel",
-      dates: [{ from: createDate("05/09/2024"), to: createDate("06/09/2024") }],
-      description: "אחלה מלון קרוב לשדה תעופה אין המון לעשות באזור",
-      googleMapLink: "https://maps.app.goo.gl/y6wWgh5HteNwuXFK6",
-    },
-    {
-      name: "Baan Kraivit Asok, K HOME ASOK",
-      dates: [{ from: createDate("04/04/2025"), to: createDate("08/04/2025") }],
-      description: "מאוד מאוד חמוד אחלה של מיקום סבבה",
-      googleMapLink: "https://maps.app.goo.gl/cP4w1CtoNUG9GYzV6",
-    },
-    {
-      name: "Holiday Inn Bangkok Silom by IHG",
-      dates: [{ from: createDate("08/04/2025"), to: createDate("10/04/2025") }],
-      images: BANGKOK_IMAGES.HolidayInn,
-      description: "אחלה של פינוק תודה רבה לסבא דוד של שני",
-      googleMapLink: "https://maps.app.goo.gl/Dk7B9KWzEhDiCcgc8",
-    },
-  ],
-  foods: [],
-  attractions: [
-    {
-      name: "Chatuchak Weekend Market",
-      description: "שוק ענק ענק ענק",
-      googleMapLink: "https://maps.app.goo.gl/i5RLkigxRiQiYMPS6",
-      images: BANGKOK_IMAGES.chatuchak,
-    },
-    {
-      name: "Terminal 21 Asok",
-      description: "קניון חמוד",
-      googleMapLink: "https://maps.app.goo.gl/vTr9PudCH4eZ1HKV7",
-      images: BANGKOK_IMAGES.Terminal,
-    },
-    {
-      name: "Platinum mall",
-      description: "קניון חמוד חצי שוק",
-      googleMapLink: "https://maps.app.goo.gl/UMJco4TqpbumdBps6",
-      images: BANGKOK_IMAGES.Platinum,
-    },
-  ],
-  nightlife: [],
-};
 
 export const KOH_PHA_NGAN: Destination = {
   id: "KOH_PHA_NGAN",
@@ -594,7 +462,7 @@ export const KOH_SAMUI: Destination = {
       name: "PTK Beach",
       googleMapLink: "https://maps.app.goo.gl/ZwTdShkmZL8SYrUh8",
       images: KOH_SAMUI_IMAGES.ptk,
-      dates: [{ from: createDate("03/11/2024"), to: createDate("09/11/2024") }],
+      dates: [{ from: createDate("03/11/2024"), to: createDate("09/11/2024") }, { from: createDate("09/06/2025"), to: createDate("14/06/2025") }],
       description:
         "מיקום פצצה ויחסית לזה שכל המלונות באזור עולים פי 3 ממש נדיר",
       price: "700 באט ללילה",
@@ -715,3 +583,8 @@ export const KOH_TAO: Destination = {
     },
   ],
 };
+
+export const THAILAND_DESTINATION = [
+  BANGKOK,
+  KOH_LANTA,
+];

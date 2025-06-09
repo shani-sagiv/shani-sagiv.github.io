@@ -79,11 +79,11 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
       />
       <WavesComponent>
         <WordArtTitle title={parseDaysToHebrew(totalNights)} />
-        <Cards items={destinationsCards} />
-
-        <TopPlaces />
-
         <LastPlaces />
+
+        <Cards items={destinationsCards} />
+        
+        <TopPlaces />
       </WavesComponent>
       <div
         className={"flex-row flex-center"}

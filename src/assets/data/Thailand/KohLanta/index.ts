@@ -1,0 +1,1 @@
+export { KOH_LANTA } from './KohLanta';

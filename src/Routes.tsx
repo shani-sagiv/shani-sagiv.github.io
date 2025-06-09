@@ -7,12 +7,13 @@ import {
 } from "helpers/navigationHelpers";
 import {
   THAILAND,
-  KOH_LANTA,
+  THAILAND_DESTINATION,
+  // KOH_LANTA,
   KOH_PHA_NGAN,
   CHINAG_MAI,
   VIETNAM,
   VIETNAM_DESTINATION,
-  BANGKOK,
+  // BANGKOK,
   KOH_CHANG,
   PATTAYA,
   KOH_SAMUI,
@@ -42,8 +43,9 @@ export const COUNTRIES: {
   {
     country: THAILAND,
     destinations: [
-      BANGKOK,
-      KOH_LANTA,
+      ...THAILAND_DESTINATION,
+      // BANGKOK,
+      // KOH_LANTA,
       KOH_PHA_NGAN,
       CHINAG_MAI,
       KOH_CHANG,
