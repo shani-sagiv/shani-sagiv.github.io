@@ -35,6 +35,9 @@ export const ptk = importAll(
 export const ramle = importAll(
   require.context("./ramle", false, /\.(png|jpe?g|svg)$/),
 );
+export const vibes = importAll(
+  require.context("./vibes", false, /\.(png|jpe?g|svg)$/),
+);
 
 export const KOH_SAMUI_IMAGES = {
   profile: main,
@@ -49,4 +52,5 @@ export const KOH_SAMUI_IMAGES = {
   Mushon,
   ptk,
   ramle,
+  vibes
 };

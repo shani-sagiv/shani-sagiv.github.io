@@ -59,9 +59,6 @@ export const THAILAND: Country = {
 };
 
 
-
-
-
 export const KOH_PHA_NGAN: Destination = {
   id: "KOH_PHA_NGAN",
   profileImg: KHO_PHA_NGAN_IMAGES.profile,
@@ -71,7 +68,7 @@ export const KOH_PHA_NGAN: Destination = {
   },
   shells: [],
   images: KHO_PHA_NGAN_IMAGES.general,
-  description: "",
+  description: "אחלה אי אחלה מסיבות להיזהר בעיקולים!",
   hotels: [
     {
       name: "Island Life Bungalows",
@@ -111,6 +108,13 @@ export const KOH_PHA_NGAN: Destination = {
       dates: [{ from: createDate("09/11/2024"), to: createDate("12/11/2024") }],
       description:
         "אחלה מלון באזור הזן ביץ חדרים שווים עם מטבח קצת ריח של גופה וביוב לפעמים",
+    },  {
+      name: "Sea Escapes Resort",
+      googleMapLink: "https://maps.app.goo.gl/q3regvvWhCVg2b7a9",
+      // images: KHO_PHA_NGAN_IMAGES.PureLaguna,
+      dates: [{ from: createDate("15/06/2025"), to: createDate("21/06/2025") }],
+      description:
+        "באנו רק בשביל נופר",
     },
   ],
   foods: [
@@ -493,6 +497,11 @@ export const KOH_SAMUI: Destination = {
       googleMapLink: "https://maps.app.goo.gl/uQsLEkyA4mEboEPv6",
       description: "אחלה של אוכל ישרלאי טעים רצח",
       images: KOH_SAMUI_IMAGES.ramle,
+    },    {
+      name: "vibes 360",
+      googleMapLink: "https://maps.app.goo.gl/Lr91gpznPcTggJos7",
+      description: "מסעדה בורמזית עם אחלה קריוקי",
+      images: KOH_SAMUI_IMAGES.vibes,
     },
   ],
   attractions: [
