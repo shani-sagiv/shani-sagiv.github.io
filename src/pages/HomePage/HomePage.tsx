@@ -78,7 +78,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         }}
       />
       <WavesComponent>
-        <WordArtTitle title={parseDaysToHebrew(totalNights)} />
+        <WordArtTitle title={parseDaysToHebrew(totalNights)} style={{fontSize:30}}/>
         <LastPlaces />
 
         <Cards items={destinationsCards} />

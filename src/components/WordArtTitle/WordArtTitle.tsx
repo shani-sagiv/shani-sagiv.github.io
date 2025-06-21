@@ -55,7 +55,7 @@ const WordArtTitle: React.FC<TitleProps> = ({
       style={{ margin: "10px 0 0 0", ...style }}
     >
       <div className="wordart">
-        <div className={`preview`}>{title}</div>
+        <div className={`preview`} style={style}>{title}</div>
       </div>
     </section>
   );
