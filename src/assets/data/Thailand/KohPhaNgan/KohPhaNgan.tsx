@@ -18,7 +18,7 @@ export const KOH_PHA_NGAN: Destination = {
       name: "Island Life Bungalows",
       dates: [{ from: createDate("30/04/2024"), to: createDate("07/05/2024") }],
       description:
-        "דיי ממוצע המלון והאזור אחלה בריכה וקרוב לhalf moon שהיה ממוצע גם כן(כי זה היה באיזה ביץ קלאב ולא בגונגל ששם דווקא כיף)",
+        "דיי ממוצע המלון והאזור אחלה בריכה וקרוב לhalf moon שהיה ממוצע גם כן",
       price: "",
       googleMapLink: "https://maps.app.goo.gl/wFpmvsshdNTRJXPf7",
       images: IMAGES.islandLife,
@@ -55,7 +55,7 @@ export const KOH_PHA_NGAN: Destination = {
     },  {
       name: "Sea Escapes Resort",
       googleMapLink: "https://maps.app.goo.gl/q3regvvWhCVg2b7a9",
-      // images: IMAGES.PureLaguna,
+      images: IMAGES.SeaEscape,
       dates: [{ from: createDate("15/06/2025"), to: createDate("21/06/2025") }],
       description:
         "באנו רק בשביל נופר",
@@ -140,6 +140,11 @@ export const KOH_PHA_NGAN: Destination = {
         "יש על החוף כל ערב מלא ברים עם מופעי אש. באף אחד לא היה כתוב שיש האפי האוור אבל ברגע ששאלנו אז הם ענו שכן חחח קיצר תשאלו אם יש",
       googleMapLink: "https://maps.app.goo.gl/wzWoLNs6X7HBrCuG7",
       images: IMAGES.HaadRinBeachBars,
+    },    {
+      name: "Stona Jungle Club",
+      description:"טראנדים היה כיף רצח עם נופר",
+      googleMapLink: "https://maps.app.goo.gl/4voHG4Rzu1UsiCGH6",
+      images: IMAGES.Stona,
     },
   ],
   gold_recommendation: [

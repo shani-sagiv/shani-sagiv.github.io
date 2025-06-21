@@ -46,7 +46,7 @@ const LastPlaces: React.FC<LastPlacesProps> = ({}) => {
     return (
       <>
         {/*<Drawer text={"אחרונים"} />*/}
-        <WordArtTitle title={"אחרונים"} style={{ marginBottom: -10 }} />
+        {/* <WordArtTitle title={"אחרונים"} style={{ marginBottom: -10 }} /> */}
         {/*<h1 style={{ marginBottom: -10 }}>אחרונים</h1>*/}
 
         <div

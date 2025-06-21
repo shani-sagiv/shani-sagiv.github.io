@@ -51,6 +51,13 @@ export const PureLaguna = importAll(
   require.context("./PureLaguna", false, /\.(png|jpe?g|svg)$/),
 );
 
+export const SeaEscape = importAll(
+  require.context("./SeaEscape", false, /\.(png|jpe?g|svg)$/),
+);
+export const Stona = importAll(
+  require.context("./Stona", false, /\.(png|jpe?g|svg)$/),
+);
+
 const IMAGES = {
   profile: sunset,
   islandLife: islandLifeImages,
@@ -69,6 +76,8 @@ const IMAGES = {
   general,
   Mama,
   PureLaguna,
+  SeaEscape,
+  Stona
 };
  
 export default IMAGES

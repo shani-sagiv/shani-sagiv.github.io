@@ -22,5 +22,5 @@ export const logUserAction = (
   });
 
   // Log the page view
-  // ReactGA.send({ hitType: "pageview", page: path });
+  ReactGA.send({ hitType: "pageview", page: path });
 };

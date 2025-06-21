@@ -2,7 +2,7 @@ import { createDate } from "helpers/dateHelpers";
 import { Country, Destination } from "models";
 import simSrc from "assets/img/Thailand/sim.jpeg";
 import {
-  KHO_PHA_NGAN_IMAGES,
+
   CHINAG_MAI_IMAGES,
   sushiImages,
   KOH_CHANG_IMAGES,
@@ -319,7 +319,11 @@ export const KOH_SAMUI: Destination = {
       name: "PTK Beach",
       googleMapLink: "https://maps.app.goo.gl/ZwTdShkmZL8SYrUh8",
       images: KOH_SAMUI_IMAGES.ptk,
-      dates: [{ from: createDate("03/11/2024"), to: createDate("09/11/2024") }, { from: createDate("09/06/2025"), to: createDate("14/06/2025") }],
+      dates: [
+        { from: createDate("03/11/2024"), to: createDate("09/11/2024") },
+        { from: createDate("09/06/2025"), to: createDate("14/06/2025") },
+        { from: createDate("21/06/2025"), to: createDate("26/06/2025") }
+      ],
       description:
         "מיקום פצצה ויחסית לזה שכל המלונות באזור עולים פי 3 ממש נדיר",
       price: "700 באט ללילה",
