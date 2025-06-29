@@ -39,7 +39,7 @@ export const BANGKOK: Destination = {
       googleMapLink: "https://maps.app.goo.gl/Dk7B9KWzEhDiCcgc8",
     },    {
       name: "Vismaya Suvarnabhumi Hotel",
-      dates: [{ from: createDate("08/05/2025"), to: createDate("09/05/2025") }],
+      dates: [{ from: createDate("08/04/2025"), to: createDate("09/04/2025") }],
       images: IMAGES.Vismaya,
       description: "מלון ממש ממש חמוד קרוב רצח לשדה מומלץ אם צריך עצירה של יום",
       googleMapLink: "https://maps.app.goo.gl/Dk7B9KWzEhDiCcgc8",

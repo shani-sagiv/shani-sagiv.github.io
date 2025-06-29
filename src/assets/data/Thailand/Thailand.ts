@@ -321,7 +321,7 @@ export const KOH_SAMUI: Destination = {
       images: KOH_SAMUI_IMAGES.ptk,
       dates: [
         { from: createDate("03/11/2024"), to: createDate("09/11/2024") },
-        { from: createDate("09/06/2025"), to: createDate("14/06/2025") },
+        { from: createDate("09/06/2025"), to: createDate("15/06/2025") },
         { from: createDate("21/06/2025"), to: createDate("02/07/2025") }
       ],
       description:
