@@ -48,6 +48,7 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
   // }
   // @ts-ignore
   const dates: datesType[] = recommendation?.dates;
+  const totalDays = dates?.length > 1 ? dates.reduce((sum, item) => sum + calculateDaysBetweenDates(item.from, item.to), 0) : undefined;
   // const hasNoData =
   //   !recommendation.description && !recommendation.price && !from && !to;
   return (
@@ -88,6 +89,7 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
           {/*<div style={{fontSize: 20, fontWeight: "bold"}}>{hotel.name}</div>*/}
           <div style={{ marginRight: 10 }}>{recommendation.description}</div>
           <div style={{ marginRight: 10 }}>{recommendation.price}</div>
+          
           {dates
             ? dates.map(({ from, to }) => (
                 <div
@@ -100,6 +102,9 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
                   </div>
                 </div>
               ))
+            : null}
+            {totalDays  ? 
+            <div style={{ margin: "0 5px" }}>סהכ {totalDays} ימים.</div>
             : null}
         </div>
       </div>
