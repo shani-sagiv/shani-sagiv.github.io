@@ -19,6 +19,8 @@ const LocationsWithDates: React.FC<locationsWithDatesProps> = ({
       <div
         className={"flex-row"}
         style={{
+          marginTop:5,
+          marginBottom: -5,
           gap: 10,
           height: 15,
           marginRight: 70,
@@ -50,7 +52,7 @@ const LocationsWithDates: React.FC<locationsWithDatesProps> = ({
               style={{
                 gap: 10,
                 height: 10,
-                marginTop: daysMissing === 0 ? 5 : 0,
+                marginTop: 5,
                 marginRight: 20,
                 fontSize: 10,
               }}
