@@ -38,6 +38,16 @@ export const ramle = importAll(
 export const vibes = importAll(
   require.context("./vibes", false, /\.(png|jpe?g|svg)$/),
 );
+export const coral = importAll(
+  require.context("./coral", false, /\.(png|jpe?g|svg)$/),
+);
+
+export const buddha = importAll(
+  require.context("./buddha", false, /\.(png|jpe?g|svg)$/),
+);
+export const Capybara = importAll(
+  require.context("./Capybara", false, /\.(png|jpe?g|svg)$/),
+);
 
 export const KOH_SAMUI_IMAGES = {
   profile: main,
@@ -52,5 +62,8 @@ export const KOH_SAMUI_IMAGES = {
   Mushon,
   ptk,
   ramle,
-  vibes
+  vibes,
+  coral,
+  buddha,
+  Capybara
 };

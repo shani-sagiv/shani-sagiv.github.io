@@ -369,6 +369,25 @@ export const KOH_SAMUI: Destination = {
       images: KOH_SAMUI_IMAGES.bulbul,
       googleMapLink: "https://maps.app.goo.gl/XVVjaNzQ3mM4k8TdA",
     },
+    {
+      name: "Big Buddha Temple (Wat Phra Yai)",
+      description:
+        "בודה גדול נחמד",
+      images: KOH_SAMUI_IMAGES.buddha,
+      googleMapLink: "https://maps.app.goo.gl/WyPpsT6zm18uVeBH6",
+    },    {
+      name: "Coral Cove Beach",
+      description:
+        "חוף חמוד עם דגים חמודים ברדודים",
+      images: KOH_SAMUI_IMAGES.coral,
+      googleMapLink: "https://maps.app.goo.gl/5Lo5G9Vc2XcKmDFG6",
+    },    {
+      name: "Capybara World Koh Samui",
+      description:
+        "אחלה מקום מתנהגים יפה לחיות",
+      images: KOH_SAMUI_IMAGES.Capybara,
+      googleMapLink: "https://maps.app.goo.gl/x9a6Sfw5E4iV8CaY9",
+    },
   ],
   nightlife: [],
   gold_recommendation: [
