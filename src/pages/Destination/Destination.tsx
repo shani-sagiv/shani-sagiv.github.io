@@ -274,14 +274,11 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
   );
   const renderDatesInPlace = () => {
     const allDates = hotels.flatMap((hotel) => hotel.dates);
-    const mergedDates = mergeDates(allDates);
     const sortedMergedDates = mergeDates(allDates).sort(
       (a, b) => new Date(b.to ?? 0).getTime() - new Date(a.to ?? 0).getTime(),
     );
+    console.log({sortedMergedDates})
 
-    // function doRangesOverlap(a: { from: Date; to: Date }, b: { from: Date; to: Date }): boolean {
-    //   return a.from <= b.to && b.from <= a.to;
-    // }
     // const peopleWithMe = PEOPLE_TRAVELED_WITH.filter((entry) =>
     //   entry.dates.some((theirRange) =>
     //     sortedMergedDates.some((myRange) =>

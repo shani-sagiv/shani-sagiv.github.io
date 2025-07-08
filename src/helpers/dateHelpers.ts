@@ -171,14 +171,19 @@ export function getRandomNumbers(maxNumber: number, count: number): number[] {
 }
 
 export const mergeDates = (allDates: { from: Date; to: Date }[]) => {
+  const sorted = allDates.sort((a, b) => a.from.getTime() - b.from.getTime());
   const mergedDates: { from: Date; to: Date }[] = [];
-  allDates.forEach((date) => {
+
+  for (const date of sorted) {
     const last = mergedDates[mergedDates.length - 1];
-    if (last && calculateDaysBetweenDates(last.to, date.from) == 0) {
-      last.to = date.to; // מאחד טווחים רציפים
+    if (last && date.from <= last.to) {
+      // Merge overlapping or touching ranges
+      last.to = new Date(Math.max(last.to.getTime(), date.to.getTime()));
     } else {
       mergedDates.push({ ...date });
     }
-  });
+  }
+
   return mergedDates;
 };
+
