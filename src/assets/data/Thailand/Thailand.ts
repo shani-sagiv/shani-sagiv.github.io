@@ -322,7 +322,8 @@ export const KOH_SAMUI: Destination = {
       dates: [
         { from: createDate("03/11/2024"), to: createDate("09/11/2024") },
         { from: createDate("09/06/2025"), to: createDate("15/06/2025") },
-        { from: createDate("21/06/2025"), to: createDate("02/07/2025") }
+        { from: createDate("21/06/2025"), to: createDate("04/07/2025") },
+        { from: createDate("07/07/2025"), to: createDate("12/07/2025") }
       ],
       description:
         "מיקום פצצה ויחסית לזה שכל המלונות באזור עולים פי 3 ממש נדיר",
@@ -334,6 +335,14 @@ export const KOH_SAMUI: Destination = {
       // images: KOH_SAMUI_IMAGES.ptk,
       dates: [{ from: createDate("26/11/2024"), to: createDate("27/11/2024") }],
       description: "מיקום חמוד על השוק דייגים",
+    },{
+      name: "LOVE Beach Club Koh Samui",
+      googleMapLink: "https://maps.app.goo.gl/xLmy1iRsy2RxKjR17",
+      images: KOH_SAMUI_IMAGES.love,
+      dates: [
+              { from: createDate("04/07/2025"), to: createDate("07/07/2025") }
+],
+      description: "אחלה מלון שווה אחלה בריכה",
     },
   ],
   foods: [
