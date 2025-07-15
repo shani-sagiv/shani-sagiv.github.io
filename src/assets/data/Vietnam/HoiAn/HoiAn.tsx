@@ -8,6 +8,15 @@ export const HOI_AN: Destination = {
     hebrew: "הוי אן",
     english: "Hoi An",
   },
+  gold_recommendation:[
+     {
+      name: "סים",
+      description:"viettel הכי טוב",
+      images: IMAGES.sim,
+      // googleMapLink: "https://maps.app.goo.gl/ZUacsEc3nBWSCsJc7",
+    },
+    
+  ],
   description:
     "עיר ממש חמודה וצבעונית. אנחנו ישנו יומיים בעיר העתיקה איפה שכולם ישנים ועוד חודש(!!) באזור של an bang beachוהיה שם פשוט מושלםםם!!!אז באמת רוב ההמלצות פה הן לאזור שישנו בו והיה מושלם." +
     " אחכ עברנו לאזור שוב של העיר העתיקה לעוד כמה שבועות",
