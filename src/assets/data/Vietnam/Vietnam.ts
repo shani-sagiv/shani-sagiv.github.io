@@ -55,6 +55,11 @@ export const VIETNAM: Country = {
       description:
         "סגרנו איתה הרבה דברים ובעיקר מעברים והיא בחיים לא איכזבה!!!! היא ממש זמינה ומתוקה ועוזרת. השווינו מחירים וכמעט תמיד היא הכי זולה ובאמת תמיד נהנינו ושמחנו לסגור איתה כי היה יותר מוצלח מסוכנים אחרים",
     },
+         {
+      name: "סים",
+      description:"viettel הכי טוב",
+      images: VIETNAM_IMAGES.sim,
+    },
   ],
   profileImg: profileImg,
 };

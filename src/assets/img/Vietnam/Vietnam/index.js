@@ -7,8 +7,12 @@ export const phoSoupImages = importAll(
 export const sleeper = importAll(
   require.context("./sleeper", false, /\.(png|jpe?g|svg)$/)
 );
+export const sim = importAll(
+  require.context("./sim", false, /\.(png|jpe?g|svg)$/)
+);
 
 export const VIETNAM_IMAGES = {
   phoSoup: phoSoupImages,
   sleeper: sleeper,
+  sim
 };

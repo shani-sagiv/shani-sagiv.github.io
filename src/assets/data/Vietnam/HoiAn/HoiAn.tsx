@@ -9,11 +9,7 @@ export const HOI_AN: Destination = {
     english: "Hoi An",
   },
   gold_recommendation:[
-     {
-      name: "סים",
-      description:"viettel הכי טוב",
-      images: IMAGES.sim,
-    },
+
          {
       name: "אופנוע",
       description:"אצל דודי הבית הישראלי 80 אלף ליום הכי זול שמצאתי",
