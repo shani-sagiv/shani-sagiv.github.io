@@ -13,7 +13,10 @@ export const HOI_AN: Destination = {
       name: "סים",
       description:"viettel הכי טוב",
       images: IMAGES.sim,
-      // googleMapLink: "https://maps.app.goo.gl/ZUacsEc3nBWSCsJc7",
+    },
+         {
+      name: "אופנוע",
+      description:"אצל דודי הבית הישראלי 80 אלף ליום הכי זול שמצאתי",
     },
     
   ],
