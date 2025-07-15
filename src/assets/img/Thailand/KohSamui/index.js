@@ -51,6 +51,14 @@ export const Capybara = importAll(
 export const love = importAll(
   require.context("./love", false, /\.(png|jpe?g|svg)$/),
 );
+export const shabushi = importAll(
+  require.context("./shabushi", false, /\.(png|jpe?g|svg)$/),
+);
+
+export const Basilicom = importAll(
+  require.context("./Basilicom", false, /\.(png|jpe?g|svg)$/),
+);
+
 
 export const KOH_SAMUI_IMAGES = {
   profile: main,
@@ -69,5 +77,7 @@ export const KOH_SAMUI_IMAGES = {
   coral,
   buddha,
   Capybara,
-  love
+  love,
+  shabushi,
+  Basilicom
 };

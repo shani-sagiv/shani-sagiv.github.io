@@ -277,7 +277,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     const sortedMergedDates = mergeDates(allDates).sort(
       (a, b) => new Date(b.to ?? 0).getTime() - new Date(a.to ?? 0).getTime(),
     );
-    console.log({sortedMergedDates})
+    // console.log({sortedMergedDates})
 
     // const peopleWithMe = PEOPLE_TRAVELED_WITH.filter((entry) =>
     //   entry.dates.some((theirRange) =>

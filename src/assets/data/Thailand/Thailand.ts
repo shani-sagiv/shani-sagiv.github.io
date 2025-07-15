@@ -347,16 +347,27 @@ export const KOH_SAMUI: Destination = {
   ],
   foods: [
     {
-      name: "Napa Food",
-      googleMapLink: "https://maps.app.goo.gl/qasQwsYdyWDP87S56",
-      description: "מקומי היה ממש טעים",
-      images: KOH_SAMUI_IMAGES.napa,
-    },
-    {
       name: "Ever Green מסעדה על החוף",
       googleMapLink: "https://maps.app.goo.gl/df4Y433ngxiPuUB5A",
       description: "אחלה של ארוחת בוקר סט ובכללי אחלה מקום לשבת חמודים",
       images: KOH_SAMUI_IMAGES.EverGreen,
+    },    {
+      name: "Shabushi by Oishi",
+      googleMapLink: "https://maps.app.goo.gl/oqyn7NNiLRRFS51g6",
+      description: "שאבושי אוצאצי תמיד כיף הוטפוט אכול כפי יכולתך",
+      images: KOH_SAMUI_IMAGES.shabushi,
+    },
+    {
+      name: "Basilicom/בזיליקום",
+      googleMapLink: "https://maps.app.goo.gl/3JeYucFBjN9azKfh7",
+      description: "וואלה היה טעים",
+      images: KOH_SAMUI_IMAGES.Basilicom,
+    },
+        {
+      name: "Napa Food",
+      googleMapLink: "https://maps.app.goo.gl/qasQwsYdyWDP87S56",
+      description: "מקומי היה ממש טעים",
+      images: KOH_SAMUI_IMAGES.napa,
     },
     {
       name: "בורקס רמלה קוסמוי-מסעדה כשרה",
