@@ -9,12 +9,10 @@ export const HOI_AN: Destination = {
     english: "Hoi An",
   },
   gold_recommendation:[
-
-         {
+    {
       name: "אופנוע",
       description:"אצל דודי הבית הישראלי 80 אלף ליום הכי זול שמצאתי",
-    },
-    
+    }, 
   ],
   description:
     "עיר ממש חמודה וצבעונית. אנחנו ישנו יומיים בעיר העתיקה איפה שכולם ישנים ועוד חודש(!!) באזור של an bang beachוהיה שם פשוט מושלםםם!!!אז באמת רוב ההמלצות פה הן לאזור שישנו בו והיה מושלם." +
@@ -47,6 +45,16 @@ export const HOI_AN: Destination = {
         "הום סטיי ממש ממש חמוד קצת רחוק מהכל אבל משפחה ממש חמודה עם מיאו",
       googleMapLink: "https://maps.app.goo.gl/NLH7APssNG9RWPq2A",
       images: IMAGES.Windbell,
+      // price: "75 ש״ח ללילה ",
+    },    {
+      name: "Little Riverside Hoi An - Little Luxury Hotel & Spa",
+      dates: [
+        { from: createDate("16/07/2025"), to: createDate("19/07/2025") }
+      ],
+      description:
+        "",
+      googleMapLink: "Little Riverside Hoi An - Little Luxury Hotel & Spa",
+      // images: IMAGES.Windbell,
       // price: "75 ש״ח ללילה ",
     },
   ],

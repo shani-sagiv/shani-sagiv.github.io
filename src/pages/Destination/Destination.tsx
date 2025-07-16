@@ -62,6 +62,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     moreInfo = [],
     additionalCode = null,
   } = dest;
+  console.log({})
   const generateContent = (
     items: AllRecommendationTypes[],
     keyPrefix: string,
