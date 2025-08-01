@@ -2,6 +2,7 @@ import { Destination } from "models/Destination";
 import { HANOI_IMAGES } from "../../img/Vietnam";
 import { createDate } from "../../../helpers/dateHelpers";
 import { HANOI_HA_LONG_CRUISE } from "./HANOI_HA_LONG_CRUISE";
+import IMAGES from "./MuiNe/images";
 
 export const HANOI: Destination = {
   id: "HANOI",
@@ -9,6 +10,7 @@ export const HANOI: Destination = {
     hebrew: "האנוי",
     english: "hanoi",
   },
+  images:IMAGES.general,
   description:
     "העיר בירה של ויאטם, שווקים בתי קפה צפוף ורעש ולחצות כביש זה 50% הצלחה 50% מוות",
   profileImg: HANOI_IMAGES.profileImg,

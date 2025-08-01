@@ -26,6 +26,7 @@ import { NINH_BINH } from "./NINH_BINH";
 import { HANOI } from "./HANOI";
 import { PHU_QUOC } from "./PhuQuoc";
 import { DA_NANG } from "./DaNang";
+import { CHAM_ISLANDS } from "./ChamIslands";
 
 export const VIETNAM: Country = {
   id: "VNM",
@@ -78,6 +79,7 @@ export const VIETNAM_DESTINATION = [
   NAH_TRANG,
   PHU_QUOC,
   DA_NANG,
+  CHAM_ISLANDS
 ];
 
 //todo: something with ha long bay cruise multiple display

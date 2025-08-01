@@ -7,10 +7,13 @@ export const NINH_BINH: Destination = {
     hebrew: "נין בין",
     english: "Ninh Bình",
   },
+  
   description: "באנו לטיול יום מהאנוי",
   profileImg: NINH_BINH_IMAGES.profileImg,
   hotels: [],
   foods: [],
+    images: NINH_BINH_IMAGES.general,
+
   attractions: [
     {
       name: "Hoa Lu Ancient Capital",

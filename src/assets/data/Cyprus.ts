@@ -76,6 +76,7 @@ export const VASA: Destination = {
     hebrew: "ואסה",
     english: "Vasa",
   },
+  // images: VASA_IMAGES.general,
   description: "כפר עם מעט מאוד אנשים חנויות או משהו לעשות",
   hotels: [
     {
@@ -112,6 +113,7 @@ export const PAPHOS: Destination = {
     hebrew: "פאפוס",
     english: "Paphos",
   },
+  images: PAPHOS_IMAGES.general,
   description: "עיר מרכזית, חיי לילה",
   hotels: [
     {

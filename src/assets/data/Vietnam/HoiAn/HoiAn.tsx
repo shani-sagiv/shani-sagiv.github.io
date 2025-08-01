@@ -12,8 +12,14 @@ export const HOI_AN: Destination = {
     {
       name: "אופנוע",
       description:"אצל דודי הבית הישראלי 80 אלף ליום הכי זול שמצאתי",
+    },     {
+      name: "מספרה",
+      images:IMAGES.LEBINH,
+      links:["https://maps.app.goo.gl/aTjv95SCZEVFsMmy5"],
+      description:"20 דק תספורת וזרן ו15 דק מסאז ראש וואו מפחיד",
     }, 
   ],
+  images:IMAGES.general,
   description:
     "עיר ממש חמודה וצבעונית. אנחנו ישנו יומיים בעיר העתיקה איפה שכולם ישנים ועוד חודש(!!) באזור של an bang beachוהיה שם פשוט מושלםםם!!!אז באמת רוב ההמלצות פה הן לאזור שישנו בו והיה מושלם." +
     " אחכ עברנו לאזור שוב של העיר העתיקה לעוד כמה שבועות",
@@ -46,16 +52,35 @@ export const HOI_AN: Destination = {
       googleMapLink: "https://maps.app.goo.gl/NLH7APssNG9RWPq2A",
       images: IMAGES.Windbell,
       // price: "75 ש״ח ללילה ",
-    },    {
+    },
+    {
       name: "Little Riverside Hoi An - Little Luxury Hotel & Spa",
       dates: [
-        { from: createDate("16/07/2025"), to: createDate("19/07/2025") }
+        { from: createDate("16/07/2025"), to: createDate("19/07/2025") },
+        { from: createDate("29/07/2025"), to: createDate("02/08/2025") }
       ],
       description:
-        "",
+        "מלון ממש שווה אחלה של בופה בוקר אחלה של חדר אחלה של מקלחת",
       googleMapLink: "Little Riverside Hoi An - Little Luxury Hotel & Spa",
-      // images: IMAGES.Windbell,
+      images: IMAGES.LittleRiverside,
       // price: "75 ש״ח ללילה ",
+    },
+    {
+      name: "An Bang Beach Dolphin Homestay",
+      dates: [
+        { from: createDate("19/07/2025"), to: createDate("23/07/2025") }
+      ],
+      description:"נחמד לא מלהיב",
+        googleMapLink: "https://maps.app.goo.gl/Q49of3GuFAAc8nHA8",
+    },
+    {
+      name: "Winhouse An Bang Boutique Inn & Lounge",
+      dates: [
+        { from: createDate("23/07/2025"), to: createDate("27/07/2025") }
+      ],
+      images:IMAGES.Winhouse,
+      description:"אני אהבתי שני פחות",
+        googleMapLink: "https://maps.app.goo.gl/nKke6LvxYjJC7BMbA",
     },
   ],
   foods: [
@@ -155,6 +180,16 @@ export const HOI_AN: Destination = {
       name: "סדנאת סכינים",
       description: "איזה ישראלי ארגן",
       images: IMAGES.Knife,
+    },   {
+      name: "Hoi An Memories Land",
+      googleMapLink:"https://maps.app.goo.gl/NZBHXYJg5rw28zZd9",
+      description: " מופע ויאטנמי חמוד מאוד ודיסני קטן",
+      images: IMAGES.MemoriesLand,
+    },  {
+      name: "Dolphin Kitchen & Bar",
+      googleMapLink:"https://maps.app.goo.gl/nWMtfSJsTG8cj8rv9",
+      description: "אחלה ביץ קלאב נחמד",
+      images: IMAGES.DolphinKitchen,
     },
   ],
   nightlife: [

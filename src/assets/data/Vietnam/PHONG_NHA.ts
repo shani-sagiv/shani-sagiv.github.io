@@ -8,6 +8,8 @@ export const PHONG_NHA: Destination = {
     hebrew: "פונג נה",
     english: "phong nha",
   },
+    // images:PHONG_NHA.general,
+
   description:
     "ממש אמצע הדרך מהויאן לצפון, שווה עצירה רק אם אין כח לנסיעה ארוכה ואם אוהבים מאוד מערות",
   profileImg: PHONG_NHA_IMAGES.profileImg,

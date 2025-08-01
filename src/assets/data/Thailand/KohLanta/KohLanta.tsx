@@ -9,6 +9,7 @@ export const KOH_LANTA: Destination = {
     hebrew: "קו לנטה",
     english: "Koh Lanta",
   },
+  images: IMAGES.general,
   shells: IMAGES.shells,
   description:
     "קו לנטה הוא אי שקט ורגוע בדרום תאילנד, הידוע בחופים זהובים, מי טורקיז ושוניות אלמוגים מושלמות לצלילה ושנורקלינג. האי מציע אווירה נינוחה עם עיירות חוף קטנות, נופים ירוקים ומקומות מפלט למי שמחפש להתרחק מהמולת התיירות.",

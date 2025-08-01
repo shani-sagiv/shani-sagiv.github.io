@@ -63,6 +63,7 @@ export const THAILAND: Country = {
 export const CHINAG_MAI: Destination = {
   id: "CHINAG_MAI",
   profileImg: CHINAG_MAI_IMAGES.profile,
+    // images:CHINAG_MAI_IMAGES.general,
   displayName: {
     hebrew: "צ'אנג מאי",
     english: "Chinag Mai",
