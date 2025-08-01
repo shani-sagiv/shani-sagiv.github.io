@@ -32,11 +32,24 @@ export const parseDaysToHebrew = (totalDays: number): string => {
   }
 
   if (months > 0) {
-    parts.push(months === 1 ? "חודש" : `${months} חודשים`);
-  }
+    if(months === 1){
+        parts.push("חודש");
+    } else if(months === 2){
+      parts.push("חודשיים")
+    } else {
+      parts.push( `${months} חודשים`);
+    }
+    }
 
   if (days > 0) {
-    parts.push(`${days} ${days === 1 ? "יום" : "ימים"}`);
+    if(days === 1){
+     parts.push("יום") 
+    }else if(days === 2){
+      parts.push("יומיים")
+    } else{
+      parts.push(`${days} ימים`)
+    }
+    // parts.push(`${days} ${days === 1 ? "יום" : "ימים"}`);
   }
 
   return parts.join(" ו-");
