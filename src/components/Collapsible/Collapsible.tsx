@@ -5,10 +5,11 @@ import classnames from "classnames";
 interface CollapsibleProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   children: React.ReactNode;
+  open?:boolean
 }
 
-const Collapsible: React.FC<CollapsibleProps> = ({ title, children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Collapsible: React.FC<CollapsibleProps> = ({ title, children, open=false }) => {
+  const [isOpen, setIsOpen] = useState(open);
 
   const toggleCollapse = () => {
     setIsOpen(!isOpen);

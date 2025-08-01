@@ -10,6 +10,7 @@ interface CollapsibleProps extends React.HTMLAttributes<HTMLDivElement> {
     images?: string[];
     style?: CSSProperties;
     phones?: string[];
+    open?:boolean,
   }[];
 }
 
@@ -17,7 +18,7 @@ const Collapsibles: React.FC<CollapsibleProps> = ({ items }) => {
   return (
     <div style={{ width: "100%" }}>
       {items.map((item, i) => (
-        <Collapsible title={item.title}>
+        <Collapsible title={item.title} open={item?.open}>
           <div
             style={{
               display: "flex",

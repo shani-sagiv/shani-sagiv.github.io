@@ -150,9 +150,10 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
   };
 
   const getInfo = () => {
-    const createImageGallery = (items: string[], title: string) => ({
+    const createImageGallery = (items: string[], title: string, open?:boolean) => ({
       title,
       content: getImageGallery(items),
+      open:open,
     });
 
     const createLinksContent = (links: string[]) =>
@@ -241,9 +242,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
 
     const sections = [];
 
-    if (images.length > 0) {
-      sections.push(createImageGallery(images, "סתם תמונות"));
-    }
+
 
     if (shells.length > 0) {
       sections.push(createImageGallery(shells, "צדפים 🌊🌺🏖️🐚🎀☀️"));
@@ -255,7 +254,9 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     }
 
     // sections.push(...moreInfo.map(createMoreInfo));
-
+    if (images.length > 0) {
+      sections.push(createImageGallery(images, "סתם תמונות", true));
+    }
     return sections;
   };
 
