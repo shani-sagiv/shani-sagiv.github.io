@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOMServer from "react-dom/server";
 import {
   MapContainer,
@@ -6,14 +6,16 @@ import {
   Marker,
   Popup,
   Polyline,
+  useMap,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import "leaflet-polylinedecorator";
+import L from "leaflet";
 import {
   sortAllDestinationsByDate,
   Location,
   getAggregateLocations,
 } from "helpers/locations.helpers";
-import L from "leaflet";
 import { calculateDaysBetweenDates } from "../../helpers/dateHelpers";
 import { Button } from "components/Button";
 import { useNavigate } from "react-router-dom";
@@ -45,21 +47,18 @@ const placeCoordinates: Record<string, [number, number]> = {
   KOH_RONG: [10.7157, 103.2342],
   KOH_RONG_SANLOEM: [10.5994, 103.2955],
   KAMPOT: [10.6104, 104.181],
-    PHU_QUOC: [10.2899, 103.984],
+  PHU_QUOC: [10.2899, 103.984],
   DA_NANG: [16.0544, 108.2022],
   CHAM_ISLANDS: [15.9674, 108.4875],
-
 };
 
-// Custom React component for the marker icon
-export const CustomMarker: React.FC<{
+const CustomMarker: React.FC<{
   text: string;
   location: Location;
   totalNights: number;
 }> = ({ text, location, totalNights }) => (
   <div
     style={{
-      // backgroundColor: "#3498db",
       color: "white",
       padding: "5px",
       borderRadius: "50%",
@@ -86,7 +85,6 @@ export const CustomMarker: React.FC<{
         color: "black",
         display: "flex",
         justifyContent: "center",
-        // backgroundColor: "rgba(255,255,255,0.4)",
         textShadow: `
         -1px -1px 0 white,
         1px -1px 0 white,
@@ -97,7 +95,6 @@ export const CustomMarker: React.FC<{
     >
       {text}
     </div>
-    <br />
     <div
       style={{
         position: "absolute",
@@ -120,19 +117,44 @@ export const CustomMarker: React.FC<{
   </div>
 );
 
+const ArrowDecorator: React.FC<{ positions: [number, number][] }> = ({
+  positions,
+}) => {
+  const map = useMap();
+
+  useEffect(() => {
+    const decorator = (window as any).L.polylineDecorator(positions, {
+      patterns: [
+        {
+          offset: 25,
+          repeat: 50,
+          symbol: (window as any).L.Symbol.arrowHead({
+            pixelSize: 10,
+            polygon: false,
+            pathOptions: { stroke: true, color: "black" },
+          }),
+        },
+      ],
+    });
+
+    decorator.addTo(map);
+    return () => {
+      map.removeLayer(decorator);
+    };
+  }, [map, positions]);
+
+  return null;
+};
+
 const SimpleMap: React.FC = () => {
   const locationData = sortAllDestinationsByDate();
-
   const LocationsToInfo = getAggregateLocations();
-
   const initialPosition: [number, number] = placeCoordinates["BANGKOK"];
   const navigate = useNavigate();
 
-  console.log(locationData.map(({ id }) => id));
-  // Extract LatLng pairs for Polyline and create markers
   const polylinePositions = locationData
     .map((location) => placeCoordinates[location.id])
-    .filter(Boolean); // Filter out any undefined coordinates
+    .filter(Boolean);
 
   const createCustomDivIcon = (text: string, location: Location) => {
     return L.divIcon({
@@ -149,6 +171,7 @@ const SimpleMap: React.FC = () => {
       popupAnchor: [0, -15],
     });
   };
+
   return (
     <MapContainer
       center={initialPosition}
@@ -160,19 +183,19 @@ const SimpleMap: React.FC = () => {
         attribution='&copy; <a href="https://carto.com/">CARTO</a>'
       />
 
-      {/* Render markers and popups */}
       {locationData.map((location, index) => {
         const position = placeCoordinates[location.id];
-        if (!position) return null; // Skip if no coordinates found for the place
+        if (!position) return null;
         return (
           <Marker
             key={index}
             position={position}
-            icon={createCustomDivIcon(location.displayName.english, location)} // Use placeName as marker text
+            icon={createCustomDivIcon(location.displayName.english, location)}
           >
             <Popup>
               <strong>{location.displayName.english}</strong> (
-              {location.country.displayName.hebrew}){/*<br />*/}
+              {location.country.displayName.hebrew})
+              <br />
               <Button
                 onClick={() =>
                   navigate(`/${location.country.id}/${location.id}`)
@@ -185,8 +208,11 @@ const SimpleMap: React.FC = () => {
         );
       })}
 
-      {/* Draw the polyline connecting the points */}
-      <Polyline positions={polylinePositions} color="black" />
+      <Polyline
+        positions={polylinePositions}
+        pathOptions={{ color: "black", dashArray: "5,10" }}
+      />
+      <ArrowDecorator positions={polylinePositions} />
     </MapContainer>
   );
 };
