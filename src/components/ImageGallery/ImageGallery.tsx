@@ -13,25 +13,36 @@ interface ImageGalleryProps extends React.HTMLAttributes<HTMLDivElement> {
       }[]
     | string[];
   style?: CSSProperties;
+    showThumbnails?: boolean;
+
 }
 
-const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
+const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style, showThumbnails=false }) => {
   const imagesWithThumbnail = images.map((i: any) => ({
     original: i?.original || i,
     thumbnail: i?.thumbnail || i?.original || i,
   }));
   const [isFullScreen, setIsFullScreen] = React.useState(false);
+  
+  
+  
   const defaultParams = {
     items: imagesWithThumbnail,
     showPlayButton: false,
-    showThumbnails: false,
+    showThumbnails: showThumbnails,
     showFullscreenButton: false,
     showIndex: true,
-    isRTL: true,
+    isRTL: false,
     lazyLoad: true,
+        autoPlay: true,
+    slideInterval: Math.floor(Math.random() * 3000) + 1000, // 1000ms = 1 second
+ 
+
   };
   const defaultModalParams = {
     ...defaultParams,
+            autoPlay: false,
+
     // ...(images.length > 1
     //   ? {
     //       showThumbnails: true,
@@ -64,37 +75,30 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
     ),
   };
 
-  const isImageOverflowing = (img: any) => {
-    const parent = img.parentElement;
-    if (!parent) return false;
-
-    const imgRect = img.getBoundingClientRect();
-    const parentRect = parent.getBoundingClientRect();
-
-    return (
-      imgRect.width > parentRect.width || imgRect.height > parentRect.height
-    );
-  };
-  const checkImageOverflow = (img: HTMLImageElement) => {
-    if (!img || !img.parentElement) return false;
-
-    const imgRect = img.getBoundingClientRect();
-    const parentRect = img.parentElement.getBoundingClientRect();
-
-    return (
-      imgRect.width > parentRect.width || imgRect.height > parentRect.height
-    );
-  };
-
   return (
-    <span
+    <div
       className={classnames("image-gallery-wrapper", {
         fullscreen: isFullScreen,
       })}
-      style={{ position: "relative", flexShrink: 0, ...style }}
+      // style={{height:"100%"}}
+      style={{  ...style}}
     >
       <ImageGallery
         {...defaultParams}
+        renderThumbInner={ (item: ReactImageGalleryItem) => (
+          <img
+            src={item.thumbnail}
+            alt=""
+            loading="lazy"
+            style={{
+              width: "100%",       // או מספר קבוע למשל "80px"
+              height: "80px",      // שים גובה אחיד
+              objectFit: "cover",  // תמלא את המרחב ותחתוך
+              borderRadius: "4px",
+            }}
+          />
+        )}
+
         disableKeyDown
         renderItem={(item: ReactImageGalleryItem) => (
           <img
@@ -105,15 +109,16 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
               // console.log("item.original:", item.original);
               // console.log("Image height:", e.currentTarget.clientHeight);
               //   c
-              if (e.currentTarget.clientHeight > 300) {
-                e.currentTarget.style.marginTop = "-40%";
-                // e.currentTarget.style.backgroundColor = "red";
-              }
+              // if (e.currentTarget.clientHeight > 300) {
+              //   e.currentTarget.style.marginTop = "-40%";
+              //   // e.currentTarget.style.backgroundColor = "red";
+              // }
             }}
             style={{
-              objectFit: "contain",
-              width: "100%",
-              height: "100%",
+              objectFit: "cover",        // ⬅️ ממלא את כל המרחב וחותך אם צריך
+              objectPosition: "center",  // ⬅️ שומר על האמצע
+              maxWidth: "100%",
+              maxHeight: "100%",
             }}
           />
         )}
@@ -140,7 +145,7 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style }) => {
           />
         </div>
       </Modal>
-    </span>
+    </div>
   );
 };
 

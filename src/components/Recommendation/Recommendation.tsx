@@ -19,7 +19,6 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
       <a
         style={{
           marginRight: 10,
-          marginTop: 10,
           fontSize: 22,
           fontWeight: "bold",
           display: "flex",
@@ -60,25 +59,26 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          width: "min(97vw, 400px)",
-
+          // width: "min(97vw, 400px)",
           gap: 5,
-          margin: "5px 1.5vw 10px 1.5vw",
+          margin: "5px 1vw 10px 1vw",
         }}
       >
         <>
           {!hasImages(recommendation.images) ? null : (
-            <ImageGallery
-              style={{
-                float: "left",
-                overflow: "hidden",
-                height: 200,
-                width: "100%",
-                borderRadius: 8,
-                boxShadow: "0 0 15px 1px #6b6b6b",
-              }}
+            <div style={{ height: 250, width: "100%", position: "relative", }}>
+              <ImageGallery
+                style={{
+                  // float: "left",
+                  overflow: "hidden",
+                  // height: 200,
+                  width: "100%",
+                  borderRadius: 8,
+                  boxShadow: "0 0 15px 1px #6b6b6b",
+                }}
               images={recommendation.images!.map((i) => ({ original: i }))}
             />
+            </div>
           )}
         </>
         <div

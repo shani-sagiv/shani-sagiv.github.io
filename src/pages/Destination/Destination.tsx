@@ -62,7 +62,6 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     moreInfo = [],
     additionalCode = null,
   } = dest;
-  console.log({})
   const generateContent = (
     items: AllRecommendationTypes[],
     keyPrefix: string,
@@ -133,26 +132,29 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     return sections.filter((section) => section.content.length > 0);
   };
 
-  const getImageGallery = (items: any) => {
+  const getImageGallery = (items: any, showThumbnails=false) => {
     return (
+      <div style={{ height: 400, width: "100%",marginBottom:showThumbnails ? 80 : 0 }}>
       <ImageGallery
+      showThumbnails={showThumbnails}
         style={{
-          float: "left",
-          overflow: "hidden",
-          height: 250,
-          width: "100%",
-          borderRadius: 8,
-          boxShadow: "0 0 15px 1px #6b6b6b",
+          // float: "left",
+          // overflow: "hidden",
+          // height: 250,
+          // width: "100%",
+          // borderRadius: 8,
+          // boxShadow: "0 0 15px 1px #6b6b6b",
         }}
         images={items}
       />
+      </div>
     );
   };
 
   const getInfo = () => {
-    const createImageGallery = (items: string[], title: string, open?:boolean) => ({
+    const createImageGallery = (items: string[], title: string, open?:boolean, showThumbnails=false) => ({
       title,
-      content: getImageGallery(items),
+      content: getImageGallery(items, showThumbnails),
       open:open,
     });
 
@@ -255,7 +257,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
 
     // sections.push(...moreInfo.map(createMoreInfo));
     if (images.length > 0) {
-      sections.push(createImageGallery(images, "סתם תמונות", true));
+      sections.push(createImageGallery(images, "סתם תמונות", true, true));
     }
     return sections;
   };
