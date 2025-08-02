@@ -173,7 +173,7 @@ export const HOI_AN: Destination = {
     {
       name: "Dolphin Kitchen & Bar",
       googleMapLink: "https://maps.app.goo.gl/4B8rRNxyY6R6wZvE8",
-      description: "אחלה מקום נחמד באן בנג",
+      description: " אחלה מקום נחמד באן בנג ביץ קלאב נחמד",
       images: IMAGES.Dolphin,
     },
     {
@@ -185,11 +185,6 @@ export const HOI_AN: Destination = {
       googleMapLink:"https://maps.app.goo.gl/NZBHXYJg5rw28zZd9",
       description: " מופע ויאטנמי חמוד מאוד ודיסני קטן",
       images: IMAGES.MemoriesLand,
-    },  {
-      name: "Dolphin Kitchen & Bar",
-      googleMapLink:"https://maps.app.goo.gl/nWMtfSJsTG8cj8rv9",
-      description: "אחלה ביץ קלאב נחמד",
-      images: IMAGES.DolphinKitchen,
     },
   ],
   nightlife: [

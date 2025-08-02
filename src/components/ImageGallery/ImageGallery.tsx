@@ -34,10 +34,9 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style, showThumbn
     showIndex: true,
     isRTL: false,
     lazyLoad: true,
-        autoPlay: true,
-    slideInterval: Math.floor(Math.random() * 3000) + 1000, // 1000ms = 1 second
- 
-
+    autoPlay: true,
+    infinite: true,
+    slideInterval: 2000,
   };
   const defaultModalParams = {
     ...defaultParams,
