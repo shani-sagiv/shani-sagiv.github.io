@@ -73,6 +73,15 @@ export const HOI_AN: Destination = {
       description:"נחמד לא מלהיב",
         googleMapLink: "https://maps.app.goo.gl/Q49of3GuFAAc8nHA8",
     },
+     {
+      name: "An Bang Gold Coast Beach Villa",
+      dates: [
+        { from: createDate("02/08/2025"), to: createDate("07/08/2025") }
+      ],
+      images: IMAGES.GoldCoast,
+      description:"נחמד לא מלהיב",
+        googleMapLink: "https://maps.app.goo.gl/XF1UcqbQZPSRrJMp8",
+    },
     {
       name: "Winhouse An Bang Boutique Inn & Lounge",
       dates: [
@@ -97,7 +106,20 @@ export const HOI_AN: Destination = {
       images: IMAGES.Roving,
       googleMapLink: "https://maps.app.goo.gl/JEb3cceGCDoBgTCaA",
     },
-  ],
+    {
+      name:"LUCKY RESTAURANT",
+      description: "מסעדה ממש חמודה עם אוכל טעים ועם סאני",
+      images: IMAGES.lucky,
+      googleMapLink: "https://maps.app.goo.gl/jAsrRfQGxHPTPywh7", 
+    },
+    {
+      name:"Casa Loco An Bang - Mexican Restaurant",
+      description: "מסעדה מקסיקנית ממש טעימה",
+      images: IMAGES.casaLoco,
+      googleMapLink: "https://maps.app.goo.gl/73j8CYKSe4M2gnAp7",
+    },
+    
+    ],
   attractions: [
     {
       name: "VinWonders",

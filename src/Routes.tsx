@@ -35,11 +35,13 @@ import {
 } from "./assets/data/Cambodia/Cambodia";
 import DataPage from "pages/DataPage/DataPage";
 import Randomoneonone from "pages/Random1on1/Randomoneonone";
+import { SOUTH_KOREA, SOUTH_KOREA_DESTINATION } from "assets/data/SouthKorea/SouthKorea";
 
 export const COUNTRIES: {
   country: CountryModel;
   destinations: DestinationModel[];
 }[] = [
+  {country: SOUTH_KOREA, destinations: SOUTH_KOREA_DESTINATION},
   {
     country: THAILAND,
     destinations: [

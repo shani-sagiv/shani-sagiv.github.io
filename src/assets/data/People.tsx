@@ -28,3 +28,5 @@ export const PEOPLE_TRAVELED_WITH:peopleTraveledWith[] = [
         dates: [{ from: createDate("23/08/2024"), to: createDate("29/08/2024") }],
     }
 ]
+
+//  npx plop component --name=seoul --location=south_korea
