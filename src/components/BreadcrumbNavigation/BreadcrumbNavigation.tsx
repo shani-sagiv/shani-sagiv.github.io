@@ -23,8 +23,6 @@ const BreadcrumbNavigation: React.FC<BreadcrumbNavigationProps> = ({
       value.charAt(0).toUpperCase() + value.slice(1).replace("-", " ");
     const displayName =
       translationMap.find((item) => item.key.toLocaleLowerCase() === label.toLocaleLowerCase())?.name || "";
-console.log({displayName, value, label})
-console.log(translationMap)
     return { label: displayName, path: pathTo };
   });
 
