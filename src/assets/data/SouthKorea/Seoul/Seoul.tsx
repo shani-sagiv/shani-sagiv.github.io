@@ -91,7 +91,12 @@ export const SEOUL: Destination = {
   }
   ],
   shells: [],
-  gold_recommendation: [],
+  gold_recommendation: [
+  {
+    name: "תחבצ",
+    description:"אפשר להשתמש בnaver צריך לקנות tmoney בכל סבן אילבן ולהטעין, אפשר להטעין רק במזומן ומתקפים גם בעלייה וגם בירידה מהאוטובוס"
+  },
+  ],
 };
 
 
