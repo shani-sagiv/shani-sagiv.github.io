@@ -2,7 +2,7 @@ const fs = require("fs-extra");
 const path = require("path");
 const sharp = require("sharp");
 
-const assetsDir = path.join(__dirname, "../src", "assets/data/Vietnam/");
+const assetsDir = path.join(__dirname, "../src", "assets/data/SouthKorea/Seoul"); // Path to the images directory
 const supportedFormats = [".jpg", ".jpeg", ".png"]; // Supported formats only
 const suffix = "_compressed"; // Suffix for compressed files
 const MAX_FILE_SIZE = 1 * 1024 * 1024; // Maximum file size in bytes (1MB)

@@ -1,6 +1,172 @@
 import { Destination } from "models/Destination";
 import IMAGES from "./images";
 import {createDate} from "helpers/dateHelpers";
+import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
+import L, { LatLngExpression } from "leaflet";
+import "leaflet/dist/leaflet.css";
+
+
+// --- מיפוי לינקים לקואורדינטות (ידני) ---
+const coordsMap: Record<string, [number, number]> = {
+  "https://maps.app.goo.gl/sub8foPesA1PsgiGA": [37.5740, 126.9856], // Insa-dong
+  "https://maps.app.goo.gl/hvc93enJYaiCtSa87": [37.5735, 126.9830], // Jogyesa
+  "https://maps.app.goo.gl/4SqiVentgrWgL6ig6": [37.5826, 126.9830], // Bukchon
+  "https://maps.app.goo.gl/n8ehhnQotjKQTbZZ8": [37.5704, 126.9915], // Running Man
+  "https://maps.app.goo.gl/DMQTgvH6zGZkMbrf7": [37.5571, 126.9245], // Hongdae
+  "https://maps.app.goo.gl/t2huShr7ticSvTmt5": [37.5536, 126.9226], // La Bamba
+  "https://maps.app.goo.gl/K43WCaYKu5Fet3G79": [37.5554, 126.9239], // Razer
+  "https://maps.app.goo.gl/HMCwmhpnWgrsu6Kc7": [37.5725, 126.9872], // Jongno Bar Street
+};
+
+// פונקציה לאיסוף כל הנקודות מה־SEOUL
+function getFirstImageUrl(img: any): string | undefined {
+  if (!img) return undefined;
+  if (Array.isArray(img)) return getFirstImageUrl(img[0]);
+  if (typeof img === "string") return img;
+  if (typeof img === "object") return img.src || img.url || img.default || undefined;
+  return undefined;
+}
+
+// --- בניית רשימת נקודות מה־SEOUL ---
+type Point = {
+  name: string;
+  description?: string;
+  pos?: [number, number];
+  image?: string;
+};
+
+const getPoints = (): Required<Point>[] => {
+  const hotels: Point[] = (SEOUL.hotels ?? []).map((h) => ({
+    name: h.name,
+    description: h.description,
+    pos: coordsMap[h.googleMapLink ?? ""],
+    image: getFirstImageUrl(h.images),
+  }));
+
+  const attractionsGroups: Point[] = (SEOUL.attractionsGroups ?? []).flatMap((g) =>
+    g.attractions.map((a) => ({
+      name: a.name,
+      description: a.description,
+      pos: coordsMap[a.googleMapLink ?? ""],
+      image: getFirstImageUrl(a.images),
+    }))
+  );
+
+  const attractions: Point[] = (SEOUL.attractions ?? []).map((a) => ({
+    name: a.name,
+    description: a.description,
+    pos: coordsMap[a.googleMapLink ?? ""],
+    image: getFirstImageUrl(a.images),
+  }));
+
+  const nightlife: Point[] = (SEOUL.nightlife ?? []).map((n) => ({
+    name: n.name,
+    description: n.description,
+    pos: coordsMap[n.googleMapLink ?? ""],
+    image: getFirstImageUrl(n.images),
+  }));
+
+  // מסננים רק מה שיש להם קואורדינטות
+  return [...hotels, ...attractionsGroups, ...attractions, ...nightlife].filter(
+    (p): p is Required<Point> => Array.isArray(p.pos) && p.pos.length === 2
+  );
+};
+
+// --- אייקון מסוג תמונה (divIcon עם thumbnail) ---
+function createPhotoDivIcon(imageUrl?: string, size = 44) {
+  const safeUrl = imageUrl ? String(imageUrl) : "";
+  const border = "2px solid white";
+  const shadow = "0 1px 6px rgba(0,0,0,0.35)";
+  const html = `
+    <div style="
+      width:${size}px;height:${size}px;
+      border-radius:50%;
+      overflow:hidden;
+      border:${border};
+      box-shadow:${shadow};
+      background:#ddd url('${safeUrl}') center/cover no-repeat;
+    "></div>
+  `;
+  return L.divIcon({
+    className: "photo-marker",
+    html,
+    iconSize: [size, size],
+    // anchor למרכז תחתון של העיגול
+    iconAnchor: [size / 2, size],
+    // ה־Popup יופיע טיפה מעל
+    popupAnchor: [0, -size / 2],
+  });
+}
+
+const SeoulMap: React.FC = () => {
+  const points = getPoints();
+const USE_PHOTO_AS_MARKER = true;       // תמונת־תצוגה על הנקודה
+const SHOW_LABELS_OUTSIDE = true;       // שם בחוץ (Tooltip קבוע)
+
+  return (
+    <MapContainer
+      center={[37.5665, 126.9780]} // מרכז סיאול
+      zoom={14}
+      style={{ height: "600px", width: "100%" }}
+    >
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution="&copy; OpenStreetMap contributors"
+      />
+
+      {points.map((p, i) => {
+        const icon = USE_PHOTO_AS_MARKER
+          ? createPhotoDivIcon(p.image) // תמונה על הנקודה
+          : undefined;                  // אייקון ברירת־מחדל
+
+        return (
+          <Marker key={i} position={p.pos as LatLngExpression} icon={icon}>
+            {SHOW_LABELS_OUTSIDE && (
+            <Tooltip
+              direction="right"
+              offset={[0, -500]}   // למרכז מעל התמונה
+              permanent
+              opacity={1}
+              className="marker-label"
+            >
+              {p.name}
+            </Tooltip>
+            )}
+            <Popup>
+              <b>{p.name}</b>
+              <br />
+              {p.description}
+              {p.image && (
+                <div style={{ marginTop: 6 }}>
+                  <img
+                    src={p.image}
+                    alt={p.name}
+                    style={{
+                      width: 180,
+                      maxHeight: 140,
+                      objectFit: "cover",
+                      borderRadius: 8,
+                      display: "block",
+                    }}
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.display = "none";
+                    }}
+                  />
+                </div>
+              )}
+            </Popup>
+          </Marker>
+        );
+      })}
+    </MapContainer>
+  );
+};
+
+export default SeoulMap;
+
+
+
+
 
 export const SEOUL: Destination = {
   id: "SEOUL",
@@ -29,7 +195,7 @@ export const SEOUL: Destination = {
   foods: [],
   attractionsGroups:[
     {
-      name: "מרכז-צפן (Insadong / Jongno / Ikseon-dong), צפון-מערב (Gyeongbokgung / Bukchon / Samcheong-dong)",
+      name: "מרכז-צפון (Insadong / Jongno / Ikseon-dong)\n צפון-מערב (Gyeongbokgung / Bukchon / Samcheong-dong)",
       description:"",
       // description: "אזור מאוד חמוד להסתובב, מלא גלריות, מסעדות, בתי קפה וחנויות",}
       attractions:[
@@ -91,12 +257,25 @@ export const SEOUL: Destination = {
   }
   ],
   shells: [],
+  moreInfo: [
+    // {
+    //   name: "בולגוגי",
+    //   description: "טעים מאוד",
+    //   // images: IMAGES.Apsara,
+    // },    {
+    //   name: "בולגוגי",
+    //   description: "טעים מאוד",
+    //   // images: IMAGES.Apsara,
+    // },
+
+  ],
   gold_recommendation: [
   {
     name: "תחבצ",
     description:"אפשר להשתמש בnaver צריך לקנות tmoney בכל סבן אילבן ולהטעין, אפשר להטעין רק במזומן ומתקפים גם בעלייה וגם בירידה מהאוטובוס"
   },
   ],
+  additionalCode: <SeoulMap/>,
 };
 
 
@@ -113,3 +292,5 @@ export const SEOUL: Destination = {
 //   googleMapLink: "",
 //   images: IMAGES.,
 // }
+
+
