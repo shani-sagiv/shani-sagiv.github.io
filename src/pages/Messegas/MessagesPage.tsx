@@ -54,7 +54,7 @@ const MessagesPage: React.FC<MessagesPageProps> = ({}) => {
 
   const [messages, setMessages] = useState<Message[]>([]);
   const [text, setText] = useState("");
-  const [sender, setSender] = useState("Me");
+  const [sender, setSender] = useState(savedName || "Anonymous");
 
   useEffect(() => {
     (async () => {
