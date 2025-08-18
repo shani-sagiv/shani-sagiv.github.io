@@ -5,27 +5,21 @@ import bkueWavesSrc from "assets/IMG_6105_compressed.jpeg";
 import { COUNTRIES_WITHOUT_IMAGES } from "Routes";
 import "./HomePage.scss";
 import {
-  getAggregateLocations,
-  getTopPlaces,
-  Location,
-  mergeLocationsByPlaceAndDate,
   sortAllDestinationsByDate,
 } from "helpers/locations.helpers";
 import {
   calculateDaysBetweenDates,
   calculateTotalNightsAtAllDestinations,
-  formatDateRange,
-  getNameToDisplay,
-  parseDate,
-  parseDateDOT,
   parseDaysToHebrew,
 } from "helpers/dateHelpers";
 import { useNavigate } from "react-router-dom";
 import Card from "../../components/Card/Card";
 import LastPlaces from "components/infoBoxes/LastPlaces";
 import TopPlaces from "components/infoBoxes/TopPlaces";
+import { getUserName } from "helpers/localStorage.helpers";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
+    const savedName = getUserName();
 
 const HomePage: React.FC<HomePageProps> = ({}) => {
   const destinationsCards = COUNTRIES_WITHOUT_IMAGES.map(
@@ -78,6 +72,16 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         }}
       />
       <WavesComponent>
+      {/* <WordArtTitle title={`שלום ${savedName}`} style={{fontSize:30}} pickId={8}/>
+
+      <WordArtTitle title={`שלום ${savedName}`} style={{fontSize:30}} pickId={9}/>
+      
+      <WordArtTitle title={`שלום ${savedName}`} style={{fontSize:30}} pickId={11}/>
+      
+      <WordArtTitle title={`שלום ${savedName}`} style={{fontSize:30}} pickId={13}/> */}
+      
+      <WordArtTitle title={`שלום ${savedName}`} style={{fontSize:30}} random/>
+  {/* <h1>שלום {savedName}</h1> */}
         <WordArtTitle title={parseDaysToHebrew(totalNights)} style={{fontSize:30}}/>
         <LastPlaces />
 
@@ -95,6 +99,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         </Button>
         <Button onClick={() => navigate(`/data`)}>מידע</Button>
         <Button onClick={() => navigate(`/random`)}>ניחוש מידע</Button>
+        <Button onClick={() => navigate(`/login`)}>החלפת שם</Button>
       </div>
     </div>
   );

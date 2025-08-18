@@ -16,24 +16,28 @@ const NameForm: React.FC<NameFormProps> = () => {
 
   const saveName = () => {
     setUserName(name);
-    navigate("/");
+    window.location.href = "/";
+    // navigate("/");
   };
 
   const getTitle = () => {
     const savedName = getUserName();
-    if (savedName) {
+    // if (savedName) {
       return (
+        <>
+        {!savedName ? null :
         <div
           style={{ fontSize: "35px", fontWeight: "bold" }}
         >{`אהלן ${savedName}`}</div>
-      );
-    }
-    return (
-      <div
+       }
+       <div
         style={{ fontSize: "35px", fontWeight: "bold", textAlign: "center" }}
       >
         תרשמו בבקשה את השם כדאי שנדע מי אתם ❤️
+        <br/>
+        בבקשה לא שם מטומטם 
       </div>
+      </>
     );
   };
 

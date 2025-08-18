@@ -34,6 +34,7 @@ import {
   CAMBODIA_DESTINATION,
 } from "./assets/data/Cambodia/Cambodia";
 import DataPage from "pages/DataPage/DataPage";
+import MessagesPage from "pages/Messegas/MessagesPage";
 import Randomoneonone from "pages/Random1on1/Randomoneonone";
 import { SOUTH_KOREA, SOUTH_KOREA_DESTINATION } from "assets/data/SouthKorea/SouthKorea";
 
@@ -163,6 +164,7 @@ function InnerRoutes() {
       <BreadcrumbNavigation />
       <Routes>
         <Route path={"/login"} element={<NameForm />} />
+        <Route path={"/test"} element={<MessagesPage />} />
         <Route path={"/random"} element={<Random />} />
         <Route path={"/RandomCountry"} element={<RandomCountry />} />
         <Route path={"/Randomoneonone"} element={<Randomoneonone />} />
