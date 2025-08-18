@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Cards, WavesComponent, WordArtTitle } from "components";
 import Marquee from "react-fast-marquee";
-import bkueWavesSrc from "assets/IMG_6105.jpeg";
+import bkueWavesSrc from "assets/IMG_6105_compressed.jpeg";
 import { COUNTRIES_WITHOUT_IMAGES } from "Routes";
 import "./HomePage.scss";
 import {
