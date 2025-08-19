@@ -12,16 +12,17 @@ export type Message = {
 
 export type MessageList = Message[];
 
-const FILE_NAME = "messages.json";
 
 const MessagesPage: React.FC<MessagesPageProps> = ({}) => {
   const savedName = getUserName();
 
 
- async function loadMessages(): Promise<MessageList> {
+ const STORE_BASE = "https://6zagtygjzbttu2f9.public.blob.vercel-storage.com";
+const FILE_NAME = "messages.json";
+
+async function loadMessages(): Promise<MessageList> {
   try {
-    // fetch directly from the blob URL (same path you used in put)
-    const res = await fetch(`https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}/_vercel/blob/${FILE_NAME}`);
+    const res = await fetch(`${STORE_BASE}/${FILE_NAME}`, { cache: "no-store" });
     if (!res.ok) return [];
     return (await res.json()) as MessageList;
   } catch {
@@ -29,15 +30,19 @@ const MessagesPage: React.FC<MessagesPageProps> = ({}) => {
   }
 }
 
-/**
- * Save a list of messages
- */
- async function saveMessages(messages: MessageList) {
-  const { url } = await put(FILE_NAME, JSON.stringify(messages, null, 2), {
-    access: "public",
-    contentType: "application/json",
-  });
-  return url; // blob URL
+async function saveMessages(messages: MessageList) {
+  // 1) בקש URL חתום להעלאה
+  const r = await fetch("/api/blob-url", { method: "POST" });
+  if (!r.ok) throw new Error("Failed to get upload URL");
+  const { uploadUrl } = await r.json();
+
+  // 2) שלח את הקובץ כ-FormData לשם (ישירות ל-Blob, בלי טוקן בצד לקוח)
+  const fd = new FormData();
+  const jsonBlob = new Blob([JSON.stringify(messages, null, 2)], { type: "application/json" });
+  fd.append("file", jsonBlob, FILE_NAME);
+
+  const up = await fetch(uploadUrl, { method: "POST", body: fd });
+  if (!up.ok) throw new Error("Upload failed");
 }
 
 /**
