@@ -7,13 +7,12 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    // ודא שה־body מפוענח נכון
     const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
-    const { messages } = body;
+    let { messages } = body;
 
-    if (!messages) {
-      res.status(400).json({ error: "Missing messages" });
-      return;
+    // אם אין messages → נתחיל ריק
+    if (!Array.isArray(messages)) {
+      messages = [];
     }
 
     const { url } = await put("messages.json", JSON.stringify(messages, null, 2), {
