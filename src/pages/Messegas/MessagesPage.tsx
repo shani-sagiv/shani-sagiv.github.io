@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getUserName } from "helpers/localStorage.helpers";
 import { put } from "@vercel/blob";
-
-interface MessagesPageProps extends React.HTMLAttributes<HTMLDivElement> {}
+import { getUserName } from "helpers/localStorage.helpers";
 
 export type Message = {
   text: string;
@@ -10,57 +8,48 @@ export type Message = {
   timestamp: number;
 };
 
-export type MessageList = Message[];
+type MessageList = Message[];
 
-
-const MessagesPage: React.FC<MessagesPageProps> = ({}) => {
-  const savedName = getUserName();
-
-
- const STORE_BASE = "https://6zagtygjzbttu2f9.public.blob.vercel-storage.com";
 const FILE_NAME = "messages.json";
+const STORE_BASE =
+  "https://6zagtygjzbttu2f9.public.blob.vercel-storage.com";
 
-async function loadMessages(): Promise<MessageList> {
-  try {
-    const res = await fetch(`${STORE_BASE}/${FILE_NAME}`, { cache: "no-store" });
-    if (!res.ok) return [];
-    return (await res.json()) as MessageList;
-  } catch {
-    return [];
-  }
-}
+// ⬇️ token comes from your Vercel env (exposed to client!)
+const TOKEN = process.env.REACT_APP_BLOB_TOKEN as string;
 
-async function saveMessages(messages: MessageList) {
-  // 1) בקש URL חתום להעלאה
-  const r = await fetch("/api/blob-url", { method: "POST" });
-  if (!r.ok) throw new Error("Failed to get upload URL");
-  const { uploadUrl } = await r.json();
-
-  // 2) שלח את הקובץ כ-FormData לשם (ישירות ל-Blob, בלי טוקן בצד לקוח)
-  const fd = new FormData();
-  const jsonBlob = new Blob([JSON.stringify(messages, null, 2)], { type: "application/json" });
-  fd.append("file", jsonBlob, FILE_NAME);
-
-  const up = await fetch(uploadUrl, { method: "POST", body: fd });
-  if (!up.ok) throw new Error("Upload failed");
-}
-
-/**
- * Append a new message
- */
- async function addMessage(newMessage: Message) {
-  const current = await loadMessages();
-  current.push(newMessage);
-  await saveMessages(current);
-}
-
-
+const MessagesPage: React.FC = () => {
+      const savedName = getUserName();
   
-
   const [messages, setMessages] = useState<Message[]>([]);
   const [text, setText] = useState("");
   const [sender, setSender] = useState(savedName || "Anonymous");
 
+  // Load messages from Blob
+  async function loadMessages(): Promise<MessageList> {
+    try {
+      const res = await fetch(`${STORE_BASE}/${FILE_NAME}`, {
+        cache: "no-store",
+      });
+      if (!res.ok) return [];
+      return (await res.json()) as MessageList;
+    } catch {
+      return [];
+    }
+  }
+
+  // Save updated messages.json to Blob
+  async function saveMessages(msgs: MessageList) {
+    const { url } = await put(FILE_NAME, JSON.stringify(msgs, null, 2), {
+      access: "public",
+      contentType: "application/json",
+      token: TOKEN,
+        allowOverwrite: true, 
+
+    });
+    return url;
+  }
+
+  // On mount → load existing messages
   useEffect(() => {
     (async () => {
       const data = await loadMessages();
@@ -68,21 +57,15 @@ async function saveMessages(messages: MessageList) {
     })();
   }, []);
 
-  const handleSend = async () => {
+  // Add new message
+  async function handleSend() {
     if (!text.trim()) return;
-
-    const newMessage: Message = {
-      text,
-      sender,
-      timestamp: Date.now(),
-    };
-
+    const newMessage: Message = { text, sender, timestamp: Date.now() };
     const updated = [...messages, newMessage];
     setMessages(updated);
     setText("");
-
     await saveMessages(updated);
-  };
+  }
 
   return (
     <div style={{ maxWidth: 400, margin: "0 auto", fontFamily: "sans-serif" }}>
@@ -114,6 +97,6 @@ async function saveMessages(messages: MessageList) {
       </button>
     </div>
   );
-}
+};
 
 export default MessagesPage;
