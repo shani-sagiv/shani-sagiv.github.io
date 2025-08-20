@@ -26,17 +26,14 @@ const FILE_URL = "https://6zagtygjzbttu2f9.public.blob.vercel-storage.com/messag
 
 async function loadMessages(): Promise<MessageList> {
   try {
-    const res = await fetch(`${FILE_URL}?t=${Date.now()}`, { cache: "no-store" });
-    if (!res.ok) {
-      console.error("Fetch failed:", res.status, res.statusText);
-      return [];
-    }
+    const res = await fetch("/api/load-messages", { cache: "no-store" });
+    if (!res.ok) return [];
     return await res.json();
-  } catch (err) {
-    console.error("Error loading messages:", err);
+  } catch {
     return [];
   }
 }
+
 
 
 
