@@ -1,4 +1,3 @@
-// api/save-messages.js
 const { put } = require("@vercel/blob");
 
 module.exports = async (req, res) => {
@@ -15,8 +14,9 @@ module.exports = async (req, res) => {
     const { url } = await put("messages.json", JSON.stringify(messages, null, 2), {
       access: "public",
       contentType: "application/json",
-      token: process.env.BLOB_READ_WRITE_TOKEN,
-      allowOverwrite: true,
+      token: process.env.BLOB_READ_WRITE_TOKEN, // 👈 לשים ב־Vercel Settings → Environment Variables
+      addRandomSuffix: false,   // 👈 חשוב
+      allowOverwrite: true      // 👈 חשוב
     });
 
     res.status(200).json({ url });

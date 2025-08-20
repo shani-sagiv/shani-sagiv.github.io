@@ -10,11 +10,10 @@ export type Message = {
 type MessageList = Message[];
 
 const FILE_NAME = "messages.json";
-const STORE_BASE =
-  "https://6zagtygjzbttu2f9.public.blob.vercel-storage.com";
+const STORE_BASE = "https://6zagtygjzbttu2f9.public.blob.vercel-storage.com";
 
 // 👇 token must be set in Vercel → Settings → Environment Variables
-const TOKEN = process.env.REACT_APP_BLOB_TOKEN as string;
+// const TOKEN = process.env.REACT_APP_BLOB_TOKEN as string;
 
 const MessagesPage: React.FC = () => {
   const savedName = getUserName();
@@ -23,17 +22,23 @@ const MessagesPage: React.FC = () => {
   const [sender, setSender] = useState(savedName || "Anonymous");
 
   // Load messages.json from Blob (cache-busted)
+const FILE_URL = "https://6zagtygjzbttu2f9.public.blob.vercel-storage.com/messages.json";
+
 async function loadMessages(): Promise<MessageList> {
   try {
-    const res = await fetch(`${STORE_BASE}/${FILE_NAME}?t=${Date.now()}`, {
-      cache: "no-store",
-    });
-    if (!res.ok) return [];
-    return (await res.json()) as MessageList;
-  } catch {
+    const res = await fetch(`${FILE_URL}?t=${Date.now()}`, { cache: "no-store" });
+    if (!res.ok) {
+      console.error("Fetch failed:", res.status, res.statusText);
+      return [];
+    }
+    return await res.json();
+  } catch (err) {
+    console.error("Error loading messages:", err);
     return [];
   }
 }
+
+
 
   // Save messages.json with REST API
 async function saveMessages(msgs: MessageList) {
