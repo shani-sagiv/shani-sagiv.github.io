@@ -1,6 +1,7 @@
-import { put } from "@vercel/blob";
+// api/save-messages.js
+const { put } = require("@vercel/blob");
 
-export default async function handler(req: any, res: any) {
+module.exports = async (req, res) => {
   if (req.method !== "POST") {
     res.status(405).send("Method Not Allowed");
     return;
@@ -9,11 +10,7 @@ export default async function handler(req: any, res: any) {
   try {
     const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
     let { messages } = body;
-
-    // אם אין messages → נתחיל ריק
-    if (!Array.isArray(messages)) {
-      messages = [];
-    }
+    if (!Array.isArray(messages)) messages = [];
 
     const { url } = await put("messages.json", JSON.stringify(messages, null, 2), {
       access: "public",
@@ -23,8 +20,8 @@ export default async function handler(req: any, res: any) {
     });
 
     res.status(200).json({ url });
-  } catch (err: any) {
+  } catch (err) {
     console.error("Save failed:", err);
     res.status(500).json({ error: err.message || "Unknown error" });
   }
-}
+};
