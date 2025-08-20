@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getUserName } from "helpers/localStorage.helpers";
+import { createDate, parseDateDOT } from "helpers/dateHelpers";
 
 export type Message = {
   text: string;
@@ -78,7 +79,8 @@ async function saveMessages(msgs: MessageList) {
         }}
       >
         {messages.map((m) => (
-          <div key={m.timestamp}>
+          <div key={m.timestamp} style={{display: "flex", flexDirection: "row", gap:10}}>
+            <span>{new Date(m.timestamp).toLocaleString("he-IL")}</span>
             <strong>{m.sender}: </strong>
             {m.text}
           </div>
