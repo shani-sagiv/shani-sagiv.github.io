@@ -81,6 +81,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
       <WordArtTitle title={`שלום ${savedName}`} style={{fontSize:30}} pickId={13}/> */}
       
       <WordArtTitle title={`שלום ${savedName}`} style={{fontSize:30}} random/>
+      <h3>{`(יש עכשיו אפשרות לתגובות ולייקים, בבקשה להחליף את השם בכפתור למטה לשם שיהיה נוח להבין מי זה אחרת זה סתם עבודה שחורה לסדר את השטויות האלה)`}</h3>
   {/* <h1>שלום {savedName}</h1> */}
         <WordArtTitle title={parseDaysToHebrew(totalNights)} style={{fontSize:30}}/>
         <LastPlaces />
