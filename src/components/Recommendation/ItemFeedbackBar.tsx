@@ -68,17 +68,26 @@ export function ItemFeedbackBar({
   }
   return (
     <div style={{ display: "flex", flexDirection:"column",width: "100%", alignItems: "center", marginTop: 10 }}>
-        <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", width: "100%" }}>
+        <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", width: "100%", gap: 20 }}>
             
-      <button onClick={() => setShowComments((s) => !s)} style={{width:"auto"}}>
+      <button onClick={() => setShowComments((s) => !s)} style={{height:35, width:80, fontSize:20}}>
         💬 {commentsCount}
       </button>
-      <button onClick={handleLike}>
-        {/* todo: make green or t=something */}
+      <button 
+      disabled={likedBy.includes(sender)}
+      onClick={handleLike} style={{height:35, width:80, fontSize:20, marginLeft: 10, backgroundColor: likedBy.includes(sender) ? "#6ad96eff" : "#eee"}}>
         {likedBy.includes(sender) ? "✅" : "👍"} {likes}
       </button>
 
         </div>
+        
+    {/* כאן נוסיף הצגה של מי לחץ לייק */}
+    {likes > 0 && (
+      <div style={{ marginTop: 6, fontSize: 13, color: "#555" }}>
+        ❤️ אהבו: {likedBy.join(", ")}
+      </div>
+    )}
+
       {showComments && (
         <div style={{ marginTop: 10, width: "100%" }}>
           <ItemComments

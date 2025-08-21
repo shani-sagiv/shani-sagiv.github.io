@@ -101,19 +101,29 @@ export function ItemComments({
               <div style={{ fontSize: 12, color: "#999" }}>
                 {c.createdAt?.toDate?.().toLocaleString?.()}
               </div>
+                    {/* <button onClick={handleLike} style={{height:35, width:80, fontSize:20, marginLeft: 10, backgroundColor: likedBy.includes(sender) ? "#6ad96eff" : "#eee"}}> */}
               <button
+              style={{ backgroundColor: alreadyLiked ? "#6ad96eff" : "#eee"}}
                 onClick={() => handleLike(c)}
                 disabled={alreadyLiked} // חוסם את הכפתור אם כבר עשית לייק
               >
-                👍 {c.likes ?? 0} {alreadyLiked && "✅"}
+                👍 {c.likes ?? 0} 
+                {/* {alreadyLiked && "✅"} */}
               </button>
+
+            {c.likedBy && c.likedBy.length > 0 && (
+                <div style={{ fontSize: 12, color: "#666", marginTop: 2 }}>
+                ❤️ אהבו: {c.likedBy.join(", ")}
+                </div>
+        )}
+
             </div>
           );
         })}
       </div>
       <div style={{ display: "flex", gap: 6 }}>
         <input
-          style={{ flex: 1 }}
+          style={{  }}
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="הוסף תגובה..."
