@@ -39,6 +39,7 @@ import Randomoneonone from "pages/Random1on1/Randomoneonone";
 import { SOUTH_KOREA, SOUTH_KOREA_DESTINATION } from "assets/data/SouthKorea/SouthKorea";
 import SimpleActivity from "pages/Activities/SimpleActivity";
 import { notifyPhone } from "helpers/notifier";
+import { notifyPageView } from "helpers/notifyTexts";
 
 export const COUNTRIES: {
   country: CountryModel;
@@ -134,7 +135,8 @@ function InnerRoutes() {
   React.useEffect(() => {
     if (window.location.hostname !== "localhost") {
       logPageView(location.pathname);
-      const notifyText= `User:${username} navigated to: ${location.pathname}`;
+      const notifyText = notifyPageView (username, location.pathname)
+
       notifyPhone(notifyText)
     }
   }, [location.pathname]);

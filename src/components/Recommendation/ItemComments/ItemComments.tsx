@@ -14,6 +14,7 @@ import {
 import { db } from "../../../firebase";
 import { getUserName } from "helpers/localStorage.helpers";
 import { notifyPhone } from "helpers/notifier";
+import { notifyLikeComment } from "helpers/notifyTexts";
 
 type Comment = {
   id?: string;
@@ -75,7 +76,8 @@ export function ItemComments({
       alert("כבר עשית לייק לתגובה הזו 🙂");
       return;
     }
-    const notifyText = `👍 ${sender} liked a comment in ${destinationId}/${itemId}`;
+    const notifyText = notifyLikeComment(sender,destinationId,itemId)
+    
     notifyPhone(notifyText)
 
     await updateDoc(doc(db, "comments", comment.id), {

@@ -11,6 +11,7 @@ import {
 import { db } from "../../firebase";
 import { getUserName } from "helpers/localStorage.helpers";
 import { notifyPhone } from "helpers/notifier";
+import { notifyMessage } from "helpers/notifyTexts";
 
 type Message = {
   id?: string;
@@ -45,7 +46,7 @@ export default function MessagesPage() {
   async function handleSend() {
     const t = text.trim();
     if (!t) return;
-    const notifyText = `💬 ${sender} sent a message: "${text}"`;
+    const notifyText=notifyMessage(sender, text)
     notifyPhone(notifyText);
     await addDoc(collection(db, "messages"), {
       text: t,

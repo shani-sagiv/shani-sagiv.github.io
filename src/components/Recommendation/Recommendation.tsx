@@ -10,7 +10,6 @@ import {
 } from "../../helpers/dateHelpers";
 import { ItemComments } from "./ItemComments/ItemComments";
 import { slugify } from "helpers/slugify";
-import { AttractionLike } from "./AttractionLikeButton";
 import { ItemFeedbackBar } from "./ItemFeedbackBar";
 // import { AttractionLikeButton } from "./AttractionLikeButton";
 

@@ -11,6 +11,8 @@ import {
 import { db } from "../../firebase";
 import { getUserName } from "helpers/localStorage.helpers";
 import { ItemComments } from "./ItemComments/ItemComments";
+import { notifyPhone } from "helpers/notifier";
+import { notifyLikeAttraction } from "helpers/notifyTexts";
 
 export function ItemFeedbackBar({
   destinationId,
@@ -57,6 +59,9 @@ export function ItemFeedbackBar({
 
   async function handleLike() {
     const ref = doc(db, "attractionLikes", `${destinationId}_${itemId}`);
+    const notifyText = notifyLikeAttraction(sender, destinationId, itemId);
+    notifyPhone(notifyText)
+    
     if (likedBy.includes(sender)) return; // כבר עשה לייק
     await setDoc(
       ref,
