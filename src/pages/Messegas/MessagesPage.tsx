@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   collection,
   addDoc,
@@ -23,6 +23,9 @@ export default function MessagesPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [text, setText] = useState("");
 
+  // ref לתחתית הרשימה
+  const bottomRef = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {
     const q = query(collection(db, "messages"), orderBy("createdAt", "asc"));
     const unsub = onSnapshot(q, (snap) => {
@@ -33,19 +36,24 @@ export default function MessagesPage() {
     return unsub;
   }, []);
 
+  // גולל לתחתית בכל שינוי הודעות
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   async function handleSend() {
     const t = text.trim();
     if (!t) return;
     await addDoc(collection(db, "messages"), {
       text: t,
       sender,
-      createdAt: serverTimestamp(), // Firestore יכניס תאריך מהשרת
+      createdAt: serverTimestamp(),
     });
     setText("");
   }
 
   function formatDate(ts?: Timestamp) {
-    if (!ts) return "…"; // בזמן אמת לפעמים null עד שהשרת מחזיר
+    if (!ts) return "…";
     return ts.toDate().toLocaleString();
   }
 
@@ -77,6 +85,8 @@ export default function MessagesPage() {
             <div>{m.text}</div>
           </div>
         ))}
+        {/* העוגן לגלילה */}
+        <div ref={bottomRef} />
       </div>
       <div style={{ display: "flex", gap: 8 }}>
         <input
