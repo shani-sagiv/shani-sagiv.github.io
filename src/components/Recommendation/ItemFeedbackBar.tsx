@@ -59,10 +59,10 @@ export function ItemFeedbackBar({
 
   async function handleLike() {
     const ref = doc(db, "attractionLikes", `${destinationId}_${itemId}`);
-    const notifyText = notifyLikeAttraction(sender, destinationId, itemId);
-    notifyPhone(notifyText)
     
     if (likedBy.includes(sender)) return; // כבר עשה לייק
+    const notifyText = notifyLikeAttraction(sender, destinationId, itemId);
+    notifyPhone(notifyText)
     await setDoc(
       ref,
       {
