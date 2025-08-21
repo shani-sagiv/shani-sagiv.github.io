@@ -69,6 +69,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     items.map((item, index) => (
       <RecommendationComponent
         recommendation={item}
+        destinationId={dest.id}
         key={`${keyPrefix}-${index}`}
       />
     ));

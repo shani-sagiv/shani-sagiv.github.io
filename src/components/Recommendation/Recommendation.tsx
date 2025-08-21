@@ -8,12 +8,18 @@ import {
   hasImages,
   parseDate,
 } from "../../helpers/dateHelpers";
+import { ItemComments } from "./ItemComments/ItemComments";
+import { slugify } from "helpers/slugify";
+import { AttractionLike } from "./AttractionLikeButton";
+import { ItemFeedbackBar } from "./ItemFeedbackBar";
+// import { AttractionLikeButton } from "./AttractionLikeButton";
 
 interface RecommendationProps extends React.HTMLAttributes<HTMLDivElement> {
   recommendation: AllRecommendationTypes;
+  destinationId: string;
 }
 
-const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
+const Recommendation: React.FC<RecommendationProps> = ({ recommendation, destinationId }) => {
   const renderGoogleLink = () => {
     return (
       <a
@@ -50,6 +56,7 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
   const totalDays = dates?.length > 1 ? dates.reduce((sum, item) => sum + calculateDaysBetweenDates(item.from, item.to), 0) : undefined;
   // const hasNoData =
   //   !recommendation.description && !recommendation.price && !from && !to;
+
   return (
     <div style={{ marginTop: "20px" }}>
       {renderGoogleLink()}
@@ -107,6 +114,11 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation }) => {
             <div style={{ margin: "0 5px" }}>סהכ {totalDays} ימים.</div>
             : null}
         </div>
+
+        <ItemFeedbackBar destinationId={destinationId} itemId={slugify(recommendation.name)} />
+
+        {/* <AttractionLike destinationId={destinationId} itemId={slugify(recommendation.name)} />
+        <ItemComments destinationId={destinationId} itemId={slugify(recommendation.name)}/> */}
       </div>
     </div>
   );

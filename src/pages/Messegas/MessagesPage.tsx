@@ -1,102 +1,93 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import {
+  collection,
+  addDoc,
+  onSnapshot,
+  orderBy,
+  query,
+  serverTimestamp,
+  Timestamp,
+} from "firebase/firestore";
+import { db } from "../../firebase";
 import { getUserName } from "helpers/localStorage.helpers";
-import { createDate, parseDateDOT } from "helpers/dateHelpers";
 
-export type Message = {
+type Message = {
+  id?: string;
   text: string;
   sender: string;
-  timestamp: number;
+  createdAt?: Timestamp;
 };
 
-type MessageList = Message[];
-
-const FILE_NAME = "messages.json";
-const STORE_BASE = "https://6zagtygjzbttu2f9.public.blob.vercel-storage.com";
-
-// 👇 token must be set in Vercel → Settings → Environment Variables
-// const TOKEN = process.env.REACT_APP_BLOB_TOKEN as string;
-
-const MessagesPage: React.FC = () => {
-  const savedName = getUserName();
+export default function MessagesPage() {
+const sender = getUserName() || "מישהו בלי שם כוסאמק";
   const [messages, setMessages] = useState<Message[]>([]);
   const [text, setText] = useState("");
-  const [sender, setSender] = useState(savedName || "Anonymous");
-
-  // Load messages.json from Blob (cache-busted)
-const FILE_URL = "https://6zagtygjzbttu2f9.public.blob.vercel-storage.com/messages.json";
-
-async function loadMessages(): Promise<MessageList> {
-  try {
-    const res = await fetch("/api/load-messages", { cache: "no-store" });
-    if (!res.ok) return [];
-    return await res.json();
-  } catch {
-    return [];
-  }
-}
-
-
-
-
-  // Save messages.json with REST API
-async function saveMessages(msgs: MessageList) {
-  const res = await fetch("/api/save-messages", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ messages: msgs }),
-  });
-  if (!res.ok) throw new Error("Failed to save messages");
-  const data = await res.json();
-  return data.url as string;
-}
 
   useEffect(() => {
-    (async () => {
-      const data = await loadMessages();
-      setMessages(data);
-    })();
+    const q = query(collection(db, "messages"), orderBy("createdAt", "asc"));
+    const unsub = onSnapshot(q, (snap) => {
+      const arr: Message[] = [];
+      snap.forEach((d) => arr.push({ id: d.id, ...(d.data() as any) }));
+      setMessages(arr);
+    });
+    return unsub;
   }, []);
 
   async function handleSend() {
-    if (!text.trim()) return;
-    const newMessage: Message = { text, sender, timestamp: Date.now() };
-    const updated = [...messages, newMessage];
-    setMessages(updated);
+    const t = text.trim();
+    if (!t) return;
+    await addDoc(collection(db, "messages"), {
+      text: t,
+      sender,
+      createdAt: serverTimestamp(),
+    });
     setText("");
-    await saveMessages(updated);
+  }
+
+  function formatDate(ts?: Timestamp) {
+    if (!ts) return "";
+    const date = ts.toDate();
+    return date.toLocaleString(); // לדוגמה: 21/8/2025, 19:30:12
   }
 
   return (
-    <div style={{ maxWidth: 400, margin: "0 auto", fontFamily: "sans-serif" }}>
-      <h2>Messages</h2>
+    <div style={{ maxWidth: 520, margin: "0 auto", fontFamily: "sans-serif" }}>
+      <h2>Realtime Chat</h2>
       <div
         style={{
-          border: "1px solid #ccc",
-          padding: 10,
-          height: 200,
+          border: "1px solid #ddd",
+          borderRadius: 8,
+          padding: 12,
+          height: 280,
           overflowY: "auto",
-          marginBottom: 10,
+          marginBottom: 12,
         }}
       >
         {messages.map((m) => (
-          <div key={m.timestamp} style={{display: "flex", flexDirection: "row", gap:10}}>
-            <span>{new Date(m.timestamp).toLocaleString("he-IL")}</span>
-            <strong>{m.sender}: </strong>
-            {m.text}
+          <div
+            key={m.id}
+            style={{
+              padding: "6px 0",
+              borderBottom: "1px dashed #eee",
+            }}
+          >
+            <div>
+              <strong>{m.sender}</strong> <span style={{ color: "#666" }}>({formatDate(m.createdAt)})</span>
+            </div>
+            <div>{m.text}</div>
           </div>
         ))}
       </div>
-      <input
-        style={{ width: "70%" }}
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Type a message..."
-      />
-      <button style={{ width: "25%", marginLeft: 5 }} onClick={handleSend}>
-        Send
-      </button>
+      <div style={{ display: "flex", gap: 8 }}>
+        <input
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Type a message…"
+          style={{ flex: 1 }}
+          onKeyDown={(e) => e.key === "Enter" && handleSend()}
+        />
+        <button onClick={handleSend}>Send</button>
+      </div>
     </div>
   );
-};
-
-export default MessagesPage;
+}
