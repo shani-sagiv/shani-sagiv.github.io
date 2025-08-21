@@ -67,7 +67,7 @@ export function ItemFeedbackBar({
     );
   }
   return (
-    <div style={{ display: "flex", flexDirection:"column",width: "100%", alignItems: "center", marginTop: 10 }}>
+    <div style={{ display: "flex", flexDirection:"column",width: "100%", alignItems: "center", }}>
         <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", width: "100%", gap: 20 }}>
             
       <button onClick={() => setShowComments((s) => !s)} style={{height:35, width:85, fontSize:15, borderRadius:50}}>

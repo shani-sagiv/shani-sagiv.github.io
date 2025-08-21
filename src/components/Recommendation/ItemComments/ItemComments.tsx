@@ -82,7 +82,7 @@ export function ItemComments({
   return (
     <div style={{
         width: "90%",
-        marginTop: 10,
+        // marginTop: 10,
         padding: 10,
         border: "1px solid #ddd",
         borderRadius: 6,
