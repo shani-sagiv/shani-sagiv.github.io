@@ -81,7 +81,7 @@ export function ItemComments({
 
   return (
     <div style={{
-        width: "100%",
+        width: "90%",
         marginTop: 10,
         padding: 10,
         border: "1px solid #ddd",
@@ -89,7 +89,7 @@ export function ItemComments({
         display: "flex",
         flexDirection: "column",
         alignContent:"flex-start" }}>
-      <h4>תגובות</h4>
+      {/* <h4 style={{margin:"10px 0"}}>תגובות</h4> */}
       <div style={{  marginBottom: 10 }}>
         {comments.map((c) => {
           const alreadyLiked = c.likedBy?.includes(sender);
@@ -103,7 +103,7 @@ export function ItemComments({
               </div>
                     {/* <button onClick={handleLike} style={{height:35, width:80, fontSize:20, marginLeft: 10, backgroundColor: likedBy.includes(sender) ? "#6ad96eff" : "#eee"}}> */}
               <button
-              style={{ backgroundColor: alreadyLiked ? "#6ad96eff" : "#eee"}}
+              style={{ backgroundColor: alreadyLiked ? "#6ad96eff" : "#eee", borderRadius:50}}
                 onClick={() => handleLike(c)}
                 disabled={alreadyLiked} // חוסם את הכפתור אם כבר עשית לייק
               >

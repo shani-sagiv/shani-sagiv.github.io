@@ -83,7 +83,7 @@ export function ItemFeedbackBar({
         
     {/* כאן נוסיף הצגה של מי לחץ לייק */}
     {likes > 0 && (
-      <div style={{ marginTop: 6, fontSize: 13, color: "#555" }}>
+      <div style={{ marginTop: 6, fontSize: 13,maxWidth:"100%", color: "#555" }}>
         ❤️ אהבו: {likedBy.join(", ")}
       </div>
     )}
