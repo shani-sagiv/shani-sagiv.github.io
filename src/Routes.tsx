@@ -26,7 +26,7 @@ import {
 import { Country, Destination, Random, RandomCountry } from "pages";
 import { BreadcrumbNavigation } from "components";
 import { CYPRUS, LARNACA, LIMASSOL, PAPHOS, VASA } from "./assets/data/Cyprus";
-import { logUserAction } from "./helpers/logs.helpers";
+import { logPageView, logUserAction } from "./helpers/logs.helpers";
 import NameForm from "components/NameForm/NameForm";
 import { getUserName } from "./helpers/localStorage.helpers";
 import {
@@ -37,6 +37,8 @@ import DataPage from "pages/DataPage/DataPage";
 import MessagesPage from "pages/Messegas/MessagesPage";
 import Randomoneonone from "pages/Random1on1/Randomoneonone";
 import { SOUTH_KOREA, SOUTH_KOREA_DESTINATION } from "assets/data/SouthKorea/SouthKorea";
+import SimpleActivity from "pages/Activities/SimpleActivity";
+import { notifyPhone } from "helpers/notifier";
 
 export const COUNTRIES: {
   country: CountryModel;
@@ -126,11 +128,20 @@ export const translationMap = COUNTRIES_WITHOUT_IMAGES.flatMap((item) => [
 function InnerRoutes() {
   const navigate = useNavigate();
   const location = useLocation();
+  const username = getUserName();
+
+  
+  React.useEffect(() => {
+    if (window.location.hostname !== "localhost") {
+      logPageView(location.pathname);
+      const notifyText= `User:${username} navigated to: ${location.pathname}`;
+      notifyPhone(notifyText)
+    }
+  }, [location.pathname]);
 
   React.useEffect(() => {
-    if (!getUserName()) navigate("/login");
+    if (!username) navigate("/login");
 
-    const username = getUserName();
     const currentPath = window.location.pathname;
 
     if (window.location.hostname !== "localhost") {
@@ -169,6 +180,7 @@ function InnerRoutes() {
         <Route path={"/RandomCountry"} element={<RandomCountry />} />
         <Route path={"/Randomoneonone"} element={<Randomoneonone />} />
         <Route path={"/data"} element={<DataPage />} />
+        <Route path={"/activities"} element={<SimpleActivity />} />
         {/*<Route path={"/semental"} element={<Semental />} />*/}
 
         {[...createRoutesFromOptions(NAV_BAR_OPTIONS), ...getRoutes()].map(

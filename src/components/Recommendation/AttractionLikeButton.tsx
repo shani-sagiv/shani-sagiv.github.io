@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { doc, getDoc, setDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import { db } from "../../firebase";
 import { getUserName } from "helpers/localStorage.helpers";
+import { notifyPhone } from "helpers/notifier";
 
 export function AttractionLike({
   destinationId,
@@ -29,6 +30,8 @@ export function AttractionLike({
 
   async function handleLike() {
     if (liked) return; // כבר עשה לייק
+    const notifyText = `⭐ ${sender} liked the attraction ${itemId} in ${destinationId}`;
+    notifyPhone(notifyText)
 
     const ref = doc(db, "attractionLikes", likeDocId);
 

@@ -13,6 +13,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { getUserName } from "helpers/localStorage.helpers";
+import { notifyPhone } from "helpers/notifier";
 
 type Comment = {
   id?: string;
@@ -53,6 +54,8 @@ export function ItemComments({
   async function handleSend() {
     const t = text.trim();
     if (!t) return;
+    const notifyText = `📝 ${sender} commented on ${destinationId}/${itemId}: "${text}"`;
+    notifyPhone(notifyText);
     await addDoc(collection(db, "comments"), {
       destinationId,
       itemId,
@@ -72,6 +75,8 @@ export function ItemComments({
       alert("כבר עשית לייק לתגובה הזו 🙂");
       return;
     }
+    const notifyText = `👍 ${sender} liked a comment in ${destinationId}/${itemId}`;
+    notifyPhone(notifyText)
 
     await updateDoc(doc(db, "comments", comment.id), {
       likes: (comment.likes ?? 0) + 1,

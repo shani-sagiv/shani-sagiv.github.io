@@ -1,6 +1,24 @@
 import ReactGA from "react-ga4";
 import { getUserName } from "./localStorage.helpers";
 
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { db } from "../firebase";
+
+
+export const logPageView = async (path: string) => {
+  const username = getUserName() || "UNKNOWN";
+
+  try {
+    await addDoc(collection(db, "pageViews"), {
+      username,
+      path,
+      createdAt: serverTimestamp(),
+    });
+  } catch (err) {
+    console.error("Failed to log page view:", err);
+  }
+};
+
 export const logUserAction = (
   username = "UNKNOWN",
   path = window.location.pathname,
