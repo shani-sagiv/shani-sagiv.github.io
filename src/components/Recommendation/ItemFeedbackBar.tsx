@@ -70,12 +70,12 @@ export function ItemFeedbackBar({
     <div style={{ display: "flex", flexDirection:"column",width: "100%", alignItems: "center", marginTop: 10 }}>
         <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", width: "100%", gap: 20 }}>
             
-      <button onClick={() => setShowComments((s) => !s)} style={{height:35, width:80, fontSize:20}}>
+      <button onClick={() => setShowComments((s) => !s)} style={{height:35, width:85, fontSize:15, borderRadius:50}}>
         💬 {commentsCount}
       </button>
       <button 
       disabled={likedBy.includes(sender)}
-      onClick={handleLike} style={{height:35, width:80, fontSize:20, marginLeft: 10, backgroundColor: likedBy.includes(sender) ? "#6ad96eff" : "#eee"}}>
+      onClick={handleLike} style={{height:35, width:85, fontSize:15, marginLeft: 10, borderRadius:50, backgroundColor: likedBy.includes(sender) ? "#6ad96eff" : "#eee"}}>
         {likedBy.includes(sender) ? "✅" : "👍"} {likes}
       </button>
 
