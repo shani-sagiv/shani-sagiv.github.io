@@ -19,7 +19,7 @@ type Message = {
 };
 
 export default function MessagesPage() {
-const sender = getUserName() || "מישהו בלי שם כוסאמק";
+  const sender = getUserName() || "מישהו בלי שם";
   const [messages, setMessages] = useState<Message[]>([]);
   const [text, setText] = useState("");
 
@@ -39,15 +39,14 @@ const sender = getUserName() || "מישהו בלי שם כוסאמק";
     await addDoc(collection(db, "messages"), {
       text: t,
       sender,
-      createdAt: serverTimestamp(),
+      createdAt: serverTimestamp(), // Firestore יכניס תאריך מהשרת
     });
     setText("");
   }
 
   function formatDate(ts?: Timestamp) {
-    if (!ts) return "";
-    const date = ts.toDate();
-    return date.toLocaleString(); // לדוגמה: 21/8/2025, 19:30:12
+    if (!ts) return "…"; // בזמן אמת לפעמים null עד שהשרת מחזיר
+    return ts.toDate().toLocaleString();
   }
 
   return (
@@ -72,7 +71,8 @@ const sender = getUserName() || "מישהו בלי שם כוסאמק";
             }}
           >
             <div>
-              <strong>{m.sender}</strong> <span style={{ color: "#666" }}>({formatDate(m.createdAt)})</span>
+              <strong>{m.sender}</strong>{" "}
+              <span style={{ color: "#666" }}>({formatDate(m.createdAt)})</span>
             </div>
             <div>{m.text}</div>
           </div>
