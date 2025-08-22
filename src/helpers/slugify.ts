@@ -2,11 +2,11 @@
 export function slugify(text: string): string {
   return text
     .toString()
-    .normalize("NFD") // מפרק ניקוד
-    .replace(/[\u0300-\u036f]/g, "") // מסיר ניקוד
-    .replace(/\s+/g, "-") // רווחים ל־-
-    .replace(/[^\w\-]+/g, "") // מסיר תווים לא חוקיים
-    .replace(/\-\-+/g, "-") // מחיקות כפולות
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/[^א-ת\w\-]+/g, "") // מאפשר גם אותיות עבריות
+    .replace(/\-\-+/g, "-")
     .replace(/^-+/, "")
     .replace(/-+$/, "")
     .toLowerCase();
