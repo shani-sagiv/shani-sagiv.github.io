@@ -138,9 +138,9 @@ function InnerRoutes() {
   console.log({user})
     console.log(user?.uid, user?.displayName, user?.email);
 
-  if(!user && location.pathname !== "/rename" && location.pathname !== "/login") {
-    navigate("/login");
-  }
+  // if(!user && location.pathname !== "/rename" && location.pathname !== "/login") {
+  //   navigate("/login");
+  // }
 
   if (!username && location.pathname !== "/rename") {
     navigate("/rename");
