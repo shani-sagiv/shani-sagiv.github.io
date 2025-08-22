@@ -42,6 +42,7 @@ import { notifyPhone } from "helpers/notifier";
 import { notifyPageView } from "helpers/notifyTexts";
 import { useCurrentUser } from "currentUSer";
 import LoginPage from "pages/GoogleLogin.tsx/LoginPage";
+import { ensureNickProfile } from "analytics-once";
 
 export const COUNTRIES: {
   country: CountryModel;
@@ -132,11 +133,12 @@ function InnerRoutes() {
   const navigate = useNavigate();
   const location = useLocation();
   const username = getUserName();
+  const nickId = ensureNickProfile(username);
 
-  const user = useCurrentUser()
+  // const user = useCurrentUser()
   // console.log(auth.currentUser);
-  console.log({user})
-    console.log(user?.uid, user?.displayName, user?.email);
+  // console.log({user})
+  //   console.log(user?.uid, user?.displayName, user?.email);
 
   // if(!user && location.pathname !== "/rename" && location.pathname !== "/login") {
   //   navigate("/login");
