@@ -8,7 +8,7 @@ import {
   serverTimestamp,
   Timestamp,
 } from "firebase/firestore";
-import { db } from "../../firebase";
+import { auth, db } from "../../firebase";
 import { getUserName } from "helpers/localStorage.helpers";
 import { notifyPhone } from "helpers/notifier";
 import { notifyMessage } from "helpers/notifyTexts";
@@ -49,6 +49,7 @@ export default function MessagesPage() {
     const notifyText=notifyMessage(sender, text)
     notifyPhone(notifyText);
     await addDoc(collection(db, "messages"), {
+      uid: auth.currentUser?.uid,
       text: t,
       sender,
       createdAt: serverTimestamp(),

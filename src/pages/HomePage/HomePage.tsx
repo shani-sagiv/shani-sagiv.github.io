@@ -17,6 +17,7 @@ import Card from "../../components/Card/Card";
 import LastPlaces from "components/infoBoxes/LastPlaces";
 import TopPlaces from "components/infoBoxes/TopPlaces";
 import { getUserName } from "helpers/localStorage.helpers";
+import { signInWithGoogle } from "../../firebase";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
     const savedName = getUserName();
@@ -100,7 +101,8 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         </Button>
         <Button onClick={() => navigate(`/data`)}>מידע</Button>
         <Button onClick={() => navigate(`/random`)}>ניחוש מידע</Button>
-        <Button onClick={() => navigate(`/login`)}>החלפת שם</Button>
+        <Button onClick={() => navigate(`/rename`)}>החלפת שם</Button>
+        <Button onClick={() => navigate(`/login`)}>התחברות עם גוגל</Button>
         
         <Button onClick={() => navigate(`/test`)}>צאט בדיקה</Button>
       </div>

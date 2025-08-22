@@ -11,7 +11,7 @@ import {
   doc,
   arrayUnion,
 } from "firebase/firestore";
-import { db } from "../../../firebase";
+import { auth, db } from "../../../firebase";
 import { getUserName } from "helpers/localStorage.helpers";
 import { notifyPhone } from "helpers/notifier";
 import { notifyLikeComment } from "helpers/notifyTexts";
@@ -58,6 +58,7 @@ export function ItemComments({
     const notifyText = `📝 ${sender} commented on ${destinationId}/${itemId}: "${text}"`;
     notifyPhone(notifyText);
     await addDoc(collection(db, "comments"), {
+      uid: auth.currentUser?.uid,
       destinationId,
       itemId,
       text: t,

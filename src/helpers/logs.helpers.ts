@@ -2,7 +2,7 @@ import ReactGA from "react-ga4";
 import { getUserName } from "./localStorage.helpers";
 
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { db } from "../firebase";
+import { auth, db } from "../firebase";
 
 
 export const logPageView = async (path: string) => {
@@ -10,6 +10,7 @@ export const logPageView = async (path: string) => {
 
   try {
     await addDoc(collection(db, "pageViews"), {
+      uid: auth.currentUser?.uid,
       username,
       path,
       createdAt: serverTimestamp(),

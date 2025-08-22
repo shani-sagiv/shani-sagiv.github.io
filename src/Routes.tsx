@@ -40,6 +40,8 @@ import { SOUTH_KOREA, SOUTH_KOREA_DESTINATION } from "assets/data/SouthKorea/Sou
 import SimpleActivity from "pages/Activities/SimpleActivity";
 import { notifyPhone } from "helpers/notifier";
 import { notifyPageView } from "helpers/notifyTexts";
+import { useCurrentUser } from "currentUSer";
+import LoginPage from "pages/GoogleLogin.tsx/LoginPage";
 
 export const COUNTRIES: {
   country: CountryModel;
@@ -131,7 +133,18 @@ function InnerRoutes() {
   const location = useLocation();
   const username = getUserName();
 
-  
+  const user = useCurrentUser()
+  // console.log(auth.currentUser);
+  console.log({user})
+    console.log(user?.uid, user?.displayName, user?.email);
+
+  if(!user && location.pathname !== "/rename" && location.pathname !== "/login") {
+    navigate("/login");
+  }
+
+  if (!username && location.pathname !== "/rename") {
+    navigate("/rename");
+  }
   React.useEffect(() => {
     if (window.location.hostname !== "localhost") {
       logPageView(location.pathname);
@@ -142,7 +155,6 @@ function InnerRoutes() {
   }, [location.pathname]);
 
   React.useEffect(() => {
-    if (!username) navigate("/login");
 
     const currentPath = window.location.pathname;
 
@@ -176,7 +188,8 @@ function InnerRoutes() {
     <>
       <BreadcrumbNavigation />
       <Routes>
-        <Route path={"/login"} element={<NameForm />} />
+        <Route path={"/rename"} element={<NameForm />} />
+        <Route path={"/login"} element={<LoginPage/>}/>
         <Route path={"/test"} element={<MessagesPage />} />
         <Route path={"/random"} element={<Random />} />
         <Route path={"/RandomCountry"} element={<RandomCountry />} />
