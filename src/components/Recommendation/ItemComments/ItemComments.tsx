@@ -58,7 +58,7 @@ export function ItemComments({
     const notifyText = `📝 ${sender} commented on ${destinationId}/${itemId}: "${text}"`;
     notifyPhone(notifyText);
     await addDoc(collection(db, "comments"), {
-      uid: auth.currentUser?.uid,
+      uid: auth?.currentUser?.uid,
       destinationId,
       itemId,
       text: t,

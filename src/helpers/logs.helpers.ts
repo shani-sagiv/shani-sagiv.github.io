@@ -10,7 +10,7 @@ export const logPageView = async (path: string) => {
 
   try {
     await addDoc(collection(db, "pageViews"), {
-      uid: auth.currentUser?.uid,
+      uid: auth?.currentUser?.uid,
       username,
       path,
       createdAt: serverTimestamp(),

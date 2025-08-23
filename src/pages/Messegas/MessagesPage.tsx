@@ -49,7 +49,7 @@ export default function MessagesPage() {
     const notifyText=notifyMessage(sender, text)
     notifyPhone(notifyText);
     await addDoc(collection(db, "messages"), {
-      uid: auth.currentUser?.uid,
+      uid: auth?.currentUser?.uid,
       text: t,
       sender,
       createdAt: serverTimestamp(),
