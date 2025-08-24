@@ -1,28 +1,21 @@
 // src/components/ItemComments/ItemComments.tsx
 import React, { useEffect, useMemo, useState } from "react";
-import {
-  collection,
-  addDoc,
-  query,
-  orderBy,
-  onSnapshot,
-  updateDoc,
-  doc,
-  arrayUnion,
-  increment,
-  serverTimestamp,
-} from "firebase/firestore";
-import { auth, db } from "../../../firebase";
 import { getUserName } from "helpers/localStorage.helpers";
 import { notifyPhone } from "helpers/notifier";
 import { notifyLikeComment } from "helpers/notifyTexts";
+import {
+  docIdFromParts,
+  subscribeCommentsList,
+  sendComment,
+  likeComment,
+} from "../../../helpers/feedback.helpers";
 
 type Comment = {
   id?: string;
   text: string;
-  displayName: string; // שינוי: תואם למבנה החדש
+  displayName: string;
   createdAt?: any;
-  likesCount?: number;  // שינוי: תואם למבנה החדש
+  likesCount?: number;
   likedBy?: string[];
   uid?: string | null;
 };
@@ -37,84 +30,43 @@ export function ItemComments({
   const [comments, setComments] = useState<Comment[]>([]);
   const [text, setText] = useState("");
   const displayName = getUserName() || "Unknown";
-  const docId = useMemo(() => `${destinationId}_${itemId}`, [destinationId, itemId]);
+  const docId = useMemo(() => docIdFromParts(destinationId, itemId), [destinationId, itemId]);
 
-  // טוען תגובות ריל־טיים מתת־האוסף /attractions/{docId}/comments
   useEffect(() => {
-    const commentsCol = collection(db, "attractions", docId, "comments");
-    const q = query(commentsCol, orderBy("createdAt", "asc"));
-    const unsub = onSnapshot(q, (snap) => {
-      const arr: Comment[] = snap.docs.map((d) => {
-        const data = d.data() as any;
-        return {
+    const unsub = subscribeCommentsList(docId, (rows) => {
+      setComments(
+        rows.map((d: any) => ({
           id: d.id,
-          text: data.text,
-          displayName: data.displayName,
-          createdAt: data.createdAt,
-          likesCount: data.likesCount ?? 0,
-          likedBy: data.likedBy ?? [],
-          uid: data.uid ?? null,
-        };
-      });
-      setComments(arr);
-    });
+          text: d.text,
+          displayName: d.displayName,
+          createdAt: d.createdAt,
+          likesCount: d.likesCount ?? 0,
+          likedBy: d.likedBy ?? [],
+          uid: d.uid ?? null,
+        }))
+      );
+    }, "asc");
     return unsub;
   }, [docId]);
 
   async function handleSend() {
     const t = text.trim();
     if (!t) return;
-
-    const commentsCol = collection(db, "attractions", docId, "comments");
-    const parentRef = doc(db, "attractions", docId);
-
-    // נוטיפיקציה
-    const notifyText = `📝 ${displayName} commented on ${destinationId}/${itemId}: "${t}"`;
-    notifyPhone(notifyText);
-
-    // יצירת תגובה
-    await addDoc(commentsCol, {
-      uid: auth?.currentUser?.uid ?? null,
-      text: t,
-      displayName,
-      likedBy: [],
-      likesCount: 0,
-      createdAt: serverTimestamp(),
-    });
-
-    // עדכון מונה תגובות + updatedAt במסמך האב
-    await updateDoc(parentRef, {
-      commentsCount: increment(1),
-      updatedAt: serverTimestamp(),
-      destinationId, // לשמירה על עקביות/איתור
-      itemId,
-    });
-
+    notifyPhone(`📝 ${displayName} commented on ${destinationId}/${itemId}: "${t}"`);
+    await sendComment({ destinationId, itemId, text: t, displayName });
     setText("");
   }
 
   async function handleLike(comment: Comment) {
     if (!comment.id) return;
     const alreadyLiked = comment.likedBy?.includes(displayName);
-    if (alreadyLiked) {
-      alert("כבר עשית לייק לתגובה הזו 🙂");
-      return;
-    }
-
-    const commentRef = doc(db, "attractions", docId, "comments", comment.id);
-    const parentRef = doc(db, "attractions", docId);
-
-    const notifyText = notifyLikeComment(displayName, destinationId, itemId);
-    notifyPhone(notifyText);
-
-    await updateDoc(commentRef, {
-      likedBy: arrayUnion(displayName),
-      likesCount: increment(1),
-    });
-
-    // (אופציונלי) עדכון updatedAt למסמך האב
-    await updateDoc(parentRef, {
-      updatedAt: serverTimestamp(),
+    if (alreadyLiked) return;
+    notifyPhone(notifyLikeComment(displayName, destinationId, itemId));
+    await likeComment({
+      destinationId,
+      itemId,
+      commentId: comment.id,
+      likerDisplayName: displayName,
     });
   }
 
@@ -148,7 +100,6 @@ export function ItemComments({
               >
                 👍 {c.likesCount ?? 0}
               </button>
-
               {c.likedBy && c.likedBy.length > 0 && (
                 <div style={{ fontSize: 12, color: "#666", marginTop: 2 }}>
                   ❤️ אהבו: {c.likedBy.join(", ")}
@@ -159,11 +110,7 @@ export function ItemComments({
         })}
       </div>
       <div style={{ display: "flex", gap: 6 }}>
-        <input
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="הוסף תגובה..."
-        />
+        <input value={text} onChange={(e) => setText(e.target.value)} placeholder="הוסף תגובה..." />
         <button onClick={handleSend}>שלח</button>
       </div>
     </div>

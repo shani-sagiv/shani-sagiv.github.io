@@ -18,6 +18,7 @@ import LastPlaces from "components/infoBoxes/LastPlaces";
 import TopPlaces from "components/infoBoxes/TopPlaces";
 import { getUserName } from "helpers/localStorage.helpers";
 import { signInWithGoogle } from "../../firebase";
+// import UserStatsRow from "components/UserStatsRow";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
     const savedName = getUserName();
@@ -106,7 +107,29 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         
         <Button onClick={() => navigate(`/test`)}>צאט בדיקה</Button>
       </div>
+      {/* <UserStatsRow/> */}
     </div>
   );
 };
 export default HomePage;
+
+
+/*
+attractions (collection)
+ └─ SEOUL_entire-home-in-donggyo-dong-mapo-gu (doc)
+     destinationId
+     itemId
+     likesCount
+     likedBy: [ { uid, displayName } ]
+     commentsCount
+     updatedAt
+     └─ comments (subcollection)
+          └─ abc123 (doc)
+               uid
+               displayName
+               text
+               likesCount
+               likedBy
+               createdAt
+
+*/

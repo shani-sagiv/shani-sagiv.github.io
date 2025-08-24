@@ -1,55 +1,27 @@
+// src/components/SimpleActivity.tsx
 import React, { useEffect, useRef, useState } from "react";
 import {
-  collection,
-  onSnapshot,
-  orderBy,
-  query,
-  DocumentData,
-  Firestore,
-} from "firebase/firestore";
+  normalizeName,
+  normalizeNames,
+  formatTs,
+  mergeActivities,
+  sortByTime,
+  Activity,
+  subscribeAllAttractions,
+} from "../../helpers/feedback.helpers";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../../firebase";
 
-// ------------------- Types -------------------
-type Activity = {
-  id: string;
-  type: "message" | "comment";
-  sender: string;
-  text?: string;
-  destinationId?: string;
-  itemId?: string;
-  createdAt?: any; // Firestore Timestamp | Date | number | undefined
-};
-
 type Like = {
-  id: string;        // מזהה ייחודי לשורת לייק
-  sender: string;    // מי עשה לייק
-  docName: string;   // attractions/{docId}
-  createdAt?: any;   // נשתמש ב-updatedAt של מסמך האטרקציה
+  id: string;
+  sender: string;
+  docName: string;
+  createdAt?: any;
 };
 
-// ------------------- Helpers -------------------
-const normalizeName = (u: any): string =>
-  typeof u === "string" ? u : (u?.displayName ?? "");
-
-const normalizeNames = (arr: any[]): string[] =>
-  (arr || []).map(normalizeName).filter(Boolean);
-
-const formatTs = (ts: any): string => {
-  if (!ts) return "";
-  try {
-    if (typeof ts.toDate === "function") return ts.toDate().toLocaleString?.() || "";
-    if (ts instanceof Date) return ts.toLocaleString?.() || ts.toString();
-    if (typeof ts === "number") return new Date(ts).toLocaleString?.() || "";
-  } catch {}
-  return "";
-};
-
-// ------------------- Component -------------------
 export default function SimpleActivity() {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [likes, setLikes] = useState<Like[]>([]);
-
-  // נשמור מאזינים לתגובות לכל אטרקציה כדי לנקות בינויים
   const commentUnsubsRef = useRef<(() => void)[]>([]);
 
   // הודעות (טופ-לבל)
@@ -71,43 +43,39 @@ export default function SimpleActivity() {
     return () => unsub();
   }, []);
 
-  // תגובות + לייקים (דרך האזנה לכל /attractions)
+  // תגובות + לייקים לכל האטרקציות
   useEffect(() => {
-    // בכל שינוי ברשימת האטרקציות: ננקה מאזיני-תגובות קודמים ונפתח חדשים
-    const unsubAttractions = onSnapshot(collection(db, "attractions"), (atSnap) => {
-      // 1) לייקים מכל האטרקציות
+    const unsubAttractions = subscribeAllAttractions((atList) => {
+      // 1) Likes snapshot
       const likeRows: Like[] = [];
-      atSnap.forEach((doc) => {
-        const data = doc.data() as any;
-        const likedBy = normalizeNames(data.likedBy || []);
-        const updatedAt = data.updatedAt;
+      atList.forEach(({ id, data }) => {
+        const likedBy = normalizeNames((data as any).likedBy || []);
+        const updatedAt = (data as any).updatedAt;
         likedBy.forEach((who, idx) => {
           likeRows.push({
-            id: `like_${doc.id}_${idx}_${who}`,
+            id: `like_${id}_${idx}_${who}`,
             sender: who,
-            docName: doc.id,
+            docName: id,
             createdAt: updatedAt,
           });
         });
       });
       setLikes(likeRows);
 
-      // 2) תגובות: נפתח מאזין לכל תת-אוסף comments של כל אטרקציה
-      // נקה מאזינים ישנים
+      // 2) Comments listeners per attraction
       commentUnsubsRef.current.forEach((u) => u && u());
       commentUnsubsRef.current = [];
 
-      atSnap.forEach((doc) => {
-        const attractionId = doc.id; // לדוגמה: HOI_AN_roving-chill-house
-        const commentsCol = collection(db, "attractions", attractionId, "comments");
+      atList.forEach(({ id }) => {
+        const commentsCol = collection(db, "attractions", id, "comments");
         const q = query(commentsCol, orderBy("createdAt", "desc"));
         const unsubComments = onSnapshot(q, (snap) => {
           const arr: Activity[] = snap.docs.map((d) => {
             const data = d.data() as any;
-            const [destinationId, ...rest] = attractionId.split("_");
+            const [destinationId, ...rest] = id.split("_");
             const itemId = rest.join("_");
             return {
-              id: `cmt_${attractionId}_${d.id}`,
+              id: `cmt_${id}_${d.id}`,
               type: "comment",
               sender: normalizeName(data.displayName ?? data.sender),
               text: data.text,
@@ -117,15 +85,11 @@ export default function SimpleActivity() {
             };
           });
 
-          // מעדכנים את ה-activities: מסירים קודם תגובות של האטרקציה הזו, ואז מוסיפים חדשות וממיינים
           setActivities((prev) => {
-            const keep = prev.filter(
-              (a) => !(a.type === "comment" && a.id.startsWith(`cmt_${attractionId}_`))
-            );
+            const keep = prev.filter((a) => !(a.type === "comment" && a.id.startsWith(`cmt_${id}_`)));
             return sortByTime([...keep, ...arr]);
           });
         });
-
         commentUnsubsRef.current.push(unsubComments);
       });
     });
@@ -165,19 +129,5 @@ export default function SimpleActivity() {
         </div>
       ))}
     </div>
-  );
-}
-
-// ------------------- Utilities -------------------
-function mergeActivities(prev: Activity[], incoming: Activity[]): Activity[] {
-  // מאחד לפי id, ואז ממיין לפי createdAt יורד
-  const map = new Map<string, Activity>();
-  [...prev, ...incoming].forEach((a) => map.set(a.id, a));
-  return sortByTime(Array.from(map.values()));
-}
-
-function sortByTime(arr: Activity[]): Activity[] {
-  return arr.sort(
-    (a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0)
   );
 }
