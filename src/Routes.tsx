@@ -42,6 +42,7 @@ import { notifyPhone } from "helpers/notifier";
 import { notifyPageView } from "helpers/notifyTexts";
 import { useCurrentUser } from "currentUSer";
 import LoginPage from "pages/GoogleLogin.tsx/LoginPage";
+import RandomLive from "pages/RandomLive";
 export const COUNTRIES: {
   country: CountryModel;
   destinations: DestinationModel[];
@@ -191,6 +192,8 @@ function InnerRoutes() {
         <Route path={"/login"} element={<LoginPage/>}/>
         <Route path={"/test"} element={<MessagesPage />} />
         <Route path={"/random"} element={<Random />} />
+        <Route path={"/randomLive"} element={<RandomLive />} />
+
         <Route path={"/RandomCountry"} element={<RandomCountry />} />
         <Route path={"/Randomoneonone"} element={<Randomoneonone />} />
         <Route path={"/data"} element={<DataPage />} />
