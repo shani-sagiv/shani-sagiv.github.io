@@ -71,7 +71,7 @@ type FlatImageMap = {
 
 
 async function fetchImagesFlat(repoPath: string): Promise<FlatImageMap> {
-  const GITHUB_TOKEN = "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"
+  const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
   const apiUrl = `https://api.github.com/repos/SagivMor/shani-sagiv-images/git/trees/main?recursive=1`;
 
   const res = await fetch(apiUrl, {
