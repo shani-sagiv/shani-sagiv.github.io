@@ -45,6 +45,12 @@ export const createWhatsAppLinksContent = (phoneNumbers: string[]) =>
       {number}
     </a>
   ));
+
+type FlatImageMap = {
+  [key: string]: string[];
+};
+
+
 const Destination: React.FC<DestinationProps> = ({ dest }) => {
   const {
     displayName,
@@ -62,17 +68,46 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     moreInfo = [],
     additionalCode = null,
   } = dest;
+
+    const [fetchedImages, setFetchedImages] = React.useState<FlatImageMap | null>(null);
+
+  // נטען את images.json פעם אחת
+  React.useEffect(() => {
+    fetch("/images.json")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("✅ Images loaded:", data);
+        setFetchedImages(data);
+      });
+  }, []);
+
+
   const generateContent = (
     items: AllRecommendationTypes[],
     keyPrefix: string,
   ) =>
-    items.map((item, index) => (
+    items.map((item, index) => {
+      if (item.id && fetchedImages?.[item.id]) {
+        item.images = fetchedImages[item.id];
+              return (
+                <span>
+                  changed
       <RecommendationComponent
         recommendation={item}
         destinationId={dest.id}
         key={`${keyPrefix}-${index}`}
       />
-    ));
+      </span>)
+
+      }
+
+      return (
+      <RecommendationComponent
+        recommendation={item}
+        destinationId={dest.id}
+        key={`${keyPrefix}-${index}`}
+      />)
+    });
 
   const generateAttractionGroupsContent = (
     groups: AttractionGroupRecommendation[],

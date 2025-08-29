@@ -21,7 +21,7 @@ export const KOH_PHA_NGAN: Destination = {
         "דיי ממוצע המלון והאזור אחלה בריכה וקרוב לhalf moon שהיה ממוצע גם כן",
       price: "",
       googleMapLink: "https://maps.app.goo.gl/wFpmvsshdNTRJXPf7",
-      images: IMAGES.islandLife,
+      id: "island-life",
     },
     {
       name: "The Sea Resort",
@@ -29,7 +29,7 @@ export const KOH_PHA_NGAN: Destination = {
       description: "מצריך אופנוע אבל מקום ממש שווה",
       price: "",
       googleMapLink: "https://maps.app.goo.gl/yBoVNcQYotoZzSqy8",
-      images: IMAGES.seaResortImages,
+      id: "sea-resort",
     },
     {
       name: "Delight Resort",
@@ -40,7 +40,7 @@ export const KOH_PHA_NGAN: Destination = {
     {
       name: "Shiralea Backpackers Resort",
       googleMapLink: "https://maps.app.goo.gl/rBqm8domgegkkyK97",
-      images: IMAGES.shiralea,
+      id: "shiralea",
       dates: [{ from: createDate("15/10/2024"), to: createDate("17/10/2024") }],
       description:
         "קצת רחוק מהכל אבל מקום ממש חמוד אחלה אנשים אחלה מקומות ישיבה",
@@ -48,14 +48,14 @@ export const KOH_PHA_NGAN: Destination = {
     {
       name: "Pure Laguna Residence by Nice Sea Resort",
       googleMapLink: "https://maps.app.goo.gl/xDQ4UQudrqxDVeCW8",
-      images: IMAGES.PureLaguna,
+      id: "PureLaguna",
       dates: [{ from: createDate("09/11/2024"), to: createDate("12/11/2024") }],
       description:
         "אחלה מלון באזור הזן ביץ חדרים שווים עם מטבח קצת ריח של גופה וביוב לפעמים",
     },  {
       name: "Sea Escapes Resort",
       googleMapLink: "https://maps.app.goo.gl/q3regvvWhCVg2b7a9",
-      images: IMAGES.SeaEscape,
+      id: "SeaEscape",
       dates: [{ from: createDate("15/06/2025"), to: createDate("21/06/2025") }],
       description:
         "באנו רק בשביל נופר",
@@ -66,19 +66,19 @@ export const KOH_PHA_NGAN: Destination = {
       name: "Mama Homemade Restaurant",
       description: "מסעדה ממש נחמדה ליד הsea resort, מקומית תאילדית זולה",
       googleMapLink: "https://maps.app.goo.gl/p6UneWTsZG4MehoYA",
-      images: IMAGES.mamaRestaurant,
+      id: "mamaRestaurant",
     },
     {
       name: "Pantip Market שוק אוכל",
       description: "אזור עם כמה דוכני אוכל  ושטויות וברים",
       googleMapLink: "https://maps.app.goo.gl/fzSnN2UaiK2rrfhV6",
-      images: IMAGES.pantip,
+      id: "pantip",
     },
     {
       name: "Mama Market שוק אוכל",
       description: "אזור עם כמה דוכני אוכל חמודים",
       googleMapLink: "https://maps.app.goo.gl/15HQMgFhoVhC8ynXA",
-      images: IMAGES.Mama,
+      id: "Mama",
     },
   ],
   attractions: [
@@ -87,19 +87,19 @@ export const KOH_PHA_NGAN: Destination = {
       description:
         "ממש פחדנו שלא יהיו כרטיסים כי החלטנו להגיע ממש ברגע האחרון, בפועל ממש לא בעיה לקנות יום לפני בקבלה במלון.. היה כיף",
       googleMapLink: "https://maps.app.goo.gl/EUHfANZURF8T8S5B9",
-      images: IMAGES.halfmoon,
+      id: "halfmoon",
     },
     {
       name: "Saturday Walking Street Market",
       description: "שוק לילה ממש נחמד שפתוח בסופש. יש גם אוכל וגם קניות",
       googleMapLink: "https://maps.app.goo.gl/swCqNZDrkTy6AJd46",
-      images: IMAGES.walkingStreet,
+      id: "walking-street",
     },
     {
       name: "Chaloklum Sunday market",
       description: " שוק עם אוכל ממש נחמד! אזור יפה להסתובב ואפשר גם להכנס לים",
       googleMapLink: "https://maps.app.goo.gl/yNymoUHjqMCMfmh16",
-      images: IMAGES.chaloklumMarket,
+      id: "chaloklum-market",
     },
 
     {
@@ -107,14 +107,14 @@ export const KOH_PHA_NGAN: Destination = {
       description:
         "לשים לב אם מגיעים עם אופנוע לא להשאיר כלום בתא ולקחת את המפתחות הם חכמים",
       googleMapLink: "https://maps.app.goo.gl/DQBcudn59LarPh7w7",
-      images: IMAGES.monkeys,
+      id: "monkeys",
     },
     {
       name: "Zen Beach",
       description:
         "חוף חמוד עם אחלה נוף לשקיעה, הרבה אנשים שבאים לעשות יוגה ערסלים ואנערף, יש באחד הצדדים חוף נודיסטים",
       googleMapLink: "https://maps.app.goo.gl/JKr5o76eoi3Q6EdA8",
-      images: IMAGES.zen,
+      id: "zen",
     },
     {
       name: "Bluerama",
@@ -123,14 +123,14 @@ export const KOH_PHA_NGAN: Destination = {
         "\n" +
         "משלמים בכניסה איזה 600 באט לראש אבל אפשר לקנות שם עם הכסף הזה",
       googleMapLink: "https://maps.app.goo.gl/ZDENA8MKoXWqXrAP7",
-      images: IMAGES.bluerama,
+      id: "bluerama",
     },
     {
       name: "קפה חתולים",
       description:
         "בית קפה עם מלא חתולים, ממש התלבטנו אם להכנס כי חשבנו שאולי החתולים סובלים. בסוף היינו שם שעה והעובדים התייחסו לכל החתולים ממש יפה, האכילו ושיחקו איתם והחתולים באמת נראים שמחים והיה כיף מאווווווווווווווווד!!!!",
       googleMapLink: "https://maps.app.goo.gl/8QGYfNaTWFEHJTeu6",
-      images: IMAGES.catCafe,
+      id: "cat-cafe",
     },
   ],
   nightlife: [
@@ -139,12 +139,12 @@ export const KOH_PHA_NGAN: Destination = {
       description:
         "יש על החוף כל ערב מלא ברים עם מופעי אש. באף אחד לא היה כתוב שיש האפי האוור אבל ברגע ששאלנו אז הם ענו שכן חחח קיצר תשאלו אם יש",
       googleMapLink: "https://maps.app.goo.gl/wzWoLNs6X7HBrCuG7",
-      images: IMAGES.HaadRinBeachBars,
+      id: "haad-rin",
     },    {
       name: "Stona Jungle Club",
       description:"טראנדים היה כיף רצח עם נופר",
       googleMapLink: "https://maps.app.goo.gl/4voHG4Rzu1UsiCGH6",
-      images: IMAGES.Stona,
+      id: "Stona",
     },
   ],
   gold_recommendation: [
