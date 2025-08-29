@@ -29,7 +29,7 @@ import { DA_NANG } from "./DaNang";
 import { CHAM_ISLANDS } from "./ChamIslands";
 
 export const VIETNAM: Country = {
-  id: "VNM",
+  id: "VIETNAM",
   name: "Vietnam",
   displayName: {
     hebrew: "וייטנאם",

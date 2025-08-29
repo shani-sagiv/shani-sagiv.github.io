@@ -5,7 +5,6 @@ import {
 
   CHINAG_MAI_IMAGES,
   sushiImages,
-  KOH_CHANG_IMAGES,
   PATTAYA_IMAGES,
   KOH_SAMUI_IMAGES,
   KOH_TAO_IMAGES,
@@ -17,6 +16,7 @@ import { BANGKOK } from "./Bangkok";
 import { KOH_LANTA } from "./KohLanta";
 import profileImg from "./main.jpg";
 import { KOH_PHA_NGAN } from "./KohPhaNgan";
+import { KOH_CHANG } from "./KohChang/KohChang";
 
 
 export const THAILAND: Country = {
@@ -216,36 +216,6 @@ export const CHINAG_MAI: Destination = {
   ],
 };
 
-export const KOH_CHANG: Destination = {
-  id: "KOH_CHANG",
-  profileImg: KOH_CHANG_IMAGES.profile,
-  displayName: {
-    hebrew: "קו צ'אנג",
-    english: "koh chang",
-  },
-  description: "",
-  images: KOH_CHANG_IMAGES.general,
-  hotels: [
-    {
-      name: "Chang Buri",
-      googleMapLink: "https://maps.app.goo.gl/H7ABRp8YLYxExFkd8",
-      dates: [{ from: createDate("06/09/2024"), to: createDate("12/09/2024") }],
-      description:
-        "מלון ממש שווה, אחלה בריכות באסה שאי אפשר להיכנס למים שם והחיי לילה הקרובים מוזרים",
-      images: KOH_CHANG_IMAGES.ChangBuri,
-    },
-    {
-      name: "Flora I Talay Resort",
-      googleMapLink: "https://maps.app.goo.gl/GdHD6pPnrvg4MXwr7",
-      dates: [{ from: createDate("12/09/2024"), to: createDate("19/09/2024") }],
-      description: "מלון ממש ממש חמוד ושווה היה מאוד כיף",
-      images: KOH_CHANG_IMAGES.Flora,
-    },
-  ],
-  foods: [],
-  attractions: [],
-  nightlife: [],
-};
 
 export const PATTAYA: Destination = {
   id: "PATTAYA",
@@ -493,5 +463,6 @@ export const KOH_TAO: Destination = {
 export const THAILAND_DESTINATION = [
   BANGKOK,
   KOH_LANTA,
-  KOH_PHA_NGAN
+  KOH_PHA_NGAN,
+  KOH_CHANG
 ];

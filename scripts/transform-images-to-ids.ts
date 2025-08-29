@@ -3,7 +3,8 @@ const fs = require("fs");
 const path = require("path");
 
 // הקובץ שאתה רוצה לשנות
-const filePath = path.join(__dirname, "../src/assets/data/Thailand/Bangkok/Bangkok.tsx");
+// C:\Users\Sagiv\Documents\shani-sagiv.github.io\src\assets\data\Vietnam\HoiAn\HoiAn.tsx
+const filePath = path.join(__dirname, "../src/assets/data/Vietnam/HoiAn/HoiAn.tsx");
 
 // טוען תוכן
 let content = fs.readFileSync(filePath, "utf-8");
