@@ -62,102 +62,17 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     moreInfo = [],
     additionalCode = null,
   } = dest;
-
-
-type FlatImageMap = {
-  [key: string]: string[];
-};
-
-
-
-async function fetchImagesFlat(repoPath: string): Promise<FlatImageMap> {
-  const apiUrl = `https://api.github.com/repos/SagivMor/shani-sagiv-images/git/trees/main?recursive=1`;
-
-  const res = await fetch(apiUrl);
-
-  if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
-
-  const data = await res.json();
-
-  const result: FlatImageMap = {};
-
-  for (const item of data.tree) {
-    if (item.type === "blob" && item.path.startsWith(repoPath)) {
-      const parts = item.path.split("/");
-      const folderName = parts[parts.length - 2]; // שם התיקייה האחרונה
-      if (!result[folderName]) result[folderName] = [];
-      result[folderName].push(
-        `https://cdn.jsdelivr.net/gh/SagivMor/shani-sagiv-images@main/${item.path}`
-      );
-    }
-  }
-
-  return result;
-}
-
-// async function fetchImagesForCurrentUrl(): Promise<ImageMap> {
-//   const hash = window.location.hash; // למשל "#/THAILAND/KOH_PHA_NGAN"
-//   const folder = hash.replace(/^#\//, ""); // -> "THAILAND/KOH_PHA_NGAN"
-//   return fetchImagesHierarchical(folder);
-// }
-
-const [fetchedImages, setFetchedImages] = React.useState<FlatImageMap | null>(null);
-
-React.useEffect(() => {
-  const hash = window.location.hash; 
-  const folder = hash.replace(/^#\//, ""); // -> "THAILAND/BANGKOK"
-
-  // console.log({dest, hash})
-  fetchImagesFlat(folder).then(res => {
-    // console.log({res})
-    setFetchedImages(res)
-  });
-
-}, []);
-
-// עכשיו ניתן להשתמש ב-fetchedImages בתוך הקומפוננטה
-// שימוש:
-// React.useEffect(() => {
-// fetchImagesForCurrentUrl().then(res => {
-//   console.log("✅ אובייקט תמונות:", res);
-//   setFetchedImages(res);
-// });
-  
-// }, []);
-
-console.log({dest, fetchedImages})
-
-
   const generateContent = (
     items: AllRecommendationTypes[],
     keyPrefix: string,
   ) =>
-    items.map((item, index) => {
-    //  console.log({item, fetchedImages})
-      const images: string[] =
-        (item?.id && fetchedImages) ? fetchedImages[item?.id] ?? []
-          : [];
-          // if(item.id){
-            // console.log({itemId:item.id, images})
-            // console.log(fetchedImages ? fetchedImages[item?.id] : "לא נמצאו תמונות")
-          // }
-     if(images.length > 0) {
-        item.images = images
-        return (<span><RecommendationComponent
+    items.map((item, index) => (
+      <RecommendationComponent
         recommendation={item}
         destinationId={dest.id}
         key={`${keyPrefix}-${index}`}
-      /></span>)
-     }
-      // @ts-ignore 
-      return (<RecommendationComponent
-        recommendation={item}
-        destinationId={dest.id}
-        key={`${keyPrefix}-${index}`}
-      />) 
-    }
-      
-    );
+      />
+    ));
 
   const generateAttractionGroupsContent = (
     groups: AttractionGroupRecommendation[],
