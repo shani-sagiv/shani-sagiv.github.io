@@ -13,6 +13,7 @@ export interface Recommendation {
   imagesPath?: string;
   price?: number | string;
   googleMapLink?: string;
+  id?: string;
 }
 export interface dates {
   from: Date;

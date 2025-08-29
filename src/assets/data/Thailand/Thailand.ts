@@ -20,7 +20,7 @@ import { KOH_PHA_NGAN } from "./KohPhaNgan";
 
 
 export const THAILAND: Country = {
-  id: "THA",
+  id: "THAILAND",
   name: "THAILAND",
   displayName: {
     hebrew: "תאילנד",
