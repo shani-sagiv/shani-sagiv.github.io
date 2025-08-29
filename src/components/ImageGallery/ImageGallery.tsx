@@ -4,6 +4,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import { Modal } from "components";
 import "./ImageGallery.scss";
 import classnames from "classnames";
+import LazyImage from "./LazyImage";
 
 interface ImageGalleryProps extends React.HTMLAttributes<HTMLDivElement> {
   images:
@@ -60,7 +61,7 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style, showThumbn
     //   : {}),
     renderItem: (item: ReactImageGalleryItem) => (
       // <LazyLoad>
-      <img
+      <LazyImage
         src={item.original}
         loading="lazy"
         style={{
@@ -85,8 +86,8 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style, showThumbn
       <ImageGallery
         {...defaultParams}
         renderThumbInner={ (item: ReactImageGalleryItem) => (
-          <img
-            src={item.thumbnail}
+          <LazyImage
+            src={item.thumbnail || ""}
             alt=""
             loading="lazy"
             style={{
@@ -100,7 +101,7 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style, showThumbn
 
         disableKeyDown
         renderItem={(item: ReactImageGalleryItem) => (
-          <img
+          <LazyImage
             src={item.original}
             id={item.original}
             loading="lazy"
