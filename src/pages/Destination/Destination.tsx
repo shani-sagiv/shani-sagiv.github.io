@@ -71,15 +71,29 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
 
     const [fetchedImages, setFetchedImages] = React.useState<FlatImageMap | null>(null);
 
-  // נטען את images.json פעם אחת
   React.useEffect(() => {
-    fetch("/images.json")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("✅ Images loaded:", data);
+    // מקבל את ה־hash ושולף ממנו את הנתיב (למשל THAILAND/KOH_PHA_NGAN)
+    const hash = window.location.hash; // "#/THAILAND/KOH_PHA_NGAN"
+    const path = hash.replace(/^#\//, ""); // "THAILAND/KOH_PHA_NGAN"
+    const [country, destId] = path.split("/"); // ["THAILAND", "KOH_PHA_NGAN"]
+
+    const jsonPath = `/images/${country}/${destId}/${destId}.json`;
+
+    fetch(jsonPath)
+      .then((res) => {
+        if (!res.ok) throw new Error(`Failed to load ${jsonPath}`);
+        return res.json();
+      })
+      .then((data: FlatImageMap) => {
+        console.log("✅ Loaded images:", data);
         setFetchedImages(data);
+      })
+      .catch((err) => {
+        console.error("Error loading images JSON:", err);
+        setFetchedImages({});
       });
-  }, []);
+  }, [/* הוא יטען שוב רק אם dest משתנה, אם תרצה */]);
+
 
 
   const generateContent = (
