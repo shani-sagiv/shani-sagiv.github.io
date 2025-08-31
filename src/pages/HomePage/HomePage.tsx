@@ -18,6 +18,7 @@ import LastPlaces from "components/infoBoxes/LastPlaces";
 import TopPlaces from "components/infoBoxes/TopPlaces";
 import { getUserName } from "helpers/localStorage.helpers";
 import { signInWithGoogle } from "../../firebase";
+import { createReturn } from "typescript";
 // import UserStatsRow from "components/UserStatsRow";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
@@ -46,6 +47,59 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
       return totalNights + calculateDaysBetweenDates(entry.from, entry.to);
     }, 0);
   }
+  const name = getUserName()
+  const renderaba = () => {
+    if(name ==="מטומטם"){
+      return (
+        <>
+             <Marquee
+        autoFill
+        direction={"right"}
+        style={{
+          position: "absolute",
+          direction: "ltr",
+          top: 100,
+          right: 0,
+          width: "100%",
+          fontSize: "1.5rem",
+        }}
+      >
+        <span style={{ padding: "0 10px" }}>אבא איציק המלך 👑 ❤️ </span>
+      </Marquee>              <Marquee
+        autoFill
+        direction={"left"}
+        
+        style={{
+          position: "absolute",
+          direction: "ltr",
+          top: 80,
+          right: 0,
+          width: "100%",
+          fontSize: "1.5rem",
+        }}
+      >
+        <span style={{ padding: "0 10px" }}>אבא איציק המלך 👑 ❤️ </span>
+      </Marquee> 
+                   <Marquee
+        autoFill
+        delay={-0.8}
+        direction={"right"}
+        style={{
+          position: "absolute",
+          direction: "ltr",
+          top: 60,
+          right: 0,
+          width: "100%",
+          fontSize: "1.5rem",
+        }}
+      >
+        <span style={{ padding: "0 10px" }}>אבא איציק המלך 👑 ❤️ </span>
+      </Marquee> 
+            </>
+      )
+    }
+    return  null
+  }
 
   return (
     <div className={"home-page"} style={{ position: "relative" }}>
@@ -63,6 +117,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
       >
         <span style={{ padding: "0 10px" }}>👑 שגיב ושני המלכים </span>
       </Marquee>
+{renderaba()}
       <img
         src={bkueWavesSrc}
         style={{
@@ -83,6 +138,8 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
       <WordArtTitle title={`שלום ${savedName}`} style={{fontSize:30}} pickId={13}/> */}
       
       <WordArtTitle title={`שלום ${savedName}`} style={{fontSize:30}} random/>
+      
+
       <h3>{`(יש עכשיו אפשרות לתגובות ולייקים, בבקשה להחליף את השם בכפתור למטה לשם שיהיה נוח להבין מי זה אחרת זה סתם עבודה שחורה לסדר את השטויות האלה)`}</h3>
   {/* <h1>שלום {savedName}</h1> */}
         <WordArtTitle title={parseDaysToHebrew(totalNights)} style={{fontSize:30}}/>
