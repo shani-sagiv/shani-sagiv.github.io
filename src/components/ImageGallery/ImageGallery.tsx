@@ -25,17 +25,17 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({
   const [visibleImages, setVisibleImages] = useState<any[]>([]);
 
   // 🟢 נטען רק 2 ראשונות, ואז אחרי 2 שניות את כולן
-  useEffect(() => {
-    if (!images || images.length === 0) return;
+  // useEffect(() => {
+  //   if (!images || images.length === 0) return;
 
-    setVisibleImages(images.slice(0, 2)); // רק 2 הראשונות
+  //   setVisibleImages(images.slice(0, 2)); // רק 2 הראשונות
 
-    const timer = setTimeout(() => {
-      setVisibleImages(images); // אחרי 2 שניות כל השאר
-    }, 2000);
+  //   const timer = setTimeout(() => {
+  //     setVisibleImages(images); // אחרי 2 שניות כל השאר
+  //   }, 2000);
 
-    return () => clearTimeout(timer);
-  }, [images]);
+  //   return () => clearTimeout(timer);
+  // }, [images]);
 
   const imagesWithThumbnail = visibleImages.map((i: any) => ({
     original: i?.original || i,
