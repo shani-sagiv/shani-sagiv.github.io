@@ -5,7 +5,6 @@ import { Modal } from "components";
 import "./ImageGallery.scss";
 import classnames from "classnames";
 
-
 interface ImageGalleryProps extends React.HTMLAttributes<HTMLDivElement> {
   images:
     | {
@@ -22,20 +21,29 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({
   style,
   showThumbnails = false,
 }) => {
-  const [visibleImages, setVisibleImages] = useState<any[]>(images);
+  const [visibleImages, setVisibleImages] = useState<any[]>([]);
 
-  // 🟢 נטען רק 2 ראשונות, ואז אחרי 2 שניות את כולן
-  // useEffect(() => {
-  //   if (!images || images.length === 0) return;
+  // 🟢 טעינה מדורגת: קודם תמונה אחת → שנייה → ואז כל השאר
+  useEffect(() => {
+    if (!images || images.length === 0) return;
 
-  //   setVisibleImages(images.slice(0, 2)); // רק 2 הראשונות
+    setVisibleImages([images[0]]); // רק הראשונה מידית
 
-  //   const timer = setTimeout(() => {
-  //     setVisibleImages(images); // אחרי 2 שניות כל השאר
-  //   }, 2000);
+    const secondTimer = setTimeout(() => {
+      if (images[1]) {
+        setVisibleImages((prev) => [...prev, images[1]]);
+      }
+    }, 300);
 
-  //   return () => clearTimeout(timer);
-  // }, [images]);
+    const restTimer = setTimeout(() => {
+      setVisibleImages(images);
+    }, 1500);
+
+    return () => {
+      clearTimeout(secondTimer);
+      clearTimeout(restTimer);
+    };
+  }, [images]);
 
   const imagesWithThumbnail = visibleImages.map((i: any) => ({
     original: i?.original || i,
@@ -64,6 +72,7 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({
       <img
         src={item.original}
         loading="lazy"
+        decoding="async"
         style={{
           maxWidth: "100%",
           objectFit: "contain",
@@ -88,6 +97,7 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({
             src={item.thumbnail || ""}
             alt=""
             loading="lazy"
+            decoding="async"
             style={{
               width: "100%",
               height: "80px",
@@ -102,6 +112,7 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({
             src={item.original}
             id={item.original}
             loading="lazy"
+            decoding="async"
             style={{
               objectFit: "cover",
               objectPosition: "center",
