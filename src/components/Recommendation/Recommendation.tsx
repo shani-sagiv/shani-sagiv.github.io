@@ -65,6 +65,7 @@ const Recommendation: React.FC<RecommendationProps> = ({ recommendation, destina
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          maxWidth:600,
           // width: "min(97vw, 400px)",
           gap: 5,
           margin: "5px 1vw 10px 1vw",
