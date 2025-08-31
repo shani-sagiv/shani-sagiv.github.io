@@ -1,10 +1,10 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, useEffect, useState } from "react";
 import ImageGallery, { ReactImageGalleryItem } from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { Modal } from "components";
 import "./ImageGallery.scss";
 import classnames from "classnames";
-import LazyImage from "./LazyImage";
+
 
 interface ImageGalleryProps extends React.HTMLAttributes<HTMLDivElement> {
   images:
@@ -14,54 +14,54 @@ interface ImageGalleryProps extends React.HTMLAttributes<HTMLDivElement> {
       }[]
     | string[];
   style?: CSSProperties;
-    showThumbnails?: boolean;
-
+  showThumbnails?: boolean;
 }
 
-const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style, showThumbnails=false }) => {
-  const imagesWithThumbnail = images.map((i: any) => ({
+const MyImageGallery: React.FC<ImageGalleryProps> = ({
+  images,
+  style,
+  showThumbnails = false,
+}) => {
+  const [visibleImages, setVisibleImages] = useState<any[]>([]);
+
+  // 🟢 נטען רק 2 ראשונות, ואז אחרי 2 שניות את כולן
+  useEffect(() => {
+    if (!images || images.length === 0) return;
+
+    setVisibleImages(images.slice(0, 2)); // רק 2 הראשונות
+
+    const timer = setTimeout(() => {
+      setVisibleImages(images); // אחרי 2 שניות כל השאר
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [images]);
+
+  const imagesWithThumbnail = visibleImages.map((i: any) => ({
     original: i?.original || i,
     thumbnail: i?.thumbnail || i?.original || i,
   }));
-  const [isFullScreen, setIsFullScreen] = React.useState(false);
-  
-  
-  
+
+  const [isFullScreen, setIsFullScreen] = useState(false);
+
   const defaultParams = {
     items: imagesWithThumbnail,
     showPlayButton: false,
-    showThumbnails: showThumbnails,
+    showThumbnails,
     showFullscreenButton: false,
     showIndex: true,
     isRTL: false,
     lazyLoad: true,
     autoPlay: true,
     infinite: true,
-    slideInterval: 2000,
+    slideInterval: 10000,
   };
+
   const defaultModalParams = {
     ...defaultParams,
-            autoPlay: false,
-
-    // ...(images.length > 1
-    //   ? {
-    //       showThumbnails: true,
-    //       thumbnailPosition: "right" as "right" | "left" | "bottom" | "top",
-    //       renderThumbInner: (item: ReactImageGalleryItem) => (
-    //         // <LazyLoad>
-    //         <img
-    //           src={item.thumbnail}
-    //           alt=""
-    //           loading="lazy" // Lazy loading the thumbnail
-    //           style={{ width: "100%", height: "auto" }}
-    //         />
-    //         // </LazyLoad>
-    //       ),
-    //     }
-    //   : {}),
+    autoPlay: false,
     renderItem: (item: ReactImageGalleryItem) => (
-      // <LazyLoad>
-      <LazyImage
+      <img
         src={item.original}
         loading="lazy"
         style={{
@@ -71,7 +71,6 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style, showThumbn
           height: "100vh",
         }}
       />
-      // </LazyLoad>
     ),
   };
 
@@ -80,43 +79,32 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style, showThumbn
       className={classnames("image-gallery-wrapper", {
         fullscreen: isFullScreen,
       })}
-      // style={{height:"100%"}}
-      style={{  ...style}}
+      style={{ ...style }}
     >
       <ImageGallery
         {...defaultParams}
-        renderThumbInner={ (item: ReactImageGalleryItem) => (
-          <LazyImage
+        renderThumbInner={(item: ReactImageGalleryItem) => (
+          <img
             src={item.thumbnail || ""}
             alt=""
             loading="lazy"
             style={{
-              width: "100%",       // או מספר קבוע למשל "80px"
-              height: "80px",      // שים גובה אחיד
-              objectFit: "cover",  // תמלא את המרחב ותחתוך
+              width: "100%",
+              height: "80px",
+              objectFit: "cover",
               borderRadius: "4px",
             }}
           />
         )}
-
         disableKeyDown
         renderItem={(item: ReactImageGalleryItem) => (
-          <LazyImage
+          <img
             src={item.original}
             id={item.original}
             loading="lazy"
-            onLoad={(e) => {
-              // console.log("item.original:", item.original);
-              // console.log("Image height:", e.currentTarget.clientHeight);
-              //   c
-              // if (e.currentTarget.clientHeight > 300) {
-              //   e.currentTarget.style.marginTop = "-40%";
-              //   // e.currentTarget.style.backgroundColor = "red";
-              // }
-            }}
             style={{
-              objectFit: "cover",        // ⬅️ ממלא את כל המרחב וחותך אם צריך
-              objectPosition: "center",  // ⬅️ שומר על האמצע
+              objectFit: "cover",
+              objectPosition: "center",
               maxWidth: "100%",
               maxHeight: "100%",
             }}
@@ -124,10 +112,7 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({ images, style, showThumbn
         )}
         showNav={images.length > 1}
       />
-      <div
-        className={"full-screen-button"}
-        onClick={() => setIsFullScreen(true)}
-      >
+      <div className="full-screen-button" onClick={() => setIsFullScreen(true)}>
         ⛶
       </div>
       <Modal closeModal={() => setIsFullScreen(false)} hidden={!isFullScreen}>
