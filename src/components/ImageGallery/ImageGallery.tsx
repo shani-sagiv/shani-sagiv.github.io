@@ -22,7 +22,7 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({
   style,
   showThumbnails = false,
 }) => {
-  const [visibleImages, setVisibleImages] = useState<any[]>([]);
+  const [visibleImages, setVisibleImages] = useState<any[]>(images);
 
   // 🟢 נטען רק 2 ראשונות, ואז אחרי 2 שניות את כולן
   // useEffect(() => {
@@ -54,7 +54,7 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({
     lazyLoad: true,
     autoPlay: true,
     infinite: true,
-    slideInterval: 10000,
+    slideInterval: 4000,
   };
 
   const defaultModalParams = {

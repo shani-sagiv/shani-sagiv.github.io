@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { NAV_BAR_OPTIONS } from "hooks/Navigation.hook";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import {
@@ -23,7 +23,7 @@ import {
   Country as CountryModel,
   Destination as DestinationModel,
 } from "models";
-import { Country, Destination, Random, RandomCountry } from "pages";
+// import { Country, Destination, Random, RandomCountry } from "pages";
 import { BreadcrumbNavigation } from "components";
 import { CYPRUS, LARNACA, LIMASSOL, PAPHOS, VASA } from "./assets/data/Cyprus";
 import { logPageView, logUserAction } from "./helpers/logs.helpers";
@@ -42,7 +42,25 @@ import { notifyPhone } from "helpers/notifier";
 import { notifyPageView } from "helpers/notifyTexts";
 import { useCurrentUser } from "currentUSer";
 import LoginPage from "pages/GoogleLogin.tsx/LoginPage";
-import RandomLive from "pages/RandomLive";
+// import RandomLive from "pages/RandomLive";
+const Country = React.lazy(() =>
+  import("pages/Country").then(module => ({ default: module.Country }))
+);
+
+const Destination = React.lazy(() =>
+  import("pages/Destination").then(module => ({ default: module.Destination }))
+);
+const Random = React.lazy(() =>
+  import("pages/Random").then(module => ({ default: module.Random }))
+);
+
+const RandomCountry = React.lazy(() =>
+  import("pages/Random3").then(module => ({ default: module.Random }))
+);
+
+
+
+
 export const COUNTRIES: {
   country: CountryModel;
   destinations: DestinationModel[];
@@ -83,6 +101,8 @@ export const COUNTRIES_WITHOUT_IMAGES = COUNTRIES.map(
   }),
 );
 
+
+
 function removeImages(destination: DestinationModel): DestinationModel {
   const {
     images, // Remove top-level images
@@ -119,6 +139,9 @@ function removeImages(destination: DestinationModel): DestinationModel {
     })),
   };
 }
+
+
+
 
 export const translationMap = COUNTRIES_WITHOUT_IMAGES.flatMap((item) => [
   { key: item.country.id, name: item.country.displayName.hebrew },
@@ -163,36 +186,41 @@ function InnerRoutes() {
     }
   }, [location.pathname, navigate]);
 
-  const getRoutes = (): CustomRouteObject[] => {
-    return COUNTRIES.flatMap(({ country, destinations }) => {
-      const [countryId, destinationId] = location.pathname.slice(1).split("/");
-      return [
-        {
-          path: country.id,
-          element: <Country destinations={destinations} country={country} />,
-        } as CustomRouteObject,
-        ...destinations.map((dest) => {
-          if (country.id !== countryId || dest.id !== destinationId) {
-            dest = removeImages(dest);
-          }
-          return {
-            path: `${country.id}/${dest.id}`,
-            element: <Destination dest={dest} />,
-          };
-        }),
-      ];
-    });
-  };
+
+  function DestinationWrapper({ destId, countryId }: { destId: string; countryId: string }) {
+  const country = COUNTRIES.find(c => c.country.id === countryId);
+  const dest = country?.destinations.find(d => d.id === destId);
+
+  return dest ? <Destination dest={dest} /> : <div>Not found</div>;
+}
+
+
+const getRoutes = (): CustomRouteObject[] => {
+  return COUNTRIES.flatMap(({ country, destinations }) => {
+    return [
+      {
+        path: country.id,
+        element: <Country destinations={destinations.map(removeImages)} country={country} />,
+      },
+      ...destinations.map((dest) => ({
+        path: `${country.id}/${dest.id}`,
+        element: <DestinationWrapper destId={dest.id} countryId={country.id} />,
+      })),
+    ];
+  });
+};
 
   return (
     <>
       <BreadcrumbNavigation />
+      <Suspense fallback={<div>טוען...</div>}>
+
       <Routes>
         <Route path={"/rename"} element={<NameForm />} />
         <Route path={"/login"} element={<LoginPage/>}/>
         <Route path={"/test"} element={<MessagesPage />} />
         <Route path={"/random"} element={<Random />} />
-        <Route path={"/randomLive"} element={<RandomLive />} />
+        {/* <Route path={"/randomLive"} element={<RandomLive />} /> */}
 
         <Route path={"/RandomCountry"} element={<RandomCountry />} />
         <Route path={"/Randomoneonone"} element={<Randomoneonone />} />
@@ -206,6 +234,7 @@ function InnerRoutes() {
           ),
         )}
       </Routes>
+      </Suspense>
     </>
   );
 }

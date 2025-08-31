@@ -104,7 +104,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         <Button onClick={() => navigate(`/random`)}>ניחוש מידע</Button>
         <Button onClick={() => navigate(`/rename`)}>החלפת שם</Button>
         
-        <Button onClick={() => navigate(`/RandomLive`)}>ניחוש מקום לייב</Button>
+        {/* <Button onClick={() => navigate(`/RandomLive`)}>ניחוש מקום לייב</Button> */}
         {/* <Button onClick={() => navigate(`/login`)}>התחברות עם גוגל</Button> */}
         
         <Button onClick={() => navigate(`/test`)}>צאט בדיקה</Button>
