@@ -2,19 +2,19 @@ import { importAll } from "helpers/imagesHelpers";
 import profile from "./profile_compressed.jpeg";
 
 export const general = importAll(
-  require.context("./general", false, /\.(png|jpe?g|svg)$/),
+  require.context("./general", false, /\.(png|jpe?g|svg|webp)$/),
 );
 export const HoaLu = importAll(
-  require.context("./HoaLu", false, /\.(png|jpe?g|svg)$/),
+  require.context("./HoaLu", false, /\.(png|jpe?g|svg|webp)$/),
 );
 export const Cycle = importAll(
-  require.context("./Cycle", false, /\.(png|jpe?g|svg)$/),
+  require.context("./Cycle", false, /\.(png|jpe?g|svg|webp)$/),
 );
 export const river = importAll(
-  require.context("./river", false, /\.(png|jpe?g|svg)$/),
+  require.context("./river", false, /\.(png|jpe?g|svg|webp)$/),
 );
 export const HangMua = importAll(
-  require.context("./HangMua", false, /\.(png|jpe?g|svg)$/),
+  require.context("./HangMua", false, /\.(png|jpe?g|svg|webp)$/),
 );
 
 export const NINH_BINH_IMAGES = {

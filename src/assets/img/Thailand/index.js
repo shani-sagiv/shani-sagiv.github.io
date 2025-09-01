@@ -6,7 +6,7 @@ export { CHINAG_MAI_IMAGES } from "./ChinagMai";
 // export { BANGKOK_IMAGES } from "./Bangkok";
 
 export const sushiImages = importAll(
-  require.context("./sushi", false, /\.(png|jpe?g|svg)$/)
+  require.context("./sushi", false, /\.(png|jpe?g|svg|webp)$/)
 );
 export { KOH_CHANG_IMAGES } from "./KohChang";
 export { PATTAYA_IMAGES } from "./Pattaya";

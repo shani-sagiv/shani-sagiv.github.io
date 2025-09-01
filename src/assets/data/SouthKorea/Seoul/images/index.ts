@@ -5,7 +5,7 @@ import { importAll_NEW } from "helpers/imagesHelpers";
 const requireImages = require.context(
   "./", // Base path
   true, // Recursively include subfolders
-  /\.(png|jpe?g|svg)$/, // Match image file extensions
+  /\.(png|jpe?g|svg|webp)$/, // Match image file extensions
 );
 
 // Group images by folder

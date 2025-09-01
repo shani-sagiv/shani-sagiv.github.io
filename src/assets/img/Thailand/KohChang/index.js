@@ -2,13 +2,13 @@ import main from "./main.jpeg";
 import { importAll } from "../../../../helpers/imagesHelpers";
 
 export const Flora = importAll(
-  require.context("./Flora", false, /\.(png|jpe?g|svg)$/),
+  require.context("./Flora", false, /\.(png|jpe?g|svg|webp)$/),
 );
 export const ChangBuri = importAll(
-  require.context("./ChangBuri", false, /\.(png|jpe?g|svg)$/),
+  require.context("./ChangBuri", false, /\.(png|jpe?g|svg|webp)$/),
 );
 export const general = importAll(
-  require.context("./general", false, /\.(png|jpe?g|svg)$/),
+  require.context("./general", false, /\.(png|jpe?g|svg|webp)$/),
 );
 
 export const KOH_CHANG_IMAGES = {
