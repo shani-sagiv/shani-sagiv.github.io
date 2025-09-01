@@ -10,7 +10,7 @@ const THUMB_WIDTH = 300;   // גודל thumbnail
 
 async function run() {
   const files = await globby([
-    "src/assets/img/**/*.{jpg,jpeg,png}",
+    "src/**/*.{jpg,jpeg,png}",
   ]);
 
   console.log(`🔍 נמצאו ${files.length} תמונות לעיבוד`);

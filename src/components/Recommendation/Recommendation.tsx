@@ -2,7 +2,7 @@ import React from "react";
 import "./Recommendation.scss";
 import { AllRecommendationTypes, dates as datesType } from "models";
 import { ImageGallery } from "components";
-import linkImgSrc from "assets/link.png";
+import linkImgSrc from "assets/link_compressed.webp";
 import {
   calculateDaysBetweenDates,
   hasImages,
