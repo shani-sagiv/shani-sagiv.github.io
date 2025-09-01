@@ -1,5 +1,5 @@
 import { importAll } from "helpers/imagesHelpers";
-import profile from "./profile_compressed.jpeg";
+import profile from "./profile_compressed_compressed.webp";
 
 export const chillBar = importAll(
   require.context("./chillBar", false, /\.(png|jpe?g|svg|webp)$/),

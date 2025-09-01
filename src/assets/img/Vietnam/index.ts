@@ -1,4 +1,4 @@
-import profileImg from "./profile_compressed.png";
+import profileImg from "./profile_compressed_compressed.webp";
 
 // export { HOI_AN_IMAGES } from "./HoiAn";
 export { VIETNAM_IMAGES } from "./Vietnam";

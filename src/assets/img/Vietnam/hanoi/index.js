@@ -1,5 +1,5 @@
 import { importAll } from "helpers/imagesHelpers";
-import profile from "./profile.jpeg";
+import profile from "./profile_compressed.webp";
 
 export const gifthouse = importAll(
   require.context("./gifthouse", false, /\.(png|jpe?g|svg|webp)$/)

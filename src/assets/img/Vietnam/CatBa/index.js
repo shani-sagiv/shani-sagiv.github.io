@@ -1,5 +1,5 @@
 import { importAll } from "helpers/imagesHelpers";
-import profile from "./profile_compressed.jpeg";
+import profile from "./profile_compressed_compressed.webp";
 
 export const sunflower = importAll(
   require.context("./sunflower", false, /\.(png|jpe?g|svg|webp)$/),
