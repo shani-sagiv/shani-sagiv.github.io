@@ -218,22 +218,34 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
           }}
         >
           {moreInfos.map((i) => (
-            <div
-              style={{
-                width: "30vw",
-                height: "auto",
-                flexShrink: 0,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <h2>{i.name}</h2>
-              <span style={{ marginBottom: 10 }}>
-                {i.images && <ImageGallery images={i.images} />}
-              </span>
-              <span style={{}}>{i.description}</span>
-            </div>
+          <div
+  style={{
+    width: "30vw",
+    flexShrink: 0,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  }}
+>
+  <h2 style={{ minHeight: "2.5em", textAlign: "center" }}>{i.name}</h2>
+
+  <div
+    style={{
+      flexGrow: 1,
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "100%",
+    }}
+  >
+    {i.images && <ImageGallery images={i.images} />}
+  </div>
+
+  <span style={{ minHeight: "4em", textAlign: "center" }}>
+    {i.description}
+  </span>
+</div>
+
           ))}
           {/*{r.description}*/}
           {/*<br />*/}

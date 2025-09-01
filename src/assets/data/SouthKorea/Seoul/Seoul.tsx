@@ -186,8 +186,8 @@ export const SEOUL: Destination = {
   images: IMAGES.PIPE,
 },  {
   name: "Entire home in Donggyo-dong, Mapo-gu, South Korea",
-  dates: [{ from: createDate("14/08/2025"), to: createDate("28/08/2025") }],
-  description:"קצת שבורה אבל אחלה ממש ואחלה מיקום ויש הכל",
+  dates: [{ from: createDate("14/08/2025"), to: createDate("07/09/2025") }],
+  description:"קצת שבורה אבל ממש כיפית ואחלה מיקום ויש הכל",
   googleMapLink: "https://www.airbnb.com/rooms/46609346?c=.pi80.pkYm9va2luZy9ndWVzdC9SZXNlcnZhdGlvblBlbmRpbmdUZW1wbGF0ZQ%3D%3D&euid=3970760f-eae6-adbe-9d80-e2fe471b6283&source_impression_id=p3_1755069824_P3TiCKLDMdveeXrC",
   images: IMAGES.DonggyoDong,
 }
@@ -258,17 +258,28 @@ export const SEOUL: Destination = {
   ],
   shells: [],
   moreInfo: [
+    {
+      name: "Cheese Dakgalbi",
+      description: "טעים מאוד עוף גבינה ופוקים",
+      images: IMAGES.Dakgalbi,
+    },
+    {
+      name: "Bibimbap",
+      description: "קערת סושי מאוד טעים",
+      images: IMAGES.Bibimbap,
+    },
+    {
+      name: "Gimbap / Kimbap",
+      description: "סושי טעים",
+      images: IMAGES.Gimbap,
+    },
     // {
-    //   name: "בולגוגי",
-    //   description: "טעים מאוד",
-    //   // images: IMAGES.Apsara,
-    // },    {
-    //   name: "בולגוגי",
-    //   description: "טעים מאוד",
-    //   // images: IMAGES.Apsara,
+    //   name: "Naga",
+    //   description: "נחשוש",
+    //   images: IMAGES.Naga,
     // },
-
   ],
+
   gold_recommendation: [
   {
     name: "תחבצ",
