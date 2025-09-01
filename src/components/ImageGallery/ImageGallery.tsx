@@ -21,29 +21,29 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({
   style,
   showThumbnails = false,
 }) => {
-  const [visibleImages, setVisibleImages] = useState<any[]>([]);
+  const [visibleImages, setVisibleImages] = useState<any[]>(images);
 
   // 🟢 טעינה מדורגת: קודם תמונה אחת → שנייה → ואז כל השאר
-  useEffect(() => {
-    if (!images || images.length === 0) return;
+  // useEffect(() => {
+  //   if (!images || images.length === 0) return;
 
-    setVisibleImages([images[0]]); // רק הראשונה מידית
+  //   setVisibleImages([images[0]]); // רק הראשונה מידית
 
-    const secondTimer = setTimeout(() => {
-      if (images[1]) {
-        setVisibleImages((prev) => [...prev, images[1]]);
-      }
-    }, 300);
+  //   const secondTimer = setTimeout(() => {
+  //     if (images[1]) {
+  //       setVisibleImages((prev) => [...prev, images[1]]);
+  //     }
+  //   }, 300);
 
-    const restTimer = setTimeout(() => {
-      setVisibleImages(images);
-    }, 1500);
+  //   const restTimer = setTimeout(() => {
+  //     setVisibleImages(images);
+  //   }, 1500);
 
-    return () => {
-      clearTimeout(secondTimer);
-      clearTimeout(restTimer);
-    };
-  }, [images]);
+  //   return () => {
+  //     clearTimeout(secondTimer);
+  //     clearTimeout(restTimer);
+  //   };
+  // }, [images]);
 
   const imagesWithThumbnail = visibleImages.map((i: any) => ({
     original: i?.original || i,
@@ -60,9 +60,9 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({
     showIndex: true,
     isRTL: false,
     lazyLoad: true,
-    autoPlay: true,
+    // autoPlay: true,
     infinite: true,
-    slideInterval: 4000,
+    // slideInterval: 4000,
   };
 
   const defaultModalParams = {

@@ -1,11 +1,11 @@
-import profileImg from "./profile.jpeg";
+import profileImg from "./profile_compressed.webp";
 import { importAll_NEW } from "helpers/imagesHelpers";
 
 // Automatically import all images based on folder names
 const requireImages = require.context(
   "./", // Base path
   true, // Recursively include subfolders
-  /\.(png|jpe?g|svg)$/, // Match image file extensions
+  /\.(png|jpe?g|svg|webp)$/, // Match image file extensions
 );
 
 // Group images by folder
