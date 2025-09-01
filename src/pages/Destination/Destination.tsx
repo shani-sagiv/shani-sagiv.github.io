@@ -59,7 +59,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     nightlife = [],
     profileImg,
     gold_recommendation = [],
-    moreInfo = [],
+    moreInfo = {title:"", info:[]},
     additionalCode = null,
   } = dest;
   const generateContent = (
@@ -205,8 +205,8 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
         </div>
       ),
     });
-    const createMoreInfo = (moreInfos: Info[]) => ({
-      title: "סתם מידע",
+    const createMoreInfo = (moreInfos: {title:string, info:Info[]}) => ({
+      title: moreInfos?.title,
       content: (
         <div
           className="recommendation-content flex-row"
@@ -217,7 +217,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
             width: "100%",
           }}
         >
-          {moreInfos.map((i) => (
+          {moreInfos.info.map((i) => (
           <div
   style={{
     width: "30vw",
@@ -227,7 +227,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     alignItems: "center",
   }}
 >
-  <h2 style={{ minHeight: "2.5em", textAlign: "center" }}>{i.name}</h2>
+  <h2 style={{ minHeight: "2.5em", textAlign: "center", marginBottom:0 }}>{i.name}</h2>
 
   <div
     style={{
@@ -236,12 +236,13 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
       justifyContent: "center",
       alignItems: "center",
       width: "100%",
+      height:"10em"
     }}
   >
     {i.images && <ImageGallery images={i.images} />}
   </div>
 
-  <span style={{ minHeight: "4em", textAlign: "center" }}>
+  <span style={{ minHeight: "4em", textAlign: "center", marginTop:2 }}>
     {i.description}
   </span>
 </div>
@@ -264,7 +265,7 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     }
 
     sections.push(...gold_recommendation.map(createGoldRecommendation));
-    if (moreInfo.length > 0) {
+    if (moreInfo && moreInfo?.info.length > 0) {
       sections.push(createMoreInfo(moreInfo));
     }
 

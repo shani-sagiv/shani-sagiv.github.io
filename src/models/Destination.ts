@@ -27,7 +27,7 @@ export interface Destination {
   nightlife: NightLifeRecommendation[]; // Array of nightlife recommendations
   gold_recommendation?: InfoRecommendation[];
   images?: string[];
-  moreInfo?: Info[];
+  moreInfo?: {title:string, info:Info[]};
   additionalCode?: React.ReactNode;
 }
 

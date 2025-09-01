@@ -178,7 +178,9 @@ export const SIEM_REAP: Destination = {
     },
   ],
   shells: [],
-  moreInfo: [
+  moreInfo: {
+    title:"חשוב מאוד",
+    info:[
     {
       name: "Apsara",
       description: "ריקוד מסורתי",
@@ -199,7 +201,8 @@ export const SIEM_REAP: Destination = {
       description: "נחשוש",
       images: IMAGES.Naga,
     },
-  ],
+    
+  ]},
   additionalCode: (
     <div style={{ height: 500, width: "100vw" }}>
       <h1 style={{ margin: 0 }}>מפה של המקדשים</h1>

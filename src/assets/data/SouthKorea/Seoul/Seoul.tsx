@@ -257,7 +257,7 @@ export const SEOUL: Destination = {
   }
   ],
   shells: [],
-  moreInfo: [
+  moreInfo: {title:"אוכל", info:[
     {
       name: "Cheese Dakgalbi",
       description: "טעים מאוד עוף גבינה ופוקים",
@@ -278,7 +278,7 @@ export const SEOUL: Destination = {
     //   description: "נחשוש",
     //   images: IMAGES.Naga,
     // },
-  ],
+  ]},
 
   gold_recommendation: [
   {
