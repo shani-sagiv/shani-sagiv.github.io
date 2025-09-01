@@ -120,6 +120,10 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
 {renderaba()}
       <img
         src={bkueWavesSrc}
+                    loading= "eager"
+            fetchPriority= "high"
+            decoding= "sync"
+
         style={{
           width: "100%",
           marginTop: -60,
