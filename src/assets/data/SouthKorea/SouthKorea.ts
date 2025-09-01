@@ -1,7 +1,7 @@
 import { createDate } from "../../../helpers/dateHelpers";
 import { AttractionRecommendation, Country, Destination } from "models/index";
 import { SEOUL } from "./Seoul";
-import profileImg from "./profile_compressed.jpeg";
+import profileImg from "./profile_compressed_compressed.webp";
 
 export const SOUTH_KOREA: Country = {
   id: "south_korea",

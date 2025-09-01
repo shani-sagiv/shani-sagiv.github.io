@@ -15,7 +15,7 @@ import { Mushon } from "../../img/Thailand/KohSamui";
 
 import { BANGKOK } from "./Bangkok";
 import { KOH_LANTA } from "./KohLanta";
-import profileImg from "./main.jpg";
+import profileImg from "./main_compressed.webp";
 import { KOH_PHA_NGAN } from "./KohPhaNgan";
 
 
