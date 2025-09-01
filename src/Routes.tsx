@@ -172,9 +172,13 @@ function InnerRoutes() {
   //   navigate("/login");
   // }
 
-  if (!username && location.pathname !== "/rename") {
-    navigate("/rename");
-  }
+  React.useEffect(() => {
+    if (!username && location.pathname !== "/rename") {
+      navigate("/rename", { replace: true });
+    }
+  }, [username, location.pathname, navigate]);
+
+
   React.useEffect(() => {
     if (window.location.hostname !== "localhost") {
       logPageView(location.pathname);
