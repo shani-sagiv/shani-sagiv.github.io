@@ -1,4 +1,4 @@
-import main from "./main_compressed.jpeg";
+import main from "./main_compressed_compressed.webp";
 import { importAll } from "../../../../helpers/imagesHelpers";
 
 export const watTempleImages = importAll(

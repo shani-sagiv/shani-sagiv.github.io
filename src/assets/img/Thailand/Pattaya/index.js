@@ -1,4 +1,4 @@
-import main from "./main.jpeg";
+import main from "./main_compressed.webp";
 import { importAll } from "../../../../helpers/imagesHelpers";
 
 export const general = importAll(

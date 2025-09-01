@@ -1,4 +1,4 @@
-import profile from "./profile_compressed.jpeg";
+import profile from "./profile_compressed_compressed.webp";
 import { importAll } from "../../../../helpers/imagesHelpers";
 
 export const Chrysta = importAll(

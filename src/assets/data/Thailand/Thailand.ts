@@ -1,6 +1,6 @@
 import { createDate } from "helpers/dateHelpers";
 import { Country, Destination } from "models";
-import simSrc from "assets/img/Thailand/sim.jpeg";
+import simSrc from "assets/img/Thailand/sim_compressed.webp";
 import {
 
   CHINAG_MAI_IMAGES,
