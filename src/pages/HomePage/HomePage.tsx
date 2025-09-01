@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Cards, WavesComponent, WordArtTitle } from "components";
 import Marquee from "react-fast-marquee";
 import bkueWavesSrc from "assets/IMG_6105_compressed_compressed.webp";
-import { COUNTRIES_WITHOUT_IMAGES } from "Routes";
+import { COUNTRIES } from "Routes";
 import "./HomePage.scss";
 import {
   sortAllDestinationsByDate,
@@ -25,8 +25,7 @@ interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
     const savedName = getUserName();
 
 const HomePage: React.FC<HomePageProps> = ({}) => {
-  const destinationsCards = COUNTRIES_WITHOUT_IMAGES.map(
-    ({ country, destinations }) => ({
+    const destinationsCards = COUNTRIES.map(({ country, destinations }) => ({
       displayName: country.displayName,
       image: country.profileImg,
       navigate: country.id,
@@ -34,8 +33,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
       bottomData: parseDaysToHebrew(
         calculateTotalNightsAtAllDestinations(destinations),
       ),
-    }),
-  );
+    }));
 
   const navigate = useNavigate();
 

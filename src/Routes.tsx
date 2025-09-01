@@ -33,20 +33,27 @@ import {
   CAMBODIA,
   CAMBODIA_DESTINATION,
 } from "./assets/data/Cambodia/Cambodia";
-import DataPage from "pages/DataPage/DataPage";
-import MessagesPage from "pages/Messegas/MessagesPage";
-import Randomoneonone from "pages/Random1on1/Randomoneonone";
+// import DataPage from "pages/DataPage/DataPage";
+// import MessagesPage from "pages/Messegas/MessagesPage";
+// import Randomoneonone from "pages/Random1on1/Randomoneonone";
 import { SOUTH_KOREA, SOUTH_KOREA_DESTINATION } from "assets/data/SouthKorea/SouthKorea";
-import SimpleActivity from "pages/Activities/SimpleActivity";
+// import SimpleActivity from "pages/Activities/SimpleActivity";
 import { notifyPhone } from "helpers/notifier";
 import { notifyPageView } from "helpers/notifyTexts";
 import { useCurrentUser } from "currentUSer";
-import LoginPage from "pages/GoogleLogin.tsx/LoginPage";
+// import LoginPage from "pages/GoogleLogin.tsx/LoginPage";
 // import RandomLive from "pages/RandomLive";
+
+const DataPage = React.lazy(() => import("pages/DataPage/DataPage"));
+const MessagesPage = React.lazy(() => import("pages/Messegas/MessagesPage"));
+const Randomoneonone = React.lazy(() => import("pages/Random1on1/Randomoneonone"));
+const SimpleActivity = React.lazy(() => import("pages/Activities/SimpleActivity"));
+const LoginPage = React.lazy(() => import("pages/GoogleLogin.tsx/LoginPage"));
+
+
 const Country = React.lazy(() =>
   import("pages/Country").then(module => ({ default: module.Country }))
 );
-
 const Destination = React.lazy(() =>
   import("pages/Destination").then(module => ({ default: module.Destination }))
 );
@@ -94,56 +101,56 @@ export const COUNTRIES: {
   },
 ];
 
-export const COUNTRIES_WITHOUT_IMAGES = COUNTRIES.map(
-  ({ country, destinations }) => ({
-    country,
-    destinations: destinations.map(removeImages),
-  }),
-);
+// export const COUNTRIES_WITHOUT_IMAGES = COUNTRIES.map(
+//   ({ country, destinations }) => ({
+//     country,
+//     destinations: destinations.map(removeImages),
+//   }),
+// );
 
 
 
-function removeImages(destination: DestinationModel): DestinationModel {
-  const {
-    images, // Remove top-level images
-    hotels,
-    foods,
-    attractions,
-    nightlife,
-    gold_recommendation,
-    ...rest
-  } = destination;
+// function removeImages(destination: DestinationModel): DestinationModel {
+//   const {
+//     images, // Remove top-level images
+//     hotels,
+//     foods,
+//     attractions,
+//     nightlife,
+//     gold_recommendation,
+//     ...rest
+//   } = destination;
 
-  return {
-    ...rest,
-    images: undefined, // Remove top-level images array
-    hotels: hotels.map(({ images, ...hotel }) => ({
-      ...hotel,
-      images: undefined,
-    })),
-    foods: foods.map(({ images, ...food }) => ({
-      ...food,
-      images: undefined,
-    })),
-    attractions: attractions.map(({ images, ...attraction }) => ({
-      ...attraction,
-      images: undefined,
-    })),
-    nightlife: nightlife.map(({ images, ...nightlifeItem }) => ({
-      ...nightlifeItem,
-      images: undefined,
-    })),
-    gold_recommendation: gold_recommendation?.map(({ images, ...info }) => ({
-      ...info,
-      images: undefined,
-    })),
-  };
-}
-
-
+//   return {
+//     ...rest,
+//     images: undefined, // Remove top-level images array
+//     hotels: hotels.map(({ images, ...hotel }) => ({
+//       ...hotel,
+//       images: undefined,
+//     })),
+//     foods: foods.map(({ images, ...food }) => ({
+//       ...food,
+//       images: undefined,
+//     })),
+//     attractions: attractions.map(({ images, ...attraction }) => ({
+//       ...attraction,
+//       images: undefined,
+//     })),
+//     nightlife: nightlife.map(({ images, ...nightlifeItem }) => ({
+//       ...nightlifeItem,
+//       images: undefined,
+//     })),
+//     gold_recommendation: gold_recommendation?.map(({ images, ...info }) => ({
+//       ...info,
+//       images: undefined,
+//     })),
+//   };
+// }
 
 
-export const translationMap = COUNTRIES_WITHOUT_IMAGES.flatMap((item) => [
+
+
+export const translationMap = COUNTRIES.flatMap((item) => [
   { key: item.country.id, name: item.country.displayName.hebrew },
   ...item.destinations.map((destination) => ({
     key: destination.id,
@@ -187,28 +194,7 @@ function InnerRoutes() {
   }, [location.pathname, navigate]);
 
 
-  function DestinationWrapper({ destId, countryId }: { destId: string; countryId: string }) {
-  const country = COUNTRIES.find(c => c.country.id === countryId);
-  const dest = country?.destinations.find(d => d.id === destId);
 
-  return dest ? <Destination dest={dest} /> : <div>Not found</div>;
-}
-
-
-const getRoutes = (): CustomRouteObject[] => {
-  return COUNTRIES.flatMap(({ country, destinations }) => {
-    return [
-      {
-        path: country.id,
-        element: <Country destinations={destinations.map(removeImages)} country={country} />,
-      },
-      ...destinations.map((dest) => ({
-        path: `${country.id}/${dest.id}`,
-        element: <DestinationWrapper destId={dest.id} countryId={country.id} />,
-      })),
-    ];
-  });
-};
 
   return (
     <>
@@ -240,3 +226,27 @@ const getRoutes = (): CustomRouteObject[] => {
 }
 
 export default InnerRoutes;
+
+
+function DestinationWrapper({ destId, countryId }: { destId: string; countryId: string }) {
+  const country = COUNTRIES.find(c => c.country.id === countryId);
+  const dest = country?.destinations.find(d => d.id === destId);
+
+  return dest ? <Destination dest={dest} /> : <div>Not found</div>;
+}
+
+
+const getRoutes = (): CustomRouteObject[] => {
+  return COUNTRIES.flatMap(({ country, destinations }) => {
+    return [
+      {
+        path: country.id,
+        element: <Country destinations={destinations} country={country} />,
+      },
+      ...destinations.map((dest) => ({
+        path: `${country.id}/${dest.id}`,
+        element: <DestinationWrapper destId={dest.id} countryId={country.id} />,
+      })),
+    ];
+  });
+};
