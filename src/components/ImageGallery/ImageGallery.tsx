@@ -45,11 +45,12 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({
     };
   }, [images]);
 
-  const imagesWithThumbnail = visibleImages.map((i: any) => ({
+  const imagesWithThumbnail = visibleImages.map((i: any, idx: number) => ({
     original: i?.original || i,
     thumbnail: showThumbnails ? (i?.thumbnail || i?.original || i) : null,
+    isFirst: idx === 0, // 🟢 הוספת דגל
   }));
-
+  
   const [isFullScreen, setIsFullScreen] = useState(false);
 
   const defaultParams = {
@@ -73,6 +74,7 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({
         src={item.original}
         loading="lazy"
         decoding="async"
+        alt=""
         style={{
           maxWidth: "100%",
           objectFit: "contain",
@@ -107,12 +109,14 @@ const MyImageGallery: React.FC<ImageGalleryProps> = ({
           />
         )}
         disableKeyDown
-        renderItem={(item: ReactImageGalleryItem) => (
+        renderItem={(item: any) => (
           <img
             src={item.original}
             id={item.original}
-            loading="lazy"
-            decoding="async"
+            alt=""
+            loading={item.isFirst ? "eager" : "lazy"}
+            fetchPriority={item.isFirst ? "high" : "low"}
+            decoding={item.isFirst ? "sync" : "async"}
             style={{
               objectFit: "cover",
               objectPosition: "center",
