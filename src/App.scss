@@ -17,8 +17,14 @@ body {
   // background: url("./assets/img_compressed.webp");
   //background: url("https://img.freepik.com/free-vector/blank-blue-halftone-background_53876-114592.jpg");
   background-size: cover;
-  background: linear-gradient(to top, #87ceeb 0%, #e0f7ff 100%);
+  // background: linear-gradient(to top, #87ceeb 0%, #e0f7ff 100%);
   color: $dark-teal;
   font-family: "Assistant", sans-serif;
   //font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+html,
+body {
+  height: auto;
+  min-height: 100%;
 }
