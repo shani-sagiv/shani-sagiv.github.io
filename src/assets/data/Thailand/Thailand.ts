@@ -98,14 +98,9 @@ export const CHINAG_MAI: Destination = {
       images: CHINAG_MAI_IMAGES.shabushi,
     },
   ],
-  attractions: [
-    {
-      name: "מקדש Wat Chiang Man",
-      description: "מקדש מאוד יפה",
-      googleMapLink: "",
-      images: CHINAG_MAI_IMAGES.watTemple,
-    },
-    {
+  attractionsGroups:[
+  {name:"יום טיול",description:"", attractions:[
+ {
       name: "Doi Suthep",
       description:
         "מקדש מאוד יפה, דורש נסיעה אנחנו לקחנו נהג מהאלה שמחכים עם הטנדר שלהם לשם ולכפר Hmong Doi Pui Village ",
@@ -120,7 +115,13 @@ export const CHINAG_MAI: Destination = {
       googleMapLink: "https://maps.app.goo.gl/KD1GMysjxa3e66Du8",
       images: CHINAG_MAI_IMAGES.doiPui,
     },
-    {
+  ]} ,
+  
+  {
+    name:"יום טיול 2",
+    description:"",
+    attractions:[
+          {
       name: "King Cobra",
       description:
         "סגרנו יום טיול בקוברה, מוזיאון חרקים והגנים הבוטנים של המלכה סיקריט עם נהג טנדר מהרחוב, היה ממש כיף והמדריך דיבר מלא עברית",
@@ -142,6 +143,18 @@ export const CHINAG_MAI: Destination = {
       googleMapLink: "https://maps.app.goo.gl/VESrFySdsmfk9BVu7",
       images: CHINAG_MAI_IMAGES.sirikit,
     },
+    ]
+  }
+  ],
+  attractions: [
+    {
+      name: "מקדש Wat Chiang Man",
+      description: "מקדש מאוד יפה",
+      googleMapLink: "",
+      images: CHINAG_MAI_IMAGES.watTemple,
+    },
+   
+
     {
       name: "חנות/מוזיאון של גילופים בעץ",
       description:
