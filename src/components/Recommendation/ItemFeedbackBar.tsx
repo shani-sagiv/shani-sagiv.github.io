@@ -21,7 +21,10 @@ export function ItemFeedbackBar({
   itemId: string;
 }) {
   const sender = getUserName(); // display name
-  const docId = useMemo(() => docIdFromParts(destinationId, itemId), [destinationId, itemId]);
+  const docId = useMemo(
+    () => docIdFromParts(destinationId, itemId),
+    [destinationId, itemId]
+  );
 
   const [likes, setLikes] = useState<number>(0);
   const [likedBy, setLikedBy] = useState<string[]>([]);
@@ -36,14 +39,21 @@ export function ItemFeedbackBar({
         return;
       }
       setLikedBy(data.likedBy);
-      setLikes(typeof data.likesCount === "number" ? data.likesCount : data.likedBy.length);
-      if (typeof data.commentsCount === "number") setCommentsCount(data.commentsCount);
+      setLikes(
+        typeof data.likesCount === "number"
+          ? data.likesCount
+          : data.likedBy.length
+      );
+      if (typeof data.commentsCount === "number")
+        setCommentsCount(data.commentsCount);
     });
     return unsub;
   }, [docId]);
 
   useEffect(() => {
-    const unsub = subscribeCommentsCount(docId, (count) => setCommentsCount(count));
+    const unsub = subscribeCommentsCount(docId, (count) =>
+      setCommentsCount(count)
+    );
     return unsub;
   }, [docId]);
 
@@ -57,22 +67,33 @@ export function ItemFeedbackBar({
   const alreadyLiked = normalizeNames(likedBy).includes(sender);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", width: "100%", alignItems: "center" }}>
-      <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", width: "100%", gap: 20 }}>
-        <button onClick={() => setShowComments((s) => !s)} style={{ height: 35, width: 85, fontSize: 15, borderRadius: 50 }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        alignItems: "center",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          width: "100%",
+          gap: 20,
+        }}
+      >
+        <button onClick={() => setShowComments((s) => !s)} className="btn">
           💬 {commentsCount}
         </button>
 
         <button
+          className="btn"
           disabled={alreadyLiked}
           onClick={handleLike}
           style={{
-            height: 35,
-            width: 85,
-            fontSize: 15,
-            marginLeft: 10,
-            borderRadius: 50,
-            backgroundColor: alreadyLiked ? "#6ad96eff" : "#eee",
+            backgroundColor: alreadyLiked ? "#6ad96eff" : "",
           }}
         >
           {alreadyLiked ? "✅" : "👍"} {likes}
@@ -80,7 +101,14 @@ export function ItemFeedbackBar({
       </div>
 
       {likes > 0 && (
-        <div style={{ marginTop: 6, fontSize: 13, maxWidth: "100%", color: "#555" }}>
+        <div
+          style={{
+            marginTop: 6,
+            fontSize: 13,
+            maxWidth: "100%",
+            color: "#555",
+          }}
+        >
           ❤️ אהבו: {normalizeNames(likedBy).join(", ")}
         </div>
       )}
