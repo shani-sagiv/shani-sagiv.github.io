@@ -53,7 +53,6 @@ const LastPlaces: React.FC<LastPlacesProps> = ({}) => {
           className={"flex-row flex-center"}
           style={{
             marginBottom: 10,
-            marginTop: 10,
             width: "100%",
             flexWrap: "wrap",
             justifyContent: "flex-start",

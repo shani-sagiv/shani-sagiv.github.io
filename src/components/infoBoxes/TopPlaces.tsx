@@ -33,9 +33,6 @@ const TopPlaces: React.FC<TopPlacesProps> = ({}) => {
 
   return (
     <>
-      <div className={"flex-center"} style={{ width: "100%" }}>
-        <WordArtTitle title={"הכי הרבה"} />
-      </div>
       <div className={"flex-row"} style={{ flexWrap: "wrap" }}>
         {renderCards()}
       </div>
