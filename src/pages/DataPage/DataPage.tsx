@@ -12,7 +12,7 @@ const DataPage: React.FC<DataProps> = ({}) => {
   return (
     <div className={"data"}>
       {/*<Cards items={cards} />*/}
-      <LocationsWithDates locations={locationsByDate} />
+      <LocationsWithDates locations={locationsByDate} showAllPeoples />
       {/*<Button onClick={() => navigate(`/semental`)}>סמנטעל</Button>*/}
 
       {/*<MapComponent />*/}

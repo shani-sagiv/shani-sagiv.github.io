@@ -10,13 +10,15 @@ import { PEOPLES } from "assets/data/People";
 
 interface LocationsWithDatesProps extends React.HTMLAttributes<HTMLDivElement> {
   locations: Location[];
+  showAllPeoples?:boolean
 }
 
 const LocationsWithDates: React.FC<LocationsWithDatesProps> = ({
   locations,
   style = {},
+  showAllPeoples = false
 }) => {
-  const renderDaysMissing = (daysMissing: number) => (
+  const renderDaysMissing = (daysMissing: number,) => (
     <div
       className="flex-row"
       style={{
@@ -91,6 +93,7 @@ const LocationsWithDates: React.FC<LocationsWithDatesProps> = ({
         );
       })}
 
+{showAllPeoples &&
       <div style={{ fontSize: 10, marginRight:10 }}>
         {sortedStats.map((s) => (
           <div key={s.name} style={{ marginBottom: 4 }}>
@@ -102,7 +105,7 @@ const LocationsWithDates: React.FC<LocationsWithDatesProps> = ({
             )}
           </div>
         ))}
-      </div>
+      </div>}
     </div>
   );
 };
