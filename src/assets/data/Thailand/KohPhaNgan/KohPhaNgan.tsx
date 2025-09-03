@@ -5,7 +5,7 @@ import {createDate} from "helpers/dateHelpers";
 
 export const KOH_PHA_NGAN: Destination = {
   id: "KOH_PHA_NGAN",
-  profileImg: IMAGES.profile,
+  profileImg: IMAGES.profileImg,
   displayName: {
     hebrew: "קו פנגן",
     english: "Koh Pha Ngan",
