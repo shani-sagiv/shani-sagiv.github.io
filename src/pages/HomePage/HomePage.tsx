@@ -174,7 +174,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         style={{ padding: "10px", textAlign: "center", fontSize: 15 }}
       >{`(יש עכשיו אפשרות לתגובות ולייקים, בבקשה להחליף את השם בכפתור למטה לשם שיהיה נוח להבין מי זה אחרת זה סתם עבודה שחורה לסדר את השטויות האלה)`}</span> */}
 
-      <span className="section-header">עברו כבר 🗓️</span>
+      {/* <span className="section-header">עברו כבר 🗓️</span> */}
 
       <WordArtTitle
         title={parseDaysToHebrew(totalNights)}
