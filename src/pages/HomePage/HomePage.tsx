@@ -18,6 +18,7 @@ import { getUserName } from "helpers/localStorage.helpers";
 import { signInWithGoogle } from "../../firebase";
 import { createReturn } from "typescript";
 import EmojiParticles from "components/EmojiParticles";
+import EmojiCycler from "components/EmojiCycler";
 // import UserStatsRow from "components/UserStatsRow";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
@@ -37,13 +38,25 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
   const navigate = useNavigate();
 
   const locationsByDate = sortAllDestinationsByDate();
-  const totalNights = calculateTotalNights();
+  const totalNights = calculateDaysSinceFirstDay();
 
   function calculateTotalNights() {
     return locationsByDate.reduce((totalNights, entry) => {
       return totalNights + calculateDaysBetweenDates(entry.from, entry.to);
     }, 0);
   }
+
+  function calculateDaysSinceFirstDay() {
+    const startDate = new Date(2024, 3, 10);
+    const today = new Date();
+
+    const diffInMs = today.getTime() - startDate.getTime();
+
+    const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+
+    return diffInDays;
+  }
+
   const name = getUserName();
   const renderaba = () => {
     if (name === "מטומטם") {
@@ -131,6 +144,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
       <img
         src={bkueWavesSrc}
         alt=""
+        className="image-fade"
         loading="eager"
         fetchPriority="high"
         decoding="sync"
@@ -142,26 +156,45 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
           objectPosition: "top",
         }}
       />
-      {/* <WavesComponent> */}
 
       <EmojiParticles></EmojiParticles>
-      <WordArtTitle
-        title={`שלום ${savedName}`}
-        style={{ fontSize: 30 }}
-        random
-      />
-      {/* </WavesComponent> */}
 
-      <h3>{`(יש עכשיו אפשרות לתגובות ולייקים, בבקשה להחליף את השם בכפתור למטה לשם שיהיה נוח להבין מי זה אחרת זה סתם עבודה שחורה לסדר את השטויות האלה)`}</h3>
+      <div
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          marginBottom: "15px",
+        }}
+      >
+        <span className="hello-header">שלום {savedName}</span>
+        <span className="hand-wave">👋🏻</span>
+      </div>
+
+      {/* <span
+        style={{ padding: "10px", textAlign: "center", fontSize: 15 }}
+      >{`(יש עכשיו אפשרות לתגובות ולייקים, בבקשה להחליף את השם בכפתור למטה לשם שיהיה נוח להבין מי זה אחרת זה סתם עבודה שחורה לסדר את השטויות האלה)`}</span> */}
+
+      <span className="section-header">עברו כבר 🗓️</span>
+
       <WordArtTitle
         title={parseDaysToHebrew(totalNights)}
-        style={{ fontSize: 30 }}
+        style={{ fontSize: 30, marginBottom: "5px" }}
       />
+
+      <EmojiCycler intervalMs={1800} size={35} />
+      <span className="section-header">יעדים אחרונים📍</span>
       <LastPlaces />
+
+      <span className="section-header">כל המדינות 🌏</span>
 
       <Cards items={destinationsCards} />
 
+      <span className="section-header">היעדים שבילינו בהם הכי הרבה 🕙</span>
+
       <TopPlaces />
+
+      <span className="section-header">משחקים 🎲</span>
+
       <div
         className={"flex-row flex-center"}
         style={{ gap: 5, maxWidth: "98vw", flexWrap: "wrap", marginBottom: 20 }}
