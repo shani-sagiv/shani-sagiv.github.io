@@ -40,7 +40,7 @@ export default function EmojiParticles() {
         },
 
         size: {
-          value: { min: 18, max: 30 }, // גודל משתנה לכל אימוג׳
+          value: { min: 10, max: 18 },
         },
 
         opacity: {
@@ -49,11 +49,17 @@ export default function EmojiParticles() {
 
         move: {
           enable: true,
-          direction: "none", // 👈 רנדומלי לכל הכיוונים
+          direction: "none",
           speed: { min: 0.3, max: 1.0 },
-          outModes: { default: "out" }, // כשהם יוצאים מהמסך - נעלמים
           random: true,
           straight: false,
+          outModes: {
+            top: "bounce",
+            bottom: "bounce",
+            left: "bounce",
+            right: "bounce",
+            default: "bounce",
+          },
         },
 
         rotate: {
@@ -74,14 +80,33 @@ export default function EmojiParticles() {
   return (
     <div
       style={{
-        position: "relative",
+        position: "absolute",
+        top: "30%",
+        left: 0,
+        transform: "translateY(-50%)",
         width: "100%",
-        height: 220,
-        overflow: "hidden",
+        height: "15%",
+        zIndex: 15,
         pointerEvents: "none",
+        overflow: "visible",
+
+        WebkitMaskImage:
+          "linear-gradient(to bottom, transparent 0, black 12px, black calc(100% - 12px), transparent 100%)",
+        maskImage:
+          "linear-gradient(to bottom, transparent 0, black 12px, black calc(100% - 12px), transparent 100%)",
       }}
     >
-      <Particles id="emojiParticles" options={options} />
+      <div
+        style={{
+          position: "absolute",
+          top: "-48px",
+          bottom: "-48px",
+          left: 0,
+          right: 0,
+        }}
+      >
+        <Particles id="emojiParticles" options={options} />
+      </div>
     </div>
   );
 }

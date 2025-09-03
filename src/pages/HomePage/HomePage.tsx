@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Button, Cards, WavesComponent, WordArtTitle } from "components";
 import Marquee from "react-fast-marquee";
-import bkueWavesSrc from "assets/IMG_6105_compressed_compressed.webp";
+import bkueWavesSrc from "assets/new-profile.jpg";
 import { COUNTRIES } from "Routes";
 import "./HomePage.scss";
-import {
-  sortAllDestinationsByDate,
-} from "helpers/locations.helpers";
+import { sortAllDestinationsByDate } from "helpers/locations.helpers";
 import {
   calculateDaysBetweenDates,
   calculateTotalNightsAtAllDestinations,
@@ -19,21 +17,22 @@ import TopPlaces from "components/infoBoxes/TopPlaces";
 import { getUserName } from "helpers/localStorage.helpers";
 import { signInWithGoogle } from "../../firebase";
 import { createReturn } from "typescript";
+import EmojiParticles from "components/EmojiParticles";
 // import UserStatsRow from "components/UserStatsRow";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
-    const savedName = getUserName();
+const savedName = getUserName();
 
 const HomePage: React.FC<HomePageProps> = ({}) => {
-    const destinationsCards = COUNTRIES.map(({ country, destinations }) => ({
-      displayName: country.displayName,
-      image: country.profileImg,
-      navigate: country.id,
-      inProgress: country.inProgress,
-      bottomData: parseDaysToHebrew(
-        calculateTotalNightsAtAllDestinations(destinations),
-      ),
-    }));
+  const destinationsCards = COUNTRIES.map(({ country, destinations }) => ({
+    displayName: country.displayName,
+    image: country.profileImg,
+    navigate: country.id,
+    inProgress: country.inProgress,
+    bottomData: parseDaysToHebrew(
+      calculateTotalNightsAtAllDestinations(destinations)
+    ),
+  }));
 
   const navigate = useNavigate();
 
@@ -45,59 +44,59 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
       return totalNights + calculateDaysBetweenDates(entry.from, entry.to);
     }, 0);
   }
-  const name = getUserName()
+  const name = getUserName();
   const renderaba = () => {
-    if(name ==="מטומטם"){
+    if (name === "מטומטם") {
       return (
         <>
-             <Marquee
-        autoFill
-        direction={"right"}
-        style={{
-          position: "absolute",
-          direction: "ltr",
-          top: 100,
-          right: 0,
-          width: "100%",
-          fontSize: "1.5rem",
-        }}
-      >
-        <span style={{ padding: "0 10px" }}>אבא איציק המלך 👑 ❤️ </span>
-      </Marquee>              <Marquee
-        autoFill
-        direction={"left"}
-        
-        style={{
-          position: "absolute",
-          direction: "ltr",
-          top: 80,
-          right: 0,
-          width: "100%",
-          fontSize: "1.5rem",
-        }}
-      >
-        <span style={{ padding: "0 10px" }}>אבא איציק המלך 👑 ❤️ </span>
-      </Marquee> 
-                   <Marquee
-        autoFill
-        delay={-0.8}
-        direction={"right"}
-        style={{
-          position: "absolute",
-          direction: "ltr",
-          top: 60,
-          right: 0,
-          width: "100%",
-          fontSize: "1.5rem",
-        }}
-      >
-        <span style={{ padding: "0 10px" }}>אבא איציק המלך 👑 ❤️ </span>
-      </Marquee> 
-            </>
-      )
+          <Marquee
+            autoFill
+            direction={"right"}
+            style={{
+              position: "absolute",
+              direction: "ltr",
+              top: 100,
+              right: 0,
+              width: "100%",
+              fontSize: "1.5rem",
+            }}
+          >
+            <span style={{ padding: "0 10px" }}>אבא איציק המלך 👑 ❤️ </span>
+          </Marquee>{" "}
+          <Marquee
+            autoFill
+            direction={"left"}
+            style={{
+              position: "absolute",
+              direction: "ltr",
+              top: 80,
+              right: 0,
+              width: "100%",
+              fontSize: "1.5rem",
+            }}
+          >
+            <span style={{ padding: "0 10px" }}>אבא איציק המלך 👑 ❤️ </span>
+          </Marquee>
+          <Marquee
+            autoFill
+            delay={-0.8}
+            direction={"right"}
+            style={{
+              position: "absolute",
+              direction: "ltr",
+              top: 60,
+              right: 0,
+              width: "100%",
+              fontSize: "1.5rem",
+            }}
+          >
+            <span style={{ padding: "0 10px" }}>אבא איציק המלך 👑 ❤️ </span>
+          </Marquee>
+        </>
+      );
     }
-    return  null
-  }
+    return null;
+  };
 
   return (
     <div className={"home-page"} style={{ position: "relative" }}>
@@ -113,15 +112,28 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
           fontSize: "1.5rem",
         }}
       >
-        <span style={{ padding: "0 10px" }}>👑 שגיב ושני המלכים </span>
+        <span
+          style={{
+            padding: "0 10px",
+            color: "white",
+            textShadow: `
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000
+    `,
+          }}
+        >
+          👑 שגיב ושני המלכים{" "}
+        </span>
       </Marquee>
-{renderaba()}
+      {renderaba()}
       <img
         src={bkueWavesSrc}
-                    loading= "eager"
-            fetchPriority= "high"
-            decoding= "sync"
-
+        alt=""
+        loading="eager"
+        fetchPriority="high"
+        decoding="sync"
         style={{
           width: "100%",
           marginTop: -60,
@@ -130,27 +142,26 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
           objectPosition: "top",
         }}
       />
-      <WavesComponent>
-      {/* <WordArtTitle title={`שלום ${savedName}`} style={{fontSize:30}} pickId={8}/>
+      {/* <WavesComponent> */}
 
-      <WordArtTitle title={`שלום ${savedName}`} style={{fontSize:30}} pickId={9}/>
-      
-      <WordArtTitle title={`שלום ${savedName}`} style={{fontSize:30}} pickId={11}/>
-      
-      <WordArtTitle title={`שלום ${savedName}`} style={{fontSize:30}} pickId={13}/> */}
-      
-      <WordArtTitle title={`שלום ${savedName}`} style={{fontSize:30}} random/>
-      
+      <EmojiParticles></EmojiParticles>
+      <WordArtTitle
+        title={`שלום ${savedName}`}
+        style={{ fontSize: 30 }}
+        random
+      />
+      {/* </WavesComponent> */}
 
       <h3>{`(יש עכשיו אפשרות לתגובות ולייקים, בבקשה להחליף את השם בכפתור למטה לשם שיהיה נוח להבין מי זה אחרת זה סתם עבודה שחורה לסדר את השטויות האלה)`}</h3>
-  {/* <h1>שלום {savedName}</h1> */}
-        <WordArtTitle title={parseDaysToHebrew(totalNights)} style={{fontSize:30}}/>
-        <LastPlaces />
+      <WordArtTitle
+        title={parseDaysToHebrew(totalNights)}
+        style={{ fontSize: 30 }}
+      />
+      <LastPlaces />
 
-        <Cards items={destinationsCards} />
-        
-        <TopPlaces />
-      </WavesComponent>
+      <Cards items={destinationsCards} />
+
+      <TopPlaces />
       <div
         className={"flex-row flex-center"}
         style={{ gap: 5, maxWidth: "98vw", flexWrap: "wrap", marginBottom: 20 }}
@@ -162,10 +173,10 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         <Button onClick={() => navigate(`/data`)}>מידע</Button>
         <Button onClick={() => navigate(`/random`)}>ניחוש מידע</Button>
         <Button onClick={() => navigate(`/rename`)}>החלפת שם</Button>
-        
+
         {/* <Button onClick={() => navigate(`/RandomLive`)}>ניחוש מקום לייב</Button> */}
         {/* <Button onClick={() => navigate(`/login`)}>התחברות עם גוגל</Button> */}
-        
+
         <Button onClick={() => navigate(`/test`)}>צאט בדיקה</Button>
       </div>
       {/* <UserStatsRow/> */}
@@ -173,7 +184,6 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
   );
 };
 export default HomePage;
-
 
 /*
 attractions (collection)
