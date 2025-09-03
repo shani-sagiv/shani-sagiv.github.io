@@ -1,7 +1,7 @@
 import { Destination } from "models/Destination";
 // import { SAPA_IMAGES } from "../../img/Vietnam";
 import { createDate } from "helpers/dateHelpers";
-import { SAPA_IMAGES } from "./images";
+import SAPA_IMAGES from "./images";
 
 export const SAPA: Destination = {
   id: "SAPA",

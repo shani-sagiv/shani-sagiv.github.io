@@ -1,4 +1,4 @@
-import { LIMASSOL_IMAGES } from "./images";
+import LIMASSOL_IMAGES from "./images";
 import { createDate } from "helpers/dateHelpers";
 import {  Destination } from "models";
 

@@ -1,7 +1,7 @@
 import { Destination } from "models/Destination";
 // import { PHONG_NHA_IMAGES } from "../../img/Vietnam";
 import { createDate } from "helpers/dateHelpers";
-import { PHONG_NHA_IMAGES } from "./images";
+import PHONG_NHA_IMAGES from "./images";
 
 export const PHONG_NHA: Destination = {
   id: "PHONG_NHA",

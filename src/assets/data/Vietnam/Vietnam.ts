@@ -14,7 +14,7 @@ import { TA_VAN } from "./TaVan/TA_VAN";
 import { SAPA } from "./Sapa/SAPA";
 import { HO_CHI_MINH } from "./HoChiMinh/HO_CHI_MINH";
 import { NINH_BINH } from "./ninhBinh/NINH_BINH";
-import { VIETNAM_IMAGES } from "./images";
+import IMAGES from "./images";
 import profileImg from "./image.png"
 
 export const VIETNAM: Country = {
@@ -31,13 +31,13 @@ export const VIETNAM: Country = {
       name: "מרק פו (pho)",
       description:
         "מרק עם עוף טעים בטירוף, ככל שהמקום נראה יותר הומלסי ככה יותר טעים",
-      images: VIETNAM_IMAGES.phoSoup,
+      images: IMAGES.phoSoup,
     },
     {
       name: "סליפרים",
       description:
         "לכל הסליפרים קוראים VIP וluxury אז אל תתנו לזה לקנות אתכם, תסתכלו במספר שכתוד לי הסליפרים והוא אומר כמה מקומות יש באוטובוס. אנחנו תמיד הדעפנו לשלם קצת יותר ולסגור סליפר של 20-224 מקמות זה הכי נוח",
-      images: VIETNAM_IMAGES.sleeper,
+      images: IMAGES.sleeper,
     },
     {
       name: "קלי הסוכנת",
@@ -48,7 +48,7 @@ export const VIETNAM: Country = {
          {
       name: "סים",
       description:"viettel הכי טוב",
-      images: VIETNAM_IMAGES.sim,
+      images: IMAGES.sim,
     },
   ],
   profileImg: profileImg,

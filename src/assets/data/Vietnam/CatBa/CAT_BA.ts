@@ -1,7 +1,7 @@
 import { Destination } from "models/Destination";
 // import { CAT_BA_IMAGES } from "../../img/Vietnam";
 import { createDate } from "helpers/dateHelpers";
-import { CAT_BA_IMAGES } from "./images";
+import CAT_BA_IMAGES from "./images";
 
 export const CAT_BA: Destination = {
   id: "CAT_BA",

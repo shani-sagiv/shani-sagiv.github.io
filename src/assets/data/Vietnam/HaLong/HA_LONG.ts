@@ -1,8 +1,8 @@
 import { Destination } from "models/Destination";
-// import { HA_LONG_IMAGES } from "../../img/Vietnam";
+// import { IMAGES } from "../../img/Vietnam";
 import { createDate } from "helpers/dateHelpers";
 import { HANOI_HA_LONG_CRUISE } from "../HANOI_HA_LONG_CRUISE";
-import { HA_LONG_IMAGES } from "./images";
+import IMAGES from "./images";
 
 export const HA_LONG: Destination = {
   id: "HA_LONG",
@@ -12,7 +12,7 @@ export const HA_LONG: Destination = {
   },
   description:
     "האזור חוף של הא לונג, חופים מהממים, נראה מאוד שווה אבל הכל ריק מבפנים שקרנים",
-  profileImg: HA_LONG_IMAGES.profileImg,
+  profileImg: IMAGES.profileImg,
   hotels: [
     {
       name: "The Marine Hotel",
@@ -27,17 +27,19 @@ export const HA_LONG: Destination = {
       name: "Chill Beach Bar",
       description: "בר חוף ממש חמוד",
       googleMapLink: "https://maps.app.goo.gl/F9rEa4qJxXuamdf1A",
-      images: HA_LONG_IMAGES.chillBar,
+      images: IMAGES.chillBar,
     },
     HANOI_HA_LONG_CRUISE.HA_LONG,
     {
       name: "Bãi tắm",
       description: "אזור מאוד נחמד עם ברים ומסעדות על החוף",
       // googleMapLink: "https://maps.app.goo.gl/F9rEa4qJxXuamdf1A",
-      images: HA_LONG_IMAGES.baitam,
+      images: IMAGES.baitam,
     },
   ],
   nightlife: [],
-  shells: [],
-  images: HA_LONG_IMAGES.general,
+  shells: [
+    IMAGES.shells
+  ],
+  images: IMAGES.general,
 };

@@ -1,9 +1,9 @@
 import { Destination } from "models/Destination";
-// import { HANOI_IMAGES } from "../../img/Vietnam";
+// import { IMAGES } from "../../img/Vietnam";
 import { createDate } from "helpers/dateHelpers";
 import { HANOI_HA_LONG_CRUISE } from "../HANOI_HA_LONG_CRUISE";
 // import IMAGES from "./MuiNe/images";
-import  { HANOI_IMAGES} from "./images";
+import  IMAGES from "./images";
 
 export const HANOI: Destination = {
   id: "HANOI",
@@ -11,10 +11,10 @@ export const HANOI: Destination = {
     hebrew: "האנוי",
     english: "hanoi",
   },
-  images:HANOI_IMAGES.general,
+  images:IMAGES.general,
   description:
     "העיר בירה של ויאטם, שווקים בתי קפה צפוף ורעש ולחצות כביש זה 50% הצלחה 50% מוות",
-  profileImg: HANOI_IMAGES.profileImg,
+  profileImg: IMAGES.profileImg,
   hotels: [
     {
       name: "Tung Trang Hotel",
@@ -42,7 +42,7 @@ export const HANOI: Destination = {
       dates: [{ from: createDate("28/11/2024"), to: createDate("02/12/2024") }],
       description: "מלון טוב מיקום טוב בחיים לא התייחסו אלי ככ יפה",
       googleMapLink: "https://maps.app.goo.gl/v89CN3jwiVWcrqRh7",
-      images: HANOI_IMAGES.Solare,
+      images: IMAGES.Solare,
     },
   ],
   foods: [
@@ -50,7 +50,7 @@ export const HANOI: Destination = {
       name: "SushiLAB",
       googleMapLink: "https://maps.app.goo.gl/Mwt4uvxxzZWnmPdX6",
       description: "אחלה של סושי!",
-      images: HANOI_IMAGES.SushiLAB,
+      images: IMAGES.SushiLAB,
     },
   ],
   attractions: [
@@ -60,19 +60,24 @@ export const HANOI: Destination = {
       googleMapLink: "https://maps.app.goo.gl/SbaRRnY3yFjNFRRg6",
       description:
         "חנות עם מליון משחקי קלפים וקופסא והכל אחלה מחירים, יש שם גם חתול ממש ממש חמוד",
-      images: HANOI_IMAGES.gifthouse,
+      images: IMAGES.gifthouse,
     },
     {
       name: "Hanoi Weekend Night Market",
       googleMapLink: "https://maps.app.goo.gl/mtLwXuXLXExovP7X9",
       description: "שוק ממש חמוד לא הרבה אוכל אבל מלא דוכנים של הכל",
-      images: HANOI_IMAGES.NightMarket,
+      images: IMAGES.NightMarket,
     },
     {
       name: "טיול ברגל מסביב לאגם הואן קיים",
       googleMapLink: "https://maps.app.goo.gl/koRjQqmkh1uCxPE16",
       description: "סתם להסתובב ברגל אם המזג אוויר נעים",
-      images: HANOI_IMAGES.lake,
+      images: IMAGES.lake,
+    },    {
+      name: "Vietnam National Museum of History",
+      googleMapLink: "https://maps.app.goo.gl/pynBdefBxCQ8FqK6A",
+      description: "מאוד כיף נשארנו עד הסגירה עלאק הישראלים המטומטים אמרו שמשעמם שם",
+      images: IMAGES.historia,
     },
   ],
   nightlife: [
@@ -81,7 +86,7 @@ export const HANOI: Destination = {
       googleMapLink: "https://maps.app.goo.gl/vxXKWfVm8PZrEW8u5",
       description:
         "מועדון מעניין, אנשים מוזרים מערכת סאונג מטורפת אחלה של גג רגוע רק באסה שאין אמצע בין הרחבה הסגורה לגג הרגוע",
-      images: HANOI_IMAGES.unmute,
+      images: IMAGES.unmute,
     },
   ],
   shells: [],

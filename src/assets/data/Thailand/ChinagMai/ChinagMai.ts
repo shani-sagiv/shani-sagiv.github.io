@@ -1,10 +1,10 @@
 import { Destination } from "models/Destination";
 import { createDate } from "helpers/dateHelpers";
-import {CHINAG_MAI_IMAGES as IMAGES} from "./images";
+import  IMAGES from "./images";
 
 export const CHINAG_MAI: Destination = {
   id: "CHINAG_MAI",
-  profileImg: IMAGES.profile,
+  profileImg: IMAGES.profileImg,
     // images:IMAGES.general,
   displayName: {
     hebrew: "צ'אנג מאי",

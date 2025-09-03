@@ -76,12 +76,7 @@ export const COUNTRIES: {
   {country: SOUTH_KOREA, destinations: SOUTH_KOREA_DESTINATION},
   {
     country: THAILAND,
-    destinations: [
-      ...THAILAND_DESTINATION,
-      // BANGKOK,
-      // KOH_LANTA,
-      // KOH_PHA_NGAN,
-    ],
+    destinations: THAILAND_DESTINATION,
   },
   {
     country: CAMBODIA,

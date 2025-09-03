@@ -1,7 +1,7 @@
 import { Destination } from "models/Destination";
 // import { HO_CHI_MINH_IMAGES } from "../../img/Vietnam";
 import { createDate } from "helpers/dateHelpers";
-import { HO_CHI_MINH_IMAGES } from "./images";
+import HO_CHI_MINH_IMAGES from "./images";
 
 export const HO_CHI_MINH: Destination = {
   id: "HO_CHI_MINH",

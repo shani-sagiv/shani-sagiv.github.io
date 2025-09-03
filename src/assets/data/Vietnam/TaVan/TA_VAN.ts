@@ -1,7 +1,7 @@
 // import { TA_VAN_IMAGES } from "../../img/Vietnam";
 import { createDate } from "helpers/dateHelpers";
 import { Destination } from "models/Destination";
-import { TA_VAN_IMAGES } from "./images";
+import TA_VAN_IMAGES from "./images";
 
 export const TA_VAN: Destination = {
   id: "TA_VAN",

@@ -1,6 +1,6 @@
 import { createDate } from "helpers/dateHelpers";
 import { Country, Destination } from "models";
-import { PAPHOS_IMAGES } from "./images";
+import PAPHOS_IMAGES from "./images";
 
 
 export const PAPHOS: Destination = {

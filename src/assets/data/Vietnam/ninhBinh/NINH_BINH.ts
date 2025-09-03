@@ -1,5 +1,5 @@
 import { Destination } from "models/Destination";
-import { NINH_BINH_IMAGES } from "./images";
+import NINH_BINH_IMAGES from "./images";
 // import { NINH_BINH_IMAGES } from "../../img/Vietnam";
 
 export const NINH_BINH: Destination = {

@@ -1,6 +1,6 @@
 import { createDate } from "helpers/dateHelpers";
 import { Destination } from "models";
-import { VASA_IMAGES } from "./images";
+import VASA_IMAGES from "./images";
 
 export const VASA: Destination = {
   id: "VASA",

@@ -1,10 +1,10 @@
 import { Destination } from "models/Destination";
 import { createDate } from "helpers/dateHelpers";
-import {PATTAYA_IMAGES as IMAGES} from "./images/index";
+import IMAGES from "./images/index";
 
 export const PATTAYA: Destination = {
   id: "PATTAYA",
-  profileImg: IMAGES.profile,
+  profileImg: IMAGES.profileImg,
   displayName: {
     hebrew: "פאטאיה",
     english: "Pattaya",

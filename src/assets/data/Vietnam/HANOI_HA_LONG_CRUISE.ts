@@ -1,7 +1,6 @@
 import { AttractionRecommendation } from "models/Recommendation";
-import { HANOI_IMAGES } from "./hanoi/images";
-import { HA_LONG_IMAGES } from "./HaLong/images";
-// import { HA_LONG_IMAGES, HANOI_IMAGES } from "../../img/Vietnam";
+import HANOI_IMAGES from "./hanoi/images";
+import HA_LONG_IMAGES from "./HaLong/images";
 
 export const HANOI_HA_LONG_CRUISE: { [key: string]: AttractionRecommendation } =
   {
