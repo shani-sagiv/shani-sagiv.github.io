@@ -1,32 +1,21 @@
 import { createDate } from "../../../helpers/dateHelpers";
 import { AttractionRecommendation, Country, Destination } from "models/index";
-
-import {
-  VIETNAM_IMAGES,
-  PHONG_NHA_IMAGES,
-  profileImg,
-  HANOI_IMAGES,
-  HA_LONG_IMAGES,
-  CAT_BA_IMAGES,
-  SAPA_IMAGES,
-  TA_VAN_IMAGES,
-  HO_CHI_MINH_IMAGES,
-  NINH_BINH_IMAGES,
-} from "../../img/Vietnam";
 import { MUI_NE } from "./MuiNe";
 import { NAH_TRANG } from "./NahTrang";
-import { HO_CHI_MINH } from "./HO_CHI_MINH";
-import { TA_VAN } from "./TA_VAN";
-import { SAPA } from "./SAPA";
-import { HA_LONG } from "./HA_LONG";
-import { CAT_BA } from "./CAT_BA";
-import { PHONG_NHA } from "./PHONG_NHA";
-import { HOI_AN } from "./HoiAn";
-import { NINH_BINH } from "./NINH_BINH";
-import { HANOI } from "./HANOI";
 import { PHU_QUOC } from "./PhuQuoc";
 import { DA_NANG } from "./DaNang";
 import { CHAM_ISLANDS } from "./ChamIslands";
+import { HOI_AN } from "./HoiAn";
+import { PHONG_NHA } from "./PhongNha/PHONG_NHA";
+import { HANOI } from "./hanoi/HANOI";
+import { CAT_BA } from "./CatBa/CAT_BA";
+import { HA_LONG } from "./HaLong/HA_LONG";
+import { TA_VAN } from "./TaVan/TA_VAN";
+import { SAPA } from "./Sapa/SAPA";
+import { HO_CHI_MINH } from "./HoChiMinh/HO_CHI_MINH";
+import { NINH_BINH } from "./ninhBinh/NINH_BINH";
+import { VIETNAM_IMAGES } from "./images";
+import profileImg from "./image.png"
 
 export const VIETNAM: Country = {
   id: "VNM",
@@ -63,7 +52,7 @@ export const VIETNAM: Country = {
     },
   ],
   profileImg: profileImg,
-};
+  };
 
 export const VIETNAM_DESTINATION = [
   HOI_AN,

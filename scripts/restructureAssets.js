@@ -1,62 +1,33 @@
 const fs = require("fs");
 const path = require("path");
 
-const ROOT = path.resolve(__dirname, "../src/assets");
-const IMG_DIR = path.join(ROOT, "img");
-const DATA_DIR = path.join(ROOT, "data");
+const ROOT = path.resolve(__dirname, "../src/assets/data");
 
-function moveCountry(country) {
-  const imgCountryDir = path.join(IMG_DIR, country);
-  const dataCountryDir = path.join(DATA_DIR, country);
+function listDir(dir, prefix = "") {
+  const items = fs.readdirSync(dir);
+  items.forEach((item, idx) => {
+    const fullPath = path.join(dir, item);
+    const isDir = fs.lstatSync(fullPath).isDirectory();
+    const connector = idx === items.length - 1 ? "└── " : "├── ";
 
-  if (!fs.existsSync(imgCountryDir)) {
-    console.log(`⚠️ Skipping ${country} (no img folder found)`);
-    return;
-  }
-
-  // make sure data country dir exists
-  fs.mkdirSync(dataCountryDir, { recursive: true });
-
-  const places = fs.readdirSync(imgCountryDir);
-
-  places.forEach((place) => {
-    const srcPath = path.join(imgCountryDir, place);
-
-    if (fs.lstatSync(srcPath).isDirectory()) {
-      // target: data/<Country>/<Place>/images
-      const destPath = path.join(dataCountryDir, place, "images");
-      fs.mkdirSync(destPath, { recursive: true });
-
-      const files = fs.readdirSync(srcPath);
-      files.forEach((file) => {
-        const from = path.join(srcPath, file);
-        const to = path.join(destPath, file);
-
-        if (!fs.existsSync(to)) {
-          fs.renameSync(from, to);
-          console.log(`✅ Moved ${file} → ${destPath}`);
-        }
-      });
+    if (isDir) {
+      if (item === "images") {
+        // count files inside images folder
+        const count = fs.readdirSync(fullPath).length;
+        console.log(`${prefix}${connector}${item} (${count} files)`);
+      } else {
+        console.log(prefix + connector + item);
+        const newPrefix = prefix + (idx === items.length - 1 ? "    " : "│   ");
+        listDir(fullPath, newPrefix);
+      }
     } else {
-      // loose file
-      const destLoose = path.join(dataCountryDir, "images");
-      fs.mkdirSync(destLoose, { recursive: true });
-
-      const to = path.join(destLoose, place);
-      if (!fs.existsSync(to)) {
-        fs.renameSync(srcPath, to);
-        console.log(`✅ Moved loose file ${place} → ${destLoose}`);
+      // print only .ts or .tsx files
+      if (item.endsWith(".ts") || item.endsWith(".tsx")) {
+        console.log(prefix + connector + item);
       }
     }
   });
 }
 
-// run on all countries under img/
-if (fs.existsSync(IMG_DIR)) {
-  const countries = fs.readdirSync(IMG_DIR);
-  countries.forEach(moveCountry);
-} else {
-  console.log("❌ No img folder found at all");
-}
-
-console.log("🎉 Done reorganizing images!");
+console.log("📂 assets/data");
+listDir(ROOT);
