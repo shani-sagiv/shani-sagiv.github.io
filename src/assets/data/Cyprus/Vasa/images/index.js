@@ -1,5 +1,5 @@
 import profile from "./profile_compressed_compressed.webp";
-import { importAll } from "../../../../helpers/imagesHelpers";
+import { importAll } from "helpers/imagesHelpers";
 
 export const Andre = importAll(
   require.context("./Andre", false, /\.(png|jpe?g|svg|webp)$/),

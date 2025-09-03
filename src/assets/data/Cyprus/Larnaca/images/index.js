@@ -1,5 +1,5 @@
 import profile from "./profile_compressed.webp";
-import { importAll } from "../../../../helpers/imagesHelpers";
+// import { importAll } from "../../../../helpers/imagesHelpers";
 
 // export const Chrysta = importAll(
 //   require.context("./Chrysta", false, /\.(png|jpe?g|svg|webp)$/),

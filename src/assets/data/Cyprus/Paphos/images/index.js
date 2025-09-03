@@ -1,5 +1,5 @@
 import profile from "./profile_compressed.webp";
-import { importAll } from "../../../../helpers/imagesHelpers";
+import { importAll } from "helpers/imagesHelpers";
 
 export const Catacombs = importAll(
   require.context("./Catacombs", false, /\.(png|jpe?g|svg|webp)$/),

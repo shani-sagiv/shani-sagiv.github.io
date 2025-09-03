@@ -25,7 +25,7 @@ import {
 } from "models";
 // import { Country, Destination, Random, RandomCountry } from "pages";
 import { BreadcrumbNavigation } from "components";
-import { CYPRUS, LARNACA, LIMASSOL, PAPHOS, VASA } from "./assets/data/Cyprus";
+// import { CYPRUS, LARNACA, LIMASSOL, PAPHOS, VASA } from "./assets/data/Cyprus";
 import { logPageView, logUserAction } from "./helpers/logs.helpers";
 import NameForm from "components/NameForm/NameForm";
 import { getUserName } from "./helpers/localStorage.helpers";
@@ -41,6 +41,7 @@ import { SOUTH_KOREA, SOUTH_KOREA_DESTINATION } from "assets/data/SouthKorea/Sou
 import { notifyPhone } from "helpers/notifier";
 import { notifyPageView } from "helpers/notifyTexts";
 import { useCurrentUser } from "currentUSer";
+import { CYPRUS, CYPRUS_DESTINATION } from "assets/data/Cyprus/Cyprus";
 // import LoginPage from "pages/GoogleLogin.tsx/LoginPage";
 // import RandomLive from "pages/RandomLive";
 
@@ -97,7 +98,7 @@ export const COUNTRIES: {
   },
   {
     country: CYPRUS,
-    destinations: [LIMASSOL, VASA, PAPHOS, LARNACA],
+    destinations: CYPRUS_DESTINATION,
   },
 ];
 
