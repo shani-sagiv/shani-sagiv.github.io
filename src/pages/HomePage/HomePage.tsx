@@ -157,7 +157,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         }}
       />
 
-      <EmojiParticles></EmojiParticles>
+      <EmojiParticles />
 
       <div
         style={{
@@ -197,7 +197,12 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
 
       <div
         className={"flex-row flex-center"}
-        style={{ gap: 5, maxWidth: "98vw", flexWrap: "wrap", marginBottom: 20 }}
+        style={{
+          gap: 5,
+          maxWidth: "98vw",
+          flexWrap: "wrap",
+          marginBottom: 20,
+        }}
       >
         <Button onClick={() => navigate(`/RandomCountry`)}>ניחוש מקום</Button>
         <Button onClick={() => navigate(`/Randomoneonone`)}>

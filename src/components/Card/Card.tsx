@@ -104,11 +104,14 @@ const Card: React.FC<CardProps> = ({
         {bottomData}
       </span>
       {/* Image as background */}
-      <img src={image} alt="" className={"card-image"} 
-            loading= "eager"
-            fetchPriority= "high"
-            decoding= "sync"
-        />
+      <img
+        src={image}
+        alt=""
+        className={"card-image"}
+        loading="eager"
+        fetchPriority="high"
+        decoding="sync"
+      />
       {inProgress && <div className={"in-build"}>עובדים על זה</div>}
     </div>
   );

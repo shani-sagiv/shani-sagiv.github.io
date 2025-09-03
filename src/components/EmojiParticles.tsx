@@ -81,9 +81,8 @@ export default function EmojiParticles() {
     <div
       style={{
         position: "absolute",
-        top: "30%",
+        top: "20%",
         left: 0,
-        transform: "translateY(-50%)",
         width: "100%",
         height: "15%",
         zIndex: 15,
