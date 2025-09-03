@@ -9,6 +9,8 @@
   align-items: center;
   //gap: 20px;
   overflow: auto;
+  overscroll-behavior-y: contain; // מונע "זליגה" לגלילה של ה־body
+  overflow: auto;
 
   > * {
     flex-shrink: 0;
@@ -38,8 +40,13 @@
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 //.rainbow-text {
 //  //font-size: 2em;
