@@ -199,7 +199,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         className={"flex-row flex-center"}
         style={{
           gap: 5,
-          maxWidth: "98vw",
+          maxWidth: "96vw",
           flexWrap: "wrap",
           marginBottom: 20,
         }}
