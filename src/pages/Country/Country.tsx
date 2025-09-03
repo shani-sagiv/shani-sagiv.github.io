@@ -40,6 +40,7 @@ const Country: React.FC<CountryProps> = ({ destinations, country }) => {
   }));
   cards = cards.sort((a, b) => b.totalNights - a.totalNights);
   const totalNightsSlept = calculateTotalNightsAtAllDestinations(destinations);
+  const [datesOpen, setDatesOpen] = React.useState(false)
 
   return (
     <div className={"country"}>
@@ -63,9 +64,15 @@ const Country: React.FC<CountryProps> = ({ destinations, country }) => {
         </div>
         <Collapsibles items={items2} />
         <Cards items={cards} />
-        <LocationsWithDates
-          locations={sortDestinationsByDate(country, destinations)}
-        />
+        <div onClick={() => setDatesOpen(!datesOpen)} style={{margin:"8px 20px 20px 0", cursor:"pointer"}}>
+          {datesOpen ? "הסתר תאריכים 👆" : "הצג תאריכים 👇"}
+        </div>
+
+        {datesOpen && (
+          <LocationsWithDates
+            locations={sortDestinationsByDate(country, destinations)}
+          />
+        )}
       </span>
     </div>
   );
