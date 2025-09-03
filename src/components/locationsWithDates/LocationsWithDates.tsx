@@ -4,34 +4,37 @@ import {
   parseDate,
   parseDaysToHebrew,
 } from "helpers/dateHelpers";
-import { Location } from "helpers/locations.helpers";
+import { findPeopleInRange,sumDaysWithPeople, Location } from "helpers/locations.helpers";
+import { PEOPLES } from "assets/data/People";
+// import { findPeopleInRange } from "helpers/people.helpers";
 
-interface locationsWithDatesProps extends React.HTMLAttributes<HTMLDivElement> {
+interface LocationsWithDatesProps extends React.HTMLAttributes<HTMLDivElement> {
   locations: Location[];
 }
 
-const LocationsWithDates: React.FC<locationsWithDatesProps> = ({
+const LocationsWithDates: React.FC<LocationsWithDatesProps> = ({
   locations,
   style = {},
 }) => {
-  const renderDaysMissing = (daysMissing: number) => {
-    return (
-      <div
-        className={"flex-row"}
-        style={{
-          marginTop:5,
-          marginBottom: -5,
-          gap: 10,
-          height: 15,
-          marginRight: 70,
-          fontSize: 10,
-          color: "red",
-        }}
-      >
-        {parseDaysToHebrew(daysMissing)}
-      </div>
-    );
-  };
+  const renderDaysMissing = (daysMissing: number) => (
+    <div
+      className="flex-row"
+      style={{
+        marginTop: 5,
+        marginBottom: -5,
+        gap: 10,
+        height: 15,
+        marginRight: 70,
+        fontSize: 10,
+        color: "red",
+      }}
+    >
+      {parseDaysToHebrew(daysMissing)}
+    </div>
+  );
+  const stats = sumDaysWithPeople(locations);
+  const sortedStats = stats.sort((a, b) => b.totalDays - a.totalDays);
+
   return (
     <div style={{ width: "100%", ...style }}>
       {locations.map((l, index) => {
@@ -41,25 +44,26 @@ const LocationsWithDates: React.FC<locationsWithDatesProps> = ({
         const showCountry = index === 0 || countryName !== prevCountryName;
 
         const daysMissing =
-          index === 0
-            ? 0
-            : calculateDaysBetweenDates(previousLocation.to, l.from);
+          index === 0 ? 0 : calculateDaysBetweenDates(previousLocation.to, l.from);
+
+        // 🔹 מי חופף ליעד הזה
+         const overlappingPeople = findPeopleInRange(l.from, l.to);
+
         return (
-          <>
+          <React.Fragment key={`${l.id}-${index}`}>
             {daysMissing > 0 && renderDaysMissing(daysMissing)}
             <div
-              className={"flex-row"}
+              className="flex-row"
               style={{
                 gap: 10,
-                height: 10,
-                marginTop: 5,
+                marginTop: 2,
                 marginRight: 20,
                 fontSize: 10,
               }}
             >
               <b style={{ width: 40 }}>{showCountry ? countryName : null}</b>
               <b style={{ width: 60 }}>{l.displayName.hebrew}</b>
-              <span className={"flex-row"} style={{ gap: 10 }}>
+              <span className="flex-row" style={{ gap: 10 }}>
                 <span>{parseDate(l.from)}</span>
                 <span>{parseDate(l.to)}</span>
                 <span>({calculateDaysBetweenDates(l.from, l.to)})</span>
@@ -75,11 +79,32 @@ const LocationsWithDates: React.FC<locationsWithDatesProps> = ({
                   {l.hotelName}
                 </div>
               </span>
+              {/* 🔹 מציג את האנשים */}
             </div>
-          </>
+
+              {overlappingPeople.length > 0 && (
+                <div style={{ fontSize: 8, color: "green",  margin:"0 70px 0 0 " }}>
+                  {overlappingPeople.map((p) => p.name).join(", ")}
+                </div>
+              )}
+          </React.Fragment>
         );
       })}
+
+      <div style={{ fontSize: 10, marginRight:10 }}>
+        {sortedStats.map((s) => (
+          <div key={s.name} style={{ marginBottom: 4 }}>
+            <b>{s.name}</b> – {s.totalDays} ימים
+            {s.places.length > 0 && (
+              <span style={{ color: "gray", marginRight: 5 }}>
+                ({s.places.join(", ")})
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
+
 export default LocationsWithDates;

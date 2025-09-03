@@ -30,7 +30,7 @@ import {
   parseDaysToHebrew,
 } from "../../helpers/dateHelpers";
 import Marquee from "react-fast-marquee";
-import {PEOPLE_TRAVELED_WITH} from "assets/data/People"
+// import {PEOPLE_TRAVELED_WITH} from "assets/data/People"
 interface DestinationProps extends React.HTMLAttributes<HTMLDivElement> {
   dest: DestinationModel;
 }

@@ -8,7 +8,7 @@ import {
   HotelRecommendation,
 } from "models";
 import { imagesOptions } from "pages/Random1on1/Randomoneonone";
-
+import { PEOPLES } from "assets/data/People";
 export interface Location {
   displayName: DisplayName;
   hotelName?: string;
@@ -170,3 +170,57 @@ export const getAllLocationsImages = () => {
   // console.log({ optionsWithImagesTemp });
   return { destsOptions, optionsWithImages: optionsWithImagesTemp };
 };
+
+
+
+// PEOPLE
+function rangesOverlap(aFrom: Date, aTo: Date, bFrom: Date, bTo: Date) {
+  // חפיפה אמיתית אם יש חיתוך, כולל אם ההתחלה או הסיום בדיוק זהים
+  const overlap = aFrom <= bTo && bFrom <= aTo;
+
+  // מקרה קצה – רק נגיעה בקצה בלי חפיפה אמיתית
+  const onlyTouchEndStart =
+    aTo.getTime() === bFrom.getTime() && aFrom.getTime() !== bFrom.getTime();
+  const onlyTouchStartEnd =
+    bTo.getTime() === aFrom.getTime() && aTo.getTime() !== bTo.getTime();
+
+  return overlap && !onlyTouchEndStart && !onlyTouchStartEnd;
+}
+
+export function findPeopleInRange(from: Date, to: Date) {
+  return PEOPLES.filter((p) =>
+    p.dates.some((d) => rangesOverlap(d.from, d.to, from, to))
+  );
+}
+
+function overlapDays(fromA: Date, toA: Date, fromB: Date, toB: Date): number {
+  const start = fromA > fromB ? fromA : fromB;
+  const end = toA < toB ? toA : toB;
+  if (end < start) return 0;
+  return calculateDaysBetweenDates(start, end);
+}
+
+export function sumDaysWithPeople(locations: Location[]) {
+  const result: { name: string; totalDays: number; places: string[] }[] = [];
+
+  for (const p of PEOPLES) {
+    let total = 0;
+    const places: string[] = [];
+
+    for (const d of p.dates) {
+      for (const loc of locations) {
+        const days = overlapDays(d.from, d.to, loc.from, loc.to);
+        if (days > 0) {
+          total += days;
+          if (!places.includes(loc.displayName.hebrew)) {
+            places.push(loc.displayName.hebrew);
+          }
+        }
+      }
+    }
+
+    result.push({ name: p.name, totalDays: total, places });
+  }
+
+  return result;
+}

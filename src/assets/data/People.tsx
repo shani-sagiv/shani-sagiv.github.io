@@ -1,15 +1,13 @@
 import {createDate} from "helpers/dateHelpers";
+import { dates } from "models/Recommendation";
 
-interface date {
-  from: Date;
-  to: Date;
-}
-interface people{
+
+export interface people{
     name:string,
-    dates: date[];
+    dates: dates[];
 }
 
-const cyprus_with_friens:date = { from: createDate("06/03/2024"), to: createDate("11/03/2024") }
+const cyprus_with_friens:dates = { from: createDate("06/03/2024"), to: createDate("11/03/2024") }
 
 
 const MIKA:people = {
@@ -22,7 +20,7 @@ const TOMER_HADAD:people = {
 }
 const ROTEM:people = {
     name:"רותם",
-    dates:[{from: createDate("24/08/2024"), to: createDate("29/08/2024") }, {from: createDate("12/10/2024"), to: createDate("17/10/2024") }]
+    dates:[{from: createDate("24/08/2024"), to: createDate("28/08/2024") }, {from: createDate("12/10/2024"), to: createDate("17/10/2024") }]
 }
 const OMER:people = {
     name:"עומר",
@@ -41,11 +39,11 @@ const SHAY_MOR:people = {
     dates:[{from: createDate("05/11/2024"), to: createDate("19/11/2024") }]
 }
 const LUSTIG:people = {
-    name:"לוסטיג",
+    name:"לוסטיג ורוני",
     dates:[cyprus_with_friens]
 }
 const KLIL:people = {
-    name:"כליל",
+    name:"כליל ורוני",
     dates:[cyprus_with_friens]
 }
 const TOMER_SEGEV:people = {
@@ -92,7 +90,7 @@ const YANIV_AND_IDO:people = {
 const ZIV_NOAM:people = {
     name:"זיו ונועם",
     dates:[
-        {from: createDate("22/06/2025"), to: createDate("06/06/2025") },
+        {from: createDate("22/06/2025"), to: createDate("06/07/2025") },
     ]
 }
 const NOY_MANOR:people = {
@@ -109,13 +107,38 @@ const MAAYAN:people = {
 }
 
 const SHANIS_PARENTS:people = {
-    name:"ההורים של שני",
-    dates:[{from: createDate("16/07/2025"), to: createDate("02/08/2024") }]
+    name:"הורים שני",
+    dates:[{from: createDate("16/07/2025"), to: createDate("02/08/2025") }]
 }
 
 const SAGIVS_PARENTS:people = {
     name:"הורים שגיב",
     dates:[{from: createDate("28/11/2024"), to: createDate("07/12/2024") }]
 }
+
+export const PEOPLES: people[] = [
+  MIKA,
+  TOMER_HADAD,
+  ROTEM,
+  OMER,
+  EILON,
+  ARI,
+  SHAY_MOR,
+  LUSTIG,
+  KLIL,
+  TOMER_SEGEV,
+  ITZIK,
+  YONI,
+  DANON,
+  NOFAR,
+  AMIT_OFRI,
+  YANIV_AND_IDO,
+  ZIV_NOAM,
+  NOY_MANOR,
+  MAAYAN,
+  SHANIS_PARENTS,
+  SAGIVS_PARENTS,
+];
+
 
 //  npx plop component --name=seoul --location=south_korea
