@@ -12,6 +12,33 @@ export default function EmojiParticles() {
     }).then(() => setInit(true));
   }, []);
 
+  const EMOJIS = [
+  "🇻🇳", // ויאטנם
+  "🇹🇭", // תאילנד
+  "🇨🇾", // קפריסין
+  "🇰🇭", // קמבודיה
+  "🇰🇷", // דרום קוריאה
+
+  // "🏝️", // חופים
+  // "🏯", // מקדשים / אנגקור ואט / אסיה
+  // "🌅", // שקיעה רגועה
+  // "🌾", // שדות אורז
+  // "🐘", // טבע/תאילנד
+
+  // "🍜", // אוכל ויאטנמי
+  // "🥥", // קוקוס וחופים
+  // "☕", // קפה (נוודים דיגיטליים + ויאטנם)
+  // "💻", // עבודה דיגיטלית
+  // "🎒", // טיול ונוודות
+];
+
+function mapEmojisToChars(emojis: string[]) {
+  return emojis.map((emoji) => ({
+    value: emoji,
+    font: "system-ui, Apple Color Emoji",
+  }));
+}
+
   const options: ISourceOptions = useMemo(
     () => ({
       fullScreen: { enable: false },
@@ -28,15 +55,8 @@ export default function EmojiParticles() {
         shape: {
           type: "char",
           options: {
-            char: [
-              { value: "🦋", font: "system-ui, Apple Color Emoji" },
-              { value: "✨", font: "system-ui, Apple Color Emoji" },
-              { value: "🌸", font: "system-ui, Apple Color Emoji" },
-              { value: "💖", font: "system-ui, Apple Color Emoji" },
-              { value: "🌼", font: "system-ui, Apple Color Emoji" },
-              { value: "💎", font: "system-ui, Apple Color Emoji" },
-            ],
-          },
+            char:mapEmojisToChars(EMOJIS),
+            }
         },
 
         size: {
