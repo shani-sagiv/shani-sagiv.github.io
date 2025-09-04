@@ -1,1 +1,0 @@
-export { Hanoi } from "./Hanoi";
