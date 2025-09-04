@@ -201,31 +201,46 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
 
       <TopPlaces />
 
-      <span className="section-header">משחקים 🎲</span>
+      <span className="section-header" style={{marginBottom:10}}>משחקים 🎲</span>
 
       <div
         className={"flex-row flex-center"}
         style={{
           gap: 5,
-          maxWidth: "96vw",
+          // maxWidth: "96vw",
           flexWrap: "wrap",
-          marginBottom: 20,
+          // marginBottom: 20,
         }}
       >
         <Button onClick={() => navigate(`/RandomCountry`)}>ניחוש מקום</Button>
         <Button onClick={() => navigate(`/Randomoneonone`)}>
           1:1 ניחוש מקום
         </Button>
-        <Button onClick={() => navigate(`/data`)}>מידע</Button>
+        {/* <Button onClick={() => navigate(`/data`)}>מידע</Button> */}
         <Button onClick={() => navigate(`/random`)}>ניחוש מידע</Button>
-        <Button onClick={() => navigate(`/rename`)}>החלפת שם</Button>
 
         {/* <Button onClick={() => navigate(`/RandomLive`)}>ניחוש מקום לייב</Button> */}
         {/* <Button onClick={() => navigate(`/login`)}>התחברות עם גוגל</Button> */}
 
+        {/* <Button onClick={() => navigate(`/test`)}>צאט בדיקה</Button> */}
+      </div>  
+      
+      
+      <span className="section-header" style={{marginBottom:10}}>שטויות 🤪</span>
+
+      <div
+        className={"flex-row flex-center"}
+        style={{
+          gap: 5,
+          // maxWidth: "96vw",
+          flexWrap: "wrap",
+          marginBottom: 20,
+        }}
+      >
+        <Button onClick={() => navigate(`/data`)}>מידע</Button>
+        <Button onClick={() => navigate(`/rename`)}>החלפת שם</Button>
         <Button onClick={() => navigate(`/test`)}>צאט בדיקה</Button>
       </div>
-      {/* <UserStatsRow/> */}
     </div>
   );
 };
