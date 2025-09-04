@@ -1,4 +1,3 @@
-// src/components/ItemFeedbackBar.tsx
 import React, { useEffect, useMemo, useState } from "react";
 import { getUserName } from "helpers/localStorage.helpers";
 import { notifyPhone } from "helpers/notifier";
@@ -10,8 +9,8 @@ import {
   subscribeCommentsCount,
   likeAttraction,
 } from "../../helpers/feedback.helpers";
-
 import { ItemComments } from "./ItemComments/ItemComments";
+import { FeedbackIcon } from "./FeedbackIcon";
 
 export function ItemFeedbackBar({
   destinationId,
@@ -20,7 +19,7 @@ export function ItemFeedbackBar({
   destinationId: string;
   itemId: string;
 }) {
-  const sender = getUserName(); // display name
+  const sender = getUserName();
   const docId = useMemo(
     () => docIdFromParts(destinationId, itemId),
     [destinationId, itemId]
@@ -79,25 +78,27 @@ export function ItemFeedbackBar({
         style={{
           display: "flex",
           flexDirection: "row",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           width: "100%",
-          gap: 20,
+          gap: 10,
         }}
       >
-        <button onClick={() => setShowComments((s) => !s)} className="btn">
-          💬 {commentsCount}
-        </button>
 
-        <button
-          className="btn"
-          disabled={alreadyLiked}
+        <FeedbackIcon
+          type="heart"
+          filled={alreadyLiked}
+          count={likes}
+          color="grey"
+          size={42}
           onClick={handleLike}
-          style={{
-            backgroundColor: alreadyLiked ? "#6ad96eff" : "",
-          }}
-        >
-          {alreadyLiked ? "✅" : "👍"} {likes}
-        </button>
+        />
+                <FeedbackIcon
+          type="comment"
+          count={commentsCount}
+          color="grey"
+          size={42}
+          onClick={() => setShowComments((s) => !s)}
+        />
       </div>
 
       {likes > 0 && (
