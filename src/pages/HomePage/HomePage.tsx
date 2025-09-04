@@ -19,6 +19,7 @@ import { getUserName } from "helpers/localStorage.helpers";
 // import { createReturn } from "typescript";
 import EmojiParticles from "components/EmojiParticles";
 import EmojiCycler from "components/EmojiCycler";
+import EmojiSlotCycler from "components/EmojiCycler";
 // import UserStatsRow from "components/UserStatsRow";
 
 interface HomePageProps extends React.HTMLAttributes<HTMLDivElement> {}
@@ -130,11 +131,11 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
             padding: "0 10px",
             color: "white",
             textShadow: `
-      -1px -1px 0 #000,
-      1px -1px 0 #000,
-      -1px 1px 0 #000,
-      1px 1px 0 #000
-    `,
+              -1px -1px 0 #000,
+              1px -1px 0 #000,
+              -1px 1px 0 #000,
+              1px 1px 0 #000
+            `,
           }}
         >
           👑 שגיב ושני המלכים{" "}
@@ -163,7 +164,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
           display: "inline-flex",
           alignItems: "center",
           marginBottom: "15px",
-          marginTop: -60,
+          marginTop: -70,
           zIndex:12
         }}
       >
@@ -189,7 +190,10 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
       <span className="section-header">יעדים אחרונים📍</span>
       <LastPlaces />
 
-      <span className="section-header">כל המדינות 🌏</span>
+      <span className="section-header" style={{display:"flex", alignItems:"center", gap:10}}>כל המדינות <EmojiSlotCycler emojis={
+        [
+            "🇻🇳","🇹🇭","🇨🇾","🇰🇭","🇰🇷",
+        ]} single /></span>
 
       <Cards items={destinationsCards} />
 

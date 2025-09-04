@@ -5,6 +5,8 @@ type Props = {
   size?: number;
   durationMs?: number;
   className?: string;
+  emojis: string[];       // ⬅️ מקבל מבחוץ
+  single?: boolean;       // ⬅️ אפשרות להציג אמוג׳י אחד בלבד
 };
 
 const DEFAULTS = {
@@ -13,82 +15,19 @@ const DEFAULTS = {
   size: 32,
 };
 
-const EMOJIS: string[] = [
-  // 🌍 נוודות דיגיטלית והרפתקאות
-  "🌍",
-  "🏝️",
-  "✈️",
-  "💻",
-  "🗺️",
-  "📍",
-  "📶",
-  "🏖️",
-  "🎒",
-  "🧭",
-  "🏔️",
-  "🚐",
-  "🚲",
-  "🛵",
-  "🏨",
-  "🍹",
-  "🍜",
-  "☕",
-  "📸",
-
-  // 🏳️‍🌈 דגלים
-  "🇨🇾", // קפריסין
-  "🇹🇭", // תאילנד
-  "🇰🇭", // קמבודיה
-  "🇻🇳", // ויאטנם
-  "🇰🇷", // דרום קוריאה
-
-  // עוד תוספות מגניבות לטיולים
-  "🏄‍♀️",
-  "🤿",
-  "🏕️",
-  "🌋",
-  "🏯",
-  "🕌",
-  "⛩️",
-  "🌸",
-  "🌴",
-  "🌅",
-  "🌃",
-  "🛍️",
-  "📱",
-  "💼",
-  "🍣",
-  "🍍",
-  "🥥",
-  "🍺",
-  "🍲",
-  "🍧",
-  "🍵",
-  "🎶",
-  "🎧",
-  "📚",
-  "📖",
-  "🗃️",
-  "🔌",
-  "🪫",
-  "🔋",
-];
-
 export default function EmojiSlotCycler({
   intervalMs = DEFAULTS.intervalMs,
   durationMs = DEFAULTS.durationMs,
   size = DEFAULTS.size,
   className,
+  emojis,
+  single = false,
 }: Props) {
-  const pool = useMemo(
-    () => Array.from(new Set(EMOJIS)).filter(Boolean),
-    [EMOJIS]
-  );
+  const pool = useMemo(() => Array.from(new Set(emojis)).filter(Boolean), [emojis]);
   const safePool = pool.length >= 3 ? pool : ["🌍", "✈️", "💻"];
 
-  const [current, setCurrent] = useState<string[]>(() =>
-    sampleTriple(safePool)
-  );
+  const initSample = single ? [sampleOne(safePool)] : sampleTriple(safePool);
+  const [current, setCurrent] = useState<string[]>(initSample);
   const [next, setNext] = useState<string[] | null>(null);
 
   const [rolling, setRolling] = useState(false);
@@ -96,8 +35,11 @@ export default function EmojiSlotCycler({
   const intervalRef = useRef<number | null>(null);
 
   const roll = () => {
-    const candidate = sampleTriple(safePool);
-    const deranged = derangeAgainstPrev(current, candidate, safePool);
+    const candidate = single ? [sampleOne(safePool)] : sampleTriple(safePool);
+    const deranged = single
+      ? candidate
+      : derangeAgainstPrev(current, candidate, safePool);
+
     setNext(deranged);
     setRolling(true);
 
@@ -117,7 +59,7 @@ export default function EmojiSlotCycler({
       if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [intervalMs, durationMs, safePool.join("|"), current.join("|")]);
+  }, [intervalMs, durationMs, safePool.join("|"), current.join("|"), single]);
 
   return (
     <div
@@ -131,7 +73,7 @@ export default function EmojiSlotCycler({
       }}
       aria-hidden="true"
     >
-      {[0, 1, 2].map((i) => (
+      {(single ? [0] : [0, 1, 2]).map((i) => (
         <Slot
           key={`slot-${i}-${current[i]}`}
           topEmoji={current[i]}
@@ -179,24 +121,10 @@ function Slot({
           transition: `transform ${durationMs}ms cubic-bezier(.2,.8,.2,1)`,
         }}
       >
-        <div
-          className="emoji-cell"
-          style={{
-            display: "grid",
-            placeItems: "center",
-            height: "100%",
-          }}
-        >
+        <div className="emoji-cell" style={{ display: "grid", placeItems: "center", height: "100%" }}>
           {topEmoji}
         </div>
-        <div
-          className="emoji-cell"
-          style={{
-            display: "grid",
-            placeItems: "center",
-            height: "100%",
-          }}
-        >
+        <div className="emoji-cell" style={{ display: "grid", placeItems: "center", height: "100%" }}>
           {bottomEmoji}
         </div>
       </div>
@@ -204,6 +132,12 @@ function Slot({
   );
 }
 
+// 🎲 דגימה אחת
+function sampleOne(pool: string[]): string {
+  return pool[Math.floor(Math.random() * pool.length)] ?? "🌍";
+}
+
+// 🎲 שלושה שונים
 function sampleTriple(pool: string[]): string[] {
   if (pool.length < 3) {
     const p = ["🌍", "✈️", "💻"];
@@ -212,11 +146,8 @@ function sampleTriple(pool: string[]): string[] {
   return uniqueSample(pool, 3);
 }
 
-function derangeAgainstPrev(
-  prev: string[],
-  candidate: string[],
-  pool: string[]
-): string[] {
+// ... שאר הפונקציות (derangeAgainstPrev, uniqueSample, enforceUnique, shuffle) נשארות אותו הדבר
+function derangeAgainstPrev(prev: string[], candidate: string[], pool: string[]): string[] {
   let next = enforceUnique(candidate, pool);
 
   for (let guard = 0; guard < 10; guard++) {
@@ -253,8 +184,7 @@ function uniqueSample<T>(arr: T[], k: number): T[] {
   for (let i = 0; i < copy.length && out.length < k; i++) {
     if (!out.includes(copy[i])) out.push(copy[i]);
   }
-  while (out.length < k)
-    out.push(copy[Math.floor(Math.random() * copy.length)]);
+  while (out.length < k) out.push(copy[Math.floor(Math.random() * copy.length)]);
   return out;
 }
 
