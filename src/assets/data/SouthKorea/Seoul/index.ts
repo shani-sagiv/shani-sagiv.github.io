@@ -1,1 +1,1 @@
-export { SEOUL } from './Seoul';
+export { Seoul } from "./Seoul";

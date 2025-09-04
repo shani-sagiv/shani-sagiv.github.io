@@ -1,12 +1,12 @@
 import { Country } from "models";
 import profile from "./profile_compressed_compressed.webp";
-import { LIMASSOL } from "./Limassol/Limassol";
-import { VASA } from "./Vasa/vasa";
-import { LARNACA } from "./Larnaca/Larnaca";
-import { PAPHOS } from "./Paphos/Paphos";
+import { Limassol } from "./Limassol";
+import { Vasa } from "./Vasa";
+import { Larnaca } from "./Larnaca";
+import { Paphos } from "./Paphos";
 
-export const CYPRUS: Country = {
-  id: "CYPRUS",
+export const Cyprus: Country = {
+  id: "Cyprus",
   name: "CYPRUS",
   displayName: {
     hebrew: "קפריסין",
@@ -22,5 +22,5 @@ export const CYPRUS: Country = {
 
 
 export const CYPRUS_DESTINATION = 
-[LIMASSOL, VASA, PAPHOS, LARNACA]
+[Limassol, Vasa, Paphos, Larnaca]
 

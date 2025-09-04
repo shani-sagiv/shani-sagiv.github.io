@@ -2,8 +2,8 @@ import LIMASSOL_IMAGES from "./images";
 import { createDate } from "helpers/dateHelpers";
 import {  Destination } from "models";
 
-export const LIMASSOL: Destination = {
-  id: "LIMASSOL",
+export const Limassol: Destination = {
+  id: "Limassol",
   profileImg: LIMASSOL_IMAGES.profileImg,
   displayName: {
     hebrew: "לימסול",

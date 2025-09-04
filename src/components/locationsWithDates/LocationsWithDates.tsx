@@ -39,20 +39,20 @@ const LocationsWithDates: React.FC<LocationsWithDatesProps> = ({
 
   return (
     <div style={{ width: "100%", ...style }}>
-      {locations.map((l, index) => {
-        const previousLocation = locations[index - 1];
+      {locations.map((l, Index) => {
+        const previousLocation = locations[Index - 1];
         const countryName = l.country.displayName.hebrew;
         const prevCountryName = previousLocation?.country.displayName.hebrew;
-        const showCountry = index === 0 || countryName !== prevCountryName;
+        const showCountry = Index === 0 || countryName !== prevCountryName;
 
         const daysMissing =
-          index === 0 ? 0 : calculateDaysBetweenDates(previousLocation.to, l.from);
+          Index === 0 ? 0 : calculateDaysBetweenDates(previousLocation.to, l.from);
 
         // 🔹 מי חופף ליעד הזה
          const overlappingPeople = findPeopleInRange(l.from, l.to);
 
         return (
-          <React.Fragment key={`${l.id}-${index}`}>
+          <React.Fragment key={`${l.id}-${Index}`}>
             {daysMissing > 0 && renderDaysMissing(daysMissing)}
             <div
               className="flex-row"

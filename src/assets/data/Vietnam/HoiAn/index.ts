@@ -1,1 +1,1 @@
-export { HOI_AN } from './HoiAn';
+export { HoiAn } from "./HoiAn";

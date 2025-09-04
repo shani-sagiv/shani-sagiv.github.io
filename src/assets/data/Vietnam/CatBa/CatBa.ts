@@ -3,8 +3,8 @@ import { Destination } from "models/Destination";
 import { createDate } from "helpers/dateHelpers";
 import CAT_BA_IMAGES from "./images";
 
-export const CAT_BA: Destination = {
-  id: "CAT_BA",
+export const CatBa: Destination = {
+  id: "CatBa",
   displayName: {
     hebrew: "קאט בה",
     english: "cat ba",

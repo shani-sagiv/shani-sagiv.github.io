@@ -3,13 +3,13 @@ import { Destination } from "models/Destination";
 import { createDate } from "helpers/dateHelpers";
 import PHONG_NHA_IMAGES from "./images";
 
-export const PHONG_NHA: Destination = {
-  id: "PHONG_NHA",
+export const PhongNha: Destination = {
+  id: "PhongNha",
   displayName: {
     hebrew: "פונג נה",
     english: "phong nha",
   },
-    // images:PHONG_NHA.general,
+    // images:PhongNha.general,
 
   description:
     "ממש אמצע הדרך מהויאן לצפון, שווה עצירה רק אם אין כח לנסיעה ארוכה ואם אוהבים מאוד מערות",

@@ -1,0 +1,1 @@
+export { Paphos } from "./Paphos";

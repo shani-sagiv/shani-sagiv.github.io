@@ -25,7 +25,7 @@ export default function EmojiSlotCycler({
 }: Props) {
   const safePool = emojis.length > 0 ? emojis : ["🌍", "✈️", "💻"];
 
-  const [index, setIndex] = useState(0);
+  const [Index, setIndex] = useState(0);
   const [current, setCurrent] = useState<string[]>(
     single ? [safePool[0]] : safePool.slice(0, 3)
   );
@@ -36,7 +36,7 @@ export default function EmojiSlotCycler({
   const intervalRef = useRef<number | null>(null);
 
   const roll = () => {
-    let newIndex = (index + 1) % safePool.length;
+    let newIndex = (Index + 1) % safePool.length;
 
     const candidate = single
       ? [safePool[newIndex]]
@@ -67,7 +67,7 @@ export default function EmojiSlotCycler({
       if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [intervalMs, durationMs, safePool.join("|"), single, index]);
+  }, [intervalMs, durationMs, safePool.join("|"), single, Index]);
 
   return (
     <div

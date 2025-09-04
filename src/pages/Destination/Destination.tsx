@@ -35,9 +35,9 @@ interface DestinationProps extends React.HTMLAttributes<HTMLDivElement> {
   dest: DestinationModel;
 }
 export const createWhatsAppLinksContent = (phoneNumbers: string[]) =>
-  phoneNumbers.map((number, index) => (
+  phoneNumbers.map((number, Index) => (
     <a
-      key={index}
+      key={Index}
       href={`https://wa.me/${number.replace(/[^0-9]/g, "")}`}
       target="_blank"
       rel="noopener noreferrer"
@@ -66,11 +66,11 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     items: AllRecommendationTypes[],
     keyPrefix: string,
   ) =>
-    items.map((item, index) => (
+    items.map((item, Index) => (
       <RecommendationComponent
         recommendation={item}
         destinationId={dest.id}
-        key={`${keyPrefix}-${index}`}
+        key={`${keyPrefix}-${Index}`}
       />
     ));
 
@@ -160,9 +160,9 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     });
 
     const createLinksContent = (links: string[]) =>
-      links.map((l, index) => (
+      links.map((l, Index) => (
         <a
-          key={index}
+          key={Index}
           href={l}
           target="_blank"
           rel="noopener noreferrer"
@@ -172,9 +172,9 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
         </a>
       ));
     const createPhoneLinksContent = (phoneNumbers: string[]) =>
-      phoneNumbers.map((number, index) => (
+      phoneNumbers.map((number, Index) => (
         <a
-          key={index}
+          key={Index}
           href={`tel:${number}`}
           rel="noopener noreferrer"
           style={{ marginRight: 10 }}

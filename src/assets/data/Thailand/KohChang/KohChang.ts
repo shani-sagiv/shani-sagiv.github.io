@@ -2,8 +2,8 @@ import { Destination } from "models/Destination";
 import { createDate } from "helpers/dateHelpers";
 import IMAGES from "./images";
 
-export const KOH_CHANG: Destination = {
-  id: "KOH_CHANG",
+export const KohChang: Destination = {
+  id: "KohChang",
   profileImg: IMAGES.profileImg,
   displayName: {
     hebrew: "קו צ'אנג",

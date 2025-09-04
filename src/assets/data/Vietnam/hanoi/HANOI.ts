@@ -1,12 +1,12 @@
 import { Destination } from "models/Destination";
 // import { IMAGES } from "../../img/Vietnam";
 import { createDate } from "helpers/dateHelpers";
-import { HANOI_HA_LONG_CRUISE } from "../HANOI_HA_LONG_CRUISE";
+import { HanoiHaLongCruise } from "../HanoiHaLongCruise";
 // import IMAGES from "./MuiNe/images";
-import  IMAGES from "./images";
+import IMAGES from "./images";
 
-export const HANOI: Destination = {
-  id: "HANOI",
+export const Hanoi: Destination = {
+  id: "Hanoi",
   displayName: {
     hebrew: "האנוי",
     english: "hanoi",
@@ -21,21 +21,21 @@ export const HANOI: Destination = {
       dates: [{ from: createDate("13/07/2024"), to: createDate("19/07/2024") }],
       description: "מלון סביר מיקום טוב",
       googleMapLink: "https://maps.app.goo.gl/rm32r6HW1cTYM6mU6",
-      images: [],
+      // images: [],
     },
     {
       name: "Little Hanoi Old Quarter Hostel",
       dates: [{ from: createDate("28/08/2024"), to: createDate("05/09/2024") }],
       description: "מלון סביר מיקום טוב",
       googleMapLink: "https://maps.app.goo.gl/rm32r6HW1cTYM6mU6",
-      images: [],
+      // images: [],
     },
     {
       name: "Hanoi Holiday Diamond Hotel",
       dates: [{ from: createDate("27/11/2024"), to: createDate("28/11/2024") }],
       description: "מלון חמוד מיקום טוב",
       googleMapLink: "https://maps.app.goo.gl/LgY2ntxsBekUzSFw8",
-      images: [],
+      // images: [],
     },
     {
       name: "Solare De Monte Hotel & Spa",
@@ -54,7 +54,7 @@ export const HANOI: Destination = {
     },
   ],
   attractions: [
-    HANOI_HA_LONG_CRUISE.HANOI,
+    HanoiHaLongCruise.Hanoi,
     {
       name: "Gifthaus",
       googleMapLink: "https://maps.app.goo.gl/SbaRRnY3yFjNFRRg6",

@@ -2,8 +2,8 @@ import { Destination } from "models/Destination";
 import { createDate } from "helpers/dateHelpers";
 import  IMAGES from "./images";
 
-export const CHINAG_MAI: Destination = {
-  id: "CHINAG_MAI",
+export const ChinagMai: Destination = {
+  id: "ChinagMai",
   profileImg: IMAGES.profileImg,
     // images:IMAGES.general,
   displayName: {
@@ -19,7 +19,7 @@ export const CHINAG_MAI: Destination = {
       description: "מיקום טוב מלון סביר בלי מעלית",
       price: "",
       googleMapLink: "https://maps.app.goo.gl/Ssm3BDcZ1Q4Emzrz6",
-      images: [],
+      // images: [],
     },
     {
       name: "Astra Condo",

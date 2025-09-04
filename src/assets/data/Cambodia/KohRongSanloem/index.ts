@@ -1,1 +1,1 @@
-export { KOH_RONG_SANLOEM } from './KohRongSanloem';
+export { KohRongSanloem } from "./KohRongSanloem";

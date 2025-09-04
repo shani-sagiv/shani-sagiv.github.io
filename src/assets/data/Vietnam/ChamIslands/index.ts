@@ -1,1 +1,1 @@
-export { CHAM_ISLANDS } from './ChamIslands';
+export { ChamIslands } from "./ChamIslands";

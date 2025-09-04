@@ -3,8 +3,8 @@ import { Destination } from "models/Destination";
 import { createDate } from "helpers/dateHelpers";
 import HO_CHI_MINH_IMAGES from "./images";
 
-export const HO_CHI_MINH: Destination = {
-  id: "HO_CHI_MINH",
+export const HoChiMinh: Destination = {
+  id: "HoChiMinh",
   displayName: {
     hebrew: "הו צי מין",
     english: "Ho Chi Minh",

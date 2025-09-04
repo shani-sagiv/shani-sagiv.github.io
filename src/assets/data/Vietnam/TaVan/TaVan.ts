@@ -3,8 +3,8 @@ import { createDate } from "helpers/dateHelpers";
 import { Destination } from "models/Destination";
 import TA_VAN_IMAGES from "./images";
 
-export const TA_VAN: Destination = {
-  id: "TA_VAN",
+export const TaVan: Destination = {
+  id: "TaVan",
   displayName: {
     hebrew: "טה ואן",
     english: "ta van",

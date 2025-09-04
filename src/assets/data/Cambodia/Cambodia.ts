@@ -1,13 +1,13 @@
 import { createDate } from "../../../helpers/dateHelpers";
-import { AttractionRecommendation, Country, Destination } from "models/index";
+import { AttractionRecommendation, Country, Destination } from "models";
 import profileImg from "./profile_compressed.webp";
-import { SIEM_REAP } from "./SiemReap";
-import { KOH_RONG } from "./KohRong";
-import { KOH_RONG_SANLOEM } from "./KohRongSanloem";
-import { KAMPOT } from "./Kampot";
+import { SiemReap } from "./SiemReap";
+import { KohRong } from "./KohRong";
+import { KohRongSanloem } from "./KohRongSanloem";
+import { Kampot } from "./Kampot";
 
-export const CAMBODIA: Country = {
-  id: "CAMBODIA",
+export const Cambodia: Country = {
+  id: "Cambodia",
   name: "Cambodia",
   displayName: {
     hebrew: "קמבודיה",
@@ -19,8 +19,8 @@ export const CAMBODIA: Country = {
 };
 
 export const CAMBODIA_DESTINATION = [
-  SIEM_REAP,
-  KOH_RONG,
-  KOH_RONG_SANLOEM,
-  KAMPOT,
+  SiemReap,
+  KohRong,
+  KohRongSanloem,
+  Kampot,
 ];

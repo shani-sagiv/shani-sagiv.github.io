@@ -1,1 +1,1 @@
-export { MUI_NE } from './MuiNe';
+export { MuiNe } from "./MuiNe";

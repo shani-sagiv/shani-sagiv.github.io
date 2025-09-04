@@ -3,8 +3,8 @@ import { Country, Destination } from "models";
 import PAPHOS_IMAGES from "./images";
 
 
-export const PAPHOS: Destination = {
-  id: "PAPHOS",
+export const Paphos: Destination = {
+  id: "Paphos",
   profileImg: PAPHOS_IMAGES.profileImg,
   displayName: {
     hebrew: "פאפוס",

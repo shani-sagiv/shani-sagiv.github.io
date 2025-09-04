@@ -19,8 +19,8 @@ const OptionsSelect: React.FC<OptionsSelectProps> = ({
         onChange={(e) => onChange(e.target.value)}
       >
         <option value="">{title}</option>
-        {options.map((option, index) => (
-          <option key={index} value={option}>
+        {options.map((option, Index) => (
+          <option key={Index} value={option}>
             {option}
           </option>
         ))}

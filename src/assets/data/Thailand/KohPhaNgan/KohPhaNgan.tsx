@@ -3,8 +3,8 @@ import IMAGES from "./images";
 import {createDate} from "helpers/dateHelpers";
 
 
-export const KOH_PHA_NGAN: Destination = {
-  id: "KOH_PHA_NGAN",
+export const KohPhaNgan: Destination = {
+  id: "KohPhaNgan",
   profileImg: IMAGES.profileImg,
   displayName: {
     hebrew: "קו פנגן",
@@ -29,7 +29,7 @@ export const KOH_PHA_NGAN: Destination = {
       description: "מצריך אופנוע אבל מקום ממש שווה",
       price: "",
       googleMapLink: "https://maps.app.goo.gl/yBoVNcQYotoZzSqy8",
-      images: IMAGES.seaResortImages,
+      images: IMAGES.Searesort,
     },
     {
       name: "Delight Resort",
@@ -66,7 +66,7 @@ export const KOH_PHA_NGAN: Destination = {
       name: "Mama Homemade Restaurant",
       description: "מסעדה ממש נחמדה ליד הsea resort, מקומית תאילדית זולה",
       googleMapLink: "https://maps.app.goo.gl/p6UneWTsZG4MehoYA",
-      images: IMAGES.mamaRestaurant,
+      // images: IMAGES.mamaRestaurant,
     },
     {
       name: "Pantip Market שוק אוכל",
@@ -139,7 +139,7 @@ export const KOH_PHA_NGAN: Destination = {
       description:
         "יש על החוף כל ערב מלא ברים עם מופעי אש. באף אחד לא היה כתוב שיש האפי האוור אבל ברגע ששאלנו אז הם ענו שכן חחח קיצר תשאלו אם יש",
       googleMapLink: "https://maps.app.goo.gl/wzWoLNs6X7HBrCuG7",
-      images: IMAGES.HaadRinBeachBars,
+      images: IMAGES.Haadrin,
     },    {
       name: "Stona Jungle Club",
       description:"טראנדים היה כיף רצח עם נופר",

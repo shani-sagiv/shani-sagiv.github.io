@@ -18,7 +18,7 @@ const coordsMap: Record<string, [number, number]> = {
   "https://maps.app.goo.gl/HMCwmhpnWgrsu6Kc7": [37.5725, 126.9872], // Jongno Bar Street
 };
 
-// פונקציה לאיסוף כל הנקודות מה־SEOUL
+// פונקציה לאיסוף כל הנקודות מה־Seoul
 function getFirstImageUrl(img: any): string | undefined {
   if (!img) return undefined;
   if (Array.isArray(img)) return getFirstImageUrl(img[0]);
@@ -27,7 +27,7 @@ function getFirstImageUrl(img: any): string | undefined {
   return undefined;
 }
 
-// --- בניית רשימת נקודות מה־SEOUL ---
+// --- בניית רשימת נקודות מה־Seoul ---
 type Point = {
   name: string;
   description?: string;
@@ -36,14 +36,14 @@ type Point = {
 };
 
 const getPoints = (): Required<Point>[] => {
-  const hotels: Point[] = (SEOUL.hotels ?? []).map((h) => ({
+  const hotels: Point[] = (Seoul.hotels ?? []).map((h) => ({
     name: h.name,
     description: h.description,
     pos: coordsMap[h.googleMapLink ?? ""],
     image: getFirstImageUrl(h.images),
   }));
 
-  const attractionsGroups: Point[] = (SEOUL.attractionsGroups ?? []).flatMap((g) =>
+  const attractionsGroups: Point[] = (Seoul.attractionsGroups ?? []).flatMap((g) =>
     g.attractions.map((a) => ({
       name: a.name,
       description: a.description,
@@ -52,14 +52,14 @@ const getPoints = (): Required<Point>[] => {
     }))
   );
 
-  const attractions: Point[] = (SEOUL.attractions ?? []).map((a) => ({
+  const attractions: Point[] = (Seoul.attractions ?? []).map((a) => ({
     name: a.name,
     description: a.description,
     pos: coordsMap[a.googleMapLink ?? ""],
     image: getFirstImageUrl(a.images),
   }));
 
-  const nightlife: Point[] = (SEOUL.nightlife ?? []).map((n) => ({
+  const nightlife: Point[] = (Seoul.nightlife ?? []).map((n) => ({
     name: n.name,
     description: n.description,
     pos: coordsMap[n.googleMapLink ?? ""],
@@ -168,11 +168,11 @@ export default SeoulMap;
 
 
 
-export const SEOUL: Destination = {
-  id: "SEOUL",
+export const Seoul: Destination = {
+  id: "Seoul",
   displayName: {
     hebrew: "סיאול",
-    english: "seoul",
+    english: "Seoul",
   },
   images:IMAGES.general,
   description: "ממש חמודה וענקית ויש מליון לעשות",
@@ -183,13 +183,13 @@ export const SEOUL: Destination = {
   dates: [{ from: createDate("07/08/2025"), to: createDate("14/08/2025") }],
   description:"חדר בגודל של קופסאת גפרורים אבל וואלה היה ממש אחלה ונקי והמיקום פצצה",
   googleMapLink: "https://www.airbnb.com/rooms/24947938?c=.pi80.pkYm9va2luZy9ndWVzdC9SZXNlcnZhdGlvbkNvbmZpcm1hdGlvblRlbXBsYXRl&euid=d9728e2c-5568-11c7-d941-1c25cf2debf3&source_impression_id=p3_1755069652_P3MMrw7tToJDGRqU",
-  images: IMAGES.PIPE,
+  images: IMAGES.Pipe,
 },  {
   name: "Entire home in Donggyo-dong, Mapo-gu, South Korea",
   dates: [{ from: createDate("14/08/2025"), to: createDate("07/09/2025") }],
   description:"קצת שבורה אבל ממש כיפית ואחלה מיקום ויש הכל",
   googleMapLink: "https://www.airbnb.com/rooms/46609346?c=.pi80.pkYm9va2luZy9ndWVzdC9SZXNlcnZhdGlvblBlbmRpbmdUZW1wbGF0ZQ%3D%3D&euid=3970760f-eae6-adbe-9d80-e2fe471b6283&source_impression_id=p3_1755069824_P3TiCKLDMdveeXrC",
-  images: IMAGES.DonggyoDong,
+  images: IMAGES.Donggyodong,
 }
   ],
   foods: [],
@@ -246,7 +246,7 @@ export const SEOUL: Destination = {
     name: "홍대클럽 레이저 hongdae club razer seoul nightclub edm",
     description: "אחלה מייז",
     googleMapLink:"https://maps.app.goo.gl/K43WCaYKu5Fet3G79",
-    images: IMAGES.razer,
+    images: IMAGES.Razer,
   },
   {
     name: "Jongno Bar Street",

@@ -1,9 +1,9 @@
 import { Destination } from "models/Destination";
 import { createDate } from "helpers/dateHelpers";
-import IMAGES from "./images/index";
+import IMAGES from "./images";
 
-export const PATTAYA: Destination = {
-  id: "PATTAYA",
+export const Pattaya: Destination = {
+  id: "Pattaya",
   profileImg: IMAGES.profileImg,
   displayName: {
     hebrew: "פאטאיה",

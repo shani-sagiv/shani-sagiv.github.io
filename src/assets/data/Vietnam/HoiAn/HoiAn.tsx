@@ -2,8 +2,8 @@ import { Destination } from "models/Destination";
 import IMAGES from "./images";
 import { createDate } from "helpers/dateHelpers";
 
-export const HOI_AN: Destination = {
-  id: "HOI_AN",
+export const HoiAn: Destination = {
+  id: "HoiAn",
   displayName: {
     hebrew: "הוי אן",
     english: "Hoi An",

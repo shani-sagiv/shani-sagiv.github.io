@@ -1,0 +1,1 @@
+export { NinhBinh } from "./NinhBinh";

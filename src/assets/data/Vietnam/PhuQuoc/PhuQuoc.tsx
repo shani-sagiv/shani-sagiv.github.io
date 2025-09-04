@@ -2,8 +2,8 @@ import { Destination } from "models/Destination";
 import IMAGES from "./images";
 import { createDate } from "helpers/dateHelpers";
 
-export const PHU_QUOC: Destination = {
-  id: "PHU_QUOC",
+export const PhuQuoc: Destination = {
+  id: "PhuQuoc",
   displayName: {
     hebrew: "פו קוק",
     english: "Phu Quoc",

@@ -4,8 +4,8 @@ import { createDate } from "helpers/dateHelpers";
 import React from "react";
 import SiemReapMap from "../../../../siemReapMap";
 
-export const SIEM_REAP: Destination = {
-  id: "SIEM_REAP",
+export const SiemReap: Destination = {
+  id: "SiemReap",
   displayName: {
     hebrew: "סיאם ריפ",
     english: "siem reap",

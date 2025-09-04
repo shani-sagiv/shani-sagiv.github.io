@@ -1,1 +1,1 @@
-export { PHU_QUOC } from './PhuQuoc';
+export { PhuQuoc } from "./PhuQuoc";

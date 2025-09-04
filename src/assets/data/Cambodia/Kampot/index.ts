@@ -1,1 +1,1 @@
-export { KAMPOT } from './Kampot';
+export { Kampot } from "./Kampot";

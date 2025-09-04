@@ -115,9 +115,9 @@ const SiemReapMap = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
-      {templeData.map((temple, index) => (
+      {templeData.map((temple, Index) => (
         <Marker
-          key={index}
+          key={Index}
           position={temple.position as LatLngExpression}
           icon={createCustomDivIcon(
             temple.name,

@@ -30,17 +30,17 @@ const placeCoordinates: Record<string, [number, number]> = {
   KOH_PHA_NGAN: [9.7319, 100.0135],
   CHINAG_MAI: [18.7883, 98.9853],
   HOI_AN: [15.8801, 108.338],
-  PHONG_NHA: [17.5567, 106.2424],
-  HANOI: [21.0285, 105.8542],
-  CAT_BA: [20.7275, 107.0485],
-  HA_LONG: [20.9068, 107.0833],
-  SAPA: [22.3375, 103.847],
-  TA_VAN: [22.3075, 103.8841],
+  PhongNha: [17.5567, 106.2424],
+  Hanoi: [21.0285, 105.8542],
+  CatBa: [20.7275, 107.0485],
+  HaLong: [20.9068, 107.0833],
+  Sapa: [22.3375, 103.847],
+  TaVan: [22.3075, 103.8841],
   KOH_CHANG: [12.0494, 102.3314],
   PATTAYA: [12.9236, 100.8825],
   KOH_SAMUI: [9.512, 100.0135],
   KOH_TAO: [10.1016, 99.8402],
-  HO_CHI_MINH: [10.8231, 106.6297],
+  HoChiMinh: [10.8231, 106.6297],
   MUI_NE: [10.9466, 108.2769],
   NAH_TRANG: [12.2388, 109.1967],
   SIEM_REAP: [13.3622, 103.8597],
@@ -183,12 +183,12 @@ const SimpleMap: React.FC = () => {
         attribution='&copy; <a href="https://carto.com/">CARTO</a>'
       />
 
-      {locationData.map((location, index) => {
+      {locationData.map((location, Index) => {
         const position = placeCoordinates[location.id];
         if (!position) return null;
         return (
           <Marker
-            key={index}
+            key={Index}
             position={position}
             icon={createCustomDivIcon(location.displayName.english, location)}
           >

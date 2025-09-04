@@ -16,8 +16,8 @@ const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
   const visibleSections = useRef<Set<number>>(new Set());
 
   // Scroll to the section when clicked
-  const scrollToSection = (index: number) => {
-    const section = sectionRefs.current[index];
+  const scrollToSection = (Index: number) => {
+    const section = sectionRefs.current[Index];
     section?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
@@ -26,19 +26,19 @@ const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const index = sectionRefs.current.indexOf(
+          const Index = sectionRefs.current.indexOf(
             entry.target as HTMLDivElement,
           );
 
           if (entry.isIntersecting) {
-            // Add the currently visible section index
-            visibleSections.current.add(index);
+            // Add the currently visible section Index
+            visibleSections.current.add(Index);
           } else {
-            // Remove the section index when it goes off-screen
-            visibleSections.current.delete(index);
+            // Remove the section Index when it goes off-screen
+            visibleSections.current.delete(Index);
           }
 
-          // Find the lowest index of visible sections
+          // Find the lowest Index of visible sections
           const lowestVisibleIndex = Math.min(
             ...Array.from(visibleSections.current),
           );
@@ -76,13 +76,13 @@ const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
     >
       {/* Sticky Header */}
       <div className={"sticky-header"}>
-        {items.map((item, index) => (
+        {items.map((item, Index) => (
           <div
-            key={index}
+            key={Index}
             className={classnames("sticky-header-item", {
-              current: currentItemIndex === index,
+              current: currentItemIndex === Index,
             })}
-            onClick={() => scrollToSection(index)} // Click to scroll to the section
+            onClick={() => scrollToSection(Index)} // Click to scroll to the section
           >
             <span style={{ textAlign: "center" }}>{item.tabTitle}</span>
           </div>
@@ -91,11 +91,11 @@ const StickyHeaderScroll: React.FC<StickyHeaderScrollProps> = ({ items }) => {
 
       {/* Scrollable Content */}
       <span className={"sticky-header-content"}>
-        {items.map((item, index) => (
+        {items.map((item, Index) => (
           <div
-            key={index}
-            id={"item-" + index}
-            ref={(el) => (sectionRefs.current[index] = el)} // Assign ref to each section
+            key={Index}
+            id={"item-" + Index}
+            ref={(el) => (sectionRefs.current[Index] = el)} // Assign ref to each section
             style={{ width: "100%", boxSizing: "border-box" }}
           >
             <h1 style={{ textAlign: "center" }}>{item.title}</h1>

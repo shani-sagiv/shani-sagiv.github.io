@@ -1,10 +1,10 @@
 import { createDate } from "../../../helpers/dateHelpers";
-import { AttractionRecommendation, Country, Destination } from "models/index";
-import { SEOUL } from "./Seoul";
+import { AttractionRecommendation, Country, Destination } from "models";
+import { Seoul } from "./Seoul";
 import profileImg from "./profile_compressed_compressed.webp";
 
-export const SOUTH_KOREA: Country = {
-  id: "south_korea",
+export const SouthKorea: Country = {
+  id: "SouthKorea",
   name: "South Korea",
   displayName: {
     hebrew: "דרום קוריאה",
@@ -16,6 +16,6 @@ export const SOUTH_KOREA: Country = {
 };
 
 export const SOUTH_KOREA_DESTINATION = [
-  SEOUL
+  Seoul
 ];
 

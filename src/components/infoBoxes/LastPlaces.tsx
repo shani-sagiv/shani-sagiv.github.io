@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, WordArtTitle } from "components/index";
+import { Card, WordArtTitle } from "components";
 import {
   Location,
   mergeLocationsByPlaceAndDate,

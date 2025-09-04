@@ -17,8 +17,8 @@ const BreadcrumbNavigation: React.FC<BreadcrumbNavigationProps> = ({
 }) => {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
-  const breadcrumbs: BreadcrumbItem[] = pathnames.map((value, index) => {
-    const pathTo = `/${pathnames.slice(0, index + 1).join("/")}`;
+  const breadcrumbs: BreadcrumbItem[] = pathnames.map((value, Index) => {
+    const pathTo = `/${pathnames.slice(0, Index + 1).join("/")}`;
     const label =
       value.charAt(0).toUpperCase() + value.slice(1).replace("-", " ");
     const displayName =
@@ -32,10 +32,10 @@ const BreadcrumbNavigation: React.FC<BreadcrumbNavigationProps> = ({
 
   return (
     <div className="breadcrumb-wrapper">
-      {breadcrumbs.map((item, index) => {
-        const isLastItem = index === breadcrumbs.length - 1;
+      {breadcrumbs.map((item, Index) => {
+        const isLastItem = Index === breadcrumbs.length - 1;
         return (
-          <div key={index} className="breadcrumb-item">
+          <div key={Index} className="breadcrumb-item">
             {item.path && !isLastItem ? (
               <Link className="breadcrumb-text" to={item.path}>
                 {item.label}

@@ -1,24 +1,24 @@
 import { createDate } from "../../../helpers/dateHelpers";
 import { AttractionRecommendation, Country, Destination } from "models/index";
-import { MUI_NE } from "./MuiNe";
-import { NAH_TRANG } from "./NahTrang";
-import { PHU_QUOC } from "./PhuQuoc";
-import { DA_NANG } from "./DaNang";
-import { CHAM_ISLANDS } from "./ChamIslands";
-import { HOI_AN } from "./HoiAn";
-import { PHONG_NHA } from "./PhongNha/PHONG_NHA";
-import { HANOI } from "./hanoi/HANOI";
-import { CAT_BA } from "./CatBa/CAT_BA";
-import { HA_LONG } from "./HaLong/HA_LONG";
-import { TA_VAN } from "./TaVan/TA_VAN";
-import { SAPA } from "./Sapa/SAPA";
-import { HO_CHI_MINH } from "./HoChiMinh/HO_CHI_MINH";
-import { NINH_BINH } from "./ninhBinh/NINH_BINH";
+import { MuiNe } from "./MuiNe";
+import { NahTrang } from "./NahTrang";
+import { PhuQuoc } from "./PhuQuoc";
+import { DaNang } from "./DaNang";
+import { ChamIslands } from "./ChamIslands";
+import { HoiAn } from "./HoiAn";
+import { PhongNha } from "./PhongNha";
+import { Hanoi } from "./Hanoi";
+import { CatBa } from "./CatBa";
+import { HaLong } from "./HaLong";
+import { TaVan } from "./TaVan";
+import { Sapa } from "./Sapa";
+import { HoChiMinh } from "./HoChiMinh";
+import { NinhBinh } from "./NinhBinh";
 import IMAGES from "./images";
 import profileImg from "./image.png"
 
-export const VIETNAM: Country = {
-  id: "VNM",
+export const Vietnam: Country = {
+  id: "Vietnam",
   name: "Vietnam",
   displayName: {
     hebrew: "וייטנאם",
@@ -55,20 +55,20 @@ export const VIETNAM: Country = {
   };
 
 export const VIETNAM_DESTINATION = [
-  HOI_AN,
-  PHONG_NHA,
-  HANOI,
-  CAT_BA,
-  HA_LONG,
-  SAPA,
-  TA_VAN,
-  HO_CHI_MINH,
-  NINH_BINH,
-  MUI_NE,
-  NAH_TRANG,
-  PHU_QUOC,
-  DA_NANG,
-  CHAM_ISLANDS
+  HoiAn,
+  PhongNha,
+  Hanoi,
+  CatBa,
+  HaLong,
+  Sapa,
+  TaVan,
+  HoChiMinh,
+  NinhBinh,
+  MuiNe,
+  NahTrang,
+  PhuQuoc,
+  DaNang,
+  ChamIslands
 ];
 
 //todo: something with ha long bay cruise multiple display

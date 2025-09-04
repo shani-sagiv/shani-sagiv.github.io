@@ -2,8 +2,8 @@ import { Destination } from "models/Destination";
 import IMAGES from "./images";
 import { createDate } from "helpers/dateHelpers";
 
-export const MUI_NE: Destination = {
-  id: "MUI_NE",
+export const MuiNe: Destination = {
+  id: "MuiNe",
   displayName: {
     hebrew: "מוי נה",
     english: "mui ne",

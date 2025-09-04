@@ -6,18 +6,11 @@ import {
   CustomRouteObject,
 } from "helpers/navigationHelpers";
 import {
-  THAILAND,
+  Thailand,
   THAILAND_DESTINATION,
-  // KOH_LANTA,
-  // KOH_PHA_NGAN,
-  // CHINAG_MAI,
-  VIETNAM,
+  Vietnam,
   VIETNAM_DESTINATION,
-  // BANGKOK,
-  // KOH_CHANG,
-  // PATTAYA,
-  // KOH_SAMUI,
-  // KOH_TAO,
+
 } from "assets/data";
 import {
   Country as CountryModel,
@@ -30,27 +23,20 @@ import { logPageView, logUserAction } from "./helpers/logs.helpers";
 import NameForm from "components/NameForm/NameForm";
 import { getUserName } from "./helpers/localStorage.helpers";
 import {
-  CAMBODIA,
+  Cambodia,
   CAMBODIA_DESTINATION,
 } from "./assets/data/Cambodia/Cambodia";
-// import DataPage from "pages/DataPage/DataPage";
-// import MessagesPage from "pages/Messegas/MessagesPage";
-// import Randomoneonone from "pages/Random1on1/Randomoneonone";
-import { SOUTH_KOREA, SOUTH_KOREA_DESTINATION } from "assets/data/SouthKorea/SouthKorea";
-// import SimpleActivity from "pages/Activities/SimpleActivity";
+import { SouthKorea, SOUTH_KOREA_DESTINATION } from "assets/data/SouthKorea/SouthKorea";
 import { notifyPhone } from "helpers/notifier";
 import { notifyPageView } from "helpers/notifyTexts";
 import { useCurrentUser } from "currentUSer";
-import { CYPRUS, CYPRUS_DESTINATION } from "assets/data/Cyprus/Cyprus";
-// import LoginPage from "pages/GoogleLogin.tsx/LoginPage";
-// import RandomLive from "pages/RandomLive";
+import { Cyprus, CYPRUS_DESTINATION } from "assets/data/Cyprus/Cyprus";
 
 const DataPage = React.lazy(() => import("pages/DataPage/DataPage"));
 const MessagesPage = React.lazy(() => import("pages/Messegas/MessagesPage"));
 const Randomoneonone = React.lazy(() => import("pages/Random1on1/Randomoneonone"));
 const SimpleActivity = React.lazy(() => import("pages/Activities/SimpleActivity"));
 const LoginPage = React.lazy(() => import("pages/GoogleLogin.tsx/LoginPage"));
-
 
 const Country = React.lazy(() =>
   import("pages/Country").then(module => ({ default: module.Country }))
@@ -61,33 +47,30 @@ const Destination = React.lazy(() =>
 const Random = React.lazy(() =>
   import("pages/Random").then(module => ({ default: module.Random }))
 );
-
 const RandomCountry = React.lazy(() =>
   import("pages/Random3").then(module => ({ default: module.Random }))
 );
-
-
 
 
 export const COUNTRIES: {
   country: CountryModel;
   destinations: DestinationModel[];
 }[] = [
-  {country: SOUTH_KOREA, destinations: SOUTH_KOREA_DESTINATION},
+  {country: SouthKorea, destinations: SOUTH_KOREA_DESTINATION},
   {
-    country: THAILAND,
+    country: Thailand,
     destinations: THAILAND_DESTINATION,
   },
   {
-    country: CAMBODIA,
+    country: Cambodia,
     destinations: CAMBODIA_DESTINATION,
   },
   {
-    country: VIETNAM,
+    country: Vietnam,
     destinations: VIETNAM_DESTINATION,
   },
   {
-    country: CYPRUS,
+    country: Cyprus,
     destinations: CYPRUS_DESTINATION,
   },
 ];
@@ -210,8 +193,8 @@ function InnerRoutes() {
         {/*<Route path={"/semental"} element={<Semental />} />*/}
 
         {[...createRoutesFromOptions(NAV_BAR_OPTIONS), ...getRoutes()].map(
-          (route, index) => (
-            <Route key={index} path={route.path} element={route.element} />
+          (route, Index) => (
+            <Route key={Index} path={route.path} element={route.element} />
           ),
         )}
       </Routes>

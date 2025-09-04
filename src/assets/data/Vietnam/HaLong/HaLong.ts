@@ -1,11 +1,11 @@
 import { Destination } from "models/Destination";
 // import { IMAGES } from "../../img/Vietnam";
 import { createDate } from "helpers/dateHelpers";
-import { HANOI_HA_LONG_CRUISE } from "../HANOI_HA_LONG_CRUISE";
+import { HanoiHaLongCruise } from "../HanoiHaLongCruise";
 import IMAGES from "./images";
 
-export const HA_LONG: Destination = {
-  id: "HA_LONG",
+export const HaLong: Destination = {
+  id: "HaLong",
   displayName: {
     hebrew: "הא לונג",
     english: "ha long",
@@ -29,7 +29,7 @@ export const HA_LONG: Destination = {
       googleMapLink: "https://maps.app.goo.gl/F9rEa4qJxXuamdf1A",
       images: IMAGES.chillBar,
     },
-    HANOI_HA_LONG_CRUISE.HA_LONG,
+    HanoiHaLongCruise.HaLong,
     {
       name: "Bãi tắm",
       description: "אזור מאוד נחמד עם ברים ומסעדות על החוף",

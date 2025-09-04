@@ -3,8 +3,8 @@ import { createDate } from "helpers/dateHelpers";
 import { Destination } from "models";
 import LARNACA_IMAGES from "./images";
 
-export const LARNACA: Destination = {
-  id: "LARNACA",
+export const Larnaca: Destination = {
+  id: "Larnaca",
   profileImg: LARNACA_IMAGES.profileImg,
   displayName: {
     hebrew: "לרנקה",

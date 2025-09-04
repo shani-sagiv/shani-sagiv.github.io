@@ -2,8 +2,8 @@ import { createDate } from "helpers/dateHelpers";
 import { Destination } from "models";
 import VASA_IMAGES from "./images";
 
-export const VASA: Destination = {
-  id: "VASA",
+export const Vasa: Destination = {
+  id: "Vasa",
   profileImg: VASA_IMAGES.profileImg,
   displayName: {
     hebrew: "ואסה",

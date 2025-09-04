@@ -3,8 +3,8 @@ import { Destination } from "models/Destination";
 import { createDate } from "helpers/dateHelpers";
 import SAPA_IMAGES from "./images";
 
-export const SAPA: Destination = {
-  id: "SAPA",
+export const Sapa: Destination = {
+  id: "Sapa",
   displayName: {
     hebrew: "סאפה",
     english: "sapa",

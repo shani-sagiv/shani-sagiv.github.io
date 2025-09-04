@@ -1,1 +1,1 @@
-export { NAH_TRANG } from './NahTrang';
+export { NahTrang } from "./NahTrang";
