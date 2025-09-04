@@ -30,10 +30,12 @@ import {
   parseDaysToHebrew,
 } from "../../helpers/dateHelpers";
 import Marquee from "react-fast-marquee";
-import { compressAndUpload } from "./compressAndUpload";
+import MultiImageUpload from "./compressAndUpload";
+import { getUserName } from "helpers/localStorage.helpers";
 // import {PEOPLE_TRAVELED_WITH} from "assets/data/People"
 interface DestinationProps extends React.HTMLAttributes<HTMLDivElement> {
   dest: DestinationModel;
+  countryId:string
 }
 export const createWhatsAppLinksContent = (phoneNumbers: string[]) =>
   phoneNumbers.map((number, Index) => (
@@ -46,7 +48,8 @@ export const createWhatsAppLinksContent = (phoneNumbers: string[]) =>
       {number}
     </a>
   ));
-const Destination: React.FC<DestinationProps> = ({ dest }) => {
+  const username = getUserName()
+const Destination: React.FC<DestinationProps> = ({ dest, countryId }) => {
   const {
     displayName,
     attractionsGroups = [],
@@ -74,17 +77,15 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
         destinationId={dest.id}
         key={`${keyPrefix}-${Index}`}
       />
-      {/* <input
-        type="file"
-        accept="image/*"
-        onChange={(e) => {
-          if (e.target.files?.length) {
-            compressAndUpload(e.target.files[0], "Vietnam", "Hanoi", "SushiLAB")
-              .then(() => alert("Uploaded!"))
-              .catch(console.error);
-          }
-        }}
-      /> */}
+      {username === "שגיבהמלך" ? 
+      item.id ? 
+      <MultiImageUpload 
+        countryId={countryId}
+        destId={dest.id}
+        attractionId={item.id} 
+      /> : <h1>no id</h1>
+      :null
+}
 
       </>
     ));

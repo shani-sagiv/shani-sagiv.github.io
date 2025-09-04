@@ -25,13 +25,15 @@ export const ChamIslands: Destination = {
   name: "XEP Beach",
   description: "הליכה לשם עלייה וירידה אפשרי אבל כבר עדיף אופנוע ולטייל, חוף מטורף חובה שנורקלים",
   googleMapLink: "https://maps.app.goo.gl/CuX8nksX1uvyFwGB8",
-  images: IMAGES.XEP,
+  id: "XEP",
+    images: IMAGES.XEP,
 },
     {
   name: "MONKEY BEACH BAR Cocktail - Relax & More",
   description: "אחלה חוף נחמד אבל יותר עמוס, להיזהר מהקופים כשכולם הולכים, אני בשוק רק עכשיו הבנתי למה קוראים לו ככה",
   googleMapLink: "https://maps.app.goo.gl/zroiNi9LE3kJp5g3A",
-  images: IMAGES.MONKEYBEACH,
+  id: "MONKEYBEACH",
+    images: IMAGES.MONKEYBEACH,
 }
   ],
   attractionsGroups: [],

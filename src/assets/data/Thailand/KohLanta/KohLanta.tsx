@@ -30,14 +30,16 @@ export const KohLanta: Destination = {
       name: "Lanta Riviera Resort",
       description: "המסעדה בבריכה של המלון הייתה אחלה ממש, אכלנו בה מלאאא  ",
       googleMapLink: "https://maps.app.goo.gl/URVK9gTZAGHwMBpV8",
-      images: IMAGES.restaurantsLantaRiviera,
+      id: "restaurantsLantaRiviera",
+    images: IMAGES.restaurantsLantaRiviera,
     },
     {
       name: "Moonwalk Restaurant & Bar",
       description:
         "מסעדה ממש חמודה על החוף, כמה דק הליכה מהחוף של המלון. המלצריות היו ממש נחמדות והאוכל מצויין",
       googleMapLink: "https://maps.app.goo.gl/t66ajYqb2s9AKVnw5",
-      images: IMAGES.restaurantsMoonwalk,
+      id: "restaurantsMoonwalk",
+    images: IMAGES.restaurantsMoonwalk,
     },
 
     {
@@ -54,19 +56,22 @@ export const KohLanta: Destination = {
       description:
         "חוות פילים ממש מוסרית, הפילים משוחררים בחופשיות, לא נוגעים בהם או מציקים להם. הסבירו לנו בכניסה על שיקום פילים ששימשו לבידור בני אדם.",
       googleMapLink: "https://maps.app.goo.gl/1B1HYB4Soi51KvLU8",
-      images: IMAGES.FollowingGiants,
+      id: "FollowingGiants",
+    images: IMAGES.FollowingGiants,
     },
     {
       name: "גאות ושפל ממש גדולים",
       description: "יש שם גאות ושפל ממש חזקים אז אפשר לבוא לשם לראות המון מהים",
-      images: IMAGES.beachTravel,
+      id: "beachTravel",
+    images: IMAGES.beachTravel,
     },
     {
       name: "שוק לילה",
       description:
         "בצפון האי יש שוק קטן וחמוד בלילה, יש דוכני אוכל נחמד וכיף להסתובב",
       googleMapLink: "https://maps.app.goo.gl/FxiaFTCA2EckFqUV6",
-      images: IMAGES.nightMarket,
+      id: "nightMarket",
+    images: IMAGES.nightMarket,
     },
   ],
   nightlife: [
@@ -74,7 +79,8 @@ export const KohLanta: Destination = {
       name: "Beach Bars",
       description:
         "יש על החוף מלא ברים, מושלם לראות את השקיעה ולשבת בלילה. לפעמים גם יש מופעי אש, אפשר לשאול",
-      images: IMAGES.BeachBars,
+      id: "BeachBars",
+    images: IMAGES.BeachBars,
     },
   ],
 };

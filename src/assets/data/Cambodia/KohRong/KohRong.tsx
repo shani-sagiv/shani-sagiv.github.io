@@ -33,12 +33,14 @@ export const KohRong: Destination = {
     {
       name: "אוכל טעים בערב",
       description: "כל ערב יש מסעדות על החוף 5 דולר לצלחת עם דג או מה שבא",
-      images: IMAGES.StreetFood,
+      id: "StreetFood",
+    images: IMAGES.StreetFood,
     },
     {
       name: "מזל טוב לשני",
       description: "",
-      images: IMAGES.shani,
+      id: "shani",
+    images: IMAGES.shani,
     },
   ],
   nightlife: [],

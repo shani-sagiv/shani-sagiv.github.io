@@ -203,19 +203,22 @@ export const Seoul: Destination = {
         name: "Ssamziegil / Insa-dong Culture Street",
         description:"אזור מאוד חמוד להסתובב",
         googleMapLink: "https://maps.app.goo.gl/sub8foPesA1PsgiGA",
-        images: IMAGES.InsaDong,
+        id: "InsaDong",
+    images: IMAGES.InsaDong,
       },
       {
         name:"jogyesa temple",
         description:"מקדש בודהיסטי מאוד יפה",
         googleMapLink:"https://maps.app.goo.gl/hvc93enJYaiCtSa87",
-        images: IMAGES.jogyesa,
+        id: "jogyesa",
+    images: IMAGES.jogyesa,
       },
       {
         name: "Bukchon Hanok Village",
         description:"כפר מסורתי עם בתים יפים",
         googleMapLink: "https://maps.app.goo.gl/4SqiVentgrWgL6ig6",
-        images: IMAGES.bukchon,
+        id: "bukchon",
+    images: IMAGES.bukchon,
       }
   ]
 }],
@@ -224,7 +227,8 @@ export const Seoul: Destination = {
       name:"Running man & Dynamic maze",
       description:"אטרקציית מבוך קצת מורה אבל הrunning man נדיר מאוד",
       googleMapLink: "https://maps.app.goo.gl/n8ehhnQotjKQTbZZ8",
-      images: IMAGES.runningMan,
+      id: "runningMan",
+    images: IMAGES.runningMan,
     }
 
   ],
@@ -234,24 +238,28 @@ export const Seoul: Destination = {
     name: "Hongdae",
     description: "אזור מאוד חזק עם הרבה מועדונים וברים",
     googleMapLink: "https://maps.app.goo.gl/DMQTgvH6zGZkMbrf7",
+    id: "hongdaeNightLife",
     images: IMAGES.hongdaeNightLife,
   },
   {
     name: "La Bamba",
     description: "אחלה בר רגאטון",
     googleMapLink:"https://maps.app.goo.gl/t2huShr7ticSvTmt5",
+    id: "LaBamba",
     images: IMAGES.LaBamba,
   },
     {
     name: "홍대클럽 레이저 hongdae club razer seoul nightclub edm",
     description: "אחלה מייז",
     googleMapLink:"https://maps.app.goo.gl/K43WCaYKu5Fet3G79",
+    id: "Razer",
     images: IMAGES.Razer,
   },
   {
     name: "Jongno Bar Street",
     description: "אזור ברים מאוד חזק",
     googleMapLink: "https://maps.app.goo.gl/HMCwmhpnWgrsu6Kc7",
+    id: "Jongno",
     images: IMAGES.Jongno,
 
   }

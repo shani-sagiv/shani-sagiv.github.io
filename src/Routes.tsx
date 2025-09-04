@@ -210,7 +210,7 @@ function DestinationWrapper({ destId, countryId }: { destId: string; countryId: 
   const country = COUNTRIES.find(c => c.country.id === countryId);
   const dest = country?.destinations.find(d => d.id === destId);
 
-  return dest ? <Destination dest={dest} /> : <div>Not found</div>;
+  return dest ? <Destination dest={dest} countryId={countryId} /> : <div>Not found</div>;
 }
 
 
