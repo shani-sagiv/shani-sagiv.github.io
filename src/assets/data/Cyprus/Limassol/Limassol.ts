@@ -4,7 +4,7 @@ import {  Destination } from "models";
 
 export const LIMASSOL: Destination = {
   id: "LIMASSOL",
-  profileImg: LIMASSOL_IMAGES.profile,
+  profileImg: LIMASSOL_IMAGES.profileImg,
   displayName: {
     hebrew: "לימסול",
     english: "Limassol",

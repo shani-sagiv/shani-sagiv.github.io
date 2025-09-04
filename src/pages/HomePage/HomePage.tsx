@@ -11,12 +11,12 @@ import {
   parseDaysToHebrew,
 } from "helpers/dateHelpers";
 import { useNavigate } from "react-router-dom";
-import Card from "../../components/Card/Card";
+// import Card from "../../components/Card/Card";
 import LastPlaces from "components/infoBoxes/LastPlaces";
 import TopPlaces from "components/infoBoxes/TopPlaces";
 import { getUserName } from "helpers/localStorage.helpers";
-import { signInWithGoogle } from "../../firebase";
-import { createReturn } from "typescript";
+// import { signInWithGoogle } from "../../firebase";
+// import { createReturn } from "typescript";
 import EmojiParticles from "components/EmojiParticles";
 import EmojiCycler from "components/EmojiCycler";
 // import UserStatsRow from "components/UserStatsRow";
@@ -157,18 +157,20 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
         }}
       />
 
-      <EmojiParticles />
 
       <div
         style={{
           display: "inline-flex",
           alignItems: "center",
           marginBottom: "15px",
+          marginTop: -60,
+          zIndex:12
         }}
       >
         <span className="hello-header">שלום {savedName}</span>
         <span className="hand-wave">👋🏻</span>
       </div>
+      <EmojiParticles />
 
       {/* <span
         style={{ padding: "10px", textAlign: "center", fontSize: 15 }}
@@ -178,10 +180,12 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
 
       <WordArtTitle
         title={parseDaysToHebrew(totalNights)}
-        style={{ fontSize: 30, marginBottom: "5px" }}
+        style={{ fontSize: 30, marginBottom: "5px", marginTop:10,          zIndex:12
+ }}
       />
 
-      <EmojiCycler intervalMs={1800} size={35} />
+
+      {/* <EmojiCycler intervalMs={1800} size={35} /> */}
       <span className="section-header">יעדים אחרונים📍</span>
       <LastPlaces />
 

@@ -4,7 +4,7 @@ import VASA_IMAGES from "./images";
 
 export const VASA: Destination = {
   id: "VASA",
-  profileImg: VASA_IMAGES.profile,
+  profileImg: VASA_IMAGES.profileImg,
   displayName: {
     hebrew: "ואסה",
     english: "Vasa",

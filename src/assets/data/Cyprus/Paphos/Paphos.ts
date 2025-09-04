@@ -5,7 +5,7 @@ import PAPHOS_IMAGES from "./images";
 
 export const PAPHOS: Destination = {
   id: "PAPHOS",
-  profileImg: PAPHOS_IMAGES.profile,
+  profileImg: PAPHOS_IMAGES.profileImg,
   displayName: {
     hebrew: "פאפוס",
     english: "Paphos",

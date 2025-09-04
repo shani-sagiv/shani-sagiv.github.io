@@ -5,7 +5,7 @@ import LARNACA_IMAGES from "./images";
 
 export const LARNACA: Destination = {
   id: "LARNACA",
-  profileImg: LARNACA_IMAGES.profile,
+  profileImg: LARNACA_IMAGES.profileImg,
   displayName: {
     hebrew: "לרנקה",
     english: "Larnaca",

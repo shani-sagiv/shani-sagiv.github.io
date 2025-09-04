@@ -78,24 +78,27 @@ export default function EmojiParticles() {
   if (!init) return null;
 
   return (
+    <div style={{height:0, width:"100%", position:"relative"}}>
+      
     <div
       style={{
         position: "absolute",
-        top: "20%",
-        left: 0,
+        top: "-110px",
+        // left: 0,
         width: "100%",
-        height: "15%",
-        zIndex: 15,
-        pointerEvents: "none",
-        overflow: "visible",
+        height: "200px",
+        zIndex: 0,
+        // pointerEvents: "none",
+        // overflow: "visible",
+        // backgroundColor:"red",
 
         WebkitMaskImage:
-          "linear-gradient(to bottom, transparent 0, black 12px, black calc(100% - 12px), transparent 100%)",
+          "linear-gradient(to bottom, transparent 0, black 20px, black calc(100% - 20px), transparent 100%)",
         maskImage:
-          "linear-gradient(to bottom, transparent 0, black 12px, black calc(100% - 12px), transparent 100%)",
+          "linear-gradient(to bottom, transparent 0, black 20px, black calc(100% - 20px), transparent 100%)",
       }}
     >
-      <div
+      {/* <div
         style={{
           position: "absolute",
           top: "-48px",
@@ -103,9 +106,10 @@ export default function EmojiParticles() {
           left: 0,
           right: 0,
         }}
-      >
+      > */}
         <Particles id="emojiParticles" options={options} />
-      </div>
+      {/* </div> */}
+    </div>
     </div>
   );
 }
