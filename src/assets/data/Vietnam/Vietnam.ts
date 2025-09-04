@@ -31,13 +31,13 @@ export const Vietnam: Country = {
       name: "מרק פו (pho)",
       description:
         "מרק עם עוף טעים בטירוף, ככל שהמקום נראה יותר הומלסי ככה יותר טעים",
-      images: IMAGES.phoSoup,
+      id: "phoSoup", images: IMAGES.phoSoup,
     },
     {
       name: "סליפרים",
       description:
         "לכל הסליפרים קוראים VIP וluxury אז אל תתנו לזה לקנות אתכם, תסתכלו במספר שכתוד לי הסליפרים והוא אומר כמה מקומות יש באוטובוס. אנחנו תמיד הדעפנו לשלם קצת יותר ולסגור סליפר של 20-224 מקמות זה הכי נוח",
-      images: IMAGES.sleeper,
+      id: "sleeper", images: IMAGES.sleeper,
     },
     {
       name: "קלי הסוכנת",
@@ -48,7 +48,7 @@ export const Vietnam: Country = {
          {
       name: "סים",
       description:"viettel הכי טוב",
-      images: IMAGES.sim,
+      id: "sim", images: IMAGES.sim,
     },
   ],
   profileImg: profileImg,

@@ -18,14 +18,14 @@ export const KohChang: Destination = {
       dates: [{ from: createDate("06/09/2024"), to: createDate("12/09/2024") }],
       description:
         "מלון ממש שווה, אחלה בריכות באסה שאי אפשר להיכנס למים שם והחיי לילה הקרובים מוזרים",
-      images: IMAGES.ChangBuri,
+      id: "ChangBuri", images: IMAGES.ChangBuri,
     },
     {
       name: "Flora I Talay Resort",
       googleMapLink: "https://maps.app.goo.gl/GdHD6pPnrvg4MXwr7",
       dates: [{ from: createDate("12/09/2024"), to: createDate("19/09/2024") }],
       description: "מלון ממש ממש חמוד ושווה היה מאוד כיף",
-      images: IMAGES.Flora,
+      id: "Flora", images: IMAGES.Flora,
     },
   ],
   foods: [],

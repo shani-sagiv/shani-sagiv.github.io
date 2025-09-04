@@ -47,19 +47,19 @@ export const Thailand: Country = {
         "נגד יתושים: ספריי ורוד מה7/11 " +
         "\n" +
         "נגד עקיצות: קוף מחזיק אפרסק או הטייגר גם טוב",
-      images: IMAGES.mosquitos,
+      id: "mosquitos", images: IMAGES.mosquitos,
     },
     {
       name: "סים ☎️",
       description:
         "יש ב7/11 סימים ממש בזול, יש להם לכמה מספרי ימים, כל אחד הוא כמות גיגה פר יום אז כדאי לבדוק כמה משתמשים כי לא תמיד צריך הרבה",
-      images: IMAGES.sim,
+      id: "sim", images: IMAGES.sim,
     },
     {
       name: "סושי בשקל 🍣",
       description:
         "בכללל שוק שהיינו בו יש דוכן של סושי ב10 באט. תקשיבו זה תמיד טעים ברמות ובחיים לא עשה לי בעיות בבטן (ואני רגישה). קיצר מוממלץ מאוד",
-      images: IMAGES.sushi,
+      id: "sushi", images: IMAGES.sushi,
     },
   ],
   profileImg: profileImg,

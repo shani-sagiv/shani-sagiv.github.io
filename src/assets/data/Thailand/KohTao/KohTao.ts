@@ -16,7 +16,7 @@ export const KohTao: Destination = {
     {
       name: "Mama Ochai",
       googleMapLink: "https://maps.app.goo.gl/AoVWBfhQVJsfoiK26",
-      images: IMAGES.Ochai,
+      id: "Ochai", images: IMAGES.Ochai,
       dates: [
         { from: createDate("06/10/2024"), to: createDate("15/10/2024") },
         { from: createDate("12/11/2024"), to: createDate("26/11/2024") },
@@ -29,7 +29,7 @@ export const KohTao: Destination = {
       name: "Sairee Hut Resort And Restaurant",
       googleMapLink: "https://maps.app.goo.gl/5Pv5KRGiJuqZY1ed9",
       description: "אחלה מקום על הים אוכל זול נחמד מאוד",
-      images: IMAGES.hutResort,
+      id: "hutResort", images: IMAGES.hutResort,
     },
   ],
   attractions: [
@@ -38,14 +38,14 @@ export const KohTao: Destination = {
       googleMapLink: "https://maps.app.goo.gl/BsUgE2JKJBmyW3eQA",
       description:
         "בר חמוד אחלה של נוף פנורמי גדול מלא שמש דרך להגיע סיוט אם אני זוכר נכון",
-      images: IMAGES.secret,
+      id: "secret", images: IMAGES.secret,
     },
     {
       name: "Freedom Beach",
       googleMapLink: "https://maps.app.goo.gl/vVyZPusg4qVydKU58",
       description:
         "חוף חמוד כניסה 50 שנורקלים מטורפים, יש שם עליה של קיר טיםוס רמה 9000 לנקודת תצפית",
-      images: IMAGES.FreedomBeach,
+      id: "FreedomBeach", images: IMAGES.FreedomBeach,
     },
   ],
   nightlife: [
@@ -54,7 +54,7 @@ export const KohTao: Destination = {
       googleMapLink: "https://maps.app.goo.gl/Aut1bXWx85H3cgjb9",
       description:
         "אחלה מסיבה כיפית אחלה רחבות שירותים ברים הכל נוח אפילו שיש עליות של השטן",
-      images: IMAGES.Escobar,
+      id: "Escobar", images: IMAGES.Escobar,
     },
   ],
 };

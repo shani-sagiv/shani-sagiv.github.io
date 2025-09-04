@@ -19,7 +19,7 @@ export const Limassol: Destination = {
       description: "וילה גדולה ומאובזרת בהכל",
       price: "4,785 שח לכל הלילות",
       googleMapLink: "https://maps.app.goo.gl/FuEJkGXGz14hDC27A",
-      images: LIMASSOL_IMAGES.Chrysta,
+      id: "Chrysta", images: LIMASSOL_IMAGES.Chrysta,
     },
     {
       name: "Stay cypress St1",
@@ -28,7 +28,7 @@ export const Limassol: Destination = {
       price: "1,763 שח לכל הלילות",
       googleMapLink:
         "https://www.booking.com/hotel/cy/stay-cypress-st.he.html#map_closed",
-      images: LIMASSOL_IMAGES.Stay,
+      id: "Stay", images: LIMASSOL_IMAGES.Stay,
     },
   ],
   foods: [],
@@ -36,12 +36,12 @@ export const Limassol: Destination = {
     {
       name: "Limassol Castle - Cyprus Medieval Museum",
       description: "מוזיאון מאוד כיף",
-      images: LIMASSOL_IMAGES.Castle,
+      id: "Castle", images: LIMASSOL_IMAGES.Castle,
     },
     {
       name: "Limassol Municipal Garden",
       description: "גן חיות",
-      images: LIMASSOL_IMAGES.MunicipalGarden,
+      id: "MunicipalGarden", images: LIMASSOL_IMAGES.MunicipalGarden,
     },
   ],
   nightlife: [],

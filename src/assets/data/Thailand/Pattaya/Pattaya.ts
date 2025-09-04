@@ -15,7 +15,7 @@ export const Pattaya: Destination = {
     {
       name: "The Bayview",
       googleMapLink: "https://maps.app.goo.gl/iqbrRfp7k3Qw3Vmy9",
-      images: IMAGES.Bayview,
+      id: "Bayview", images: IMAGES.Bayview,
       dates: [{ from: createDate("19/09/2024"), to: createDate("22/09/2024") }],
       description: "מלון סבבה אחלה של מיקום אחלה של בריכה ואוכל",
     },
@@ -32,7 +32,7 @@ export const Pattaya: Destination = {
       name: "Nong Nooch Botanical Garden",
       description: "מקום ענק דינוזאורים פארק בוטני",
       googleMapLink: "https://maps.app.goo.gl/1khPab9MEfXiEnK99",
-      images: IMAGES.NongNooch,
+      id: "NongNooch", images: IMAGES.NongNooch,
     },
   ],
   nightlife: [],

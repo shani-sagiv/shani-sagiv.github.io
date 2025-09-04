@@ -39,12 +39,12 @@ export const Paphos: Destination = {
     {
       name: "Catacombs",
       description: "מערכות קבורה תת-קרקעיות",
-      images: PAPHOS_IMAGES.Catacombs,
+      id: "Catacombs", images: PAPHOS_IMAGES.Catacombs,
     },
     {
       name: "Island Cove Adventure Mini Golf",
       description: "מיני גולף חמוד",
-      images: PAPHOS_IMAGES.MiniGolf,
+      id: "MiniGolf", images: PAPHOS_IMAGES.MiniGolf,
     },
   ],
   nightlife: [],

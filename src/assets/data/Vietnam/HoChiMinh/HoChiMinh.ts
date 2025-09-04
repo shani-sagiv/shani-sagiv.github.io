@@ -18,7 +18,7 @@ export const HoChiMinh: Destination = {
       dates: [{ from: createDate("02/12/2024"), to: createDate("05/12/2024") }],
 
       googleMapLink: "https://maps.app.goo.gl/dajy1fdGZ9Pi9EZHA",
-      images: HO_CHI_MINH_IMAGES.Huazhu,
+      id: "Huazhu", images: HO_CHI_MINH_IMAGES.Huazhu,
     },
   ],
   foods: [],

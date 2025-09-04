@@ -5,7 +5,7 @@ import  IMAGES from "./images";
 export const ChinagMai: Destination = {
   id: "ChinagMai",
   profileImg: IMAGES.profileImg,
-    // images:IMAGES.general,
+    // images: IMAGES.general,
   displayName: {
     hebrew: "צ'אנג מאי",
     english: "Chinag Mai",
@@ -27,7 +27,7 @@ export const ChinagMai: Destination = {
       description: "קונדו עם מלא דירות שוות חדכ בריכה אחלה מיקום",
       price: "",
       googleMapLink: "https://maps.app.goo.gl/dQGTVUSJVTStZ2uSA",
-      images: IMAGES.astra,
+      id: "astra", images: IMAGES.astra,
     },
   ],
   foods: [
@@ -37,7 +37,7 @@ export const ChinagMai: Destination = {
         "הוטפוט עם מסועים וסושי ומלא כיף מומלץ מאוד! שימו לב שזה רשת אז אפשר למצוא אותם בעוד מלאאא מקומות (היינו בכמה כאלה וזה תמיד מושלם)",
       price: "400 באט לראש אכול כפי יכולתך",
       googleMapLink: "https://maps.app.goo.gl/NorSJuHavaQ4c9Fi7",
-      images: IMAGES.shabushi,
+      id: "shabushi", images: IMAGES.shabushi,
     },
   ],
   attractionsGroups:[
@@ -48,14 +48,14 @@ export const ChinagMai: Destination = {
         "מקדש מאוד יפה, דורש נסיעה אנחנו לקחנו נהג מהאלה שמחכים עם הטנדר שלהם לשם ולכפר Hmong Doi Pui Village ",
       googleMapLink: "https://maps.app.goo.gl/NXcxFVRpv6YKteZ87",
       price: "הכניסה חינם, נהג שהיה איתנו לכל היום עלה בערך 800 באט",
-      images: IMAGES.doiSutep,
+      id: "doiSutep", images: IMAGES.doiSutep,
     },
     {
       name: "Hmong Doi Pui Village",
       description:
         "כפר מאוד חמוד מסתובבים שם ברגל, יש שם מוזיאון חמוד של שבט ההמונג, שוק וגן בוטני מהמם",
       googleMapLink: "https://maps.app.goo.gl/KD1GMysjxa3e66Du8",
-      images: IMAGES.doiPui,
+      id: "doiPui", images: IMAGES.doiPui,
     },
   ]} ,
   
@@ -69,21 +69,21 @@ export const ChinagMai: Destination = {
         "סגרנו יום טיול בקוברה, מוזיאון חרקים והגנים הבוטנים של המלכה סיקריט עם נהג טנדר מהרחוב, היה ממש כיף והמדריך דיבר מלא עברית",
       price: "800-1000 באט",
       googleMapLink: "https://maps.app.goo.gl/nyJfYjgpwKPdvS1BA",
-      images: IMAGES.cobra,
+      id: "cobra", images: IMAGES.cobra,
     },
     {
       name: "Siam Insect Zoo",
       description: "מוזיאון חרקים וזוחלים חמוד",
       price: "ביחד עם הקוברה והגן הבוטני של המלכה",
       googleMapLink: "https://maps.app.goo.gl/7GEjcNViCwRyzZoD8",
-      images: IMAGES.insectZoo,
+      id: "insectZoo", images: IMAGES.insectZoo,
     },
     {
       name: "Queen Sirikit Botanic Garden",
       description: "גן בוטני עצום ומטורף",
       price: "ביחד עם הקוברה והמוזיאון חרקים",
       googleMapLink: "https://maps.app.goo.gl/VESrFySdsmfk9BVu7",
-      images: IMAGES.sirikit,
+      id: "sirikit", images: IMAGES.sirikit,
     },
     ]
   }
@@ -93,7 +93,7 @@ export const ChinagMai: Destination = {
       name: "מקדש Wat Chiang Man",
       description: "מקדש מאוד יפה",
       googleMapLink: "",
-      images: IMAGES.watTemple,
+      id: "watTemple", images: IMAGES.watTemple,
     },
    
 
@@ -103,7 +103,7 @@ export const ChinagMai: Destination = {
         "מקום עם אין סוף גילופים, יש שם דברים שלקח להכין 10 שנים ו5 אנשים שעובדים עליו כל יום, מטורף לגמרי (היה אסור לצלם בפנים)",
       price: "כניסה חינם, גילוף עלה איזה 100באט לראש",
       googleMapLink: "https://maps.app.goo.gl/xJ5wqTTWCbb1RxKH9",
-      images: IMAGES.woodCarve,
+      id: "woodCarve", images: IMAGES.woodCarve,
     },
     {
       name: "מפלים דביקים",
@@ -112,28 +112,28 @@ export const ChinagMai: Destination = {
       price:
         "כניסה חינם, לקחנו נהג שיהיה איתנו כל היום עלה בערך 800 באט נראה לי",
       googleMapLink: "https://maps.app.goo.gl/QZBh82aBmZ32BYw69",
-      images: IMAGES.stickyWaterfall,
+      id: "stickyWaterfall", images: IMAGES.stickyWaterfall,
     },
     {
       name: "Ginger Farm",
       description: "מקום יפה אוכל טעים מדברים שהם מגדלים שם!!! חיות חמודות",
       price: "חינם ואפשר לקנות אוכל להאכיל את החיות באיזה 30 באט",
       googleMapLink: "https://maps.app.goo.gl/3U9vwE3jGe41X7fi7",
-      images: IMAGES.gingerFarm,
+      id: "gingerFarm", images: IMAGES.gingerFarm,
     },
     {
       name: "ארקייד Echo-Ex10",
       description: "ארקייד ממש כיף בקניון מאיה",
       price: "שילמנו 300 באט ושיחקנו שנינו שעה",
       googleMapLink: "https://maps.app.goo.gl/ojyDynVNrULzjvBb6",
-      images: IMAGES.arcade,
+      id: "arcade", images: IMAGES.arcade,
     },
     {
       name: "Sunday walking street",
       description:
         "שוק ענק כל יום ראשון. מחירים זולים ברמות ויש המון המון דוכנים שונים. לדעתי כן שונה מבנגקוק אז אם אתם רואים משהו שאהבתם תקנו!!",
       googleMapLink: "https://maps.app.goo.gl/mf4va7Pw5An85NrRA",
-      images: IMAGES.sundayMarket,
+      id: "sundayMarket", images: IMAGES.sundayMarket,
     },
   ],
   nightlife: [
@@ -142,7 +142,7 @@ export const ChinagMai: Destination = {
       description:
         "אזור עם מלא ברים ושוק אוכל, פתוח כמעט כל יום בערב עד מאוחר, מומלץ",
       googleMapLink: "https://maps.app.goo.gl/zkTs4wN3E72t7YNeA",
-      images: IMAGES.lanna,
+      id: "lanna", images: IMAGES.lanna,
     },
   ],
   gold_recommendation: [

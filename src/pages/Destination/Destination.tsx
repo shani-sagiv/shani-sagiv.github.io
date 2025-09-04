@@ -30,6 +30,7 @@ import {
   parseDaysToHebrew,
 } from "../../helpers/dateHelpers";
 import Marquee from "react-fast-marquee";
+import { compressAndUpload } from "./compressAndUpload";
 // import {PEOPLE_TRAVELED_WITH} from "assets/data/People"
 interface DestinationProps extends React.HTMLAttributes<HTMLDivElement> {
   dest: DestinationModel;
@@ -67,11 +68,25 @@ const Destination: React.FC<DestinationProps> = ({ dest }) => {
     keyPrefix: string,
   ) =>
     items.map((item, Index) => (
+      <>
       <RecommendationComponent
         recommendation={item}
         destinationId={dest.id}
         key={`${keyPrefix}-${Index}`}
       />
+      {/* <input
+        type="file"
+        accept="image/*"
+        onChange={(e) => {
+          if (e.target.files?.length) {
+            compressAndUpload(e.target.files[0], "Vietnam", "Hanoi", "SushiLAB")
+              .then(() => alert("Uploaded!"))
+              .catch(console.error);
+          }
+        }}
+      /> */}
+
+      </>
     ));
 
   const generateAttractionGroupsContent = (
